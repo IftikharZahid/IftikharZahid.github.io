@@ -454,7 +454,8 @@
             </p>
 
             <!-- Contact Form -->
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnjzjonb" method="POST">
+            <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="f8665e87-6bb4-4702-9468-dc44607979c7">
                 <div class="form-row">
                     <div class="form-group">
                         <input type="text" name="name" id="name" placeholder="Your Name" required>
@@ -469,6 +470,9 @@
                 <div class="form-group">
                     <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
                 </div>
+                <!-- Custom Redirect (optional, keeps user on site or shows success message) -->
+                <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+
                 <button type="submit" class="btn btn-primary">
                     <i class="fa-regular fa-paper-plane"></i> Send Message
                 </button>
