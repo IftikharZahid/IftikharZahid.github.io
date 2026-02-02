@@ -379,21 +379,22 @@
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <a data-flickr-embed="true" href="https://www.flickr.com/photos/maha_samra/51905675987"
-                        title="Mobile App UI"><img
-                            src="https://live.staticflickr.com/65535/51905675987_7a3aea847a_b.jpg" width="1024"
-                            height="666" alt="Mobile App UI" /></a>
-                    <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://raw.githubusercontent.com/IftikharZahid/App_Gallery/refs/heads/main/032d3fad-f9a2-4cff-af4b-25ee606ca374.jpg?token=GHSAT0AAAAAADTOFXSGVZIKLZWWA6DJC6EC2L7SZWQ"
+                        alt="Mobile App Development">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Mobile App Development</span>
+                        <span class="gallery-category">React Native</span>
+                    </div>
                 </div>
 
-                <div class="gallery-item">
-                    <a data-flickr-embed="true"
-                        href="https://www.flickr.com/photos/193107373@N06/51208370498/in/photolist-FhoDUi-PST5oP-2mK5CMm-2n5Ja74-Lu8VcA-2o7ViGG-2kXDjgG-26AQDz9-ML2YQY-QCHm6Q-TQCF8f-2o7T5hW-29pBoFa-dQiZrr-2oRKbXE-dQj1kp-2o7VHpu-ML2Yvu-2m2a9Tn-2n4TEEL-2iEtQVm-2m27htC-2iufrfQ-dQpyoh-258gpbA/"
-                        title="Food App design"><img
-                            src="https://live.staticflickr.com/65535/51208370498_91677d89d7_b.jpg" width="1024"
-                            height="688" alt="Food App design" /></a>
-                    <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://raw.githubusercontent.com/IftikharZahid/App_Gallery/refs/heads/main/MobileApp%2001.jpeg?token=GHSAT0AAAAAADTOFXSHDQ7VCYFAFINFYSQG2L7SYIQ"
+                        alt="Mobile App Design">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Mobile App Design</span>
+                        <span class="gallery-category">React Native</span>
+                    </div>
                 </div>
 
                 <div class="gallery-item" onclick="openLightbox(this)">
@@ -445,223 +446,188 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="section">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 40px;">
-                <span class="hero-label">Client Feedback</span>
-                <h2>What People Say</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 15px auto 0;">
-                    Hear from clients and colleagues who have experienced working with me on various projects.
+            <div class="section-header">
+                <span class="hero-label">Testimonials</span>
+                <h2>What Clients Say</h2>
+                <p class="section-subtitle">Feedback from clients and colleagues I've had the pleasure of working with.
                 </p>
             </div>
-        </div>
 
-        <!-- Marquee Container - Full Width -->
-        <div class="testimonials-marquee">
-            <!-- Row 1 - Scrolls Left -->
-            <div class="marquee-row marquee-left">
-                <div class="marquee-track">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                            <p class="testimonial-text">"Iftikhar delivered an exceptional mobile app that exceeded
-                                our expectations. His attention to detail and understanding of user experience made
-                                our project a huge success."</p>
+            <!-- Testimonials Slider -->
+            <div class="testimonial-slider">
+                <div class="testimonial-slides">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card">
                             <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
                             </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                                    alt="Ahmed Khan"></div>
-                            <div class="author-info">
-                                <h4>Ahmed Khan</h4>
-                                <p>CEO, TechStart Solutions</p>
+                            <p class="testimonial-text">"Iftikhar delivered an exceptional mobile app that exceeded our
+                                expectations. His attention to detail and understanding of user experience made our
+                                project a huge success."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                        alt="Bilal Ahmed">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Bilal Ahmed</h4>
+                                    <p>CEO, TechVenture Lahore</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
                             <p class="testimonial-text">"Working with Iftikhar was a fantastic experience. He
                                 transformed our complex requirements into a beautiful, functional React Native app.
                                 Highly recommended!"</p>
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
-                                    alt="Sarah Mitchell"></div>
-                            <div class="author-info">
-                                <h4>Sarah Mitchell</h4>
-                                <p>Product Manager, InnovateTech</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
+                                        alt="Fatima Malik">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Fatima Malik</h4>
+                                    <p>Product Manager, Nayatel</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
                             <p class="testimonial-text">"Iftikhar's expertise in Firebase helped us build a scalable
-                                backend for our educational platform. He's professional, reliable, and delivers
-                                quality work on time."</p>
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-                                    alt="David Chen"></div>
-                            <div class="author-info">
-                                <h4>David Chen</h4>
-                                <p>Founder, EduLearn Academy</p>
+                                backend for our educational platform. He's professional, reliable, and delivers quality
+                                work on time."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                                        alt="Usman Tariq">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Usman Tariq</h4>
+                                    <p>Founder, LearnPak Academy</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 4 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                            <p class="testimonial-text">"We hired Iftikhar for our e-commerce app, and he delivered
-                                beyond expectations. The UI is stunning, and the performance is exceptional. Our
-                                go-to developer!"</p>
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
                             <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
                             </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-                                    alt="Emily Rodriguez"></div>
-                            <div class="author-info">
-                                <h4>Emily Rodriguez</h4>
-                                <p>CTO, ShopEase Inc.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 2 - Scrolls Right -->
-            <div class="marquee-row marquee-right">
-                <div class="marquee-track">
-                    <!-- Testimonial 5 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                            <p class="testimonial-text">"Iftikhar's Python automation scripts saved our team
-                                countless hours. His understanding of AI and data processing is impressive. A true
-                                professional!"</p>
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
-                                    alt="Michael Brown"></div>
-                            <div class="author-info">
-                                <h4>Michael Brown</h4>
-                                <p>Data Lead, Analytics Pro</p>
+                            <p class="testimonial-text">"Outstanding e-commerce app! The UI is stunning and the
+                                performance is exceptional. Iftikhar is now our go-to developer for all mobile
+                                projects."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
+                                        alt="Ayesha Siddiqui">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ayesha Siddiqui</h4>
+                                    <p>CTO, DarazTech Karachi</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 6 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                            <p class="testimonial-text">"Outstanding work on our restaurant app! Iftikhar's Redux
-                                expertise and clean code practices made the project a breeze. Looking forward to
-                                future collaborations."</p>
+                    <!-- Slide 5 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
                             <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
                             </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face"
-                                    alt="James Wilson"></div>
-                            <div class="author-info">
-                                <h4>James Wilson</h4>
-                                <p>Owner, Foodie Hub</p>
+                            <p class="testimonial-text">"Python automation scripts saved our team countless hours. His
+                                understanding of AI and data processing is impressive. A true professional!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+                                        alt="Hassan Raza">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Hassan Raza</h4>
+                                    <p>Data Lead, Systems Ltd</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 7 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                            <p class="testimonial-text">"Great communication and excellent technical skills.
-                                Iftikhar understood our vision perfectly and delivered a product that our users
-                                love. Highly skilled developer!"</p>
+                    <!-- Slide 6 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
                             <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
                             </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face"
-                                    alt="Lisa Thompson"></div>
-                            <div class="author-info">
-                                <h4>Lisa Thompson</h4>
-                                <p>Director, Creative Apps</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 8 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                            <p class="testimonial-text">"Iftikhar built our digital book platform with exceptional
-                                attention to UX. The app is fast, intuitive, and our readers absolutely love it.
-                                Five stars!"</p>
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"><img
-                                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=face"
-                                    alt="Robert Garcia"></div>
-                            <div class="author-info">
-                                <h4>Robert Garcia</h4>
-                                <p>Publisher, ReadMore Inc.</p>
+                            <p class="testimonial-text">"Great communication and excellent technical skills. Iftikhar
+                                understood our vision perfectly and delivered a product that our users love."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face"
+                                        alt="Sana Amir">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sana Amir</h4>
+                                    <p>Director, Arbisoft</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="container">
-            <div class="text-center" style="margin-top: 30px;">
-                <a href="testimonials.html" class="btn btn-secondary">See All Testimonials</a>
+                <!-- Navigation Arrows -->
+                <button class="slider-arrow slider-prev" aria-label="Previous testimonial">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow slider-next" aria-label="Next testimonial">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- Dots Navigation -->
+                <div class="slider-dots">
+                    <button class="slider-dot active" data-slide="0"></button>
+                    <button class="slider-dot" data-slide="1"></button>
+                    <button class="slider-dot" data-slide="2"></button>
+                    <button class="slider-dot" data-slide="3"></button>
+                    <button class="slider-dot" data-slide="4"></button>
+                    <button class="slider-dot" data-slide="5"></button>
+                </div>
             </div>
         </div>
     </section>
@@ -675,8 +641,7 @@
             </p>
 
             <!-- Contact Form -->
-            <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="f8665e87-6bb4-4702-9468-dc44607979c7">
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnjzjonb" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <input type="text" name="name" id="name" placeholder="Your Name" required>
@@ -691,9 +656,6 @@
                 <div class="form-group">
                     <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
                 </div>
-                <!-- Custom Redirect (optional, keeps user on site or shows success message) -->
-                <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
-
                 <button type="submit" class="btn btn-primary">
                     <i class="fa-regular fa-paper-plane"></i> Send Message
                 </button>
