@@ -29,7 +29,185 @@
     };
 })();
 
+// ========================
+// Theme Toggle (Dark default)
+// ========================
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const body = document.body;
+
+// Check saved preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    body.classList.add('light-mode');
+    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
+} else {
+    // Dark mode default — show sun icon
+    if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+
+        if (body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+        }
+    });
+}
+
+// ========================
+// Neural Network Canvas
+// ========================
+(function initNeuralCanvas() {
+    const canvas = document.getElementById("network-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+
+    let particlesArray = [];
+    const numberOfParticles = 90;
+
+    const mouse = {
+        x: null,
+        y: null,
+        radius: 200
+    };
+
+    window.addEventListener("mousemove", e => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+
+    window.addEventListener("mouseout", () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = 2;
+            this.velocityX = Math.random() * 0.6 - 0.3;
+            this.velocityY = Math.random() * 0.6 - 0.3;
+        }
+
+        update() {
+            this.x += this.velocityX;
+            this.y += this.velocityY;
+
+            if (this.x > canvas.width || this.x < 0) this.velocityX *= -1;
+            if (this.y > canvas.height || this.y < 0) this.velocityY *= -1;
+        }
+
+        draw() {
+            let hue = 190; // base cyan
+            let glowStrength = 0;
+
+            if (mouse.x && mouse.y) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouse.radius) {
+                    let ratio = (mouse.radius - distance) / mouse.radius;
+                    hue = 190 + ratio * 120; // shift towards violet
+                    glowStrength = ratio;
+                }
+            }
+
+            ctx.shadowBlur = 25 * glowStrength;
+            ctx.shadowColor = `hsl(${hue}, 100%, 60%)`;
+
+            ctx.fillStyle = `hsl(${hue}, 100%, 60%)`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    function connectParticles() {
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let dx = particlesArray[a].x - particlesArray[b].x;
+                let dy = particlesArray[a].y - particlesArray[b].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 120) {
+                    let opacity = 0.1;
+
+                    // Brighter lines near cursor
+                    if (mouse.x && mouse.y) {
+                        let midX = (particlesArray[a].x + particlesArray[b].x) / 2;
+                        let midY = (particlesArray[a].y + particlesArray[b].y) / 2;
+                        let mouseDistance = Math.sqrt(
+                            (mouse.x - midX) ** 2 + (mouse.y - midY) ** 2
+                        );
+                        if (mouseDistance < mouse.radius) {
+                            let ratio = (mouse.radius - mouseDistance) / mouse.radius;
+                            let hue = 190 + ratio * 120;
+                            opacity = 0.1 + ratio * 0.3;
+                            ctx.strokeStyle = `hsla(${hue}, 100%, 60%, ${opacity})`;
+                        } else {
+                            ctx.strokeStyle = `rgba(0, 245, 255, ${opacity})`;
+                        }
+                    } else {
+                        ctx.strokeStyle = `rgba(0, 245, 255, ${opacity})`;
+                    }
+
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function init() {
+        particlesArray = [];
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particlesArray.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        connectParticles();
+        requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    window.addEventListener("resize", () => {
+        resize();
+        init();
+    });
+})();
+
+// ========================
 // Mobile Navigation
+// ========================
 const hamburger = document.querySelector('.hamburger');
 const navList = document.querySelector('.nav-list');
 const navLinks = document.querySelectorAll('.nav-list a');
@@ -48,36 +226,9 @@ navLinks.forEach(link => {
     });
 });
 
-// Theme Toggle Logic (Light is default, Dark is toggle)
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
-const body = document.body;
-
-// Check Local Storage for saved preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
-} else {
-    // Light mode is default - show moon icon
-    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
-}
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
-        } else {
-            localStorage.setItem('theme', 'light');
-            if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
-        }
-    });
-}
-
+// ========================
 // Typewriter Effect
+// ========================
 const textElement = document.getElementById('typewriter-text');
 const phrases = [
     'React & React Native Expert',
@@ -120,7 +271,9 @@ if (textElement) {
     document.addEventListener('DOMContentLoaded', type);
 }
 
+// ========================
 // Scroll Reveal
+// ========================
 const observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px"
@@ -136,20 +289,24 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.project-card, .timeline-item, .about-grid').forEach(el => {
+document.querySelectorAll('.project-card, .timeline-item, .about-grid, .skill-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     observer.observe(el);
 });
 
+// ========================
 // Dynamic Year in Footer
+// ========================
 const yearElement = document.getElementById('current-year');
 if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
-// Gallery Lightbox Functions
+// ========================
+// Gallery Lightbox
+// ========================
 function openLightbox(element) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -170,7 +327,6 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-// Close lightbox with ESC key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeLightbox();
@@ -185,7 +341,9 @@ document.querySelectorAll('.gallery-item').forEach(el => {
     observer.observe(el);
 });
 
+// ========================
 // Testimonial Slider
+// ========================
 (function initTestimonialSlider() {
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.slider-dot');
@@ -198,15 +356,12 @@ document.querySelectorAll('.gallery-item').forEach(el => {
     let autoSlideInterval;
 
     function showSlide(index) {
-        // Handle wrap around
         if (index >= slides.length) index = 0;
         if (index < 0) index = slides.length - 1;
 
-        // Update slides
         slides.forEach(slide => slide.classList.remove('active'));
         slides[index].classList.add('active');
 
-        // Update dots
         dots.forEach(dot => dot.classList.remove('active'));
         dots[index].classList.add('active');
 
@@ -229,7 +384,6 @@ document.querySelectorAll('.gallery-item').forEach(el => {
         clearInterval(autoSlideInterval);
     }
 
-    // Arrow navigation
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
             prevSlide();
@@ -246,7 +400,6 @@ document.querySelectorAll('.gallery-item').forEach(el => {
         });
     }
 
-    // Dot navigation
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             showSlide(index);

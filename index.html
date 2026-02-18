@@ -26,6 +26,9 @@
 
 <body>
 
+    <!-- Neural Network Canvas Background -->
+    <canvas id="network-canvas"></canvas>
+
     <header class="header">
         <div class="container header-container">
             <a href="#" class="logo">&lt;Zahid<span class="text-primary">.Codes</span>/&gt;</a>
@@ -91,9 +94,18 @@
 
     <section id="about" class="section">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2>About Me</h2>
+            <div class="about-card">
+                <div class="about-header">
+                    <div class="about-icon">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <div>
+                        <h2>About Me</h2>
+                        <p>Mobile & Web App Developer</p>
+                    </div>
+                </div>
+
+                <div class="about-body">
                     <p>I am a passionate <strong>Mobile and Web App Developer</strong> with strong experience in
                         <strong>React, React Native, Firebase</strong>, and modern JavaScript technologies. I build
                         scalable, high-performance applications that combine clean architecture with intuitive user
@@ -103,20 +115,51 @@
                         authentication, and cloud services, I focus on delivering reliable, production-ready solutions.
                         I also have a strong eye for <strong>UI/UX design</strong>, ensuring every application is
                         visually refined, responsive, and user-centric.</p>
+                </div>
 
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <h3>20+</h3>
-                            <p>Repositories</p>
+                <div class="about-info-grid">
+                    <div class="about-info-item">
+                        <i class="fa-solid fa-user"></i>
+                        <div>
+                            <span class="info-label">Name</span>
+                            <div class="info-value">Iftikhar Zahid</div>
                         </div>
-                        <div class="stat-item">
-                            <h3>04+</h3>
-                            <p>Years Experience</p>
+                    </div>
+                    <div class="about-info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <span class="info-label">Location</span>
+                            <div class="info-value">Pakistan</div>
                         </div>
-                        <div class="stat-item">
-                            <h3>Mobile + Web Apps</h3>
-                            <p>Specialized</p>
+                    </div>
+                    <div class="about-info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span class="info-label">Email</span>
+                            <div class="info-value">xahidcodes@gmail.com</div>
                         </div>
+                    </div>
+                    <div class="about-info-item">
+                        <i class="fa-solid fa-code"></i>
+                        <div>
+                            <span class="info-label">Specialization</span>
+                            <div class="info-value">React & React Native</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>Repositories</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>04+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Mobile + Web</h3>
+                        <p>Specialized</p>
                     </div>
                 </div>
             </div>
@@ -126,52 +169,54 @@
 
     <section id="skills" class="section">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 40px;">
+            <div class="text-center" style="margin-bottom: 25px;">
                 <span class="hero-label">My Expertise</span>
                 <h2>Technical Skills</h2>
             </div>
-            <div class="skills-grid">
-                <!-- React & React Native -->
-                <div class="skill-card">
-                    <i class="fa-brands fa-react skill-icon"></i>
-                    <h3>React & Native</h3>
-                    <p>Building cross-platform mobile & web apps.</p>
-                </div>
-                <!-- Tailwind CSS -->
-                <div class="skill-card">
-                    <i class="fa-solid fa-wind skill-icon"></i>
-                    <h3>Tailwind CSS</h3>
-                    <p>Rapidly building modern, custom designs.</p>
-                </div>
-                <!-- Redux Toolkit -->
-                <div class="skill-card">
-                    <i class="fa-solid fa-layer-group skill-icon"></i>
-                    <h3>Redux Toolkit</h3>
-                    <p>Efficient state management for complex apps.</p>
-                </div>
-                <!-- API Integration -->
-                <div class="skill-card">
-                    <i class="fa-solid fa-network-wired skill-icon"></i>
-                    <h3>API Integration</h3>
-                    <p>Connecting frontends to powerful backends.</p>
-                </div>
-                <!-- Firebase -->
-                <div class="skill-card">
-                    <i class="fa-solid fa-fire skill-icon"></i>
-                    <h3>Firebase</h3>
-                    <p>Real-time databases and authentication.</p>
-                </div>
-                <!-- MongoDB -->
-                <div class="skill-card">
-                    <i class="fa-solid fa-database skill-icon"></i>
-                    <h3>MongoDB</h3>
-                    <p>Scalable NoSQL database solutions.</p>
-                </div>
-                <!-- Python & AI -->
-                <div class="skill-card">
-                    <i class="fa-brands fa-python skill-icon"></i>
-                    <h3>Python & AI</h3>
-                    <p>Automation, Scripting, and Artificial Intelligence.</p>
+            <div class="skills-wrapper">
+                <div class="skills-grid">
+                    <!-- React & React Native -->
+                    <div class="skill-card">
+                        <i class="fa-brands fa-react skill-icon"></i>
+                        <h3>React & Native</h3>
+                        <p>Building cross-platform mobile & web apps.</p>
+                    </div>
+                    <!-- Tailwind CSS -->
+                    <div class="skill-card">
+                        <i class="fa-solid fa-wind skill-icon"></i>
+                        <h3>Tailwind CSS</h3>
+                        <p>Rapidly building modern, custom designs.</p>
+                    </div>
+                    <!-- Redux Toolkit -->
+                    <div class="skill-card">
+                        <i class="fa-solid fa-layer-group skill-icon"></i>
+                        <h3>Redux Toolkit</h3>
+                        <p>Efficient state management for complex apps.</p>
+                    </div>
+                    <!-- API Integration -->
+                    <div class="skill-card">
+                        <i class="fa-solid fa-network-wired skill-icon"></i>
+                        <h3>API Integration</h3>
+                        <p>Connecting frontends to powerful backends.</p>
+                    </div>
+                    <!-- Firebase -->
+                    <div class="skill-card">
+                        <i class="fa-solid fa-fire skill-icon"></i>
+                        <h3>Firebase</h3>
+                        <p>Real-time databases and authentication.</p>
+                    </div>
+                    <!-- MongoDB -->
+                    <div class="skill-card">
+                        <i class="fa-solid fa-database skill-icon"></i>
+                        <h3>MongoDB</h3>
+                        <p>Scalable NoSQL database solutions.</p>
+                    </div>
+                    <!-- Python & AI -->
+                    <div class="skill-card">
+                        <i class="fa-brands fa-python skill-icon"></i>
+                        <h3>Python & AI</h3>
+                        <p>Automation, Scripting, and Artificial Intelligence.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,43 +224,46 @@
 
     <section id="experience" class="section">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 40px;">
+            <div class="text-center" style="margin-bottom: 25px;">
                 <span class="hero-label">Career Path</span>
                 <h2>Professional Experience</h2>
             </div>
 
-            <div class="timeline">
-                <!-- Role 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="timeline-date">2022 - Present</span>
-                    <h3>Senior Mobile & Web Developer</h3>
-                    <h4>Tech Solutions Inc.</h4>
-                    <p>Spearheaded the development of high-performance cross-platform mobile applications using
-                        <strong>React Native</strong> and responsive web dashboards with <strong>React</strong>.
-                        Implemented complex state management using <strong>Redux Toolkit</strong> and integrated
-                        real-time features with Firebase.
-                    </p>
-                </div>
+            <div class="experience-wrapper">
+                <div class="timeline">
+                    <!-- Role 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-date">2022 - Present</span>
+                        <h3>Senior Mobile & Web Developer</h3>
+                        <h4>Tech Solutions Inc.</h4>
+                        <p>Spearheaded the development of high-performance cross-platform mobile applications using
+                            <strong>React Native</strong> and responsive web dashboards with <strong>React</strong>.
+                            Implemented complex state management using <strong>Redux Toolkit</strong> and integrated
+                            real-time features with Firebase.
+                        </p>
+                    </div>
 
-                <!-- Role 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="timeline-date">2020 - 2022</span>
-                    <h3>Full Stack Engineer</h3>
-                    <h4>Digital Innovations</h4>
-                    <p>Designed and deployed scalable backend architectures using <strong>Node.js</strong> and MongoDB.
-                        Integrated secure RESTful APIs and optimized database queries for speed and efficiency.</p>
-                </div>
+                    <!-- Role 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-date">2020 - 2022</span>
+                        <h3>Full Stack Engineer</h3>
+                        <h4>Digital Innovations</h4>
+                        <p>Designed and deployed scalable backend architectures using <strong>Node.js</strong> and
+                            MongoDB.
+                            Integrated secure RESTful APIs and optimized database queries for speed and efficiency.</p>
+                    </div>
 
-                <!-- Role 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="timeline-date">2019 - 2020</span>
-                    <h3>Python Automation Specialist</h3>
-                    <h4>Data Corp</h4>
-                    <p>Developed custom automation scripts and web scrapers to streamline data collection processes.
-                        Leveraged Python for AI-driven solutions and task automation.</p>
+                    <!-- Role 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-date">2019 - 2020</span>
+                        <h3>Python Automation Specialist</h3>
+                        <h4>Data Corp</h4>
+                        <p>Developed custom automation scripts and web scrapers to streamline data collection processes.
+                            Leveraged Python for AI-driven solutions and task automation.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -228,145 +276,150 @@
                 <h2>Featured Projects</h2>
             </div>
 
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                        <div class="project-links">
-                            <a href="https://github.com/IftikharZahid/PGC-Website" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
+            <div class="projects-wrapper">
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/IftikharZahid/PGC-Website" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>PGC College Website</h3>
+                        <p>A full-stack College Management System with modern UI featuring gradients, animations, and
+                            glassmorphism. Includes admissions, courses, and student portal.</p>
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Tailwind CSS</span>
                         </div>
                     </div>
-                    <h3>PGC College Website</h3>
-                    <p>A full-stack College Management System with modern UI featuring gradients, animations, and
-                        glassmorphism. Includes admissions, courses, and student portal.</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Tailwind CSS</span>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/IftikharZahid/TheSeeksAcademy" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>The Seeks Academy</h3>
+                        <p>An educational platform built with TypeScript, focusing on providing accessible learning
+                            resources and interactive courses.</p>
+                        <div class="tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">EdTech</span>
+                            <span class="tag">Web Platform</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/IftikharZahid/digitalBook" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>DigitalBook App</h3>
+                        <p>A comprehensive mobile application built with Expo and JavaScript, designed for seamless
+                            digital
+                            content consumption and management.</p>
+                        <div class="tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Expo</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/IftikharZahid/Restaurant-App" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Foodie Restaurant App</h3>
+                        <p>A cross-platform mobile app for food delivery services featuring cart functionality,
+                            user authentication, and a sleek UI for seamless ordering experience.</p>
+                        <div class="tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Redux</span>
+                            <span class="tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/IftikharZahid/BGRemover" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>AI Background Remover</h3>
+                        <p>A Python-based computer vision tool that automatically detects and removes backgrounds from
+                            images with high precision.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">AI</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Social Media Scraper -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/IftikharZahid/social-media-scraping-apis" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Social Media Scraper</h3>
+                        <p>A curated collection of scraping tools for extracting data from Instagram, LinkedIn, and
+                            more.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">APIs</span>
+                        </div>
+                    </div>
+
+                    <!-- Project UStore -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/IftikharZahid/UStore" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>UStore</h3>
+                        <p>A modern e-commerce application developed with TypeScript, focusing on performance, type
+                            safety,
+                            and a seamless user shopping experience.</p>
+                        <div class="tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">React Native</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                        <div class="project-links">
-                            <a href="https://github.com/IftikharZahid/TheSeeksAcademy" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>The Seeks Academy</h3>
-                    <p>An educational platform built with TypeScript, focusing on providing accessible learning
-                        resources and interactive courses.</p>
-                    <div class="tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">EdTech</span>
-                        <span class="tag">Web Platform</span>
-                    </div>
+                <div class="text-center" style="margin-top: 20px;">
+                    <a href="https://github.com/IftikharZahid?tab=repositories" target="_blank"
+                        class="btn btn-secondary">View All Repositories</a>
                 </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                        <div class="project-links">
-                            <a href="https://github.com/IftikharZahid/digitalBook" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>DigitalBook App</h3>
-                    <p>A comprehensive mobile application built with Expo and JavaScript, designed for seamless digital
-                        content consumption and management.</p>
-                    <div class="tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Expo</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                        <div class="project-links">
-                            <a href="https://github.com/IftikharZahid/Restaurant-App" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Foodie Restaurant App</h3>
-                    <p>A cross-platform mobile app for food delivery services featuring cart functionality,
-                        user authentication, and a sleek UI for seamless ordering experience.</p>
-                    <div class="tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Redux</span>
-                        <span class="tag">Tailwind CSS</span>
-                    </div>
-                </div>
-
-
-                <!-- Project 5 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                        <div class="project-links">
-                            <a href="https://github.com/IftikharZahid/BGRemover" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>AI Background Remover</h3>
-                    <p>A Python-based computer vision tool that automatically detects and removes backgrounds from
-                        images with high precision.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">AI</span>
-                    </div>
-                </div>
-
-                <!-- Project 6: Social Media Scraper -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                        <div class="project-links">
-                            <a href="https://github.com/IftikharZahid/social-media-scraping-apis" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Social Media Scraper</h3>
-                    <p>A curated collection of scraping tools for extracting data from Instagram, LinkedIn, and more.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Automation</span>
-                        <span class="tag">APIs</span>
-                    </div>
-                </div>
-
-                <!-- Project UStore -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                        <div class="project-links">
-                            <a href="https://github.com/IftikharZahid/UStore" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>UStore</h3>
-                    <p>A modern e-commerce application developed with TypeScript, focusing on performance, type safety,
-                        and a seamless user shopping experience.</p>
-                    <div class="tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">E-commerce</span>
-                        <span class="tag">React Native</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center" style="margin-top: 25px;">
-                <a href="https://github.com/IftikharZahid?tab=repositories" target="_blank"
-                    class="btn btn-secondary">View All Repositories</a>
             </div>
         </div>
     </section>
@@ -378,64 +431,66 @@
                 <h2>Project Gallery</h2>
             </div>
 
-            <div class="gallery-grid">
-                <!-- Mobile App UI - Educational -->
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
-                        alt="Educational App UI">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Educational App UI</span>
-                        <span class="gallery-category">Mobile App</span>
+            <div class="gallery-wrapper">
+                <div class="gallery-grid">
+                    <!-- Mobile App UI - Educational -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
+                            alt="Educational App UI">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Educational App UI</span>
+                            <span class="gallery-category">Mobile App</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- E-Commerce App UI -->
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&h=400&fit=crop"
-                        alt="E-Commerce App UI">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">E-Commerce App UI</span>
-                        <span class="gallery-category">Shopping App</span>
+                    <!-- E-Commerce App UI -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&h=400&fit=crop"
+                            alt="E-Commerce App UI">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">E-Commerce App UI</span>
+                            <span class="gallery-category">Shopping App</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Food Delivery App UI -->
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&h=400&fit=crop"
-                        alt="Food Delivery App UI">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Restaurant App UI</span>
-                        <span class="gallery-category">Food Delivery</span>
+                    <!-- Food Delivery App UI -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&h=400&fit=crop"
+                            alt="Food Delivery App UI">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Restaurant App UI</span>
+                            <span class="gallery-category">Food Delivery</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Admin Dashboard UI -->
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
-                        alt="Admin Dashboard">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Institute Dashboard</span>
-                        <span class="gallery-category">Web Dashboard</span>
+                    <!-- Admin Dashboard UI -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+                            alt="Admin Dashboard">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Institute Dashboard</span>
+                            <span class="gallery-category">Web Dashboard</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Analytics Dashboard -->
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
-                        alt="Analytics Dashboard">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Analytics Dashboard</span>
-                        <span class="gallery-category">Data Visualization</span>
+                    <!-- Analytics Dashboard -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+                            alt="Analytics Dashboard">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Analytics Dashboard</span>
+                            <span class="gallery-category">Data Visualization</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Mobile App Screens -->
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=600&h=400&fit=crop"
-                        alt="Mobile App Screens">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Mobile App Screens</span>
-                        <span class="gallery-category">UI/UX Design</span>
+                    <!-- Mobile App Screens -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=600&h=400&fit=crop"
+                            alt="Mobile App Screens">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Mobile App Screens</span>
+                            <span class="gallery-category">UI/UX Design</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -459,229 +514,241 @@
                 </p>
             </div>
 
-            <!-- Testimonials Slider -->
-            <div class="testimonial-slider">
-                <div class="testimonial-slides">
-                    <!-- Slide 1 -->
-                    <div class="testimonial-slide active">
-                        <div class="testimonial-card">
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <p class="testimonial-text">"Iftikhar delivered an exceptional mobile app that exceeded our
-                                expectations. His attention to detail and understanding of user experience made our
-                                project a huge success."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                                        alt="Bilal Ahmed">
+            <div class="testimonials-wrapper">
+                <!-- Testimonials Slider -->
+                <div class="testimonial-slider">
+                    <div class="testimonial-slides">
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide active">
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
                                 </div>
-                                <div class="author-info">
-                                    <h4>Bilal Ahmed</h4>
-                                    <p>CEO, TechVenture Lahore</p>
+                                <p class="testimonial-text">"Iftikhar delivered an exceptional mobile app that exceeded
+                                    our
+                                    expectations. His attention to detail and understanding of user experience made our
+                                    project a huge success."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                            alt="Bilal Ahmed">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Bilal Ahmed</h4>
+                                        <p>CEO, TechVenture Lahore</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Working with Iftikhar was a fantastic experience. He
+                                    transformed our complex requirements into a beautiful, functional React Native app.
+                                    Highly recommended!"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
+                                            alt="Fatima Malik">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Fatima Malik</h4>
+                                        <p>Product Manager, Nayatel</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                <p class="testimonial-text">"Iftikhar's expertise in Firebase helped us build a scalable
+                                    backend for our educational platform. He's professional, reliable, and delivers
+                                    quality
+                                    work on time."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                                            alt="Usman Tariq">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Usman Tariq</h4>
+                                        <p>Founder, LearnPak Academy</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Outstanding e-commerce app! The UI is stunning and the
+                                    performance is exceptional. Iftikhar is now our go-to developer for all mobile
+                                    projects."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
+                                            alt="Ayesha Siddiqui">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Ayesha Siddiqui</h4>
+                                        <p>CTO, DarazTech Karachi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Python automation scripts saved our team countless hours.
+                                    His
+                                    understanding of AI and data processing is impressive. A true professional!"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+                                            alt="Hassan Raza">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Hassan Raza</h4>
+                                        <p>Data Lead, Systems Ltd</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Great communication and excellent technical skills.
+                                    Iftikhar
+                                    understood our vision perfectly and delivered a product that our users love."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face"
+                                            alt="Sana Amir">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Sana Amir</h4>
+                                        <p>Director, Arbisoft</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 2 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Working with Iftikhar was a fantastic experience. He
-                                transformed our complex requirements into a beautiful, functional React Native app.
-                                Highly recommended!"</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
-                                        alt="Fatima Malik">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Fatima Malik</h4>
-                                    <p>Product Manager, Nayatel</p>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Navigation Arrows -->
+                    <button class="slider-arrow slider-prev" aria-label="Previous testimonial">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-arrow slider-next" aria-label="Next testimonial">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Dots Navigation -->
+                    <div class="slider-dots">
+                        <button class="slider-dot active" data-slide="0"></button>
+                        <button class="slider-dot" data-slide="1"></button>
+                        <button class="slider-dot" data-slide="2"></button>
+                        <button class="slider-dot" data-slide="3"></button>
+                        <button class="slider-dot" data-slide="4"></button>
+                        <button class="slider-dot" data-slide="5"></button>
                     </div>
-
-                    <!-- Slide 3 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <p class="testimonial-text">"Iftikhar's expertise in Firebase helped us build a scalable
-                                backend for our educational platform. He's professional, reliable, and delivers quality
-                                work on time."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-                                        alt="Usman Tariq">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Usman Tariq</h4>
-                                    <p>Founder, LearnPak Academy</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Outstanding e-commerce app! The UI is stunning and the
-                                performance is exceptional. Iftikhar is now our go-to developer for all mobile
-                                projects."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
-                                        alt="Ayesha Siddiqui">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Ayesha Siddiqui</h4>
-                                    <p>CTO, DarazTech Karachi</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Python automation scripts saved our team countless hours. His
-                                understanding of AI and data processing is impressive. A true professional!"</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
-                                        alt="Hassan Raza">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Hassan Raza</h4>
-                                    <p>Data Lead, Systems Ltd</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 6 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Great communication and excellent technical skills. Iftikhar
-                                understood our vision perfectly and delivered a product that our users love."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face"
-                                        alt="Sana Amir">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Sana Amir</h4>
-                                    <p>Director, Arbisoft</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Arrows -->
-                <button class="slider-arrow slider-prev" aria-label="Previous testimonial">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="slider-arrow slider-next" aria-label="Next testimonial">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-
-                <!-- Dots Navigation -->
-                <div class="slider-dots">
-                    <button class="slider-dot active" data-slide="0"></button>
-                    <button class="slider-dot" data-slide="1"></button>
-                    <button class="slider-dot" data-slide="2"></button>
-                    <button class="slider-dot" data-slide="3"></button>
-                    <button class="slider-dot" data-slide="4"></button>
-                    <button class="slider-dot" data-slide="5"></button>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="section">
-        <div class="container contact-container">
-            <span class="hero-label">What's Next?</span>
-            <h2 style="margin: 12px 0;">Get In Touch</h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px;">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-            </p>
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-container">
+                    <span class="hero-label">What's Next?</span>
+                    <h2 style="margin: 12px 0;">Get In Touch</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                        visions.
+                    </p>
 
-            <!-- Contact Form -->
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnjzjonb" method="POST">
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+                    <!-- Contact Form -->
+                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnjzjonb" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="5" placeholder="Your Message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-regular fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+
+                    <div class="divider-text">
+                        <span>or reach out directly</span>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+
+                    <div class="socials">
+                        <a href="https://wa.link/q2fanj" class="social-icon" target="_blank" title="WhatsApp"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://facebook.com/IftikharXahid" class="social-icon" target="_blank"
+                            title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://github.com/IftikharZahid" class="social-icon" target="_blank" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="mailto:xahidcodes@gmail.com" class="social-icon" title="Email"><i
+                                class="fa-regular fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/IftikharZahid" class="social-icon" target="_blank"
+                            title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="subject" id="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa-regular fa-paper-plane"></i> Send Message
-                </button>
-            </form>
-
-            <div class="divider-text">
-                <span>or reach out directly</span>
-            </div>
-
-            <div class="socials">
-                <a href="https://wa.link/q2fanj" class="social-icon" target="_blank" title="WhatsApp"><i
-                        class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://facebook.com/IftikharXahid" class="social-icon" target="_blank" title="Facebook"><i
-                        class="fa-brands fa-facebook"></i></a>
-                <a href="https://github.com/IftikharZahid" class="social-icon" target="_blank" title="GitHub"><i
-                        class="fa-brands fa-github"></i></a>
-                <a href="mailto:xahidcodes@gmail.com" class="social-icon" title="Email"><i
-                        class="fa-regular fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/IftikharZahid" class="social-icon" target="_blank" title="LinkedIn"><i
-                        class="fa-brands fa-linkedin-in"></i></a>
             </div>
         </div>
     </section>
