@@ -1,49 +1,10 @@
 /* ========================================
    NEURAL SPECTRUM THEME
-   Dark Mode Default + Light Mode Toggle
+   Light Mode Default + Dark Mode Toggle
    ======================================== */
 
-/* ===== DARK MODE (Default) ===== */
+/* ===== LIGHT MODE (Default) ===== */
 :root {
-    --bg-body: #050816;
-    --bg-card: rgba(255, 255, 255, 0.04);
-    --bg-card-solid: #0c1024;
-    --bg-card-hover: rgba(255, 255, 255, 0.08);
-
-    --text-main: #f0f4ff;
-    --text-muted: #94a3b8;
-
-    --primary: #00f5ff;
-    --primary-rgb: 0, 245, 255;
-    --accent: #8a2be2;
-    --accent-rgb: 138, 43, 226;
-
-    --primary-glow: rgba(0, 245, 255, 0.2);
-    --accent-glow: rgba(138, 43, 226, 0.2);
-
-    --border: rgba(0, 245, 255, 0.12);
-    --border-hover: rgba(0, 245, 255, 0.35);
-
-    /* Typography */
-    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-
-    /* Effects */
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-main: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --shadow-glow: 0 0 25px rgba(0, 245, 255, 0.15);
-    --shadow-glow-accent: 0 0 25px rgba(138, 43, 226, 0.15);
-
-    --glass-bg: rgba(255, 255, 255, 0.04);
-    --glass-border: rgba(0, 245, 255, 0.15);
-    --glass-blur: blur(20px);
-
-    --canvas-particle: 0, 245, 255;
-    --canvas-opacity: 1;
-}
-
-/* ===== LIGHT MODE ===== */
-body.light-mode {
     --bg-body: #f0f4f8;
     --bg-card: rgba(255, 255, 255, 0.7);
     --bg-card-solid: #ffffff;
@@ -63,6 +24,12 @@ body.light-mode {
     --border: rgba(8, 145, 178, 0.18);
     --border-hover: rgba(8, 145, 178, 0.4);
 
+    /* Typography */
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Effects */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --shadow-main: 0 4px 20px rgba(0, 0, 0, 0.08);
     --shadow-glow: 0 0 20px rgba(8, 145, 178, 0.12);
     --shadow-glow-accent: 0 0 20px rgba(124, 58, 237, 0.12);
@@ -75,37 +42,62 @@ body.light-mode {
     --canvas-opacity: 0.4;
 }
 
-/* Light mode specifics */
-body.light-mode #network-canvas {
+/* ===== DARK MODE (Toggle) ===== */
+.dark-mode {
+    --bg-body: #050816;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --bg-card-solid: #0c1024;
+    --bg-card-hover: rgba(255, 255, 255, 0.08);
+
+    --text-main: #f0f4ff;
+    --text-muted: #94a3b8;
+
+    --primary: #00f5ff;
+    --primary-rgb: 0, 245, 255;
+    --accent: #8a2be2;
+    --accent-rgb: 138, 43, 226;
+
+    --primary-glow: rgba(0, 245, 255, 0.2);
+    --accent-glow: rgba(138, 43, 226, 0.2);
+
+    --border: rgba(0, 245, 255, 0.12);
+    --border-hover: rgba(0, 245, 255, 0.35);
+
+    --shadow-main: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 25px rgba(0, 245, 255, 0.15);
+    --shadow-glow-accent: 0 0 25px rgba(138, 43, 226, 0.15);
+
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(0, 245, 255, 0.15);
+    --glass-blur: blur(20px);
+
+    --canvas-particle: 0, 245, 255;
+    --canvas-opacity: 1;
+}
+
+/* Light mode specifics (default) */
+#network-canvas {
     opacity: 0.35;
 }
 
-body.light-mode::before {
-    background: radial-gradient(circle, rgba(8, 145, 178, 0.06) 0%, transparent 70%);
+.dark-mode #network-canvas {
+    opacity: 1;
 }
 
-body.light-mode::after {
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.04) 0%, transparent 70%);
+.dark-mode .header {
+    background-color: rgba(5, 8, 22, 0.85);
+    border-bottom: 1px solid rgba(0, 245, 255, 0.08);
 }
 
-body.light-mode .header {
-    background-color: rgba(240, 244, 248, 0.88);
-    border-bottom: 1px solid rgba(8, 145, 178, 0.1);
+.dark-mode .hero-profile-img {
+    box-shadow: 0 0 0 3px var(--primary), 0 0 50px rgba(0, 245, 255, 0.3), 0 0 80px rgba(138, 43, 226, 0.15);
 }
 
-body.light-mode .hero-profile-img {
-    box-shadow: 0 0 0 3px var(--primary), 0 0 40px rgba(8, 145, 178, 0.2);
+.dark-mode .hero-image-container:hover .hero-profile-img {
+    box-shadow: 0 0 0 3px var(--primary), 0 0 60px rgba(0, 245, 255, 0.5), 0 0 100px rgba(138, 43, 226, 0.3);
 }
 
-body.light-mode .hero-image-container:hover .hero-profile-img {
-    box-shadow: 0 0 0 3px var(--primary), 0 0 50px rgba(8, 145, 178, 0.35);
-}
-
-body.light-mode .nav-list {
-    background-color: rgba(240, 244, 248, 0.97);
-}
-
-body.light-mode .timeline-dot {
+.dark-mode .timeline-dot {
     background-color: var(--bg-body);
 }
 
@@ -326,7 +318,7 @@ img {
     z-index: 1000;
     padding: 15px 0;
     transition: var(--transition);
-    background-color: rgba(5, 8, 22, 0.85);
+    background-color: rgba(240, 244, 248, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(var(--primary-rgb), 0.08);
@@ -1644,7 +1636,7 @@ footer {
         right: -280px;
         width: 260px;
         height: 100vh;
-        background-color: rgba(5, 8, 22, 0.97);
+        background-color: rgba(240, 244, 248, 0.97);
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
         flex-direction: column;
@@ -1654,13 +1646,13 @@ footer {
         transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
         gap: 8px;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.4);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
         border-left: 1px solid var(--border);
     }
 
-    body.light-mode .nav-list {
-        background-color: rgba(240, 244, 248, 0.97);
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    .dark-mode .nav-list {
+        background-color: rgba(5, 8, 22, 0.97);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.4);
     }
 
     .nav-list.active {

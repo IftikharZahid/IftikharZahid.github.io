@@ -30,32 +30,31 @@
 })();
 
 // ========================
-// Theme Toggle (Dark default)
+// Theme Toggle (Light default)
 // ========================
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
-const body = document.body;
+const root = document.documentElement;
 
-// Check saved preference
+// Check saved preference — class already applied by inline script in <head>
+// Just set the icon
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    body.classList.add('light-mode');
-    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
-} else {
-    // Dark mode default — show sun icon
+if (savedTheme === 'dark') {
     if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+} else {
+    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
 }
 
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
+        root.classList.toggle('dark-mode');
 
-        if (body.classList.contains('light-mode')) {
-            localStorage.setItem('theme', 'light');
-            if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
-        } else {
+        if (root.classList.contains('dark-mode')) {
             localStorage.setItem('theme', 'dark');
             if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+        } else {
+            localStorage.setItem('theme', 'light');
+            if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
         }
     });
 }
