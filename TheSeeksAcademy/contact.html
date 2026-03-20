@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | The Seeks Academy</title>
+    <meta name="description"
+        content="Get in touch with The Seeks Academy, Fort Abbas. We are here to answer your queries regarding admissions, portal access, and general information.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="brand">
+                <img src="assets/Academy_Logo.png" alt="The Seeks Academy Logo" class="brand-logo">
+                <div class="brand-text">
+                    <span class="brand-name">The Seeks Academy</span>
+                    <span class="brand-sub">Fort Abbas &bull; Est. 2016</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="faculty.html">Faculty</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About Us</a>
+                <a href="index.html#download" class="btn btn-nav">Download App</a>
+            </div>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="faculty.html" class="mobile-link">Faculty</a>
+            <a href="admissions.html" class="mobile-link">Admissions</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+            <a href="about.html" class="mobile-link">About Us</a>
+            <a href="index.html#download" class="btn btn-primary btn-full">Download App</a>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" style="min-height: 40vh; padding: 10rem 0 4rem; display: flex; align-items: center;">
+        <div class="hero-bg-pattern"></div>
+        <div class="container" style="position: relative; z-index: 1; text-align: center;">
+            <div class="reveal">
+                <div class="eyebrow" style="margin: 0 auto 1.25rem;">
+                    <span class="eyebrow-dot"></span>
+                    We're Here to Help
+                </div>
+                <h1 class="hero-title" style="margin-bottom: 1.5rem;">
+                    Get in<br><em>Touch</em>
+                </h1>
+                <p class="hero-body" style="margin: 0 auto; max-width: 60ch;">
+                    Have questions about admissions, our digital academic portal, or just want to say hello? Reach out
+                    to our administration securely below.
+                </p>
+            </div>
+        </div>
+        <div class="hero-bottom-fade"></div>
+    </section>
+
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section style="padding: 5rem 0; background: var(--bg-page);" id="contact-content">
+        <div class="container reveal">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">Reach out to<br><em>The Seeks Academy</em></h2>
+                    <p class="section-body" style="margin-top: 1.5rem; margin-bottom: 3rem;">
+                        Our administration desk is open Monday to Saturday, from 8:00 AM to 2:00 PM. We typically
+                        respond to academic inquiries within 24 hours.
+                    </p>
+
+                    <div class="contact-info-list">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div>
+                                <h4>Campus Location</h4>
+                                <p>1/D, Mudrassa Mazhar Al Aloom Road<br>Fort Abbas, Punjab, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i data-lucide="phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone Support</h4>
+                                <p>Call: +92 348 7000302<br>WhatsApp Support Available</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <h4>Email Enquiries</h4>
+                                <p>TheSeeksAcademyFTA@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Inquiry Sent Successfully!');">
+                        <div class="form-group">
+                            <label class="form-label" for="fullName">Full Name</label>
+                            <input type="text" id="fullName" class="form-input" placeholder="Enter your full name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="emailAddr">Email Address</label>
+                            <input type="email" id="emailAddr" class="form-input" placeholder="Enter your email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phoneNum">Phone / WhatsApp</label>
+                            <input type="tel" id="phoneNum" class="form-input" placeholder="Enter your mobile number"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Your Message</label>
+                            <textarea id="message" class="form-input" placeholder="How can we help you?"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message <i
+                                data-lucide="send"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="brand footer-brand-link">
+                    <img src="assets/Academy_Logo.png" alt="The Seeks Academy" class="brand-logo footer-logo">
+                    <div class="brand-text">
+                        <span class="brand-name">The Seeks Academy</span>
+                        <span class="brand-sub">Fort Abbas &bull; Est. 2016</span>
+                    </div>
+                </a>
+                <p>Empowering students of Fort Abbas through accessible, modern academic management. Classes 9–12.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div class="link-group">
+                    <h4>Platform</h4>
+                    <a href="index.html#">Mobile App</a>
+                    <a href="index.html#showcase">Admin Dashboard</a>
+                    <a href="index.html#showcase">Student Portal</a>
+                    <a href="index.html#features">Features</a>
+                </div>
+                <div class="link-group">
+                    <h4>Academy</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="faculty.html">Faculty</a>
+                    <a href="admissions.html">Admissions</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Support</h4>
+                    <a href="help.html">Help Centre</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 The Seeks Academy, Fort Abbas. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/TheSeeksAcademyFTA" aria-label="Facebook"><i
+                        data-lucide="facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
