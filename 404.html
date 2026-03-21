@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 | Page Not Found</title>
 
+    <!-- Case-Insensitive Router for TheSeeksAcademy -->
+    <script>
+        (function() {
+            var p = window.location.pathname;
+            if (p.toLowerCase().startsWith('/theseeksacademy') && !p.startsWith('/TheSeeksAcademy')) {
+                window.location.replace('/TheSeeksAcademy' + p.substring(16) + window.location.search + window.location.hash);
+            }
+        })();
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://github.com/IftikharZahid.png">
 
