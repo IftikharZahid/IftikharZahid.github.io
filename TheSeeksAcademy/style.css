@@ -2040,7 +2040,11 @@ textarea.form-input {
     .trust-strip {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 1.25rem;
+        gap: 1.5rem 2.5rem;
+    }
+
+    .trust-divider {
+        display: none;
     }
 
     .hero-visual {
@@ -2234,6 +2238,25 @@ textarea.form-input {
     .phones-stage-wrap {
         transform: scale(0.55);
         margin: -100px 0 -80px 0;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .trust-strip {
+        gap: 1rem 1.5rem;
+    }
+    
+    .trust-item strong {
+        font-size: 1.25rem;
     }
 }
 
