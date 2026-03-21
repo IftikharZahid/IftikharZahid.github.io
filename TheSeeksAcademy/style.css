@@ -1458,7 +1458,7 @@ section {
 /* ────────────────────────────
    RESPONSIVE
 ──────────────────────────── */
-@media (max-width: 640px) {
+@media (max-width: 900px) {
     .device-mockup-scene {
         transform: scale(0.75);
         margin: -40px -40px;
@@ -2231,17 +2231,27 @@ textarea.form-input {
     }
 
     .hero-visual {
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
 
     .phones-stage-wrap {
         width: 100%;
-        overflow: hidden;
+        overflow: visible;
         display: flex;
         justify-content: center;
-        transform: scale(0.8);
+        transform: scale(0.85);
         transform-origin: top center;
-        height: 420px;
+    }
+
+    /* Make phone frames visible against blue hero bg on mobile */
+    .phone .frame {
+        box-shadow:
+            inset 0 0 0 1px rgba(240, 168, 32, 0.35),
+            inset 0 2px 0 rgba(255, 255, 255, 0.15),
+            inset 0 -2px 0 rgba(7, 19, 46, 0.8),
+            0 0 0 2px rgba(255, 255, 255, 0.25),
+            0 0 20px rgba(255, 255, 255, 0.08),
+            0 8px 30px rgba(0, 0, 0, 0.4);
     }
 
     .mockup-wrap {
@@ -2372,12 +2382,11 @@ textarea.form-input {
 
     .phones-stage-wrap {
         width: 100%;
-        overflow: hidden;
+        overflow: visible;
         display: flex;
         justify-content: center;
-        transform: scale(0.65);
+        transform: scale(0.72);
         transform-origin: top center;
-        height: 350px;
     }
 
     .showcase-devices {
@@ -2441,12 +2450,11 @@ textarea.form-input {
 @media (max-width: 480px) {
     .phones-stage-wrap {
         width: 100%;
-        overflow: hidden;
+        overflow: visible;
         display: flex;
         justify-content: center;
-        transform: scale(0.55);
+        transform: scale(0.62);
         transform-origin: top center;
-        height: 300px;
     }
 
     .hero-actions {
@@ -2490,11 +2498,10 @@ textarea.form-input {
 @media (max-width: 380px) {
     .phones-stage-wrap {
         width: 100%;
-        overflow: hidden;
+        overflow: visible;
         display: flex;
         justify-content: center;
-        transform: scale(0.48);
+        transform: scale(0.55);
         transform-origin: top center;
-        height: 260px;
     }
 }
