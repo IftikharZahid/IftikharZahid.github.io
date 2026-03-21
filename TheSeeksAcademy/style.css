@@ -377,9 +377,9 @@ section {
     transform-style: preserve-3d;
 }
 
-.phone { 
-    position: absolute; 
-    width: 188px; 
+.phone {
+    position: absolute;
+    width: 188px;
     outline: 1px solid transparent;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -407,13 +407,27 @@ section {
 }
 
 @keyframes floatLeft {
-    0%, 100% { transform: perspective(900px) rotateY(14deg) rotateX(32deg) rotateZ(-6deg) translateY(0); }
-    50%       { transform: perspective(900px) rotateY(14deg) rotateX(32deg) rotateZ(-6deg) translateY(-10px); }
+
+    0%,
+    100% {
+        transform: perspective(900px) rotateY(14deg) rotateX(32deg) rotateZ(-6deg) translateY(0);
+    }
+
+    50% {
+        transform: perspective(900px) rotateY(14deg) rotateX(32deg) rotateZ(-6deg) translateY(-10px);
+    }
 }
 
 @keyframes floatRight {
-    0%, 100% { transform: perspective(900px) rotateY(-10deg) rotateX(-4deg) rotateZ(4deg) translateY(0); }
-    50%       { transform: perspective(900px) rotateY(-10deg) rotateX(-4deg) rotateZ(4deg) translateY(-14px); }
+
+    0%,
+    100% {
+        transform: perspective(900px) rotateY(-10deg) rotateX(-4deg) rotateZ(4deg) translateY(0);
+    }
+
+    50% {
+        transform: perspective(900px) rotateY(-10deg) rotateX(-4deg) rotateZ(4deg) translateY(-14px);
+    }
 }
 
 /* FRAME — Academy Navy/Gold Theme */
@@ -425,17 +439,50 @@ section {
     position: relative;
     box-shadow:
         inset 0 0 0 1px rgba(240, 168, 32, 0.35),
-        inset 0 2px 0  rgba(255, 255, 255, 0.15),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15),
         inset 0 -2px 0 rgba(7, 19, 46, 0.8),
         0 0 0 2px #040A1A;
 }
 
 /* Side hardware buttons */
-.phone .btn { position: absolute; border-radius: 2px; background: linear-gradient(90deg, var(--navy-dark), var(--navy-core)); box-shadow: inset 1px 0 0 rgba(240,168,32,0.3); }
-.phone .btn-mute  { left: -2.5px; top: 50px;  width: 2.5px; height: 18px; border-radius: 2px 0 0 2px; }
-.phone .btn-vol-u { left: -2.5px; top: 76px;  width: 2.5px; height: 26px; border-radius: 2px 0 0 2px; }
-.phone .btn-vol-d { left: -2.5px; top: 110px; width: 2.5px; height: 26px; border-radius: 2px 0 0 2px; }
-.phone .btn-power { right: -2.5px; top: 84px;  width: 2.5px; height: 36px; border-radius: 0 2px 2px 0; }
+.phone .btn {
+    position: absolute;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--navy-dark), var(--navy-core));
+    box-shadow: inset 1px 0 0 rgba(240, 168, 32, 0.3);
+}
+
+.phone .btn-mute {
+    left: -2.5px;
+    top: 50px;
+    width: 2.5px;
+    height: 18px;
+    border-radius: 2px 0 0 2px;
+}
+
+.phone .btn-vol-u {
+    left: -2.5px;
+    top: 76px;
+    width: 2.5px;
+    height: 26px;
+    border-radius: 2px 0 0 2px;
+}
+
+.phone .btn-vol-d {
+    left: -2.5px;
+    top: 110px;
+    width: 2.5px;
+    height: 26px;
+    border-radius: 2px 0 0 2px;
+}
+
+.phone .btn-power {
+    right: -2.5px;
+    top: 84px;
+    width: 2.5px;
+    height: 36px;
+    border-radius: 0 2px 2px 0;
+}
 
 /* Dynamic Island */
 .phone .island-wrap {
@@ -443,36 +490,44 @@ section {
     top: 22px;
     left: 50%;
     transform: translateX(-50%);
-    width: 75px; height: 22px;
+    width: 75px;
+    height: 22px;
     background: #000;
     border-radius: 14px;
     z-index: 10;
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 7px;
-    box-shadow: 0 0 2px rgba(255,255,255,0.1);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
 .phone .island-pill {
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     border-radius: 3px;
     background: #111;
 }
 
 .phone .island-cam {
-    width: 8px; height: 8px;
+    width: 8px;
+    height: 8px;
     background: #0b0b0b;
     border-radius: 50%;
     position: relative;
 }
+
 .phone .island-cam::after {
     content: '';
     position: absolute;
-    right: 2px; top: 50%;
+    right: 2px;
+    top: 50%;
     transform: translateY(-50%);
-    width: 2px; height: 2px;
+    width: 2px;
+    height: 2px;
     background: #242960;
     border-radius: 50%;
-    box-shadow: 0 0 1px rgba(255,255,255,0.5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 /* Screen */
@@ -482,14 +537,19 @@ section {
     aspect-ratio: 9 / 19.5;
     background: #000;
     position: relative;
-    border: 1px solid rgba(255,255,255,0.05); /* inner bezel */
-    transform: translateZ(0); /* Create true clipping boundary */
-    -webkit-mask-image: -webkit-radial-gradient(white, black); /* Masking bug fix Safari/Chrome corner overflow */
-    mask-image: radial-gradient(white, black); /* Standard mask-image property */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* inner bezel */
+    transform: translateZ(0);
+    /* Create true clipping boundary */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    /* Masking bug fix Safari/Chrome corner overflow */
+    mask-image: radial-gradient(white, black);
+    /* Standard mask-image property */
 }
 
 .phone .screen img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
@@ -499,7 +559,9 @@ section {
 .phone .screen::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 40%;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
     pointer-events: none;
@@ -512,7 +574,8 @@ section {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 70px; height: 4px;
+    width: 70px;
+    height: 4px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     z-index: 5;
@@ -521,11 +584,14 @@ section {
 /* ────────────────────────────
    ANDROID SPECIFIC STYLES
 ──────────────────────────── */
-.phone.android .frame { 
-    border-radius: 28px; 
+.phone.android .frame {
+    border-radius: 28px;
     padding: 8px 6px;
 }
-.phone.android .screen { border-radius: 20px; }
+
+.phone.android .screen {
+    border-radius: 20px;
+}
 
 /* Punch-hole camera */
 .phone.android .punch-hole {
@@ -533,50 +599,74 @@ section {
     top: 14px;
     left: 50%;
     transform: translateX(-50%);
-    width: 14px; height: 14px;
+    width: 14px;
+    height: 14px;
     background: #000;
     border-radius: 50%;
     z-index: 10;
-    box-shadow: inset 0 -1px 2px rgba(255,255,255,0.1), 0 0 0 1px rgba(0,0,0,0.5);
+    box-shadow: inset 0 -1px 2px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
+
 .phone.android .punch-hole::after {
     content: '';
     position: absolute;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 4px; height: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
     background: #111a4a;
     border-radius: 50%;
-    box-shadow: 0 0 2px rgba(255,255,255,0.4);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
 /* Android side hardware buttons (Samsung layout) */
 .phone.android .btn-vol-rocker {
     position: absolute;
-    right: -2.5px; left: auto;
+    right: -2.5px;
+    left: auto;
     top: 60px;
-    width: 2.5px; height: 44px;
+    width: 2.5px;
+    height: 44px;
     border-radius: 0 2px 2px 0;
     background: linear-gradient(90deg, #C48C84, #D8A8A0);
 }
+
 .phone.android .btn-power {
     position: absolute;
-    right: -2.5px; left: auto;
+    right: -2.5px;
+    left: auto;
     top: 120px;
-    width: 2.5px; height: 26px;
+    width: 2.5px;
+    height: 26px;
     border-radius: 0 2px 2px 0;
     background: linear-gradient(90deg, #C48C84, #D8A8A0);
 }
 
 /* Ground shadows */
-.shadow-left, .shadow-right {
+.shadow-left,
+.shadow-right {
     position: absolute;
-    background: radial-gradient(ellipse, rgba(60,40,60,0.18) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(60, 40, 60, 0.18) 0%, transparent 70%);
     filter: blur(10px);
     transform: perspective(400px) rotateX(70deg);
     z-index: 0;
 }
-.shadow-left  { left: 30px;  bottom: 0; width: 160px; height: 24px; }
-.shadow-right { right: 20px; bottom: 20px; width: 180px; height: 28px; filter: blur(12px); }
+
+.shadow-left {
+    left: 30px;
+    bottom: 0;
+    width: 160px;
+    height: 24px;
+}
+
+.shadow-right {
+    right: 20px;
+    bottom: 20px;
+    width: 180px;
+    height: 28px;
+    filter: blur(12px);
+}
 
 /* ─────────────────────────────────────────
    7b. BROWSER SHELL (Desktop Mockup)
@@ -585,7 +675,7 @@ section {
     background: #1C1C1E;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(13, 33, 73, 0.3),
         0 4px 12px rgba(0, 0, 0, 0.4);
     overflow: hidden;
@@ -610,9 +700,17 @@ section {
     border-radius: 50%;
 }
 
-.browser-dot.red { background: #FF5F56; }
-.browser-dot.yellow { background: #FFBD2E; }
-.browser-dot.green { background: #27C93F; }
+.browser-dot.red {
+    background: #FF5F56;
+}
+
+.browser-dot.yellow {
+    background: #FFBD2E;
+}
+
+.browser-dot.green {
+    background: #27C93F;
+}
 
 .browser-window {
     width: 100%;
@@ -817,6 +915,12 @@ section {
     z-index: 1;
 }
 
+/* Prevent grid children from overflowing their columns */
+.hero-content,
+.hero-visual {
+    min-width: 0;
+}
+
 /* Eyebrow pill — logo gold */
 .eyebrow {
     display: inline-flex;
@@ -834,6 +938,10 @@ section {
     border: 1px solid rgba(240, 168, 32, 0.20);
     border-radius: 50px;
     width: fit-content;
+    max-width: 100%;
+    flex-wrap: wrap;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .eyebrow-dot {
@@ -867,6 +975,8 @@ section {
     letter-spacing: -0.025em;
     color: var(--white);
     margin-bottom: 1.375rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Italic emphasis → logo amber gold */
@@ -881,6 +991,8 @@ section {
     max-width: 50ch;
     margin-bottom: 2.5rem;
     line-height: 1.78;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .hero-actions {
@@ -1142,202 +1254,244 @@ section {
    MONITOR AND PHONE SCENE
    ================================================ */
 .device-mockup-scene {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 0;
-  padding: 48px 32px;
-  position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    padding: 48px 32px;
+    position: relative;
 }
 
 /* ────────────────────────────
    MONITOR (Left)
 ──────────────────────────── */
 .dm-monitor-wrap {
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
 }
 
 .dm-monitor-frame {
-  width: 440px;
-  background: #111; /* Clean black bezel */
-  border-radius: 12px;
-  padding: 16px 16px 24px 16px; /* slightly thicker bottom bezel */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.1);
-  position: relative;
-  z-index: 2; /* In front of neck */
+    width: 440px;
+    background: #111;
+    /* Clean black bezel */
+    border-radius: 12px;
+    padding: 16px 16px 24px 16px;
+    /* slightly thicker bottom bezel */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    /* In front of neck */
 }
 
 .dm-monitor-screen {
-  background: var(--navy-dark);
-  border-radius: 4px;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  position: relative;
+    background: var(--navy-dark);
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    position: relative;
 }
 
 .dm-monitor-screen img {
-  width: 100%; height: 100%;
-  object-fit: cover; 
-  object-position: top center;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
 }
 
 /* Monitor Neck (Trapezoid using clip-path) */
 .dm-monitor-neck {
-  width: 90px;
-  height: 60px;
-  background: linear-gradient(90deg, #999 0%, #eee 50%, #666 100%);
-  margin: -10px auto 0; /* pulls up behind frame */
-  position: relative;
-  z-index: 1;
-  clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
+    width: 90px;
+    height: 60px;
+    background: linear-gradient(90deg, #999 0%, #eee 50%, #666 100%);
+    margin: -10px auto 0;
+    /* pulls up behind frame */
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
 }
 
 /* Monitor Base plate */
 .dm-monitor-base {
-  width: 160px;
-  height: 12px;
-  background: linear-gradient(180deg, #e0e0e0 0%, #999 100%);
-  border-radius: 20px 20px 0 0;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    width: 160px;
+    height: 12px;
+    background: linear-gradient(180deg, #e0e0e0 0%, #999 100%);
+    border-radius: 20px 20px 0 0;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .dm-monitor-shadow {
-  position: absolute;
-  bottom: -15px; left: 50%; transform: translateX(-50%);
-  width: 220px;
-  height: 15px;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.2) 0%, transparent 70%);
-  filter: blur(5px);
-  z-index: 0;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 15px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+    filter: blur(5px);
+    z-index: 0;
 }
 
 /* ────────────────────────────
    PHONE (Right, Overlapping)
 ──────────────────────────── */
 .dm-phone-wrap {
-  position: relative;
-  z-index: 4; /* Overlaps monitor entirely */
-  margin-left: -50px; /* pull left to overlap monitor */
-  margin-bottom: -10px; /* sit slightly lower than monitor screen */
-  flex-shrink: 0;
+    position: relative;
+    z-index: 4;
+    /* Overlaps monitor entirely */
+    margin-left: -50px;
+    /* pull left to overlap monitor */
+    margin-bottom: -10px;
+    /* sit slightly lower than monitor screen */
+    flex-shrink: 0;
 }
 
 .dm-phone-frame {
-  width: 124px;
-  background: #111; /* Solid black to match screenshot phone style */
-  border-radius: 26px;
-  padding: 6px;
-  position: relative;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.2);
+    width: 124px;
+    background: #111;
+    /* Solid black to match screenshot phone style */
+    border-radius: 26px;
+    padding: 6px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 /* Dynamic Island */
 .dm-ph-island-bar {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 48px; height: 14px; /* scaled down for 124px frame */
-  background: #000;
-  border-radius: 8px;
-  z-index: 10;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 4px;
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 14px;
+    /* scaled down for 124px frame */
+    background: #000;
+    border-radius: 8px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
 }
+
 .dm-ph-island-pill {
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     border-radius: 3px;
     background: #111;
 }
+
 .dm-ph-island-cam {
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     background: #0b0b0b;
     border-radius: 50%;
     margin-left: auto;
     position: relative;
 }
+
 .dm-ph-island-cam::after {
     content: '';
     position: absolute;
-    right: 1px; top: 50%;
+    right: 1px;
+    top: 50%;
     transform: translateY(-50%);
-    width: 1.5px; height: 1.5px;
+    width: 1.5px;
+    height: 1.5px;
     background: #242960;
     border-radius: 50%;
 }
 
 /* Screen */
 .dm-ph-screen {
-  border-radius: 20px;
-  overflow: hidden;
-  aspect-ratio: 9 / 19.5;
-  background: #000;
-  position: relative;
-  border: 1px solid rgba(255,255,255,0.05); /* inner bezel */
-  transform: translateZ(0); /* Strict clipping layer */
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  mask-image: radial-gradient(white, black);
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 9 / 19.5;
+    background: #000;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* inner bezel */
+    transform: translateZ(0);
+    /* Strict clipping layer */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
 }
+
 .dm-ph-screen img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 /* Phone Screen Glare */
 .dm-ph-screen::after {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%; right: -50%; bottom: -50%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 40%, transparent 100%);
-  pointer-events: none;
-  transform: rotate(25deg);
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 40%, transparent 100%);
+    pointer-events: none;
+    transform: rotate(25deg);
 }
 
 /* Home bar */
 .dm-ph-home {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px; height: 3.5px;
-  background: rgba(255,255,255,0.7);
-  border-radius: 6px;
-  z-index: 10;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3.5px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    z-index: 10;
 }
 
 /* ────────────────────────────
    RESPONSIVE
 ──────────────────────────── */
 @media (max-width: 640px) {
-  .device-mockup-scene {
-    transform: scale(0.75);
-    margin: -40px -40px; /* pull bounding box inwards from scaled void */
-    padding: 0;
-  }
-  /* Lock the overlapping phone into place! */
-  .dm-phone-wrap { margin-left: -50px; margin-bottom: -10px; margin-top: 0; }
-  .dm-monitor-frame, .dm-monitor-wrap { width: 440px; max-width: none; }
+    .device-mockup-scene {
+        transform: scale(0.75);
+        margin: -40px -40px;
+        /* pull bounding box inwards from scaled void */
+        padding: 0;
+    }
+
+    /* Lock the overlapping phone into place! */
+    .dm-phone-wrap {
+        margin-left: -50px;
+        margin-bottom: -10px;
+        margin-top: 0;
+    }
+
+    .dm-monitor-frame,
+    .dm-monitor-wrap {
+        width: 440px;
+        max-width: none;
+    }
 }
 
 @media (max-width: 480px) {
-  .device-mockup-scene {
-    transform: scale(0.62);
-    margin: -70px -60px;
-  }
+    .device-mockup-scene {
+        transform: scale(0.62);
+        margin: -70px -60px;
+    }
 }
 
 @media (max-width: 380px) {
-  .device-mockup-scene {
-    transform: scale(0.52);
-    margin: -90px -90px;
-  }
+    .device-mockup-scene {
+        transform: scale(0.52);
+        margin: -90px -90px;
+    }
 }
 
 /* ─────────────────────────────────────────
@@ -1704,12 +1858,13 @@ section {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.faculty-avatar i, .faculty-avatar svg { 
-    width: 44px; 
-    height: 44px; 
+.faculty-avatar i,
+.faculty-avatar svg {
+    width: 44px;
+    height: 44px;
 }
 
 .faculty-name {
@@ -1748,7 +1903,8 @@ section {
     line-height: 1.4;
 }
 
-.faculty-detail-item i, .faculty-detail-item svg {
+.faculty-detail-item i,
+.faculty-detail-item svg {
     width: 18px;
     height: 18px;
     color: var(--navy-mid);
@@ -1790,7 +1946,10 @@ section {
     flex-shrink: 0;
 }
 
-.info-icon svg { width: 24px; height: 24px; }
+.info-icon svg {
+    width: 24px;
+    height: 24px;
+}
 
 .info-item h4 {
     font-size: 1.1rem;
@@ -1983,7 +2142,10 @@ textarea.form-input {
     margin: 0 auto 1.5rem;
 }
 
-.help-icon svg { width: 32px; height: 32px; }
+.help-icon svg {
+    width: 32px;
+    height: 32px;
+}
 
 .help-card h3 {
     font-size: 1.25rem;
@@ -2030,6 +2192,7 @@ textarea.form-input {
     .hero-body {
         margin-left: auto;
         margin-right: auto;
+        max-width: 100%;
     }
 
     .hero-actions {
@@ -2052,11 +2215,11 @@ textarea.form-input {
         text-align: center;
         flex: 1;
     }
-    
+
     .trust-item strong {
         font-size: 1.15rem;
     }
-    
+
     .trust-item span {
         font-size: 0.65rem;
         line-height: 1.2;
@@ -2204,7 +2367,7 @@ textarea.form-input {
     }
 
     .hero-title {
-        font-size: 1.95rem;
+        font-size: clamp(1.75rem, 6vw, 1.95rem);
     }
 
     .phones-stage-wrap {
@@ -2255,9 +2418,20 @@ textarea.form-input {
         padding: 2rem 1.5rem;
     }
 
-    .timeline::before { left: 24px; }
-    .step-marker { width: 50px; height: 50px; font-size: 1.1rem; border-width: 4px; }
-    .timeline-step { padding-left: 4.5rem; }
+    .timeline::before {
+        left: 24px;
+    }
+
+    .step-marker {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+        border-width: 4px;
+    }
+
+    .timeline-step {
+        padding-left: 4.5rem;
+    }
 
     .legal-content {
         padding: 3rem 2rem;
@@ -2280,16 +2454,16 @@ textarea.form-input {
         width: 100%;
         gap: 1rem;
     }
-    
+
     .hero-actions .btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .trust-strip {
         gap: 0.1rem;
     }
-    
+
     .trust-item strong {
         font-size: 0.9rem;
     }
@@ -2299,11 +2473,17 @@ textarea.form-input {
     }
 
     .hero-title {
-        font-size: 1.6rem;
+        font-size: clamp(1.5rem, 7.5vw, 1.6rem);
     }
-    
+
     .hero-body {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
     }
 }
 
