@@ -436,3 +436,114 @@ document.querySelectorAll('.gallery-item').forEach(el => {
     // Start auto-slide
     startAutoSlide();
 })();
+
+// ========================
+// Techie Chatbot
+// ========================
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('techie-chatbot-toggle-btn');
+    const closeBtn = document.getElementById('techie-chatbot-close-btn');
+    const chatbotContainer = document.getElementById('techie-chatbot-container');
+    const sendBtn = document.getElementById('techie-chatbot-send-btn');
+    const inputField = document.getElementById('techie-chatbot-input-field');
+    const messagesContainer = document.getElementById('techie-chatbot-messages');
+
+    if(!toggleBtn) return;
+
+    toggleBtn.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('active');
+        if (chatbotContainer.classList.contains('active')) {
+            inputField.focus();
+        }
+    });
+
+    closeBtn.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+    });
+
+    const techieDataMap = [
+        {
+            keywords: ['name', 'who are you', 'your name'],
+            answer: "My name is Techie. I was trained by <strong>Iftikhar Zahid</strong> to assist you!"
+        },
+        {
+            keywords: ['iftikhar', 'who is', 'about'],
+            answer: "<strong>Iftikhar Zahid</strong> is a Mobile & Web App Developer specializing in React, React Native, Firebase, and modern JavaScript technologies."
+        },
+        {
+            keywords: ['experience', 'years', 'how long'],
+            answer: "Iftikhar has 04+ Years of experience as a specialized developer, including roles as a Senior Mobile & Web Developer, Full Stack Engineer, and Python Automation Specialist."
+        },
+        {
+            keywords: ['code', 'github', 'repositories', 'repos'],
+            answer: "He has 20+ repositories on GitHub. You can view them at github.com/IftikharZahid."
+        },
+        {
+            keywords: ['contact', 'email', 'reach', 'hire'],
+            answer: "You can reach Iftikhar at xahidcodes@gmail.com, via the contact form on this site, or through his social links like LinkedIn and WhatsApp."
+        },
+        {
+            keywords: ['skills', 'tech', 'stack', 'technologies', 'expertise'],
+            answer: "His technical skills include React & Native, Tailwind CSS, Redux Toolkit, API Integration, Firebase, MongoDB, and Python & AI."
+        },
+        {
+            keywords: ['work', 'companies', 'employment', 'career'],
+            answer: "He's worked at Tech Solutions Inc, Digital Innovations, and Data Corp."
+        },
+        {
+            keywords: ['project', 'portfolio', 'gallery', 'apps', 'work'],
+            answer: "Some featured projects include PGC College Website, The Seeks Academy, DigitalBook App, Foodie Restaurant App, AI Background Remover, and UStore."
+        },
+        {
+            keywords: ['hi', 'hello', 'hey', 'greetings'],
+            answer: "Hello! I'm Techie. How can I help you today?"
+        }
+    ];
+
+    function appendMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `chatbot-message ${sender}`;
+        msgDiv.innerHTML = text; // allow html
+        messagesContainer.appendChild(msgDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function generateResponse(text) {
+        const lowerText = text.toLowerCase();
+        let bestMatch = null;
+
+        for (let item of techieDataMap) {
+            for (let kw of item.keywords) {
+                if (lowerText.includes(kw)) {
+                    bestMatch = item.answer;
+                    break;
+                }
+            }
+            if (bestMatch) break;
+        }
+
+        if (bestMatch) {
+            return bestMatch;
+        } else {
+            return "As Techie, I only know the details written on this page. You can ask me about Iftikhar's skills, experience, projects, or contact info.";
+        }
+    }
+
+    function handleSend() {
+        const text = inputField.value.trim();
+        if (!text) return;
+
+        appendMessage(text, 'user');
+        inputField.value = '';
+
+        setTimeout(() => {
+            const response = generateResponse(text);
+            appendMessage(response, 'bot');
+        }, 500);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    inputField.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleSend();
+    });
+});

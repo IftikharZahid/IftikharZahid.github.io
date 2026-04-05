@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all animations
     initScrollAnimations();
     initLanguageBars();
+    initChatbot();
 });
 
 // ===== Scroll-based Fade-in Animations =====
@@ -105,3 +106,124 @@ document.addEventListener('keydown', (e) => {
         navigateLightbox(e, 1);
     }
 });
+
+// ===== Chatbot =====
+function initChatbot() {
+    const toggleBtn = document.getElementById('chatbot-toggle-btn');
+    const closeBtn = document.getElementById('chatbot-close-btn');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const sendBtn = document.getElementById('chatbot-send-btn');
+    const inputField = document.getElementById('chatbot-input-field');
+    const messagesContainer = document.getElementById('chatbot-messages');
+
+    if(!toggleBtn) return;
+
+    toggleBtn.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('active');
+        if (chatbotContainer.classList.contains('active')) {
+            inputField.focus();
+        }
+    });
+
+    closeBtn.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+    });
+
+    const cvDataMap = [
+        {
+            keywords: ['name', 'who are you', 'your name'],
+            answer: "My name is Iftikhar Zahid."
+        },
+        {
+            keywords: ['role', 'title', 'profession', 'what do you do', 'job'],
+            answer: "I am a Mobile & Web App Developer."
+        },
+        {
+            keywords: ['experience', 'years', 'how long'],
+            answer: "I have 04+ Years of experience as a specialized developer."
+        },
+        {
+            keywords: ['repo', 'repositories', 'github', 'projects count'],
+            answer: "I have 20+ repositories on my GitHub."
+        },
+        {
+            keywords: ['contact', 'email', 'website', 'social', 'facebook', 'reach'],
+            answer: "You can find me at <a href='https://zahid.codes' target='_blank' style='color:var(--primary-orange)'>zahid.codes</a>, on GitHub at IftikharZahid, on Facebook at IftikharXahid, or email me at iftikhar@zahid.codes."
+        },
+        {
+            keywords: ['about', 'bio', 'who', 'yourself'],
+            answer: "I am a passionate Mobile and Web App Developer with strong experience in React, React Native, Firebase, and modern JavaScript technologies. I focus on scalable apps with clean architecture."
+        },
+        {
+            keywords: ['interest', 'interests', 'hobbies'],
+            answer: "My main interests are Mobile Dev and Web Dev."
+        },
+        {
+            keywords: ['language', 'languages'],
+            answer: "I know English, Korean, and French."
+        },
+        {
+            keywords: ['skills', 'technical', 'tech stack', 'frameworks'],
+            answer: "My technical skills include React & React Native, Tailwind CSS, Redux Toolkit, API Integration, Firebase, MongoDB, and Python & AI."
+        },
+        {
+            keywords: ['work', 'companies', 'employment'],
+            answer: "I have worked at Tech Solutions Inc as a Senior Mobile & Web Developer, Digital Innovations as a Full Stack Engineer, and Data Corp as a Python Automation Specialist."
+        },
+        {
+            keywords: ['project', 'portfolio', 'gallery', 'theseeksacademy'],
+            answer: "My recent showcase is TheSeeksAcademy, an educational platform built using TypeScript."
+        },
+        {
+            keywords: ['hi', 'hello', 'hey', 'greetings'],
+            answer: "Hello! You can ask me anything about Iftikhar's CV, such as his skills, experience, projects, or contact info."
+        }
+    ];
+
+    function appendMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `chatbot-message ${sender}`;
+        msgDiv.innerHTML = text;
+        messagesContainer.appendChild(msgDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function generateResponse(text) {
+        const lowerText = text.toLowerCase();
+        let bestMatch = null;
+
+        for (let item of cvDataMap) {
+            for (let kw of item.keywords) {
+                if (lowerText.includes(kw)) {
+                    bestMatch = item.answer;
+                    break;
+                }
+            }
+            if (bestMatch) break;
+        }
+
+        if (bestMatch) {
+            return bestMatch;
+        } else {
+            return "I can only provide details that are on my CV page. You can try asking about my skills, experience, projects, contact info, or about me.";
+        }
+    }
+
+    function handleSend() {
+        const text = inputField.value.trim();
+        if (!text) return;
+
+        appendMessage(text, 'user');
+        inputField.value = '';
+
+        setTimeout(() => {
+            const response = generateResponse(text);
+            appendMessage(response, 'bot');
+        }, 500);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    inputField.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleSend();
+    });
+}
