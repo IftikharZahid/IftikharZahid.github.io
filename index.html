@@ -1,820 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iftikhar Zahid | App Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iftikhar Zahid - Professional Mobile & Web App Developer. Expert in React, React Native, Firebase, and modern JavaScript technologies.">
+    <title>Iftikhar Zahid | Mobile & Web App Developer</title>
 
-    <!-- SEO & Open Graph Meta Tags -->
-    <meta name="description" content="I am a passionate Mobile and Web App Developer with strong experience in React, React Native, Firebase, and modern JavaScript technologies.">
-    <meta name="keywords" content="Iftikhar Zahid, App Developer, React Native, React, Web Developer, Mobile Developer, Pakistan, Portfolio">
-    <meta name="author" content="Iftikhar Zahid">
-    
-    <meta property="og:title" content="Iftikhar Zahid | App Developer">
-    <meta property="og:description" content="I am a passionate Mobile and Web App Developer with strong experience in React, React Native, Firebase, and modern JavaScript technologies.">
-    <meta property="og:image" content="https://github.com/IftikharZahid.png">
-    <meta property="og:url" content="https://zahid.codes/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Iftikhar Zahid Portfolio">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Iftikhar Zahid | App Developer">
-    <meta name="twitter:description" content="Mobile and Web App Developer specializing in React and React Native.">
-    <meta name="twitter:image" content="https://github.com/IftikharZahid.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://github.com/IftikharZahid.png">
-    <link rel="apple-touch-icon" href="https://github.com/IftikharZahid.png">
-
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- Prevent theme flash on reload -->
-    <script>
-        (function () {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.classList.add('dark-mode');
-            }
-        })();
-    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Neural Network Canvas Background -->
-    <canvas id="network-canvas"></canvas>
+<div class="portfolio-wrapper">
 
-    <header class="header">
-        <div class="container header-container">
-            <a href="#" class="logo">&lt;Zahid<span class="text-primary">.Codes</span>/&gt;</a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
-                        <i class="fa-solid fa-sun" id="theme-icon"></i>
-                    </button>
-                    <div class="hamburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </div>
-            </nav>
-        </div>
+    <!-- ===== HEADER ===== -->
+    <header class="header fade-in" id="header">
+        <h1 class="header-name">
+            <span class="first-name">IFTIKHAR </span><span class="last-name">ZAHID</span>
+        </h1>
+        <p class="header-title">Mobile & Web App Developer</p>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-label">Available for Hire</span>
-                    <h1>Crafting Seamless <span class="text-gradient">Mobile & Web Experiences</span> That Scale.</h1>
-                    <p>Hi, I'm <strong>Iftikhar Zahid</strong>. <br class="mobile-only"> I am a <span
-                            id="typewriter-text" class="text-primary mono"></span><span class="typewriter"></span></p>
+    <!-- ===== TOP ROW: Education + Photo + Contact ===== -->
+    <section class="top-row" id="top-row">
 
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View Projects</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                    </div>
+        <!-- Stats -->
+        <div class="card education-card fade-in fade-in-delay-1">
+            <h2 class="section-title">
+                <span class="highlight">STATS</span>
+            </h2>
+            <p class="education-year">20+</p>
+            <p class="education-degree">REPOSITORIES</p>
+            <p class="education-uni">04+ Years Experience</p>
+            <p class="education-role">Mobile & Web App</p>
+            <p class="education-location">Specialized Developer</p>
+        </div>
 
-                    <div class="tech-stack">
-                        <p class="mono">Current Tech Stack</p>
-                        <div class="tech-icons">
-                            <i class="fa-brands fa-react" title="React & React Native"></i>
-                            <i class="fa-solid fa-wind" title="Tailwind CSS"></i>
-                            <i class="fa-solid fa-layer-group" title="Redux Toolkit"></i>
-                            <i class="fa-solid fa-network-wired" title="API Integration"></i>
-                            <i class="fa-solid fa-fire" title="Firebase"></i>
-                            <i class="fa-solid fa-database" title="MongoDB"></i>
-                        </div>
+        <!-- Profile Photo -->
+        <div class="profile-photo-container fade-in">
+            <img src="profile.png" alt="Iftikhar Zahid - App Developer" id="profile-img">
+        </div>
+
+        <!-- Contact -->
+        <div class="card contact-card fade-in fade-in-delay-2">
+            <h2 class="section-title">
+                <span class="white">CONTACT </span><span class="highlight">ME</span>
+            </h2>
+            <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <a href="https://zahid.codes" target="_blank">zahid.codes</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/IftikharZahid" target="_blank">github.com/IftikharZahid</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-facebook"></i>
+                <a href="https://facebook.com/IftikharXahid" target="_blank">facebook.com/IftikharXahid</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:iftikhar@zahid.codes">Contact via Website</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ME ===== -->
+    <section class="card about-card fade-in" id="about">
+        <h2 class="section-title">
+            <span class="white">ABOUT </span><span class="highlight">ME</span>
+        </h2>
+        <p class="about-text">
+            I am a passionate Mobile and Web App Developer with strong experience in React, React Native, Firebase, and modern JavaScript technologies. I build scalable, high-performance applications that combine clean architecture with intuitive user experiences. From developing cross-platform mobile apps to integrating real-time databases, authentication, and cloud services, I focus on delivering reliable, production-ready solutions. I also have a strong eye for UI/UX design, ensuring every application is visually refined, responsive, and user-centric.
+        </p>
+    </section>
+
+    <!-- ===== MIDDLE ROW: Interest + Laptop + Languages ===== -->
+    <section class="middle-row" id="middle-row">
+
+        <!-- Interest -->
+        <div class="card interest-card fade-in fade-in-delay-1">
+            <h2 class="section-title">
+                <span class="highlight">INTEREST</span>
+            </h2>
+            <div class="interest-items">
+                <div class="interest-item">
+                    <div class="interest-icon programming">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
+                    <span class="interest-label">Mobile Dev</span>
                 </div>
-                <div class="hero-image-container">
-                    <img src="https://github.com/IftikharZahid.png" alt="Iftikhar Zahid"
-                        class="hero-profile-img main-img">
-                    <img src="profile-hover.jpg" alt="Iftikhar Zahid" class="hero-profile-img hover-img">
+                <div class="interest-item">
+                    <div class="interest-icon gaming">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span class="interest-label">Web Dev</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Laptop Illustration -->
+        <div class="card laptop-card fade-in fade-in-delay-2">
+            <div class="laptop-illustration">
+                <svg class="laptop-svg" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Laptop Screen -->
+                    <rect x="30" y="10" width="160" height="100" rx="6" fill="#222" stroke="#555" stroke-width="2"/>
+                    <!-- Screen Inner -->
+                    <rect x="38" y="18" width="144" height="84" rx="3" fill="#1a1a2e"/>
+                    <!-- Code lines on screen -->
+                    <rect x="48" y="30" width="50" height="3" rx="1.5" fill="#e8822a" opacity="0.8"/>
+                    <rect x="48" y="38" width="80" height="3" rx="1.5" fill="#4a9eff" opacity="0.7"/>
+                    <rect x="48" y="46" width="35" height="3" rx="1.5" fill="#50fa7b" opacity="0.6"/>
+                    <rect x="48" y="54" width="65" height="3" rx="1.5" fill="#e8822a" opacity="0.6"/>
+                    <rect x="48" y="62" width="90" height="3" rx="1.5" fill="#4a9eff" opacity="0.5"/>
+                    <rect x="48" y="70" width="45" height="3" rx="1.5" fill="#50fa7b" opacity="0.7"/>
+                    <rect x="48" y="78" width="70" height="3" rx="1.5" fill="#fff" opacity="0.3"/>
+                    <rect x="48" y="86" width="55" height="3" rx="1.5" fill="#e8822a" opacity="0.5"/>
+                    <!-- Laptop Base -->
+                    <path d="M20 112 L30 110 L190 110 L200 112 L210 130 L10 130 Z" fill="#333" stroke="#555" stroke-width="1.5"/>
+                    <!-- Base Detail -->
+                    <rect x="90" y="114" width="40" height="4" rx="2" fill="#555"/>
+                    <!-- Keyboard area -->
+                    <rect x="40" y="118" width="140" height="8" rx="2" fill="#2a2a2a"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Language Skills -->
+        <div class="card language-card fade-in fade-in-delay-3">
+            <h2 class="section-title">
+                <span class="white">LANGUAGE </span><span class="highlight">SKILLS</span>
+            </h2>
+            <div class="language-item">
+                <p class="language-name">English</p>
+                <div class="language-bar">
+                    <div class="language-bar-fill english" data-width="92"></div>
+                </div>
+            </div>
+            <div class="language-item">
+                <p class="language-name">Korea</p>
+                <div class="language-bar">
+                    <div class="language-bar-fill korean" data-width="75"></div>
+                </div>
+            </div>
+            <div class="language-item">
+                <p class="language-name">French</p>
+                <div class="language-bar">
+                    <div class="language-bar-fill french" data-width="60"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <div class="container">
-            <div class="about-card">
-                <div class="about-header">
-                    <div class="about-icon">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                    <div>
-                        <h2>About Me</h2>
-                        <p>Mobile & Web App Developer</p>
-                    </div>
+    <!-- ===== PROFESSIONAL SKILLS ===== -->
+    <section class="card skills-card fade-in" id="skills">
+        <h2 class="section-title">
+            <span class="white">TECHNICAL </span><span class="highlight">SKILLS</span>
+        </h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <i class="fab fa-react"></i>
                 </div>
-
-                <div class="about-body">
-                    <p>I am a passionate <strong>Mobile and Web App Developer</strong> with strong experience in
-                        <strong>React, React Native, Firebase</strong>, and modern JavaScript technologies. I build
-                        scalable, high-performance applications that combine clean architecture with intuitive user
-                        experiences.
-                    </p>
-                    <p>From developing cross-platform mobile apps to integrating <strong>real-time databases</strong>,
-                        authentication, and cloud services, I focus on delivering reliable, production-ready solutions.
-                        I also have a strong eye for <strong>UI/UX design</strong>, ensuring every application is
-                        visually refined, responsive, and user-centric.</p>
+                <span class="skill-label">React & Native</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <i class="fas fa-wind"></i>
                 </div>
-
-                <div class="about-info-grid">
-                    <div class="about-info-item">
-                        <i class="fa-solid fa-user"></i>
-                        <div>
-                            <span class="info-label">Name</span>
-                            <div class="info-value">Iftikhar Zahid</div>
-                        </div>
-                    </div>
-                    <div class="about-info-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <span class="info-label">Location</span>
-                            <div class="info-value">Pakistan</div>
-                        </div>
-                    </div>
-                    <div class="about-info-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
-                            <span class="info-label">Email</span>
-                            <div class="info-value">xahidcodes@gmail.com</div>
-                        </div>
-                    </div>
-                    <div class="about-info-item">
-                        <i class="fa-solid fa-code"></i>
-                        <div>
-                            <span class="info-label">Specialization</span>
-                            <div class="info-value">React & React Native</div>
-                        </div>
-                    </div>
+                <span class="skill-label">Tailwind CSS</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <i class="fas fa-project-diagram"></i>
                 </div>
-
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3>20+</h3>
-                        <p>Repositories</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>04+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>Mobile + Web</h3>
-                        <p>Specialized</p>
-                    </div>
+                <span class="skill-label">Redux Toolkit</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <i class="fas fa-network-wired"></i>
                 </div>
+                <span class="skill-label">API Integration</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <span class="skill-label">Firebase</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <span class="skill-label">MongoDB</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <span class="skill-label">Python & AI</span>
             </div>
         </div>
     </section>
 
-
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 25px;">
-                <span class="hero-label">My Expertise</span>
-                <h2>Technical Skills</h2>
+    <!-- ===== WORK EXPERIENCE ===== -->
+    <section class="card experience-card fade-in" id="experience">
+        <h2 class="section-title">
+            <span class="white">WORK </span><span class="highlight">EXPERIENCE</span>
+        </h2>
+        <div class="experience-grid">
+            <div class="experience-item">
+                <h4>TECH SOLUTIONS INC.</h4>
+                <p class="exp-role">Senior Mobile & Web Developer</p>
+                <ul>
+                    <li>Spearheaded development of cross-platform apps</li>
+                    <li>Built responsive dashboards with React</li>
+                    <li>Implemented state management (Redux)</li>
+                </ul>
             </div>
-            <div class="skills-wrapper">
-                <div class="skills-grid">
-                    <!-- React & React Native -->
-                    <div class="skill-card">
-                        <i class="fa-brands fa-react skill-icon"></i>
-                        <h3>React & Native</h3>
-                        <p>Building cross-platform mobile & web apps.</p>
-                    </div>
-                    <!-- Tailwind CSS -->
-                    <div class="skill-card">
-                        <i class="fa-solid fa-wind skill-icon"></i>
-                        <h3>Tailwind CSS</h3>
-                        <p>Rapidly building modern, custom designs.</p>
-                    </div>
-                    <!-- Redux Toolkit -->
-                    <div class="skill-card">
-                        <i class="fa-solid fa-layer-group skill-icon"></i>
-                        <h3>Redux Toolkit</h3>
-                        <p>Efficient state management for complex apps.</p>
-                    </div>
-                    <!-- API Integration -->
-                    <div class="skill-card">
-                        <i class="fa-solid fa-network-wired skill-icon"></i>
-                        <h3>API Integration</h3>
-                        <p>Connecting frontends to powerful backends.</p>
-                    </div>
-                    <!-- Firebase -->
-                    <div class="skill-card">
-                        <i class="fa-solid fa-fire skill-icon"></i>
-                        <h3>Firebase</h3>
-                        <p>Real-time databases and authentication.</p>
-                    </div>
-                    <!-- MongoDB -->
-                    <div class="skill-card">
-                        <i class="fa-solid fa-database skill-icon"></i>
-                        <h3>MongoDB</h3>
-                        <p>Scalable NoSQL database solutions.</p>
-                    </div>
-                    <!-- Python & AI -->
-                    <div class="skill-card">
-                        <i class="fa-brands fa-python skill-icon"></i>
-                        <h3>Python & AI</h3>
-                        <p>Automation, Scripting, and Artificial Intelligence.</p>
-                    </div>
-                </div>
+            <div class="experience-item">
+                <h4>DIGITAL INNOVATIONS</h4>
+                <p class="exp-role">Full Stack Engineer</p>
+                <ul>
+                    <li>Designed scalable Node.js architectures</li>
+                    <li>Integrated MongoDB and RESTful APIs</li>
+                    <li>Optimized database queries for efficiency</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h4>DATA CORP</h4>
+                <p class="exp-role">Python Automation Specialist</p>
+                <ul>
+                    <li>Developed custom automation scripts</li>
+                    <li>Built AI-driven web scrapers</li>
+                    <li>Streamlined large data collection processes</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 25px;">
-                <span class="hero-label">Career Path</span>
-                <h2>Professional Experience</h2>
-            </div>
+    <!-- ===== PROJECT GALLERY ===== -->
+    <section class="card gallery-card fade-in" id="gallery">
+        <h2 class="section-title">
+            <span class="white">PROJECT </span><span class="highlight">GALLERY</span>
+        </h2>
+        <p class="gallery-subtitle">A showcase of my recent mobile app development work</p>
 
-            <div class="experience-wrapper">
-                <div class="timeline">
-                    <!-- Role 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <span class="timeline-date">2022 - Present</span>
-                        <h3>Senior Mobile & Web Developer</h3>
-                        <h4>Tech Solutions Inc.</h4>
-                        <p>Spearheaded the development of high-performance cross-platform mobile applications using
-                            <strong>React Native</strong> and responsive web dashboards with <strong>React</strong>.
-                            Implemented complex state management using <strong>Redux Toolkit</strong> and integrated
-                            real-time features with Firebase.
-                        </p>
-                    </div>
-
-                    <!-- Role 2 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <span class="timeline-date">2020 - 2022</span>
-                        <h3>Full Stack Engineer</h3>
-                        <h4>Digital Innovations</h4>
-                        <p>Designed and deployed scalable backend architectures using <strong>Node.js</strong> and
-                            MongoDB.
-                            Integrated secure RESTful APIs and optimized database queries for speed and efficiency.</p>
-                    </div>
-
-                    <!-- Role 3 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <span class="timeline-date">2019 - 2020</span>
-                        <h3>Python Automation Specialist</h3>
-                        <h4>Data Corp</h4>
-                        <p>Developed custom automation scripts and web scrapers to streamline data collection processes.
-                            Leveraged Python for AI-driven solutions and task automation.</p>
-                    </div>
+        <!-- Project: TheSeeksAcademy -->
+        <div class="gallery-project">
+            <div class="gallery-project-header">
+                <div class="gallery-project-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                    <h3 class="gallery-project-name">TheSeeksAcademy</h3>
+                    <p class="gallery-project-tag">Educational Platform (TypeScript)</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 25px;">
-                <span class="hero-label">Portfolio</span>
-                <h2>Featured Projects</h2>
-            </div>
-
-            <div class="projects-wrapper">
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/IftikharZahid/PGC-Website" target="_blank"><i
-                                        class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>PGC College Website</h3>
-                        <p>A full-stack College Management System with modern UI featuring gradients, animations, and
-                            glassmorphism. Includes admissions, courses, and student portal.</p>
-                        <div class="tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Tailwind CSS</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/IftikharZahid/TheSeeksAcademy" target="_blank"><i
-                                        class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>The Seeks Academy</h3>
-                        <p>An educational platform built with TypeScript, focusing on providing accessible learning
-                            resources and interactive courses.</p>
-                        <div class="tags">
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">EdTech</span>
-                            <span class="tag">Web Platform</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/IftikharZahid/digitalBook" target="_blank"><i
-                                        class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>DigitalBook App</h3>
-                        <p>A comprehensive mobile application built with Expo and JavaScript, designed for seamless
-                            digital
-                            content consumption and management.</p>
-                        <div class="tags">
-                            <span class="tag">React Native</span>
-                            <span class="tag">Expo</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/IftikharZahid/Restaurant-App" target="_blank"><i
-                                        class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>Foodie Restaurant App</h3>
-                        <p>A cross-platform mobile app for food delivery services featuring cart functionality,
-                            user authentication, and a sleek UI for seamless ordering experience.</p>
-                        <div class="tags">
-                            <span class="tag">React Native</span>
-                            <span class="tag">Redux</span>
-                            <span class="tag">Tailwind CSS</span>
-                        </div>
-                    </div>
-
-
-                    <!-- Project 5 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/IftikharZahid/BGRemover" target="_blank"><i
-                                        class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>AI Background Remover</h3>
-                        <p>A Python-based computer vision tool that automatically detects and removes backgrounds from
-                            images with high precision.</p>
-                        <div class="tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">AI</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 6: Social Media Scraper -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/IftikharZahid/social-media-scraping-apis" target="_blank"><i
-                                        class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>Social Media Scraper</h3>
-                        <p>A curated collection of scraping tools for extracting data from Instagram, LinkedIn, and
-                            more.
-                        </p>
-                        <div class="tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Automation</span>
-                            <span class="tag">APIs</span>
-                        </div>
-                    </div>
-
-                    <!-- Project UStore -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/IftikharZahid/UStore" target="_blank"><i
-                                        class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>UStore</h3>
-                        <p>A modern e-commerce application developed with TypeScript, focusing on performance, type
-                            safety,
-                            and a seamless user shopping experience.</p>
-                        <div class="tags">
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">E-commerce</span>
-                            <span class="tag">React Native</span>
-                        </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in fade-in-delay-1" onclick="openLightbox(this)">
+                    <img src="assets/TheSeeksAcademy/TheSeeksAcademy Mobile App 00.jpeg" alt="TheSeeksAcademy App - Screen 1" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Full</span>
                     </div>
                 </div>
-
-                <div class="text-center" style="margin-top: 20px;">
-                    <a href="https://github.com/IftikharZahid?tab=repositories" target="_blank"
-                        class="btn btn-secondary">View All Repositories</a>
+                <div class="gallery-item fade-in fade-in-delay-2" onclick="openLightbox(this)">
+                    <img src="assets/TheSeeksAcademy/TheSeeksAcademy Mobile App 01.jpeg" alt="TheSeeksAcademy App - Screen 2" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Full</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 25px;">
-                <span class="hero-label">Showcase</span>
-                <h2>Project Gallery</h2>
-            </div>
-
-            <div class="gallery-wrapper">
-                <div class="gallery-grid">
-                    <!-- Mobile App UI - Educational -->
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
-                            alt="Educational App UI">
-                        <div class="gallery-overlay">
-                            <span class="gallery-title">Educational App UI</span>
-                            <span class="gallery-category">Mobile App</span>
-                        </div>
-                    </div>
-
-                    <!-- E-Commerce App UI -->
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&h=400&fit=crop"
-                            alt="E-Commerce App UI">
-                        <div class="gallery-overlay">
-                            <span class="gallery-title">E-Commerce App UI</span>
-                            <span class="gallery-category">Shopping App</span>
-                        </div>
-                    </div>
-
-                    <!-- Food Delivery App UI -->
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&h=400&fit=crop"
-                            alt="Food Delivery App UI">
-                        <div class="gallery-overlay">
-                            <span class="gallery-title">Restaurant App UI</span>
-                            <span class="gallery-category">Food Delivery</span>
-                        </div>
-                    </div>
-
-                    <!-- Admin Dashboard UI -->
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
-                            alt="Admin Dashboard">
-                        <div class="gallery-overlay">
-                            <span class="gallery-title">Institute Dashboard</span>
-                            <span class="gallery-category">Web Dashboard</span>
-                        </div>
-                    </div>
-
-                    <!-- Analytics Dashboard -->
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
-                            alt="Analytics Dashboard">
-                        <div class="gallery-overlay">
-                            <span class="gallery-title">Analytics Dashboard</span>
-                            <span class="gallery-category">Data Visualization</span>
-                        </div>
-                    </div>
-
-                    <!-- Mobile App Screens -->
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=600&h=400&fit=crop"
-                            alt="Mobile App Screens">
-                        <div class="gallery-overlay">
-                            <span class="gallery-title">Mobile App Screens</span>
-                            <span class="gallery-category">UI/UX Design</span>
-                        </div>
+                <div class="gallery-item fade-in fade-in-delay-3" onclick="openLightbox(this)">
+                    <img src="assets/TheSeeksAcademy/TheSeeksAcademy Mobile App 03.jpeg" alt="TheSeeksAcademy App - Screen 3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Full</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="Gallery Image">
-        <div id="lightbox-caption"></div>
-    </div>
+</div>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="hero-label">Testimonials</span>
-                <h2>What Clients Say</h2>
-                <p class="section-subtitle">Feedback from clients and colleagues I've had the pleasure of working with.
-                </p>
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(event, -1)" aria-label="Previous">&#10094;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Full size project image">
+    <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(event, 1)" aria-label="Next">&#10095;</button>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<!-- ===== CHATBOT ===== -->
+<div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <i class="fas fa-robot"></i>
+                <span class="chatbot-title">Chat with Me!</span>
             </div>
-
-            <div class="testimonials-wrapper">
-                <!-- Testimonials Slider -->
-                <div class="testimonial-slider">
-                    <div class="testimonial-slides">
-                        <!-- Slide 1 -->
-                        <div class="testimonial-slide active">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                                <p class="testimonial-text">"Iftikhar delivered an exceptional mobile app that exceeded
-                                    our
-                                    expectations. His attention to detail and understanding of user experience made our
-                                    project a huge success."</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                                            alt="Bilal Ahmed">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Bilal Ahmed</h4>
-                                        <p>CEO, TechVenture Lahore</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="testimonial-text">"Working with Iftikhar was a fantastic experience. He
-                                    transformed our complex requirements into a beautiful, functional React Native app.
-                                    Highly recommended!"</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
-                                            alt="Fatima Malik">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Fatima Malik</h4>
-                                        <p>Product Manager, Nayatel</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 3 -->
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                                <p class="testimonial-text">"Iftikhar's expertise in Firebase helped us build a scalable
-                                    backend for our educational platform. He's professional, reliable, and delivers
-                                    quality
-                                    work on time."</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-                                            alt="Usman Tariq">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Usman Tariq</h4>
-                                        <p>Founder, LearnPak Academy</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 4 -->
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="testimonial-text">"Outstanding e-commerce app! The UI is stunning and the
-                                    performance is exceptional. Iftikhar is now our go-to developer for all mobile
-                                    projects."</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
-                                            alt="Ayesha Siddiqui">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Ayesha Siddiqui</h4>
-                                        <p>CTO, DarazTech Karachi</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 5 -->
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star-half-stroke"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="testimonial-text">"Python automation scripts saved our team countless hours.
-                                    His
-                                    understanding of AI and data processing is impressive. A true professional!"</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
-                                            alt="Hassan Raza">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Hassan Raza</h4>
-                                        <p>Data Lead, Systems Ltd</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 6 -->
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <p class="testimonial-text">"Great communication and excellent technical skills.
-                                    Iftikhar
-                                    understood our vision perfectly and delivered a product that our users love."</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face"
-                                            alt="Sana Amir">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Sana Amir</h4>
-                                        <p>Director, Arbisoft</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Navigation Arrows -->
-                    <button class="slider-arrow slider-prev" aria-label="Previous testimonial">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button class="slider-arrow slider-next" aria-label="Next testimonial">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Dots Navigation -->
-                    <div class="slider-dots">
-                        <button class="slider-dot active" data-slide="0"></button>
-                        <button class="slider-dot" data-slide="1"></button>
-                        <button class="slider-dot" data-slide="2"></button>
-                        <button class="slider-dot" data-slide="3"></button>
-                        <button class="slider-dot" data-slide="4"></button>
-                        <button class="slider-dot" data-slide="5"></button>
-                    </div>
-                </div>
+            <button class="chatbot-close-btn" id="chatbot-close-btn">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chatbot-message bot">
+                Hi! I'm Iftikhar's virtual assistant. You can ask me about his skills, experience, projects, or contact details.
             </div>
         </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-container">
-                    <span class="hero-label">What's Next?</span>
-                    <h2 style="margin: 12px 0;">Get In Touch</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 25px;">
-                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
-                        visions.
-                    </p>
-
-                    <!-- Contact Form -->
-                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnjzjonb" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" name="name" id="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="subject" id="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" id="message" rows="5" placeholder="Your Message"
-                                required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa-regular fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-
-                    <div class="divider-text">
-                        <span>or reach out directly</span>
-                    </div>
-
-                    <div class="socials">
-                        <a href="https://wa.link/q2fanj" class="social-icon" target="_blank" title="WhatsApp"><i
-                                class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://facebook.com/IftikharXahid" class="social-icon" target="_blank"
-                            title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://github.com/IftikharZahid" class="social-icon" target="_blank" title="GitHub"><i
-                                class="fa-brands fa-github"></i></a>
-                        <a href="mailto:xahidcodes@gmail.com" class="social-icon" title="Email"><i
-                                class="fa-regular fa-envelope"></i></a>
-                        <a href="https://linkedin.com/in/IftikharZahid" class="social-icon" target="_blank"
-                            title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>© <span id="current-year"></span> <a href="#" class="footer-link">Zahid.Codes</a> | Built with ❤️ by
-                <a href="https://facebook.com/IftikharXahid" target="_blank" class="footer-link">Iftikhar Zahid</a>
-            </p>
-        </div>
-    </footer>
-
-    <!-- ===== CHATBOT ===== -->
-    <div class="chatbot-container" id="techie-chatbot-container">
-        <div class="chatbot-window" id="techie-chatbot-window">
-            <div class="chatbot-header">
-                <div class="chatbot-header-info">
-                    <i class="fas fa-robot"></i>
-                    <span class="chatbot-title">Techie</span>
-                </div>
-                <button class="chatbot-close-btn" id="techie-chatbot-close-btn">&times;</button>
-            </div>
-            <div class="chatbot-messages" id="techie-chatbot-messages">
-                <div class="chatbot-message bot">
-                    Hi i'm Techie Trained By <strong>Iftikhar Zahid</strong>, How can i assist you?
-                </div>
-            </div>
-            <div class="chatbot-input">
-                <input type="text" id="techie-chatbot-input-field" placeholder="Ask something..." autocomplete="off">
-                <button id="techie-chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-        <div class="chatbot-toggle-btn" id="techie-chatbot-toggle-btn">
-            <div class="chatbot-icon-shape">
-                <i class="fas fa-comment-dots"></i>
-            </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask something..." autocomplete="off">
+            <button id="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
+    <div class="chatbot-toggle-btn" id="chatbot-toggle-btn">
+        <div class="chatbot-icon-shape">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+    </div>
+</div>
 
-    <script src="js/script.js"></script>
+<!-- JavaScript -->
+<script src="script.js"></script>
 </body>
-
 </html>

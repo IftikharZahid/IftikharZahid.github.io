@@ -1,0 +1,19 @@
+{
+  "name": "Iftikhar Zahid — Portfolio",
+  "short_name": "IftikharZahid",
+  "description": "React & React Native developer portfolio.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06080f",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://github.com/IftikharZahid.png",
+      "sizes": "460x460",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
