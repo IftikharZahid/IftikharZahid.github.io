@@ -352,32 +352,32 @@ body {
     transition: width 1.5s ease;
 }
 
+.language-bar-fill.urdu {
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-orange), #f5a623);
+}
+
 .language-bar-fill.english {
     width: 0%;
     background: linear-gradient(90deg, var(--primary-orange), #f5a623);
 }
 
-.language-bar-fill.korean {
-    width: 0%;
-    background: linear-gradient(90deg, var(--primary-orange), #f5a623);
-}
-
-.language-bar-fill.french {
+.language-bar-fill.punjabi {
     width: 0%;
     background: linear-gradient(90deg, var(--primary-orange), #f5a623);
 }
 
 /* Animated state */
-.language-bar-fill.english.animate {
-    width: 92%;
+.language-bar-fill.urdu.animate {
+    width: 100%;
 }
 
-.language-bar-fill.korean.animate {
+.language-bar-fill.english.animate {
     width: 75%;
 }
 
-.language-bar-fill.french.animate {
-    width: 60%;
+.language-bar-fill.punjabi.animate {
+    width: 100%;
 }
 
 /* ===== PROFESSIONAL SKILLS ===== */
@@ -1043,11 +1043,22 @@ body {
 }
 
 @media (max-width: 480px) {
+    .chatbot-container {
+        bottom: 10px;
+        right: 10px;
+    }
+    .chatbot-toggle-btn {
+        width: 45px;
+        height: 45px;
+    }
+    .chatbot-icon-shape {
+        font-size: 1.1rem;
+    }
     .chatbot-window {
-        width: calc(100vw - 40px);
-        max-width: 320px;
-        height: 60vh;
-        max-height: 400px;
-        bottom: 70px;
+        width: 280px;
+        height: 320px;
+        max-height: calc(100vh - 70px);
+        bottom: 55px;
+        right: 0;
     }
 }
