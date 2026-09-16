@@ -147,8 +147,8 @@ function initChatbot() {
             answer: "I have 20+ repositories on my GitHub."
         },
         {
-            keywords: ['contact', 'email', 'website', 'social', 'facebook', 'reach'],
-            answer: "You can find me at <a href='https://zahid.codes' target='_blank' style='color:var(--primary-orange)'>zahid.codes</a>, on GitHub at IftikharZahid, on Facebook at IftikharXahid, or email me at iftikhar@zahid.codes."
+            keywords: ['contact', 'email', 'website', 'social', 'facebook', 'reach', 'whatsapp', 'linkedin'],
+            answer: "You can reach me via <a href='https://wa.link/q2fanj' target='_blank' style='color:var(--primary-orange)'>WhatsApp</a>, <a href='https://facebook.com/IftikharXahid' target='_blank' style='color:var(--primary-orange)'>Facebook</a>, <a href='https://github.com/IftikharZahid' target='_blank' style='color:var(--primary-orange)'>GitHub</a>, or <a href='https://linkedin.com/in/IftikharZahid' target='_blank' style='color:var(--primary-orange)'>LinkedIn</a>."
         },
         {
             keywords: ['about', 'bio', 'who', 'yourself'],
@@ -160,7 +160,7 @@ function initChatbot() {
         },
         {
             keywords: ['language', 'languages'],
-            answer: "I know English, Korean, and French."
+            answer: "I am fluent in Urdu, English, and Punjabi."
         },
         {
             keywords: ['skills', 'technical', 'tech stack', 'frameworks'],

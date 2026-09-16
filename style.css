@@ -1013,6 +1013,7 @@ body {
 
 .chatbot-input input {
     flex: 1;
+    min-width: 0;
     background: transparent;
     border: none;
     color: var(--text-white);
@@ -1055,10 +1056,28 @@ body {
         font-size: 1.1rem;
     }
     .chatbot-window {
-        width: 280px;
-        height: 320px;
+        width: calc(100vw - 40px);
+        max-width: 270px;
+        height: 290px;
         max-height: calc(100vh - 70px);
         bottom: 55px;
         right: 0;
+    }
+    .chatbot-header {
+        padding: 8px 12px;
+    }
+    .chatbot-header-info {
+        font-size: 0.9rem;
+    }
+    .chatbot-messages {
+        padding: 10px;
+        gap: 8px;
+    }
+    .chatbot-message {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+    .chatbot-input {
+        padding: 8px 12px;
     }
 }
