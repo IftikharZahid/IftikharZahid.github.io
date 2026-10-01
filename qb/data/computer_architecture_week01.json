@@ -1,0 +1,833 @@
+{
+  "book": "Computer Architecture and Organization",
+  "course": "Computer Architecture and Organization",
+  "week": 1,
+  "weekTitle": "Week 01",
+  "topic": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+  "level": "BS Computer Science",
+  "questionType": "MCQ",
+  "language": "English",
+  "createdBy": "Lec. Iftikhar Zahid",
+  "totalQuestions": 39,
+  "mcqs": [
+    {
+      "question": "What is the primary focus of Week 1 in Computer Architecture and Organization?",
+      "options": [
+        {
+          "text": "CPU registers and addressing modes",
+          "isCorrect": false
+        },
+        {
+          "text": "Review of Digital Logic and Design and an overview of computer hardware and software",
+          "isCorrect": true
+        },
+        {
+          "text": "Cache mapping only",
+          "isCorrect": false
+        },
+        {
+          "text": "Assembly language programming",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which number system is commonly used to represent information in digital computers?",
+      "options": [
+        {
+          "text": "Decimal",
+          "isCorrect": false
+        },
+        {
+          "text": "Binary",
+          "isCorrect": true
+        },
+        {
+          "text": "Octal only",
+          "isCorrect": false
+        },
+        {
+          "text": "Roman",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is a bit?",
+      "options": [
+        {
+          "text": "A group of 16 bytes",
+          "isCorrect": false
+        },
+        {
+          "text": "A binary digit with a value of 0 or 1",
+          "isCorrect": true
+        },
+        {
+          "text": "A CPU instruction",
+          "isCorrect": false
+        },
+        {
+          "text": "A storage device",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "How many bits are in one byte?",
+      "options": [
+        {
+          "text": "2",
+          "isCorrect": false
+        },
+        {
+          "text": "4",
+          "isCorrect": false
+        },
+        {
+          "text": "8",
+          "isCorrect": true
+        },
+        {
+          "text": "16",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is digital logic?",
+      "options": [
+        {
+          "text": "Logic based on continuous physical quantities only",
+          "isCorrect": false
+        },
+        {
+          "text": "Logic based on discrete states used to construct digital circuits",
+          "isCorrect": true
+        },
+        {
+          "text": "A programming language",
+          "isCorrect": false
+        },
+        {
+          "text": "A type of storage",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which of the following is a fundamental digital logic building block?",
+      "options": [
+        {
+          "text": "Logic gate",
+          "isCorrect": true
+        },
+        {
+          "text": "Hard disk",
+          "isCorrect": false
+        },
+        {
+          "text": "Compiler",
+          "isCorrect": false
+        },
+        {
+          "text": "Keyboard",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which gate produces 1 only when all required inputs are 1?",
+      "options": [
+        {
+          "text": "OR",
+          "isCorrect": false
+        },
+        {
+          "text": "AND",
+          "isCorrect": true
+        },
+        {
+          "text": "NOT",
+          "isCorrect": false
+        },
+        {
+          "text": "XOR",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which logic gate performs logical inversion?",
+      "options": [
+        {
+          "text": "AND",
+          "isCorrect": false
+        },
+        {
+          "text": "OR",
+          "isCorrect": false
+        },
+        {
+          "text": "NOT",
+          "isCorrect": true
+        },
+        {
+          "text": "NAND",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which gate is the inverse of an AND operation?",
+      "options": [
+        {
+          "text": "NOR",
+          "isCorrect": false
+        },
+        {
+          "text": "NAND",
+          "isCorrect": true
+        },
+        {
+          "text": "XOR",
+          "isCorrect": false
+        },
+        {
+          "text": "XNOR",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which gate is the inverse of an OR operation?",
+      "options": [
+        {
+          "text": "NAND",
+          "isCorrect": false
+        },
+        {
+          "text": "XOR",
+          "isCorrect": false
+        },
+        {
+          "text": "NOR",
+          "isCorrect": true
+        },
+        {
+          "text": "AND",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "For a two-input XOR gate, the output is 1 when:",
+      "options": [
+        {
+          "text": "Both inputs are 0",
+          "isCorrect": false
+        },
+        {
+          "text": "Both inputs are 1",
+          "isCorrect": false
+        },
+        {
+          "text": "The inputs differ",
+          "isCorrect": true
+        },
+        {
+          "text": "The inputs are always equal",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What does a truth table show?",
+      "options": [
+        {
+          "text": "Only the input values",
+          "isCorrect": false
+        },
+        {
+          "text": "Possible input combinations and their corresponding outputs",
+          "isCorrect": true
+        },
+        {
+          "text": "Only CPU registers",
+          "isCorrect": false
+        },
+        {
+          "text": "Memory addresses only",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "In combinational logic, the output depends primarily on:",
+      "options": [
+        {
+          "text": "Current inputs",
+          "isCorrect": true
+        },
+        {
+          "text": "Previous clock cycles only",
+          "isCorrect": false
+        },
+        {
+          "text": "Disk contents",
+          "isCorrect": false
+        },
+        {
+          "text": "Program files",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which is an example of sequential logic?",
+      "options": [
+        {
+          "text": "Adder",
+          "isCorrect": false
+        },
+        {
+          "text": "Multiplexer",
+          "isCorrect": false
+        },
+        {
+          "text": "Register",
+          "isCorrect": true
+        },
+        {
+          "text": "Decoder",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which statement correctly describes sequential logic?",
+      "options": [
+        {
+          "text": "Its output depends only on current inputs",
+          "isCorrect": false
+        },
+        {
+          "text": "It involves stored state in addition to current inputs",
+          "isCorrect": true
+        },
+        {
+          "text": "It cannot store information",
+          "isCorrect": false
+        },
+        {
+          "text": "It is used only for input devices",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is the primary role of the CPU?",
+      "options": [
+        {
+          "text": "Permanent storage",
+          "isCorrect": false
+        },
+        {
+          "text": "Execute instructions and coordinate processing operations",
+          "isCorrect": true
+        },
+        {
+          "text": "Display output",
+          "isCorrect": false
+        },
+        {
+          "text": "Provide internet access",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which CPU component performs arithmetic and logical operations?",
+      "options": [
+        {
+          "text": "Control Unit",
+          "isCorrect": false
+        },
+        {
+          "text": "ALU",
+          "isCorrect": true
+        },
+        {
+          "text": "Storage Unit",
+          "isCorrect": false
+        },
+        {
+          "text": "Input Unit",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What does ALU stand for?",
+      "options": [
+        {
+          "text": "Arithmetic and Logic Unit",
+          "isCorrect": true
+        },
+        {
+          "text": "Application Logic Utility",
+          "isCorrect": false
+        },
+        {
+          "text": "Address Logic Unit",
+          "isCorrect": false
+        },
+        {
+          "text": "Arithmetic Loading Unit",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which CPU component coordinates instruction execution?",
+      "options": [
+        {
+          "text": "ALU",
+          "isCorrect": false
+        },
+        {
+          "text": "Control Unit",
+          "isCorrect": true
+        },
+        {
+          "text": "Keyboard",
+          "isCorrect": false
+        },
+        {
+          "text": "Secondary Storage",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is the role of the Control Unit?",
+      "options": [
+        {
+          "text": "Perform all arithmetic operations",
+          "isCorrect": false
+        },
+        {
+          "text": "Coordinate instruction execution and generate control signals",
+          "isCorrect": true
+        },
+        {
+          "text": "Store files permanently",
+          "isCorrect": false
+        },
+        {
+          "text": "Display information",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What are CPU registers?",
+      "options": [
+        {
+          "text": "Large external storage devices",
+          "isCorrect": false
+        },
+        {
+          "text": "High-speed storage locations associated directly with the CPU",
+          "isCorrect": true
+        },
+        {
+          "text": "Input devices",
+          "isCorrect": false
+        },
+        {
+          "text": "Software programs",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which statement about registers is correct?",
+      "options": [
+        {
+          "text": "They are slower than secondary storage",
+          "isCorrect": false
+        },
+        {
+          "text": "They hold values, addresses, instructions, or control information needed during processing",
+          "isCorrect": true
+        },
+        {
+          "text": "They are only used for permanent storage",
+          "isCorrect": false
+        },
+        {
+          "text": "They replace all main memory",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is the primary role of main memory?",
+      "options": [
+        {
+          "text": "Store programs and data needed during processing",
+          "isCorrect": true
+        },
+        {
+          "text": "Print documents",
+          "isCorrect": false
+        },
+        {
+          "text": "Perform logical operations",
+          "isCorrect": false
+        },
+        {
+          "text": "Connect to a network",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which component provides communication between the computer system and external devices?",
+      "options": [
+        {
+          "text": "Input/Output",
+          "isCorrect": true
+        },
+        {
+          "text": "ALU",
+          "isCorrect": false
+        },
+        {
+          "text": "Register",
+          "isCorrect": false
+        },
+        {
+          "text": "Control Unit only",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which of the following is an input device?",
+      "options": [
+        {
+          "text": "Display",
+          "isCorrect": false
+        },
+        {
+          "text": "Printer",
+          "isCorrect": false
+        },
+        {
+          "text": "Keyboard",
+          "isCorrect": true
+        },
+        {
+          "text": "Speaker",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which of the following is an output device?",
+      "options": [
+        {
+          "text": "Keyboard",
+          "isCorrect": false
+        },
+        {
+          "text": "Mouse",
+          "isCorrect": false
+        },
+        {
+          "text": "Scanner",
+          "isCorrect": false
+        },
+        {
+          "text": "Display",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "question": "What is the purpose of secondary storage?",
+      "options": [
+        {
+          "text": "Provide persistent storage for programs and data",
+          "isCorrect": true
+        },
+        {
+          "text": "Execute CPU instructions directly",
+          "isCorrect": false
+        },
+        {
+          "text": "Perform Boolean operations",
+          "isCorrect": false
+        },
+        {
+          "text": "Generate control signals",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which statement best describes computer hardware?",
+      "options": [
+        {
+          "text": "Programs and instructions",
+          "isCorrect": false
+        },
+        {
+          "text": "Physical components of a computer system",
+          "isCorrect": true
+        },
+        {
+          "text": "Only operating systems",
+          "isCorrect": false
+        },
+        {
+          "text": "Only application programs",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which statement best describes software?",
+      "options": [
+        {
+          "text": "Physical components",
+          "isCorrect": false
+        },
+        {
+          "text": "Programs, instructions, and related components that direct hardware",
+          "isCorrect": true
+        },
+        {
+          "text": "Only CPU registers",
+          "isCorrect": false
+        },
+        {
+          "text": "A type of memory chip",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is system software?",
+      "options": [
+        {
+          "text": "Software that supports operation and management of computer hardware",
+          "isCorrect": true
+        },
+        {
+          "text": "Only games",
+          "isCorrect": false
+        },
+        {
+          "text": "Only word processors",
+          "isCorrect": false
+        },
+        {
+          "text": "Only web pages",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which is an example of application software?",
+      "options": [
+        {
+          "text": "Operating system",
+          "isCorrect": false
+        },
+        {
+          "text": "Device-related software",
+          "isCorrect": false
+        },
+        {
+          "text": "Word processing software",
+          "isCorrect": true
+        },
+        {
+          "text": "System utility",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is the relationship between hardware and software?",
+      "options": [
+        {
+          "text": "They are independent and never interact",
+          "isCorrect": false
+        },
+        {
+          "text": "Hardware provides physical resources while software provides instructions for using them",
+          "isCorrect": true
+        },
+        {
+          "text": "Software replaces hardware",
+          "isCorrect": false
+        },
+        {
+          "text": "Hardware is a type of application",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which sequence represents the simplified conceptual instruction-processing cycle introduced in Week 1?",
+      "options": [
+        {
+          "text": "Execute → Fetch → Decode → Store",
+          "isCorrect": false
+        },
+        {
+          "text": "Fetch → Decode → Execute → Store/Write Back",
+          "isCorrect": true
+        },
+        {
+          "text": "Decode → Store → Fetch → Execute",
+          "isCorrect": false
+        },
+        {
+          "text": "Store → Execute → Fetch → Decode",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Why is digital logic important in computer architecture?",
+      "options": [
+        {
+          "text": "It provides the foundation for digital circuits used in computer hardware",
+          "isCorrect": true
+        },
+        {
+          "text": "It replaces software",
+          "isCorrect": false
+        },
+        {
+          "text": "It is used only for printers",
+          "isCorrect": false
+        },
+        {
+          "text": "It eliminates the need for memory",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which of the following is an example of combinational logic?",
+      "options": [
+        {
+          "text": "Register",
+          "isCorrect": false
+        },
+        {
+          "text": "Counter",
+          "isCorrect": false
+        },
+        {
+          "text": "Adder",
+          "isCorrect": true
+        },
+        {
+          "text": "Memory state circuit",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which component stores active programs and data during processing?",
+      "options": [
+        {
+          "text": "Main Memory",
+          "isCorrect": true
+        },
+        {
+          "text": "Printer",
+          "isCorrect": false
+        },
+        {
+          "text": "Keyboard",
+          "isCorrect": false
+        },
+        {
+          "text": "Output device",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which pair is correctly matched?",
+      "options": [
+        {
+          "text": "ALU — coordinates instruction execution",
+          "isCorrect": false
+        },
+        {
+          "text": "Control Unit — performs arithmetic only",
+          "isCorrect": false
+        },
+        {
+          "text": "CPU — executes instructions",
+          "isCorrect": true
+        },
+        {
+          "text": "Secondary Storage — performs Boolean logic",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which of the following is a key Week 1 concept?",
+      "options": [
+        {
+          "text": "Hardware and software relationship",
+          "isCorrect": true
+        },
+        {
+          "text": "RAID 10 implementation",
+          "isCorrect": false
+        },
+        {
+          "text": "Detailed assembly directives",
+          "isCorrect": false
+        },
+        {
+          "text": "Indirect addressing modes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is the main purpose of Week 1?",
+      "options": [
+        {
+          "text": "To study only RAID",
+          "isCorrect": false
+        },
+        {
+          "text": "To establish foundational understanding of digital logic, hardware, and software before later architecture topics",
+          "isCorrect": true
+        },
+        {
+          "text": "To complete assembly language programming",
+          "isCorrect": false
+        },
+        {
+          "text": "To study only CPU flags",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

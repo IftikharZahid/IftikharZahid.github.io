@@ -54,11 +54,19 @@
   </header>
 
   <main>
+    <div id="examInProgressBanner" class="examBanner wrap hidden no-print">
+      <div class="examBannerContent">
+        <span class="examBannerPulse"></span>
+        <span id="bannerInfo"><b>Exam in Progress:</b> Question 1 • 60:00 remaining</span>
+      </div>
+      <button id="bannerResumeBtn" class="primary" type="button">▶ Resume Exam →</button>
+    </div>
+
     <section id="home" class="hero wrap">
       <div>
-        <div class="badge"><span class="badgeDot"></span>BS Computer Science • Automata • Week 02</div>
+        <div class="badge" id="heroBadge"><span class="badgeDot"></span><span id="heroBadgeText">BS Computer Science • Theory of Automata • Week 02</span></div>
         <h1>Master Your Exams with <span>Smart MCQs</span></h1>
-        <p>Practice verified lecture content on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination, live scoring, and answer explanations.</p>
+        <p id="heroDesc">Practice verified lecture content on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination, live scoring, and answer explanations.</p>
         <div class="actions">
           <button id="startHero" class="primary big">Start Practice Exam →</button>
           <button data-go="subjects" class="secondary big">View Subject</button>
@@ -75,14 +83,16 @@
           <div class="previewLogo">
             <img src="logo.png" alt="MCQs Question Bank Logo" class="previewLogoImg">
             <div>
-              <small>THEORY OF AUTOMATA • WEEK 02</small>
-              <h3 style="margin:0;">Sample Practice MCQ</h3>
+              <small id="previewSubTag">THEORY OF AUTOMATA • WEEK 02</small>
+              <h3 id="previewQuestionPrompt" style="margin:0;">Sample Practice MCQ</h3>
             </div>
           </div>
-          <p>A. Union</p>
-          <p>B. Concatenation</p>
-          <p class="ok">C. Kleene Star ✓</p>
-          <p>D. Addition</p>
+          <div id="previewOptions">
+            <p>A. Union</p>
+            <p>B. Concatenation</p>
+            <p class="ok">C. Kleene Star ✓</p>
+            <p>D. Addition</p>
+          </div>
           <div class="previewFoot">
             <span>Score: 82%</span>
             <span>00:24:18 remaining</span>
@@ -94,30 +104,26 @@
     <section id="subjects" class="wrap section">
       <div class="title">
         <div>
-          <small class="eyebrow">COURSE MODULE</small>
-          <h2>Subject & Topic</h2>
+          <small class="eyebrow">ACADEMIC COURSE CATALOG & BOOKS</small>
+          <h2>Subject & Book Records</h2>
         </div>
-        <p>Organized directly from the supplied Week 02 lecture.</p>
+        <div class="subjectCatalogActions">
+          <button id="addSubjectBtn" class="primary" style="font-size:12.5px;padding:8px 16px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;">
+            <span>➕</span> Add / Import Book Record
+          </button>
+        </div>
       </div>
-      <button id="startSubject" class="subject">
-        <div class="subjectIcon">Σ</div>
-        <div class="subjectInfo">
-          <div class="subjectHeader">
-            <b>Theory of Automata</b>
-            <span class="tag">Week 02</span>
-            <span class="tag success">40 MCQs Ready</span>
-          </div>
-          <small>Regular Expressions & Recursive Definitions of Languages</small>
-        </div>
-        <span class="primary subjectCta">Start Test →</span>
-      </button>
+      <p style="color:var(--m);font-size:13px;margin:-10px 0 16px 0;">Select an academic course book to practice MCQs, or import a new book syllabus record via JSON.</p>
+      <div id="subjectGrid" class="subjectGrid">
+        <!-- Rendered dynamically -->
+      </div>
     </section>
 
     <section id="live" class="wrap section hidden">
       <div class="liveTitle">
         <div>
           <small class="eyebrow">EXAM IN PROGRESS • SEQUENTIAL MODE</small>
-          <h2>Week 02 Examination <span class="tag" style="margin-left:6px;font-size:10px;vertical-align:middle;">🔒 Forward-Only</span></h2>
+          <h2 id="liveExamTitle">Week 02 Examination <span class="tag" style="margin-left:6px;font-size:10px;vertical-align:middle;">🔒 Forward-Only</span></h2>
         </div>
         <div id="timer" class="timer">
           <small>TIME REMAINING</small>
@@ -174,7 +180,7 @@
           <div class="academicTitleBlock">
             <h1 class="institutionName">DEPARTMENT OF COMPUTER SCIENCE</h1>
             <h2 class="documentTitle">OFFICIAL EXAMINATION TRANSCRIPT & MARKS SHEET</h2>
-            <p class="transcriptMeta">Course: <b>Theory of Automata</b> • BS Computer Science • Continuous Assessment Examination</p>
+            <p class="transcriptMeta">Course: <b id="dispTranscriptCourse">Theory of Automata</b> • <span id="dispTranscriptLevel">BS Computer Science</span> • Continuous Assessment Examination</p>
           </div>
           <div class="transcriptStamp">
             <span class="stampTag" id="transcriptStamp">VERIFIED</span>
@@ -198,7 +204,7 @@
                 <th>Class / Section:</th>
                 <td id="dispStudentClass">—</td>
                 <th>Subject / Course:</th>
-                <td>Theory of Automata (Week 02)</td>
+                <td id="dispStudentCourse">Theory of Automata (Week 02)</td>
               </tr>
               <tr>
                 <th>Examination Date:</th>
@@ -229,8 +235,8 @@
             <tbody>
               <tr>
                 <td style="text-align:left;">
-                  <b>Theory of Automata — MCQs Examination</b><br>
-                  <small style="color:var(--m);">Week 02: Regular Expressions & Recursive Definitions of Languages</small>
+                  <b id="dispAssessmentComponent">Theory of Automata — MCQs Examination</b><br>
+                  <small style="color:var(--m);" id="dispAssessmentTopic">Week 02: Regular Expressions & Recursive Definitions of Languages</small>
                 </td>
                 <td style="text-align:center;font-weight:600;" id="tMaxMarks">40</td>
                 <td style="text-align:center;font-weight:700;color:var(--p);" id="tObtMarks">0</td>
@@ -284,7 +290,7 @@
         </div>
 
         <div class="academicCertFooter">
-          <small>Official System-Generated Academic Document • Theory of Automata Examination Bank • Verified Record</small>
+          <small id="dispCertFooter">Official System-Generated Academic Document • Theory of Automata Examination Bank • Verified Record</small>
         </div>
       </div>
 
@@ -329,14 +335,17 @@
       </div>
       <div class="toolGrid">
         <article>
-          <div class="toolHeader"><b>↓ Import Questions</b></div>
-          <p>Load a validated JSON array.</p>
-          <button id="import" class="secondary">Choose JSON File</button>
-          <input id="file" type="file" accept=".json" hidden>
+          <div class="toolHeader"><b>↓ Import Book & Class Record</b></div>
+          <p id="importStatusText">Load JSON file or question bank. Prompts for book, week, and class details.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button id="import" class="secondary">Choose JSON File</button>
+            <button id="restoreDefaultQuestions" class="secondary" style="font-size:11.5px;padding:6px 10px;">↺ Reset Built-in Books</button>
+          </div>
+          <input id="file" type="file" accept=".json,application/json" hidden>
         </article>
         <article>
           <div class="toolHeader"><b>↑ Export Questions</b></div>
-          <p>Download the current question bank.</p>
+          <p id="exportStatusText">Download the current question bank.</p>
           <button id="export" class="secondary">Export JSON</button>
         </article>
         <article>

@@ -678,13 +678,1293 @@ const questions=[
     "explanation": "The lecture's final section identifies Kleene's Theorem as the next week's topic.",
     "type": "single"
   }
-],L=["A","B","C","D"],K={theme:"qtheme",bm:"qbm",progress:"qprogress",result:"qresult",student:"qstudent"};
-const s={questions:[...questions],filtered:[],bankAns:{},bm:new Set(),exam:[],ans:{},marked:new Set(),locked:new Set(),skipped:new Set(),i:0,sec:3600,timer:null,result:null,student:{}};
-const $=x=>document.querySelector(x),$$=x=>[...document.querySelectorAll(x)],esc=x=>String(x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-function store(k,v){try{localStorage.setItem(k,v)}catch{}}function read(k,d){try{return localStorage.getItem(k)??d}catch{return d}}
-function toast(m,e=false){const x=document.createElement("div");x.className="toast"+(e?" err":"");x.textContent=m;$("#toast").append(x);setTimeout(()=>x.remove(),2500)}
-function go(id){$("#"+id)?.scrollIntoView({behavior:"smooth"});$("#drawer").classList.remove("drawerOpen")}
-function main(){["home","subjects","tools"].forEach(x=>$("#"+x)?.classList.remove("hidden"));$("#live").classList.add("hidden")}
+];
+
+const computerArchitectureQuestions = [
+  {
+    "id": 1,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the primary focus of Week 1 in Computer Architecture and Organization?",
+    "options": [
+      "CPU registers and addressing modes",
+      "Review of Digital Logic and Design and an overview of computer hardware and software",
+      "Cache mapping only",
+      "Assembly language programming"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Review of Digital Logic and Design and an overview of computer hardware and software",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which number system is commonly used to represent information in digital computers?",
+    "options": [
+      "Decimal",
+      "Binary",
+      "Octal only",
+      "Roman"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Binary",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is a bit?",
+    "options": [
+      "A group of 16 bytes",
+      "A binary digit with a value of 0 or 1",
+      "A CPU instruction",
+      "A storage device"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: A binary digit with a value of 0 or 1",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "How many bits are in one byte?",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: 8",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is digital logic?",
+    "options": [
+      "Logic based on continuous physical quantities only",
+      "Logic based on discrete states used to construct digital circuits",
+      "A programming language",
+      "A type of storage"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Logic based on discrete states used to construct digital circuits",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is a fundamental digital logic building block?",
+    "options": [
+      "Logic gate",
+      "Hard disk",
+      "Compiler",
+      "Keyboard"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Logic gate",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which gate produces 1 only when all required inputs are 1?",
+    "options": [
+      "OR",
+      "AND",
+      "NOT",
+      "XOR"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: AND",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which logic gate performs logical inversion?",
+    "options": [
+      "AND",
+      "OR",
+      "NOT",
+      "NAND"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: NOT",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which gate is the inverse of an AND operation?",
+    "options": [
+      "NOR",
+      "NAND",
+      "XOR",
+      "XNOR"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: NAND",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which gate is the inverse of an OR operation?",
+    "options": [
+      "NAND",
+      "XOR",
+      "NOR",
+      "AND"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: NOR",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "For a two-input XOR gate, the output is 1 when:",
+    "options": [
+      "Both inputs are 0",
+      "Both inputs are 1",
+      "The inputs differ",
+      "The inputs are always equal"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: The inputs differ",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What does a truth table show?",
+    "options": [
+      "Only the input values",
+      "Possible input combinations and their corresponding outputs",
+      "Only CPU registers",
+      "Memory addresses only"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Possible input combinations and their corresponding outputs",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "In combinational logic, the output depends primarily on:",
+    "options": [
+      "Current inputs",
+      "Previous clock cycles only",
+      "Disk contents",
+      "Program files"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Current inputs",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which is an example of sequential logic?",
+    "options": [
+      "Adder",
+      "Multiplexer",
+      "Register",
+      "Decoder"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Register",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement correctly describes sequential logic?",
+    "options": [
+      "Its output depends only on current inputs",
+      "It involves stored state in addition to current inputs",
+      "It cannot store information",
+      "It is used only for input devices"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: It involves stored state in addition to current inputs",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the primary role of the CPU?",
+    "options": [
+      "Permanent storage",
+      "Execute instructions and coordinate processing operations",
+      "Display output",
+      "Provide internet access"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Execute instructions and coordinate processing operations",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which CPU component performs arithmetic and logical operations?",
+    "options": [
+      "Control Unit",
+      "ALU",
+      "Storage Unit",
+      "Input Unit"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: ALU",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What does ALU stand for?",
+    "options": [
+      "Arithmetic and Logic Unit",
+      "Application Logic Utility",
+      "Address Logic Unit",
+      "Arithmetic Loading Unit"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Arithmetic and Logic Unit",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which CPU component coordinates instruction execution?",
+    "options": [
+      "ALU",
+      "Control Unit",
+      "Keyboard",
+      "Secondary Storage"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Control Unit",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the role of the Control Unit?",
+    "options": [
+      "Perform all arithmetic operations",
+      "Coordinate instruction execution and generate control signals",
+      "Store files permanently",
+      "Display information"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Coordinate instruction execution and generate control signals",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What are CPU registers?",
+    "options": [
+      "Large external storage devices",
+      "High-speed storage locations associated directly with the CPU",
+      "Input devices",
+      "Software programs"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: High-speed storage locations associated directly with the CPU",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement about registers is correct?",
+    "options": [
+      "They are slower than secondary storage",
+      "They hold values, addresses, instructions, or control information needed during processing",
+      "They are only used for permanent storage",
+      "They replace all main memory"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: They hold values, addresses, instructions, or control information needed during processing",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the primary role of main memory?",
+    "options": [
+      "Store programs and data needed during processing",
+      "Print documents",
+      "Perform logical operations",
+      "Connect to a network"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Store programs and data needed during processing",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which component provides communication between the computer system and external devices?",
+    "options": [
+      "Input/Output",
+      "ALU",
+      "Register",
+      "Control Unit only"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Input/Output",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is an input device?",
+    "options": [
+      "Display",
+      "Printer",
+      "Keyboard",
+      "Speaker"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Keyboard",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is an output device?",
+    "options": [
+      "Keyboard",
+      "Mouse",
+      "Scanner",
+      "Display"
+    ],
+    "answer": 3,
+    "explanation": "Correct answer: Display",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the purpose of secondary storage?",
+    "options": [
+      "Provide persistent storage for programs and data",
+      "Execute CPU instructions directly",
+      "Perform Boolean operations",
+      "Generate control signals"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Provide persistent storage for programs and data",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement best describes computer hardware?",
+    "options": [
+      "Programs and instructions",
+      "Physical components of a computer system",
+      "Only operating systems",
+      "Only application programs"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Physical components of a computer system",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement best describes software?",
+    "options": [
+      "Physical components",
+      "Programs, instructions, and related components that direct hardware",
+      "Only CPU registers",
+      "A type of memory chip"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Programs, instructions, and related components that direct hardware",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is system software?",
+    "options": [
+      "Software that supports operation and management of computer hardware",
+      "Only games",
+      "Only word processors",
+      "Only web pages"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Software that supports operation and management of computer hardware",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which is an example of application software?",
+    "options": [
+      "Operating system",
+      "Device-related software",
+      "Word processing software",
+      "System utility"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Word processing software",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the relationship between hardware and software?",
+    "options": [
+      "They are independent and never interact",
+      "Hardware provides physical resources while software provides instructions for using them",
+      "Software replaces hardware",
+      "Hardware is a type of application"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Hardware provides physical resources while software provides instructions for using them",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which sequence represents the simplified conceptual instruction-processing cycle introduced in Week 1?",
+    "options": [
+      "Execute → Fetch → Decode → Store",
+      "Fetch → Decode → Execute → Store/Write Back",
+      "Decode → Store → Fetch → Execute",
+      "Store → Execute → Fetch → Decode"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Fetch → Decode → Execute → Store/Write Back",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Why is digital logic important in computer architecture?",
+    "options": [
+      "It provides the foundation for digital circuits used in computer hardware",
+      "It replaces software",
+      "It is used only for printers",
+      "It eliminates the need for memory"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: It provides the foundation for digital circuits used in computer hardware",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is an example of combinational logic?",
+    "options": [
+      "Register",
+      "Counter",
+      "Adder",
+      "Memory state circuit"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Adder",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which component stores active programs and data during processing?",
+    "options": [
+      "Main Memory",
+      "Printer",
+      "Keyboard",
+      "Output device"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Main Memory",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which pair is correctly matched?",
+    "options": [
+      "ALU — coordinates instruction execution",
+      "Control Unit — performs arithmetic only",
+      "CPU — executes instructions",
+      "Secondary Storage — performs Boolean logic"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: CPU — executes instructions",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is a key Week 1 concept?",
+    "options": [
+      "Hardware and software relationship",
+      "RAID 10 implementation",
+      "Detailed assembly directives",
+      "Indirect addressing modes"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Hardware and software relationship",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the main purpose of Week 1?",
+    "options": [
+      "To study only RAID",
+      "To establish foundational understanding of digital logic, hardware, and software before later architecture topics",
+      "To complete assembly language programming",
+      "To study only CPU flags"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: To establish foundational understanding of digital logic, hardware, and software before later architecture topics",
+    "type": "single"
+  }
+];
+
+const oopQuestions = [
+  {
+    "id": 1,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Classes and Objects",
+    "topic": "Classes and Objects",
+    "difficulty": "Easy",
+    "question": "Which statement best describes a class in C++?",
+    "options": [
+      "A single value stored in memory",
+      "A user-defined type that groups data and behavior",
+      "A compiler command",
+      "A namespace only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A user-defined type that groups data and behavior",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Classes and Objects",
+    "topic": "Classes and Objects",
+    "difficulty": "Easy",
+    "question": "An object is best described as:",
+    "options": [
+      "A blueprint for a class",
+      "A comment in a program",
+      "An instance of a class",
+      "A header file"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — An instance of a class",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Fields / Data Members",
+    "topic": "Fields / Data Members",
+    "difficulty": "Easy",
+    "question": "Which members primarily represent the state of an object?",
+    "options": [
+      "Data members",
+      "Namespaces",
+      "Operators only",
+      "Header guards"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Data members",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Methods",
+    "topic": "Methods",
+    "difficulty": "Easy",
+    "question": "Which member represents behavior in an OOP class?",
+    "options": [
+      "Field",
+      "Method",
+      "Namespace",
+      "Literal"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Method",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Parameterized Methods",
+    "topic": "Parameterized Methods",
+    "difficulty": "Easy",
+    "question": "Which method declaration is parameterized?",
+    "options": [
+      "void display()",
+      "int getAge()",
+      "void setAge(int age)",
+      "void show()"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — void setAge(int age)",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Non-Returning Methods",
+    "topic": "Non-Returning Methods",
+    "difficulty": "Easy",
+    "question": "What does the return type void indicate?",
+    "options": [
+      "The method returns an integer",
+      "The method does not return a data value",
+      "The method cannot contain statements",
+      "The method is always static"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The method does not return a data value",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Returning Methods",
+    "topic": "Returning Methods",
+    "difficulty": "Easy",
+    "question": "Which method returns an integer value?",
+    "options": [
+      "void display()",
+      "int getMarks()",
+      "void show()",
+      "void print()"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — int getMarks()",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Methods and Arguments",
+    "topic": "Methods and Arguments",
+    "difficulty": "Medium",
+    "question": "In calculator.add(5, 7), 5 and 7 are:",
+    "options": [
+      "Classes",
+      "Fields",
+      "Arguments",
+      "Namespaces"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Arguments",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Methods and Parameters",
+    "topic": "Methods and Parameters",
+    "difficulty": "Easy",
+    "question": "In int add(int x, int y), x and y are:",
+    "options": [
+      "Objects",
+      "Parameters",
+      "Classes",
+      "Namespaces"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Parameters",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Object Member Access",
+    "topic": "Object Member Access",
+    "difficulty": "Easy",
+    "question": "Which operator accesses a member through an ordinary object?",
+    "options": [
+      "::",
+      "->",
+      ".",
+      "#"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — .",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Classes and Objects",
+    "topic": "Classes and Objects",
+    "difficulty": "Easy",
+    "question": "If Student is a class, which statement creates an object named s1?",
+    "options": [
+      "class s1 = Student;",
+      "Student s1;",
+      "object Student s1;",
+      "Student::s1;"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Student s1;",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Namespaces",
+    "topic": "Namespaces",
+    "difficulty": "Medium",
+    "question": "What is the primary purpose of a namespace?",
+    "options": [
+      "Allocate object memory",
+      "Prevent all runtime errors",
+      "Organize identifiers and reduce naming conflicts",
+      "Replace classes"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Organize identifiers and reduce naming conflicts",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Object-Oriented Programming",
+    "chapter": "std Namespace",
+    "topic": "std Namespace",
+    "difficulty": "Easy",
+    "question": "Which namespace contains cout and string?",
+    "options": [
+      "system",
+      "cpp",
+      "standard",
+      "std"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — std",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Object-Oriented Programming",
+    "chapter": "std Namespace",
+    "topic": "std Namespace",
+    "difficulty": "Easy",
+    "question": "Which statement explicitly accesses cout in the standard namespace?",
+    "options": [
+      "cout::std",
+      "std::cout",
+      "namespace::cout",
+      "standard.cout"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — std::cout",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Non-Parameterized Methods",
+    "topic": "Non-Parameterized Methods",
+    "difficulty": "Easy",
+    "question": "Which method is non-parameterized?",
+    "options": [
+      "void setName(string n)",
+      "int add(int a, int b)",
+      "void display()",
+      "double area(double r)"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — void display()",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Returning and Parameterized Methods",
+    "topic": "Returning and Parameterized Methods",
+    "difficulty": "Medium",
+    "question": "Which method is both parameterized and returning?",
+    "options": [
+      "void display()",
+      "int square(int n)",
+      "void show(int n)",
+      "void print()"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — int square(int n)",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Objects and Data Members",
+    "topic": "Objects and Data Members",
+    "difficulty": "Medium",
+    "question": "If two objects are created from the same class, their non-static data members normally:",
+    "options": [
+      "Must have identical values",
+      "Are independently stored for each object",
+      "Are shared automatically",
+      "Become namespaces"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Are independently stored for each object",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Returning Methods",
+    "topic": "Returning Methods",
+    "difficulty": "Easy",
+    "question": "Which declaration correctly defines a method that returns double?",
+    "options": [
+      "void calculate()",
+      "return calculate()",
+      "double calculate()",
+      "method double calculate"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — double calculate()",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Non-Returning Methods",
+    "topic": "Non-Returning Methods",
+    "difficulty": "Easy",
+    "question": "Which statement is correct about a void method?",
+    "options": [
+      "It cannot have parameters",
+      "It cannot perform calculations",
+      "It does not return a data value to the caller",
+      "It must be private"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — It does not return a data value to the caller",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Class Design",
+    "topic": "Class Design",
+    "difficulty": "Medium",
+    "question": "Which mapping is most appropriate for a Student class?",
+    "options": [
+      "name and rollNo as methods; display as a field",
+      "Student as an object and Ali as a class",
+      "name/rollNo as fields and display() as a method",
+      "std as a field and Student as a method"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — name/rollNo as fields and display() as a method",
+    "type": "single"
+  }
+];
+
+const DEFAULT_SUBJECTS = [
+  {
+    id: "theory-of-automata-w02",
+    book: "Theory of Automata",
+    course: "Theory of Automata",
+    week: 2,
+    weekTitle: "Week 02",
+    topic: "Regular Expressions & Recursive Definitions of Languages",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "Σ",
+    isBuiltIn: true,
+    questions: questions
+  },
+  {
+    id: "computer-architecture-w01",
+    book: "Computer Architecture and Organization",
+    course: "Computer Architecture and Organization",
+    week: 1,
+    weekTitle: "Week 01",
+    topic: "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "💻",
+    isBuiltIn: true,
+    questions: computerArchitectureQuestions
+  },
+  {
+    id: "oop-adp-sem2-w03",
+    book: "Object-Oriented Programming",
+    course: "Object-Oriented Programming (OOP)",
+    week: 3,
+    weekTitle: "Week 03",
+    topic: "Introduction to classes and objects; fields/data members; methods; parameterized and non-parameterized methods; returning and non-returning methods; namespaces",
+    level: "ADP Semester 2",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "☕",
+    isBuiltIn: true,
+    questions: oopQuestions
+  }
+];
+
+const L = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+const K = {
+  theme: "qtheme",
+  bm: "qbm",
+  progress: "qprogress",
+  result: "qresult",
+  student: "qstudent",
+  questions: "qcustom_questions",
+  subjects: "qsubjects",
+  activeSubject: "qactive_subject"
+};
+
+const $ = x => document.querySelector(x);
+const $$ = x => [...document.querySelectorAll(x)];
+const esc = x => String(x).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+function store(k, v) { try { localStorage.setItem(k, v); } catch {} }
+function read(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }
+function toast(m, e = false) { const x = document.createElement("div"); x.className = "toast" + (e ? " err" : ""); x.textContent = m; $("#toast").append(x); setTimeout(() => x.remove(), 2500); }
+function go(id) { $("#"+id)?.scrollIntoView({ behavior: "smooth" }); $("#drawer").classList.remove("drawerOpen"); }
+function main() { ["home", "subjects", "tools"].forEach(x => $("#"+x)?.classList.remove("hidden")); $("#live").classList.add("hidden"); if (typeof updateExamStatusUI === "function") updateExamStatusUI(); }
+function optText(o) { if (!o && o !== 0) return ""; if (typeof o === "string") return o; if (typeof o.text === "string") return o.text; if (typeof o.option === "string") return o.option; return String(o); }
+
+function loadStoredSubjects() {
+  const stored = read(K.subjects, "");
+  let list = [];
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) list = parsed;
+    } catch {}
+  }
+  DEFAULT_SUBJECTS.forEach(defSub => {
+    const existing = list.find(s => s.id === defSub.id);
+    if (!existing) {
+      list.push({ ...defSub, questions: [...defSub.questions] });
+    } else {
+      if (!existing.questions || !existing.questions.length) existing.questions = [...defSub.questions];
+      existing.isBuiltIn = true;
+      if (!existing.book) existing.book = defSub.book;
+      if (!existing.course) existing.course = defSub.course;
+      if (!existing.weekTitle) existing.weekTitle = defSub.weekTitle;
+      if (!existing.topic) existing.topic = defSub.topic;
+      if (!existing.icon) existing.icon = defSub.icon;
+      if (!existing.level) existing.level = defSub.level;
+      if (!existing.createdBy) existing.createdBy = defSub.createdBy;
+    }
+  });
+  return list;
+}
+
+function getStoredActiveSubjectId(subList) {
+  const savedId = read(K.activeSubject, "");
+  if (savedId && subList.some(s => s.id === savedId)) return savedId;
+  return DEFAULT_SUBJECTS[0].id;
+}
+
+const initialSubjects = loadStoredSubjects();
+const initialActiveSubId = getStoredActiveSubjectId(initialSubjects);
+const initialActiveSub = initialSubjects.find(s => s.id === initialActiveSubId) || initialSubjects[0];
+
+const s = {
+  subjects: initialSubjects,
+  activeSubjectId: initialActiveSubId,
+  activeSubject: initialActiveSub,
+  questions: initialActiveSub.questions || [],
+  filtered: [],
+  bankAns: {},
+  bm: new Set(),
+  exam: [],
+  ans: {},
+  marked: new Set(),
+  locked: new Set(),
+  skipped: new Set(),
+  i: 0,
+  sec: 3600,
+  timer: null,
+  result: null,
+  student: {}
+};
+
+function saveSubjects() {
+  store(K.subjects, JSON.stringify(s.subjects));
+}
+
+function renderSubjects() {
+  const grid = $("#subjectGrid");
+  if (!grid) return;
+
+  grid.innerHTML = s.subjects.map(sub => {
+    const isActive = sub.id === s.activeSubjectId;
+    const qCount = sub.questions ? sub.questions.length : 0;
+    const isBuiltIn = !!sub.isBuiltIn;
+
+    return `<article class="subjectCard ${isActive ? "active" : ""}" data-sub-id="${esc(sub.id)}">
+      <div class="subjectCardTop">
+        <div class="subjectCardIcon">${esc(sub.icon || "📚")}</div>
+        <div class="subjectCardHead">
+          <div class="subjectCardBadges">
+            <span class="tag" style="font-weight:700;background:var(--p-subtle);color:var(--p);">${esc(sub.weekTitle || "Week " + sub.week)}</span>
+            <span class="tag success">${qCount} MCQs</span>
+            ${isActive ? `<span class="activeIndicator"><i class="activeDot"></i> Active Book</span>` : ""}
+          </div>
+          <h3 class="subjectCardTitle">${esc(sub.book || sub.course)}</h3>
+        </div>
+      </div>
+      <p class="subjectCardTopic">${esc(sub.topic || "Course Syllabus Review")}</p>
+      <div class="subjectCardMeta">
+        <span>Level: <b>${esc(sub.level || "BS Computer Science")}</b></span>
+        <span>Instructor: <b>${esc(sub.createdBy || "Lec. Iftikhar Zahid")}</b></span>
+      </div>
+      <div class="subjectCardFoot">
+        <div class="subjectCardActions">
+          ${isActive 
+            ? `<button class="primary" style="font-size:12.5px;padding:8px 16px;border-radius:var(--radius-pill);" onclick="start()">▶ Start / Resume Exam</button>` 
+            : `<button class="secondary" style="font-size:12px;padding:7px 14px;border-radius:var(--radius-pill);" onclick="switchSubject('${esc(sub.id)}', false)">Select Book</button>
+               <button class="primary" style="font-size:12px;padding:7px 14px;border-radius:var(--radius-pill);" onclick="switchSubject('${esc(sub.id)}', true)">Take Exam →</button>`
+          }
+          ${!isBuiltIn ? `<button class="danger" style="font-size:11px;padding:6px 10px;border-radius:var(--radius-pill);" onclick="deleteCustomSubject('${esc(sub.id)}')" title="Remove this custom book">🗑</button>` : ""}
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function switchSubject(subId, startExamAfter = false) {
+  const target = s.subjects.find(sub => sub.id === subId);
+  if (!target) return;
+
+  if (s.activeSubjectId !== subId && hasActiveExam()) {
+    modal(`<h2>Switch Active Subject?</h2>
+<p style="font-size:13px;line-height:1.5;">You currently have an unfinished examination session in progress for <b>${esc(s.activeSubject.book)} (${esc(s.activeSubject.weekTitle)})</b>.</p>
+<p style="font-size:12.5px;color:var(--r);margin:10px 0;">Switching to <b>${esc(target.book)}</b> will discard the active session.</p>
+<div class="modalActions">
+  <button class="secondary" onclick="closeModal()">Cancel</button>
+  <button class="danger" id="confirmSwitchDiscard">Yes, Discard & Switch</button>
+</div>`);
+    $("#confirmSwitchDiscard").onclick = () => {
+      closeModal();
+      discardSession();
+      applySubjectSwitch(target, startExamAfter);
+    };
+    return;
+  }
+
+  applySubjectSwitch(target, startExamAfter);
+}
+
+function applySubjectSwitch(target, startExamAfter = false) {
+  s.activeSubjectId = target.id;
+  s.activeSubject = target;
+  s.questions = target.questions || [];
+  store(K.activeSubject, target.id);
+
+  renderSubjects();
+  updateHeroSubjectUI();
+  updateQuestionCountUI();
+  render();
+  updateExamStatusUI();
+  updateTranscriptSubjectUI(target);
+
+  toast(`✓ Switched to ${target.book} (${target.weekTitle})`);
+
+  if (startExamAfter) {
+    start();
+  }
+}
+
+function deleteCustomSubject(id) {
+  const target = s.subjects.find(sub => sub.id === id);
+  if (!target || target.isBuiltIn) return;
+
+  modal(`<h2>Remove Course Book?</h2>
+<p style="font-size:13px;line-height:1.5;">Are you sure you want to remove <b>${esc(target.book)} (${esc(target.weekTitle)})</b> from your catalog?</p>
+<div class="modalActions">
+  <button class="secondary" onclick="closeModal()">Cancel</button>
+  <button class="danger" id="confirmDelSub">Yes, Remove</button>
+</div>`);
+  $("#confirmDelSub").onclick = () => {
+    closeModal();
+    s.subjects = s.subjects.filter(sub => sub.id !== id);
+    saveSubjects();
+    if (s.activeSubjectId === id) {
+      applySubjectSwitch(s.subjects[0], false);
+    } else {
+      renderSubjects();
+    }
+    toast(`Removed ${target.book} from catalog.`);
+  };
+}
+
+function updateHeroSubjectUI() {
+  const sub = s.activeSubject;
+  if (!sub) return;
+
+  if ($("#heroBadgeText")) {
+    $("#heroBadgeText").textContent = `${sub.level || "BS Computer Science"} • ${sub.course || sub.book} • ${sub.weekTitle || "Week " + sub.week}`;
+  }
+  if ($("#heroDesc")) {
+    $("#heroDesc").innerHTML = `Practice verified lecture content on <b>${esc(sub.topic || "Course Syllabus Review")}</b> with timed examination, live scoring, and answer explanations.`;
+  }
+  if ($("#previewSubTag")) {
+    $("#previewSubTag").textContent = `${(sub.course || sub.book).toUpperCase()} • ${(sub.weekTitle || "WEEK " + sub.week).toUpperCase()}`;
+  }
+  if ($("#liveExamTitle")) {
+    $("#liveExamTitle").innerHTML = `${esc(sub.book)} (${esc(sub.weekTitle || "Week " + sub.week)}) Examination <span class="tag" style="margin-left:6px;font-size:10px;vertical-align:middle;">🔒 Forward-Only</span>`;
+  }
+
+  const q1 = s.questions && s.questions[0];
+  if (q1 && $("#previewQuestionPrompt") && $("#previewOptions")) {
+    $("#previewQuestionPrompt").textContent = q1.question;
+    const ansIdx = typeof q1.answer === "number" ? q1.answer : 0;
+    $("#previewOptions").innerHTML = (q1.options || []).slice(0, 4).map((opt, i) => {
+      const isAns = i === ansIdx;
+      return `<p class="${isAns ? "ok" : ""}">${L[i] || String.fromCharCode(65 + i)}. ${esc(optText(opt))}${isAns ? " ✓" : ""}</p>`;
+    }).join("");
+  }
+}
+
+function updateTranscriptSubjectUI(subj) {
+  if (!subj) return;
+  const courseName = subj.course || subj.book || "Course Examination";
+  const weekLabel = subj.weekTitle || (subj.week ? "Week " + subj.week : "Week 01");
+  const topicDesc = subj.topic || "Course Review";
+  const levelName = subj.level || "BS Computer Science";
+  const maxQ = subj.questions ? subj.questions.length : (s.questions ? s.questions.length : 40);
+
+  if ($("#dispTranscriptCourse")) $("#dispTranscriptCourse").textContent = courseName;
+  if ($("#dispTranscriptLevel")) $("#dispTranscriptLevel").textContent = levelName;
+  if ($("#dispStudentCourse")) $("#dispStudentCourse").textContent = `${courseName} (${weekLabel})`;
+  if ($("#dispAssessmentComponent")) $("#dispAssessmentComponent").textContent = `${courseName} — MCQs Examination`;
+  if ($("#dispAssessmentTopic")) $("#dispAssessmentTopic").textContent = `${weekLabel}: ${topicDesc}`;
+  if ($("#tMaxMarks")) $("#tMaxMarks").textContent = maxQ;
+  if ($("#dispCertFooter")) $("#dispCertFooter").textContent = `Official System-Generated Academic Document • ${courseName} Examination Bank • Verified Record`;
+}
 
 /* Cookie & Student Session Management */
 const CK_STUDENT="student_credentials";
@@ -728,9 +2008,146 @@ function render(){let sEl=$("#search");if(!sEl)return;let t=sEl.value.toLowerCas
 s.filtered=s.questions.filter(q=>(!t||[q.question,q.chapter,q.topic,q.subject].join(" ").toLowerCase().includes(t))&&(!tp||q.topic===tp)&&(!d||q.difficulty===d));
 if(so==="oldest")s.filtered.sort((a,b)=>a.id-b.id);if(so==="newest")s.filtered.sort((a,b)=>b.id-a.id);if(so==="difficulty"){let r={Easy:1,Medium:2,Hard:3};s.filtered.sort((a,b)=>r[a.difficulty]-r[b.difficulty])}if(so==="random")s.filtered.sort(()=>Math.random()-.5);
 if($("#count"))$("#count").textContent=s.filtered.length+" question"+(s.filtered.length===1?"":"s");if($("#list"))$("#list").innerHTML=s.filtered.length?s.filtered.map(q=>card(q)).join(""):`<div class="card" style="padding:30px;text-align:center"><h3>No Questions Found</h3><p>Try clearing the filters.</p></div>`}
-function card(q){return `<article class="question-card"><div class="tags"><span class="tag">Q${q.id}</span><span class="tag">${esc(q.chapter)}</span><span class="tag">${esc(q.topic)}</span><span class="tag diff">${q.difficulty}</span></div><div class="qtext">${esc(q.question)}</div><div class="options">${q.options.map((o,i)=>`<button class="option ${s.bankAns[q.id]===i?"selected":""}" data-b="${q.id}" data-o="${i}"><b class="letter">${L[i]}</b>${esc(o)}</button>`).join("")}</div><div class="qfoot"><span class="tag">Single Correct Answer</span><button class="bookmark ${s.bm.has(q.id)?"active":""}" data-bm="${q.id}">${s.bm.has(q.id)?"★ Bookmarked":"☆ Bookmark"}</button></div></article>`}
-function modal(h){$("#modalContent").innerHTML=h;$("#modal").classList.remove("hidden")}function close(){ $("#modal").classList.add("hidden")}
+function card(q){return `<article class="question-card"><div class="tags"><span class="tag">Q${q.id}</span><span class="tag">${esc(q.chapter||"General")}</span><span class="tag">${esc(q.topic||"General")}</span><span class="tag diff">${q.difficulty||"Medium"}</span></div><div class="qtext">${esc(q.question)}</div><div class="options">${q.options.map((o,i)=>`<button class="option ${s.bankAns[q.id]===i?"selected":""}" data-b="${q.id}" data-o="${i}"><b class="letter">${L[i]||String.fromCharCode(65+i)}</b>${esc(optText(o))}</button>`).join("")}</div><div class="qfoot"><span class="tag">Single Correct Answer</span><button class="bookmark ${s.bm.has(q.id)?"active":""}" data-bm="${q.id}">${s.bm.has(q.id)?"★ Bookmarked":"☆ Bookmark"}</button></div></article>`}
+function modal(h){$("#modalContent").innerHTML=h;$("#modal").classList.remove("hidden")}
+function closeModal(){ $("#modal")?.classList.add("hidden"); }
+const close = closeModal;
+window.closeModal = closeModal;
+window.close = closeModal;
+function hasActiveExam(){
+  if(s.exam&&s.exam.length&&!s.result)return true;
+  let x=read(K.progress,"");
+  if(!x)return false;
+  try{
+    let p=JSON.parse(x);
+    return !!(p&&p.exam&&p.exam.length&&!p.result);
+  }catch{return false}
+}
+
+function getResumeIndex(p){
+  if(!p||!p.exam||!p.exam.length)return 0;
+  const lockedSet=new Set(p.locked||[]);
+  const ansMap=p.ans||{};
+  
+  // Find highest attempted question index (either locked or with answer selected)
+  let lastAttemptedIdx=-1;
+  for(let j=p.exam.length-1;j>=0;j--){
+    let qId=p.exam[j].id;
+    if(lockedSet.has(qId)||ansMap[qId]!==undefined){
+      lastAttemptedIdx=j;
+      break;
+    }
+  }
+
+  let savedIdx=(typeof p.i==="number"&&p.i>=0&&p.i<p.exam.length)?p.i:0;
+
+  // "keep the resume from the question where it is left, example. the question 5 attempts, then it start from 5 and next"
+  // If questions up to Question 5 were attempted (lastAttemptedIdx = 4):
+  // Start from Question 5, display Question 5 with its attempt, and clicking Next proceeds to Question 6 and next.
+  if(lastAttemptedIdx>=0){
+    return lastAttemptedIdx;
+  }
+  return savedIdx;
+}
+
+function resumeActiveExam(){
+  if(s.exam&&s.exam.length&&!s.result){
+    ["home","subjects","tools","results"].forEach(id=>$("#"+id)?.classList.add("hidden"));
+    $("#live").classList.remove("hidden");
+    drawExam();
+    if(!s.timer) clock();
+    go("live");
+    updateExamStatusUI();
+    toast(`Resumed examination at Question ${s.i+1}`);
+    return;
+  }
+  let x=read(K.progress,"");
+  if(x){
+    try{
+      let p=JSON.parse(x);
+      if(p&&p.exam&&p.exam.length){
+        let resumeIdx=getResumeIndex(p);
+        s.exam=p.exam;
+        s.i=resumeIdx;
+        s.ans=p.ans||{};
+        s.marked=new Set(p.marked||[]);
+        s.locked=new Set(p.locked||[]);
+        s.skipped=new Set(p.skipped||[]);
+        s.sec=typeof p.sec==="number"?p.sec:3600;
+        s.student=p.student||getStudentSession()||{};
+        s.result=null;
+        ["home","subjects","tools","results"].forEach(id=>$("#"+id)?.classList.add("hidden"));
+        $("#live").classList.remove("hidden");
+        drawExam();
+        clock();
+        go("live");
+        updateExamStatusUI();
+        toast(`Resumed examination at Question ${resumeIdx+1}`);
+        return;
+      }
+    }catch{}
+  }
+  openStartModal();
+}
+
+function discardSession(){
+  clearInterval(s.timer);
+  s.timer=null;
+  s.exam=[];
+  s.ans={};
+  s.marked=new Set();
+  s.locked=new Set();
+  s.skipped=new Set();
+  s.i=0;
+  s.sec=3600;
+  s.result=null;
+  store(K.progress,"");
+  updateExamStatusUI();
+}
+
 function start(){
+  if(hasActiveExam()){
+    let p=null;
+    try{p=JSON.parse(read(K.progress,""))}catch{}
+    let rIdx=(s.exam&&s.exam.length)?s.i:(p?getResumeIndex(p):0);
+    let qNum=rIdx+1;
+    let sec=(s.exam&&s.exam.length)?s.sec:(p?.sec||3600);
+    let stName=s.student?.name||p?.student?.name||"Student";
+
+    modal(`<h2>Examination in Progress</h2>
+<p>An active examination session is currently underway in your browser.</p>
+<div style="background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;margin:12px 0;font-size:12.5px;color:var(--t);line-height:1.6;">
+  <div>👤 <b>Student:</b> ${esc(stName)}</div>
+  <div>📍 <b>Active Question:</b> Resuming at Question ${qNum}</div>
+  <div>⏱️ <b>Time Remaining:</b> ${fmt(sec)}</div>
+</div>
+<div class="modalActions">
+  <button class="secondary" id="promptDiscard" style="color:var(--r);border-color:rgba(239,68,68,0.3);">Discard & Start New</button>
+  <button class="primary" id="promptResume">▶ Resume at Question ${qNum}</button>
+</div>`);
+
+    $("#promptResume").onclick=()=>{close();resumeActiveExam()};
+    $("#promptDiscard").onclick=()=>{
+      close();
+      modal(`<h2>Discard Active Examination?</h2>
+<p style="color:var(--r);font-size:13px;line-height:1.5;">Are you sure you want to discard your current test? All answers up to Question ${qNum} will be cleared and cannot be recovered.</p>
+<div class="modalActions">
+  <button class="secondary" id="keepActive">Keep Exam</button>
+  <button class="danger" id="discardConfirm">Yes, Discard & Start New</button>
+</div>`);
+      $("#keepActive").onclick=close;
+      $("#discardConfirm").onclick=()=>{
+        close();
+        discardSession();
+        openStartModal();
+      };
+    };
+    return;
+  }
+  openStartModal();
+}
+
+function openStartModal(){
   const saved=getStudentSession()||s.student||{};
   const hasSaved=!!(saved.name&&saved.roll&&saved.className);
   modal(`<h2>Start Examination</h2>
@@ -752,7 +2169,7 @@ function start(){
   <label><input id="ro" type="checkbox"> Randomize Options</label>
 </div>
 ${hasSaved?`<div class="cookieNotice"><span>💾 <b>Logged In:</b> Credentials loaded from browser cookies</span><button id="modalLogout" class="logoutLink" type="button">Logout / Clear</button></div>`:`<div class="cookieNotice subtle"><span>🍪 <b>Auto-Save:</b> Entered credentials will be saved in browser cookies for future visits until you click Logout.</span></div>`}
-<div style="margin:12px 0 4px;padding:9px 12px;background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);font-size:12px;color:var(--m);line-height:1.4;"><b style="color:var(--t)">🔒 Sequential Exam Rule:</b> Questions must be completed in order. Once you select an answer and click Next, your response is locked and you cannot return to previous questions. Unanswered questions can be skipped and will be resumed automatically.</div>
+<div style="margin:12px 0 4px;padding:9px 12px;background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);font-size:12px;color:var(--m);line-height:1.4;"><b style="color:var(--t)">🔒 Sequential Exam Rule:</b> Questions must be completed in order. Once you select an answer and click Next, your response is locked. Unanswered questions can be skipped and will be resumed automatically. Your progress is continuously auto-saved so you can resume where you left off at any time.</div>
 <div class="modalActions"><button class="secondary" id="cancel">Cancel</button><button class="primary" id="begin">Begin Examination</button></div>`);
 
   ["sn","sr","sc"].forEach(id=>{
@@ -769,8 +2186,9 @@ ${hasSaved?`<div class="cookieNotice"><span>💾 <b>Logged In:</b> Credentials l
 
   $("#cancel").onclick=close;
   $("#begin").onclick=begin;
-  if($("#modalLogout"))$("#modalLogout").onclick=()=>{logoutStudent();start()};
+  if($("#modalLogout"))$("#modalLogout").onclick=()=>{logoutStudent();openStartModal()};
 }
+
 function begin(){
   const snEl=$("#sn"), srEl=$("#sr"), scEl=$("#sc");
   const name=(snEl?.value||"").trim();
@@ -808,12 +2226,18 @@ function begin(){
   s.student={name,roll,className};
   saveStudentSession(s.student);
   s.exam=s.questions.map(q=>({...q,options:q.options.map((text,index)=>({text,index}))}));
-  if($("#rq").checked)s.exam.sort(()=>Math.random()-.5);
-  if($("#ro").checked)s.exam.forEach(q=>q.options.sort(()=>Math.random()-.5));
+  if($("#rq")?.checked)s.exam.sort(()=>Math.random()-.5);
+  if($("#ro")?.checked)s.exam.forEach(q=>q.options.sort(()=>Math.random()-.5));
   s.ans={};s.marked=new Set();s.locked=new Set();s.skipped=new Set();s.i=0;s.sec=3600;s.result=null;close();
   ["home","subjects","tools","results"].forEach(x=>$("#"+x)?.classList.add("hidden"));
-  $("#live").classList.remove("hidden");save();drawExam();clock();go("live");
+  $("#live").classList.remove("hidden");
+  save();
+  drawExam();
+  clock();
+  go("live");
+  updateExamStatusUI();
 }
+
 function drawExam(){
   let q=s.exam[s.i];
   if(!q)return;
@@ -834,12 +2258,12 @@ function drawExam(){
   else if(isSkipped) tagElements.push('<span class="tag skippedBadge">↷ Skipped — Answer to Complete</span>');
 
   let lockHintText="";
-  if(isLocked) lockHintText="Question locked. Backtracking disabled.";
+  if(isLocked) lockHintText="Question locked. Click 'Next Question →' to continue.";
   else if(isSkipped) lockHintText=isAnswered?"Answer selected. Click 'Lock & Continue' to advance.":"This question was skipped. Select your answer, or skip to revisit later.";
   else if(isAnswered) lockHintText="Answer selected. Click Next to lock & advance.";
   else lockHintText="Select an answer, or click 'Skip Question' to resume it later.";
 
-  let buttonText=isFinalAction?"Finish Examination":(isSkipped?"Lock & Continue →":"Next Question →");
+  let buttonText = isFinalAction ? "Finish & Submit Exam ✓" : (isSkipped ? "Lock & Continue →" : "Next Question →");
 
   $("#examQ").innerHTML=`
     <div class="tags">${tagElements.join("")}</div>
@@ -852,9 +2276,10 @@ function drawExam(){
         <span class="lockIcon">${isLocked?"🔒":(isSkipped?"↷":"ℹ️")}</span>
         <span>${lockHintText}</span>
       </div>
-      <div style="display:flex;gap:8px;align-items:center;">
+      <div class="examControlBtns" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
         ${!isLocked?`<button class="skipBtn" id="skip" type="button" title="Skip this question and resume it later">↷ Skip Question</button>`:""}
-        <button class="primary" id="next" ${!isAnswered?"disabled":""}>${buttonText}</button>
+        <button class="primary" id="next" ${!isAnswered && !isLocked ? "disabled" : ""}>${buttonText}</button>
+        <button class="secondary examSubmitCta" id="examSubmitBtn" type="button" title="Finish and submit examination">Submit Exam</button>
       </div>
     </div>`;
 
@@ -902,7 +2327,41 @@ function drawExam(){
     };
   }
 
+  if($("#examSubmitBtn")){
+    $("#examSubmitBtn").onclick=confirmSubmit;
+  }
+
   $("#next").onclick=()=>{
+    if(isLocked){
+      if(isFinalAction){
+        confirmSubmit();
+        return;
+      }
+      let nextIdx=-1;
+      for(let j=s.i+1;j<s.exam.length;j++){
+        if(!s.locked.has(s.exam[j].id)){
+          nextIdx=j;
+          break;
+        }
+      }
+      if(nextIdx===-1){
+        for(let j=0;j<s.exam.length;j++){
+          if(!s.locked.has(s.exam[j].id)){
+            nextIdx=j;
+            break;
+          }
+        }
+      }
+      if(nextIdx!==-1){
+        s.i=nextIdx;
+        save();
+        drawExam();
+      }else{
+        confirmSubmit();
+      }
+      return;
+    }
+
     if(s.ans[q.id]===undefined){
       toast("Please select an answer before proceeding, or click Skip.",true);
       return;
@@ -933,6 +2392,8 @@ function drawExam(){
       drawExam();
       if(isLoop) toast(`Resuming from skipped Question ${s.i+1}`);
     } else {
+      save();
+      drawExam();
       confirmSubmit();
     }
   };
@@ -940,6 +2401,7 @@ function drawExam(){
   drawNav();
   live();
 }
+
 function drawNav(){
   $("#nav").innerHTML=s.exam.map((q,i)=>{
     let cls=[];
@@ -954,9 +2416,9 @@ function drawNav(){
     else if(s.skipped.has(q.id)) icon='<small class="navSkippedIcon">↷</small>';
     
     let title=s.locked.has(q.id)
-      ? `Question ${i+1} (Locked - Cannot return)`
+      ? `Question ${i+1} (Locked — Click to review)`
       : (s.skipped.has(q.id)
-        ? `Question ${i+1} (Skipped - Click to resume)`
+        ? `Question ${i+1} (Skipped — Click to resume)`
         : (i===s.i ? "Current Question" : `Question ${i+1}`));
 
     return `<button class="${cls.join(" ")}" data-n="${i}" title="${title}">${i+1}${icon}</button>`;
@@ -969,7 +2431,10 @@ function drawNav(){
     if(!targetQ) return;
     
     if(s.locked.has(targetQ.id)){
-      toast(`Question ${targetIdx+1} is locked and cannot be revisited.`,true);
+      s.i=targetIdx;
+      save();
+      drawExam();
+      toast(`Viewing Question ${targetIdx+1} (Locked — response cannot be changed)`);
       return;
     }
     if(s.skipped.has(targetQ.id)){
@@ -985,18 +2450,31 @@ function drawNav(){
       drawExam();
       return;
     }
-    if(targetIdx>s.i){
-      toast(`Please answer or skip Question ${s.i+1} before proceeding.`,true);
+    let nextAllowed=-1;
+    for(let j=0;j<s.exam.length;j++){
+      if(!s.locked.has(s.exam[j].id)){
+        nextAllowed=j;
+        break;
+      }
+    }
+    if(targetIdx===nextAllowed && (s.locked.has(targetQ.id) || s.ans[targetQ.id]!==undefined || targetIdx===s.i)){
+      s.i=targetIdx;
+      save();
+      drawExam();
       return;
     }
+    toast(`Sequential Exam: Please answer Question ${s.i+1} before proceeding.`,true);
   });
 }
+
 function live(){
   let c=0,a=0;
   s.exam.forEach(q=>{
-    if(s.locked.has(q.id)&&s.ans[q.id]!==undefined){
-      a++;
-      if(s.ans[q.id]===q.answer) c++;
+    let isAns = s.ans[q.id]!==undefined;
+    let isLk = s.locked.has(q.id);
+    if(isLk || isAns){
+      if(isAns) a++;
+      if(isAns && s.ans[q.id]===q.answer) c++;
     }
   });
   $("#score").textContent=`${c}/${s.exam.length}`;
@@ -1008,41 +2486,109 @@ function live(){
 }
 function clock(){clearInterval(s.timer);s.timer=setInterval(()=>{s.sec--;uiClock();save();if(s.sec<=0){clearInterval(s.timer);finish(true)}},1000);uiClock()}function uiClock(){let m=Math.floor(Math.max(0,s.sec)/60),x=Math.max(0,s.sec)%60;$("#timer b").textContent=`${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`;$("#timer").classList.toggle("warning",s.sec<=300&&s.sec>60);$("#timer").classList.toggle("danger",s.sec<=60)}
 function confirmSubmit(){
+  let lockedCount=s.locked.size;
   let skippedCount=s.exam.filter(q=>!s.locked.has(q.id)&&s.skipped.has(q.id)).length;
   let unattemptedCount=s.exam.filter(q=>!s.locked.has(q.id)&&!s.skipped.has(q.id)).length;
   let totalPending=skippedCount+unattemptedCount;
+  let firstSkippedIdx=s.exam.findIndex(q=>!s.locked.has(q.id)&&s.skipped.has(q.id));
+  let firstSkippedNum=firstSkippedIdx!==-1?firstSkippedIdx+1:null;
 
-  modal(`<h2>Submit Examination?</h2><p>Are you sure you want to finish your test now?</p>${totalPending>0?`<div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:var(--radius-sm);padding:10px 14px;margin:12px 0;font-size:12px;color:var(--t)">⚠️ <b>Attention:</b> You have <b>${skippedCount} skipped</b> and <b>${unattemptedCount} unattempted</b> question(s). Unanswered questions receive 0 marks.</div>`:`<div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:var(--radius-sm);padding:10px 14px;margin:12px 0;font-size:12px;color:var(--g)">✓ All <b>${s.exam.length}</b> questions have been locked with answers!</div>`}<div class="modalActions">${skippedCount>0?`<button class="secondary" id="resumeSkipped">Resume Skipped Questions</button>`:`<button class="secondary" id="keep">Continue Test</button>`}<button class="primary" id="yes">Submit Now</button></div>`);
+  modal(`<h2>Submit Examination?</h2>
+<p>Are you sure you want to finish your test and generate your official academic transcript?</p>
+${totalPending>0?`
+<div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:var(--radius-sm);padding:12px 14px;margin:12px 0;font-size:12.5px;color:var(--t);line-height:1.6;">
+  <div style="display:flex;align-items:center;gap:6px;font-weight:700;color:var(--a);margin-bottom:6px;">
+    <span>⚠️</span> <span>Incomplete Examination Notice</span>
+  </div>
+  <div>• <b>Locked / Answered:</b> ${lockedCount} of ${s.exam.length} questions</div>
+  <div>• <b>Skipped Questions:</b> ${skippedCount}</div>
+  <div>• <b>Unattempted Questions:</b> ${unattemptedCount}</div>
+  <div style="margin-top:6px;font-size:11.5px;color:var(--m);"><b>Grading Rule:</b> Any skipped or unanswered questions will be awarded 0 marks.</div>
+</div>`: `
+<div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:var(--radius-sm);padding:12px 14px;margin:12px 0;font-size:12.5px;color:var(--g);line-height:1.6;">
+  <div style="display:flex;align-items:center;gap:6px;font-weight:700;margin-bottom:4px;">
+    <span>✓</span> <span>All Questions Completed!</span>
+  </div>
+  <div>All <b>${s.exam.length}</b> questions have been locked with your chosen answers. Ready for grading and transcript generation.</div>
+</div>`}
+<div class="modalActions" style="gap:8px;flex-wrap:wrap;">
+  <button class="secondary" id="keep">Continue Examination</button>
+  ${skippedCount>0?`<button class="secondary" id="resumeSkipped" style="color:var(--p);font-weight:600;">↷ Resume Skipped (Q${firstSkippedNum})</button>`:""}
+  <button class="primary" id="yes" style="font-weight:700;">${totalPending>0?"Yes, Submit Anyway":"Submit Examination Now ✓"}</button>
+</div>`);
 
-  if($("#keep")) $("#keep").onclick=close;
+  if($("#keep")) $("#keep").onclick=closeModal;
   if($("#resumeSkipped")){
     $("#resumeSkipped").onclick=()=>{
-      close();
-      let firstSkipped=s.exam.findIndex(q=>!s.locked.has(q.id)&&s.skipped.has(q.id));
-      if(firstSkipped!==-1){
-        s.i=firstSkipped;
+      closeModal();
+      if(firstSkippedIdx!==-1){
+        s.i=firstSkippedIdx;
         save();
         drawExam();
-        toast(`Resuming from skipped Question ${s.i+1}`);
+        toast(`Resuming from skipped Question ${firstSkippedNum}`);
       }
     };
   }
-  $("#yes").onclick=()=>{close();finish(false)};
+  if($("#yes")){
+    $("#yes").onclick=()=>{
+      closeModal();
+      finish(false);
+    };
+  }
 }
-function finish(auto){if(s.result)return;clearInterval(s.timer);let c=0,a=0;s.exam.forEach(q=>{if(s.ans[q.id]!==undefined){a++;if(s.ans[q.id]===q.answer)c++}});let total=s.exam.length,p=c/total*100;s.result={total,correct:c,attempted:a,wrong:a-c,unanswered:total-a,percentage:p,time:3600-s.sec,answers:{...s.ans},exam:s.exam,student:s.student};store(K.result,JSON.stringify(s.result));store(K.progress,"");results();$("#live").classList.add("hidden");$("#results").classList.remove("hidden");go("results");toast(auto?"Time is over — submitted":"Test submitted successfully",auto)}
-function optText(o){if(!o)return "";if(typeof o==="string")return o;if(typeof o.text==="string")return o.text;return String(o)}
-function getGrade(pct){
-  if(pct>=85) return {grade:"A+", remarks:"Outstanding Performance! Demonstrated exceptional command of automata concepts and formal language theory."};
-  if(pct>=80) return {grade:"A", remarks:"Excellent Performance! Strong theoretical foundation and problem-solving skills."};
-  if(pct>=70) return {grade:"B", remarks:"Good Performance. Well prepared with minor conceptual areas for refinement."};
-  if(pct>=60) return {grade:"C", remarks:"Satisfactory Performance. Basic conceptual clarity achieved; further practice recommended."};
-  if(pct>=50) return {grade:"D", remarks:"Conditional Pass. Meets minimum academic benchmark; thorough review advised."};
-  return {grade:"F", remarks:"Did not meet passing criteria (< 50%). Recommended to review Chapter 2 and retake assessment."};
+function finish(auto){
+  if(s.result)return;
+  clearInterval(s.timer);
+  s.timer=null;
+  let c=0,a=0;
+  s.exam.forEach(q=>{
+    if(s.ans[q.id]!==undefined){
+      a++;
+      if(s.ans[q.id]===q.answer)c++;
+    }
+  });
+  let total=s.exam.length,p=c/total*100;
+  s.result={
+    total,
+    correct:c,
+    attempted:a,
+    wrong:a-c,
+    unanswered:total-a,
+    percentage:p,
+    time:3600-s.sec,
+    answers:{...s.ans},
+    exam:s.exam,
+    student:s.student,
+    subject:{...s.activeSubject}
+  };
+  store(K.result,JSON.stringify(s.result));
+  store(K.progress,"");
+  results();
+  ["home","subjects","tools","live"].forEach(id=>$("#"+id)?.classList.add("hidden"));
+  $("#results").classList.remove("hidden");
+  go("results");
+  updateExamStatusUI();
+  toast(auto?"Time is over — submitted":"Test submitted successfully",auto);
 }
+
+function getGrade(pct, sub){
+  const subjName = sub ? (sub.course || sub.book) : "the course";
+  if(pct>=85) return {grade:"A+", remarks:`Outstanding Performance! Demonstrated exceptional command of ${subjName} concepts and syllabus objectives.`};
+  if(pct>=80) return {grade:"A", remarks:`Excellent Performance! Strong conceptual foundation and problem-solving skills in ${subjName}.`};
+  if(pct>=70) return {grade:"B", remarks:`Good Performance. Well prepared with minor conceptual areas for refinement in ${subjName}.`};
+  if(pct>=60) return {grade:"C", remarks:`Satisfactory Performance. Basic conceptual clarity achieved; further review recommended.`};
+  if(pct>=50) return {grade:"D", remarks:`Conditional Pass. Meets minimum academic benchmark (50%); thorough review advised.`};
+  return {grade:"F", remarks:`Did not meet passing criteria (< 50%). Recommended to review ${subjName} lecture material and retake assessment.`};
+}
+
 function results(){
   let r=s.result;if(!r)return;
   let pass=r.percentage>=50;
-  let gi=getGrade(r.percentage);
+  let resSub=r.subject||s.activeSubject;
+  let gi=getGrade(r.percentage, resSub);
+
+  // Synchronize Academic Transcript with tested course
+  updateTranscriptSubjectUI(resSub);
 
   // Top summary & legacy metrics
   if($("#pct")) $("#pct").textContent=r.percentage.toFixed(0)+"%";
@@ -1119,72 +2665,698 @@ function results(){
     return `<div class="reviewItem"><h4>Q${i+1}. ${esc(q.question)}</h4><div class="${ok?"correct":"wrong"}">${ok?"✓ Correct":(isAns?"✕ Incorrect":"↷ Skipped / Unanswered")} — Your Answer: ${userDisplay}</div><div class="correct">Correct Answer: ${correctDisplay}</div><div class="explain">${esc(q.explanation||"")}</div></div>`;
   }).join("");
 }
+
 function bar(id,lab,p){$("#"+id).style.width=p+"%";$("#"+lab).textContent=p.toFixed(0)+"%"}function fmt(x){return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0")}
-function save(){if(s.exam.length&&!s.result)store(K.progress,JSON.stringify({exam:s.exam,i:s.i,ans:s.ans,marked:[...s.marked],locked:[...s.locked],skipped:[...s.skipped],sec:s.sec,student:s.student}))}
-function restore(){
-  let x=read(K.progress,"");
-  if(!x)return;
-  try{
-    let p=JSON.parse(x);
-    if(!p||!p.exam||!p.exam.length)return;
-    const lockedSet=new Set(p.locked||[]);
-    const skippedSet=new Set(p.skipped||[]);
-    
-    let resumeIdx = (typeof p.i==="number" && p.i>=0 && p.i<p.exam.length) ? p.i : 0;
-    if(lockedSet.has(p.exam[resumeIdx]?.id)){
-      let foundSkipped = p.exam.findIndex(q => !lockedSet.has(q.id) && skippedSet.has(q.id));
-      if(foundSkipped !== -1){
-        resumeIdx = foundSkipped;
-      } else {
-        let firstUnlocked = p.exam.findIndex(q => !lockedSet.has(q.id));
-        if(firstUnlocked !== -1) resumeIdx = firstUnlocked;
-      }
-    }
-    const isSkippedResume = skippedSet.has(p.exam[resumeIdx]?.id);
-    const resumeQNum = resumeIdx + 1;
-
-    modal(`<h2>Previous Test Session Found</h2><p>An examination in progress was saved in your browser.</p><div style="background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;margin:12px 0;font-size:12.5px;color:var(--t);line-height:1.6;"><div>👤 <b>Student:</b> ${esc(p.student?.name||"Student")} ${p.student?.roll?`(${esc(p.student.roll)})`:""}</div><div>📊 <b>Progress:</b> ${lockedSet.size}/${p.exam.length} locked • <b style="color:var(--a)">${skippedSet.size} skipped</b> • ⏱️ ${fmt(p.sec||3600)} remaining</div><div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--line);color:var(--p);font-weight:600;">📍 <b>Resuming at:</b> Question ${resumeQNum} ${isSkippedResume?'<span class="tag skippedBadge" style="margin-left:6px;font-size:11px;">↷ Skipped Question</span>':""}</div></div><div class="modalActions"><button class="secondary" id="new">Discard & Start New</button><button class="primary" id="resume">Resume at Question ${resumeQNum}</button></div>`);
-
-    $("#new").onclick=close;
-    $("#resume").onclick=()=>{
-      s.exam=p.exam;
-      s.i=resumeIdx;
-      s.ans=p.ans||{};
-      s.marked=new Set(p.marked||[]);
-      s.locked=lockedSet;
-      s.skipped=skippedSet;
-      s.sec=p.sec||3600;
-      s.student=p.student||getStudentSession()||{};
-      close();
-      ["home","subjects","tools","results"].forEach(id=>$("#"+id)?.classList.add("hidden"));
-      $("#live").classList.remove("hidden");
-      drawExam();
-      clock();
-      toast(isSkippedResume ? `Resumed test from skipped Question ${resumeQNum}` : `Resumed test from Question ${resumeQNum}`);
-    };
-  }catch{
-    store(K.progress,"");
+function save(){
+  if(s.exam.length&&!s.result){
+    store(K.progress,JSON.stringify({
+      exam:s.exam,
+      i:s.i,
+      ans:s.ans,
+      marked:[...s.marked],
+      locked:[...s.locked],
+      skipped:[...s.skipped],
+      sec:s.sec,
+      student:s.student
+    }));
+    updateExamStatusUI();
   }
 }
-document.addEventListener("click",e=>{let g=e.target.closest("[data-go]");if(g){main();go(g.dataset.go)}let b=e.target.closest("[data-b]");if(b){s.bankAns[b.dataset.b]=+b.dataset.o;render();toast("Answer saved")}let bm=e.target.closest("[data-bm]");if(bm){let id=+bm.dataset.bm;s.bm.has(id)?s.bm.delete(id):s.bm.add(id);store(K.bm,JSON.stringify([...s.bm]));$("#bmInfo").textContent=s.bm.size+" bookmarked questions";render()}});
-$("#theme").onclick=()=>{let n=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=n;store(K.theme,n)};
-[$$("#startTop"),$$("#startHero"),$$("#startSubject"),$$("#drawerStartBtn")].flat().forEach(b=>b&&(b.onclick=()=>{if($("#drawer"))$("#drawer").classList.remove("drawerOpen");start();}));
-$("#submit").onclick=confirmSubmit;$("#again").onclick=start;$("#print").onclick=()=>window.print();
-if($("#printTop"))$("#printTop").onclick=()=>window.print();
-if($("#againTop"))$("#againTop").onclick=start;
-if($("#clear"))$("#clear").onclick=()=>{$("#search").value=$("#topic").value=$("#difficulty").value="";$("#sort").value="newest";render()};
-["search","topic","difficulty","sort"].forEach(id=>{let el=$("#"+id);if(el)el.oninput=render});
-$("#menu").onclick=()=>$("#drawer").classList.toggle("drawerOpen");
-$("#close").onclick=close;
-$("#modal").onclick=e=>{if(e.target.id==="modal")close()};
-if($("#logoutBtn"))$("#logoutBtn").onclick=logoutStudent;
-if($("#drawerLogoutBtn"))$("#drawerLogoutBtn").onclick=()=>{logoutStudent();$("#drawer").classList.remove("drawerOpen")};
-$("#export").onclick=()=>{let b=new Blob([JSON.stringify(s.questions,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="theory-of-automata-week-02-question-bank.json";a.click();URL.revokeObjectURL(a.href)};
-$("#import").onclick=()=>$("#file").click();
-$("#file").onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader;r.onload=()=>{try{let d=JSON.parse(r.result);if(!Array.isArray(d)||!d.length)throw Error("Expected a non-empty array");d.forEach(q=>{if(q.id===undefined||!q.question||!Array.isArray(q.options)||q.options.length!==4||typeof q.answer!=="number")throw Error("Invalid question structure")});s.questions=d;$("#total").textContent=d.length;render();toast(d.length+" questions imported")}catch(x){toast("Invalid JSON: "+x.message,true)}};r.readAsText(f)};
-$("#bookmarks").onclick=()=>{if(!s.bm.size){toast("No bookmarked questions",true);return}let bms=s.questions.filter(q=>s.bm.has(q.id));modal(`<h2>Bookmarked Questions (${bms.length})</h2><div style="max-height:60vh;overflow-y:auto;display:flex;flex-direction:column;gap:12px;margin-top:16px;">${bms.map(q=>card(q)).join("")}</div>`)};
-$("#reset").onclick=()=>{modal(`<h2>Reset All Progress?</h2><p>This clears bookmarks, saved test sessions and the last result.</p><div class="modalActions"><button class="secondary" id="no">Cancel</button><button class="danger" id="ok">Reset Everything</button></div>`);$("#no").onclick=close;$("#ok").onclick=()=>{localStorage.removeItem(K.bm);localStorage.removeItem(K.progress);localStorage.removeItem(K.result);location.reload()}};
-document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
-document.documentElement.dataset.theme=read(K.theme,"light");
-try{s.bm=new Set(JSON.parse(read(K.bm,"[]")))}catch{}$("#bmInfo").textContent=s.bm.size+" bookmarked questions";render();restore();
-const initSt=getStudentSession();if(initSt){s.student=initSt;updateStudentUI(initSt)}
+
+function updateExamStatusUI(){
+  const hasExam=(s.exam&&s.exam.length&&!s.result)||!!read(K.progress,"");
+  let qNum=1;
+  let remainingSec=3600;
+  
+  if(s.exam&&s.exam.length&&!s.result){
+    qNum=(typeof s.i==="number"?s.i:0)+1;
+    remainingSec=s.sec||3600;
+  }else{
+    try{
+      const p=JSON.parse(read(K.progress,""));
+      if(p&&p.exam&&p.exam.length){
+        let rIdx=getResumeIndex(p);
+        qNum=rIdx+1;
+        remainingSec=p.sec||3600;
+      }
+    }catch{}
+  }
+
+  const startTopBtn=$("#startTop");
+  const drawerStartBtn=$("#drawerStartBtn");
+  const startHeroBtn=$("#startHero");
+  const banner=$("#examInProgressBanner");
+  const isLiveVisible=!$("#live")?.classList.contains("hidden");
+
+  if(hasExam){
+    if(startTopBtn){
+      startTopBtn.innerHTML=`▶ Resume Exam <small style="opacity:0.85;font-weight:600;">(Q${qNum})</small>`;
+      startTopBtn.title=`Resume active examination at Question ${qNum}`;
+      startTopBtn.classList.add("resumeActive");
+    }
+    if(drawerStartBtn){
+      drawerStartBtn.innerHTML=`▶ Resume Examination (Question ${qNum})`;
+      drawerStartBtn.classList.add("resumeActive");
+    }
+    if(startHeroBtn){
+      startHeroBtn.innerHTML=`Resume Practice Exam (Question ${qNum}) →`;
+    }
+    if(banner){
+      if(isLiveVisible){
+        banner.classList.add("hidden");
+      }else{
+        banner.classList.remove("hidden");
+        const bInfo=$("#bannerInfo");
+        if(bInfo) bInfo.innerHTML=`<b>Exam in Progress:</b> ${esc(s.activeSubject.book)} • Question ${qNum} of ${s.questions.length} • ${fmt(remainingSec)} remaining`;
+      }
+    }
+  }else{
+    if(startTopBtn){
+      startTopBtn.innerHTML="▶ Start Test";
+      startTopBtn.title="Start practice examination";
+      startTopBtn.classList.remove("resumeActive");
+    }
+    if(drawerStartBtn){
+      drawerStartBtn.innerHTML="▶ Start Practice Examination";
+      drawerStartBtn.classList.remove("resumeActive");
+    }
+    if(startHeroBtn){
+      startHeroBtn.innerHTML="Start Practice Exam →";
+    }
+    if(banner){
+      banner.classList.add("hidden");
+    }
+  }
+}
+
+function updateQuestionCountUI(){
+  const totalCount=s.questions?s.questions.length:0;
+  if($("#total")) $("#total").textContent=totalCount;
+  if($("#subjectTagCount")) $("#subjectTagCount").textContent=`${totalCount} MCQs Ready`;
+  if($("#count")) $("#count").textContent=(s.filtered?s.filtered.length:totalCount)+" question"+((s.filtered?s.filtered.length:totalCount)===1?"":"s");
+  
+  const sub=s.activeSubject||{};
+  const importStatus=$("#importStatusText");
+  const restoreBtn=$("#restoreDefaultQuestions");
+  const exportStatus=$("#exportStatusText");
+  if(importStatus){
+    importStatus.innerHTML=`Active: <b>${esc(sub.book||"Current Book")}</b> (${totalCount} MCQs). Choose JSON to add new book or replace.`;
+  }
+  if(exportStatus){
+    exportStatus.textContent=`Download "${sub.book||"MCQs"}" (${totalCount} MCQs) with complete class record.`;
+  }
+  if(restoreBtn){
+    restoreBtn.classList.remove("hidden");
+  }
+}
+
+function exportQuestionsJSON(){
+  if(!s.questions||!s.questions.length){
+    toast("No questions available to export",true);
+    return;
+  }
+  
+  const sub=s.activeSubject||{};
+  const cleanExport={
+    book:sub.book||"MCQs Question Bank",
+    course:sub.course||sub.book||"Course Review",
+    week:sub.week||1,
+    weekTitle:sub.weekTitle||"Week 01",
+    topic:sub.topic||"Course Syllabus Review",
+    level:sub.level||"BS Computer Science",
+    questionType:"MCQ",
+    language:"English",
+    createdBy:sub.createdBy||"Course Instructor",
+    totalQuestions:s.questions.length,
+    mcqs:s.questions.map((q,idx)=>({
+      id:q.id!==undefined&&!isNaN(Number(q.id))?Number(q.id):(idx+1),
+      subject:q.subject||sub.course||sub.book,
+      chapter:q.chapter||sub.topic,
+      topic:q.topic||sub.topic,
+      difficulty:q.difficulty||"Medium",
+      question:q.question,
+      options:q.options.map((o,optIdx)=>({
+        text:optText(o),
+        isCorrect:optIdx===q.answer
+      })),
+      answer:typeof q.answer==="number"?q.answer:0,
+      explanation:q.explanation||"",
+      type:q.type||"single"
+    }))
+  };
+  
+  try{
+    const jsonStr=JSON.stringify(cleanExport,null,2);
+    const blob=new Blob([jsonStr],{type:"application/json;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;
+    const dateStr=new Date().toISOString().slice(0,10);
+    const safeSub=(cleanExport.course||cleanExport.book||"mcqs-question-bank").toLowerCase().replace(/[^a-z0-9]+/g,"-");
+    const safeWeek=(cleanExport.weekTitle||"week").toLowerCase().replace(/[^a-z0-9]+/g,"-");
+    a.download=`${safeSub}-${safeWeek}-${cleanExport.totalQuestions}mcqs-${dateStr}.json`;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(()=>{
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    },250);
+    toast(`✓ Successfully exported "${cleanExport.book}" (${cleanExport.totalQuestions} questions)`);
+  }catch(err){
+    toast("Export failed: "+err.message,true);
+  }
+}
+
+function promptAddBookRecord(detectedMeta, validQuestions, fileName){
+  const dBook=detectedMeta.book||detectedMeta.course||detectedMeta.subject||(validQuestions[0]&&validQuestions[0].subject)||"Computer Architecture and Organization";
+  const dWeekNum=detectedMeta.week||1;
+  const dWeekTitle=detectedMeta.weekTitle||(detectedMeta.week?"Week "+String(detectedMeta.week).padStart(2,"0"):"Week 01");
+  const dTopic=detectedMeta.topic||(validQuestions[0]&&(validQuestions[0].topic||validQuestions[0].chapter))||"Course Syllabus Review & Assessment";
+  const dLevel=detectedMeta.level||"BS Computer Science";
+  const dInstructor=detectedMeta.createdBy||detectedMeta.author||detectedMeta.instructor||"Lec. Iftikhar Zahid";
+  const q1=validQuestions[0];
+
+  modal(`<h2>Add Book & Class Record — JSON Import</h2>
+<p style="font-size:13px;line-height:1.45;color:var(--t-secondary);">Please verify or customize the course book and class record details before saving:</p>
+
+<div class="bookImportSummary">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <span>📄 <b>Source File:</b> ${esc(fileName)}</span>
+    <span class="tag success" style="font-size:11px;">✓ ${validQuestions.length} Valid MCQs</span>
+  </div>
+  <div style="font-size:11.5px;color:var(--m);margin-top:2px;">
+    <b>Sample Q1:</b> ${esc(q1.question.slice(0,90))}${q1.question.length>90?"...":""} (${q1.options.length} options)
+  </div>
+</div>
+
+<div class="fields" style="display:flex;flex-direction:column;gap:11px;margin-top:10px;">
+  <label style="font-size:12.5px;font-weight:600;">Book / Course Title <span style="color:var(--r);font-weight:700;">*</span>
+    <input id="recBook" value="${esc(dBook)}" placeholder="e.g. Computer Architecture and Organization" style="margin-top:4px;" required>
+    <small id="recBookErr" class="fieldErr hidden">Book / Course Title is required.</small>
+  </label>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <label style="font-size:12.5px;font-weight:600;">Week Number / Title <span style="color:var(--r);font-weight:700;">*</span>
+      <input id="recWeek" value="${esc(dWeekTitle)}" placeholder="e.g. Week 01 or 1" style="margin-top:4px;" required>
+      <small id="recWeekErr" class="fieldErr hidden">Week is required.</small>
+    </label>
+    <label style="font-size:12.5px;font-weight:600;">Academic Class / Level
+      <input id="recLevel" value="${esc(dLevel)}" placeholder="e.g. BS Computer Science" style="margin-top:4px;">
+    </label>
+  </div>
+
+  <label style="font-size:12.5px;font-weight:600;">Topic / Syllabus Unit Description <span style="color:var(--r);font-weight:700;">*</span>
+    <textarea id="recTopic" rows="2" style="width:100%;resize:vertical;font-family:inherit;font-size:12.5px;padding:8px 10px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--card);color:var(--t);margin-top:4px;" placeholder="Enter topic description">${esc(dTopic)}</textarea>
+    <small id="recTopicErr" class="fieldErr hidden">Topic description is required.</small>
+  </label>
+
+  <label style="font-size:12.5px;font-weight:600;">Course Instructor / Created By
+    <input id="recInstructor" value="${esc(dInstructor)}" placeholder="e.g. Lec. Iftikhar Zahid" style="margin-top:4px;">
+  </label>
+
+  <div style="background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 14px;margin-top:4px;">
+    <b style="font-size:12.5px;color:var(--t);">Select Destination:</b>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;font-size:12.5px;">
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+        <input type="radio" name="importDest" value="new" checked>
+        <span><b>Add as New Book in Catalog</b> (Recommended — adds new subject card to library)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+        <input type="radio" name="importDest" value="replace">
+        <span><b>Replace Active Subject</b> (Overwrites current active question bank)</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="modalActions" style="margin-top:16px;">
+  <button class="secondary" id="recCancel">Cancel</button>
+  <button class="primary" id="recSave">✓ Save & Load Book Record</button>
+</div>`);
+
+  ["recBook","recWeek","recTopic"].forEach(id=>{
+    const el=$("#"+id);
+    if(el){
+      el.oninput=()=>{
+        if(el.value.trim()){
+          el.classList.remove("inputErr");
+          $("#"+id+"Err")?.classList.add("hidden");
+        }
+      };
+    }
+  });
+
+  if($("#recCancel")) $("#recCancel").onclick=close;
+  if($("#recSave")) $("#recSave").onclick=()=>{
+    const bookVal=($("#recBook")?.value||"").trim();
+    const weekVal=($("#recWeek")?.value||"").trim();
+    const topicVal=($("#recTopic")?.value||"").trim();
+    const levelVal=($("#recLevel")?.value||"").trim()||"BS Computer Science";
+    const instructorVal=($("#recInstructor")?.value||"").trim()||"Course Instructor";
+    const dest=$('input[name="importDest"]:checked')?.value||"new";
+
+    let hasErr=false;
+    if(!bookVal){
+      $("#recBook")?.classList.add("inputErr");
+      $("#recBookErr")?.classList.remove("hidden");
+      hasErr=true;
+    }
+    if(!weekVal){
+      $("#recWeek")?.classList.add("inputErr");
+      $("#recWeekErr")?.classList.remove("hidden");
+      hasErr=true;
+    }
+    if(!topicVal){
+      $("#recTopic")?.classList.add("inputErr");
+      $("#recTopicErr")?.classList.remove("hidden");
+      hasErr=true;
+    }
+    if(hasErr){
+      toast("Please fill in all required book details (*)",true);
+      return;
+    }
+
+    let weekNum=parseInt(weekVal.replace(/\D/g,""))||1;
+    let weekTitle=weekVal.toLowerCase().startsWith("week")?weekVal:`Week ${String(weekNum).padStart(2,"0")}`;
+
+    validQuestions.forEach((q,i)=>{
+      q.id=i+1;
+      q.subject=bookVal;
+      q.chapter=topicVal;
+      q.topic=topicVal;
+    });
+
+    close();
+    discardSession();
+
+    if(dest==="new"){
+      const slug=(bookVal+"-"+weekTitle).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+      const uniqueId=s.subjects.some(sub=>sub.id===slug)?`${slug}-${Date.now().toString(36)}`:slug;
+      
+      const newSub={
+        id:uniqueId,
+        book:bookVal,
+        course:bookVal,
+        week:weekNum,
+        weekTitle:weekTitle,
+        topic:topicVal,
+        level:levelVal,
+        createdBy:instructorVal,
+        icon:"📚",
+        isBuiltIn:false,
+        questions:validQuestions
+      };
+
+      s.subjects.push(newSub);
+      saveSubjects();
+      applySubjectSwitch(newSub,false);
+      toast(`✓ Added new book: "${bookVal}" (${weekTitle}) with ${validQuestions.length} MCQs!`);
+      go("subjects");
+    }else{
+      s.activeSubject.book=bookVal;
+      s.activeSubject.course=bookVal;
+      s.activeSubject.week=weekNum;
+      s.activeSubject.weekTitle=weekTitle;
+      s.activeSubject.topic=topicVal;
+      s.activeSubject.level=levelVal;
+      s.activeSubject.createdBy=instructorVal;
+      s.activeSubject.questions=validQuestions;
+      s.questions=validQuestions;
+      
+      saveSubjects();
+      applySubjectSwitch(s.activeSubject,false);
+      toast(`✓ Updated active book "${bookVal}" with ${validQuestions.length} MCQs!`);
+    }
+  };
+}
+
+function handleFileImport(e){
+  const file=e.target.files&&e.target.files[0];
+  if(!file)return;
+  
+  if(file.size>15*1024*1024){
+    toast("File is too large (max 15MB)",true);
+    if($("#file"))$("#file").value="";
+    return;
+  }
+  
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const rawText=reader.result;
+      let parsed;
+      try{
+        parsed=JSON.parse(rawText);
+      }catch(jsonErr){
+        throw Error("File is not a valid JSON document ("+jsonErr.message+")");
+      }
+      
+      let rawList=[];
+      let detectedMeta={};
+      if(Array.isArray(parsed)){
+        rawList=parsed;
+      }else if(parsed&&typeof parsed==="object"){
+        const qbRoot = parsed.questionBank || parsed;
+        detectedMeta={
+          book: qbRoot.book || qbRoot.subject || qbRoot.title || qbRoot.courseCode,
+          course: qbRoot.course || qbRoot.subject || qbRoot.courseCode,
+          week: qbRoot.week || qbRoot.weekNo,
+          weekTitle: qbRoot.weekTitle || qbRoot.section || (qbRoot.weekNo ? "Week " + String(qbRoot.weekNo).padStart(2, "0") : ""),
+          topic: qbRoot.topic || qbRoot.syllabusCoverage || qbRoot.title,
+          level: qbRoot.level || qbRoot.class || qbRoot.program,
+          createdBy: qbRoot.createdBy || qbRoot.preparedBy || qbRoot.author || qbRoot.instructor
+        };
+        if(Array.isArray(qbRoot.mcqs)) rawList=qbRoot.mcqs;
+        else if(Array.isArray(qbRoot.questions)) rawList=qbRoot.questions;
+        else if(Array.isArray(qbRoot.data)) rawList=qbRoot.data;
+        else if(Array.isArray(qbRoot.items)) rawList=qbRoot.items;
+        else throw Error("JSON object must have an array of questions under a 'mcqs' or 'questions' key.");
+      }else{
+        throw Error("JSON must be an array of questions or an object with a 'mcqs' or 'questions' array.");
+      }
+      
+      if(!rawList.length){
+        throw Error("The imported JSON file contains no questions.");
+      }
+      
+      const validQuestions=[];
+      const skippedErrors=[];
+      
+      rawList.forEach((q,idx)=>{
+        const num=idx+1;
+        if(!q||typeof q!=="object"){
+          skippedErrors.push(`Item #${num}: Invalid question object.`);
+          return;
+        }
+        
+        const prompt=(q.question||q.prompt||q.text||q.title||"").trim();
+        if(!prompt){
+          skippedErrors.push(`Item #${num}: Missing question prompt.`);
+          return;
+        }
+        
+        let rawOpts=q.options||q.choices||q.answers;
+        let options=[];
+        let isCorrectIdx=-1;
+
+        if(Array.isArray(rawOpts)){
+          options=rawOpts.map(o=>optText(o).trim()).filter(Boolean);
+          isCorrectIdx=rawOpts.findIndex(o=>o&&typeof o==="object"&&(o.isCorrect===true||o.correct===true));
+        }else if(rawOpts&&typeof rawOpts==="object"){
+          options=Object.values(rawOpts).map(o=>optText(o).trim()).filter(Boolean);
+        }
+        
+        if(options.length<2){
+          skippedErrors.push(`Item #${num}: Requires at least 2 options (found ${options.length}).`);
+          return;
+        }
+        
+        let rawAns=q.answer!==undefined?q.answer:(q.correctOptionIndex!==undefined?q.correctOptionIndex:(q.correctIndex!==undefined?q.correctIndex:(q.correct_answer!==undefined?q.correct_answer:(q.correctAnswer!==undefined?q.correctAnswer:q.correct))));
+        let answerIdx=0;
+        
+        if(isCorrectIdx>=0&&isCorrectIdx<options.length){
+          answerIdx=isCorrectIdx;
+        }else if(typeof rawAns==="number"){
+          if(rawAns>=0&&rawAns<options.length){
+            answerIdx=rawAns;
+          }else if(rawAns>=1&&rawAns<=options.length){
+            answerIdx=rawAns-1;
+          }
+        }else if(typeof rawAns==="string"){
+          const cleanAns=rawAns.trim();
+          const upper=cleanAns.toUpperCase();
+          const letterIdx=upper.length===1?upper.charCodeAt(0)-65:-1;
+          if(letterIdx>=0&&letterIdx<options.length){
+            answerIdx=letterIdx;
+          }else{
+            const matched=options.findIndex(o=>o.toLowerCase()===cleanAns.toLowerCase());
+            if(matched!==-1){
+              answerIdx=matched;
+            }else if(!isNaN(Number(cleanAns))){
+              let n=Number(cleanAns);
+              if(n>=0&&n<options.length) answerIdx=n;
+              else if(n>=1&&n<=options.length) answerIdx=n-1;
+            }
+          }
+        }
+        
+        validQuestions.push({
+          id:num,
+          subject:q.subject||detectedMeta.book||"Imported Course",
+          chapter:q.chapter||detectedMeta.topic||"General",
+          topic:q.topic||detectedMeta.topic||"General",
+          difficulty:q.difficulty||"Medium",
+          question:prompt,
+          options:options,
+          answer:answerIdx,
+          explanation:(q.explanation||q.explain||q.reason||"").trim(),
+          type:"single"
+        });
+      });
+      
+      if(!validQuestions.length){
+        modal(`<h2>Import Failed</h2>
+<p style="color:var(--r);font-size:13px;line-height:1.5;">Could not find any valid questions in <b>${esc(file.name)}</b>.</p>
+<div style="max-height:200px;overflow-y:auto;background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;margin:12px 0;">
+  <b>Errors detected:</b>
+  <ul style="margin:6px 0 0 16px;padding:0;">${skippedErrors.map(e=>`<li>${esc(e)}</li>`).join("")}</ul>
+</div>
+<div class="modalActions"><button class="primary" onclick="closeModal()">OK</button></div>`);
+        return;
+      }
+      
+      promptAddBookRecord(detectedMeta, validQuestions, file.name);
+
+    }catch(err){
+      modal(`<h2>Import Error</h2>
+<p style="color:var(--r);font-size:13px;line-height:1.5;">${esc(err.message)}</p>
+<p style="font-size:12px;color:var(--m);margin-top:10px;">Expected JSON format is either an array of questions or an object with <code>mcqs</code> / <code>questions</code> and book details.</p>
+<div class="modalActions"><button class="primary" onclick="closeModal()">OK</button></div>`);
+    }finally{
+      if($("#file"))$("#file").value="";
+    }
+  };
+  reader.onerror=()=>{
+    toast("Failed to read the chosen file",true);
+    if($("#file"))$("#file").value="";
+  };
+  reader.readAsText(file);
+}
+
+function confirmRestoreDefaults(){
+  modal(`<h2>Reset to Built-in Books?</h2>
+<p style="font-size:13px;line-height:1.5;">Are you sure you want to reset your catalog to the built-in books (<b>Theory of Automata</b>, <b>Computer Architecture</b>, and <b>Object-Oriented Programming (ADP Sem 2)</b>)?</p>
+<p style="font-size:12px;color:var(--m);margin-top:8px;">Custom imported books will be removed.</p>
+<div class="modalActions">
+  <button class="secondary" onclick="closeModal()">Cancel</button>
+  <button class="danger" id="okRestore">Yes, Reset Catalog</button>
+</div>`);
+  $("#okRestore").onclick=()=>{
+    closeModal();
+    discardSession();
+    localStorage.removeItem(K.subjects);
+    localStorage.removeItem(K.activeSubject);
+    localStorage.removeItem(K.questions);
+    s.subjects=DEFAULT_SUBJECTS.map(sub=>({...sub,questions:[...sub.questions]}));
+    applySubjectSwitch(s.subjects[0],false);
+    toast("Reset catalog to built-in course books.");
+  };
+}
+
+// Expose functions globally for inline HTML event handlers (e.g. onclick in dynamic markup)
+window.start = start;
+window.switchSubject = switchSubject;
+window.deleteCustomSubject = deleteCustomSubject;
+window.closeModal = closeModal;
+window.close = closeModal;
+window.confirmSubmit = confirmSubmit;
+window.resumeActiveExam = resumeActiveExam;
+window.logoutStudent = logoutStudent;
+
+// 1. Navigation & Click Delegation
+document.addEventListener("click", e => {
+  let g = e.target.closest("[data-go]");
+  if (g) {
+    let target = g.dataset.go;
+    if (target === "results") {
+      if (s.result) {
+        ["home", "subjects", "tools"].forEach(x => $("#" + x)?.classList.remove("hidden"));
+        $("#results")?.classList.remove("hidden");
+        go("results");
+      } else {
+        toast("No examination result found. Please start an exam first.");
+      }
+    } else {
+      main();
+      go(target);
+    }
+  }
+  let b = e.target.closest("[data-b]");
+  if (b) {
+    s.bankAns[b.dataset.b] = +b.dataset.o;
+    render();
+    toast("Answer saved");
+  }
+  let bm = e.target.closest("[data-bm]");
+  if (bm) {
+    let id = +bm.dataset.bm;
+    s.bm.has(id) ? s.bm.delete(id) : s.bm.add(id);
+    store(K.bm, JSON.stringify([...s.bm]));
+    if ($("#bmInfo")) $("#bmInfo").textContent = s.bm.size + " bookmarked questions";
+    render();
+  }
+});
+
+// 2. Dark / Light Mode Theme Toggle
+function initTheme() {
+  const currentTheme = read(K.theme, "light");
+  document.documentElement.dataset.theme = currentTheme;
+  const themeBtn = $("#theme");
+  if (themeBtn) {
+    themeBtn.textContent = currentTheme === "dark" ? "☀" : "☾";
+    themeBtn.title = currentTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+    themeBtn.onclick = () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      store(K.theme, nextTheme);
+      themeBtn.textContent = nextTheme === "dark" ? "☀" : "☾";
+      themeBtn.title = nextTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+      toast(nextTheme === "dark" ? "Dark Mode enabled ☾" : "Light Mode enabled ☀");
+    };
+  }
+}
+initTheme();
+
+// 3. Mobile Navigation Drawer Toggle
+if ($("#menu")) {
+  $("#menu").onclick = () => $("#drawer")?.classList.toggle("drawerOpen");
+}
+
+// 4. Examination Start & Resume Buttons
+[$$("#startTop"), $$("#startHero"), $$("#startSubject"), $$("#drawerStartBtn")].flat().forEach(b => {
+  if (b) {
+    b.onclick = () => {
+      if ($("#drawer")) $("#drawer").classList.remove("drawerOpen");
+      start();
+    };
+  }
+});
+
+// 5. Exam In-Progress Banner Resume Button
+if ($("#bannerResumeBtn")) {
+  $("#bannerResumeBtn").onclick = resumeActiveExam;
+}
+
+// 6. Sidebar Examination Submission Button
+if ($("#submit")) {
+  $("#submit").onclick = confirmSubmit;
+}
+
+// 7. Results Actions (Print & Retake)
+if ($("#print")) $("#print").onclick = () => window.print();
+if ($("#printTop")) $("#printTop").onclick = () => window.print();
+if ($("#again")) $("#again").onclick = () => { discardSession(); openStartModal(); };
+if ($("#againTop")) $("#againTop").onclick = () => { discardSession(); openStartModal(); };
+
+// 8. Student Credentials & Logout Buttons
+if ($("#logoutBtn")) $("#logoutBtn").onclick = logoutStudent;
+if ($("#drawerLogoutBtn")) $("#drawerLogoutBtn").onclick = () => {
+  logoutStudent();
+  $("#drawer")?.classList.remove("drawerOpen");
+};
+
+// 9. Modal Dismissal (Close Button, Backdrop Click, Escape Key)
+if ($("#close")) $("#close").onclick = closeModal;
+if ($("#modal")) {
+  $("#modal").onclick = e => {
+    if (e.target.id === "modal") closeModal();
+  };
+}
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeModal();
+});
+
+// 10. Tools & Management Action Buttons
+if ($("#export")) $("#export").onclick = exportQuestionsJSON;
+if ($("#import")) $("#import").onclick = () => $("#file").click();
+if ($("#file")) $("#file").onchange = handleFileImport;
+if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = confirmRestoreDefaults;
+if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => $("#file").click();
+if ($("#bookmarks")) $("#bookmarks").onclick = () => {
+  if (!s.bm.size) {
+    toast("No bookmarked questions", true);
+    return;
+  }
+  let bms = s.questions.filter(q => s.bm.has(q.id));
+  modal(`<h2>Bookmarked Questions (${bms.length})</h2><div style="max-height:60vh;overflow-y:auto;display:flex;flex-direction:column;gap:12px;margin-top:16px;">${bms.map(q => card(q)).join("")}</div>`);
+};
+if ($("#reset")) $("#reset").onclick = () => {
+  const isCustom = !!read(K.questions, "");
+  modal(`<h2>Reset All Progress?</h2>
+<p style="font-size:13px;line-height:1.5;">Select which items to reset:</p>
+<div style="display:flex;flex-direction:column;gap:10px;margin:14px 0;font-size:13px;">
+  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+    <input type="checkbox" id="resetExam" checked> Clear active examination & result
+  </label>
+  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+    <input type="checkbox" id="resetBookmarks" checked> Clear bookmarked questions
+  </label>
+  ${isCustom ? `<label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+    <input type="checkbox" id="resetBank"> Revert custom questions back to default (40 MCQs)
+  </label>` : ""}
+</div>
+<div class="modalActions">
+  <button class="secondary" id="no">Cancel</button>
+  <button class="danger" id="ok">Reset Selected</button>
+</div>`);
+  $("#no").onclick = closeModal;
+  $("#ok").onclick = () => {
+    if ($("#resetExam")?.checked) {
+      discardSession();
+      localStorage.removeItem(K.result);
+      s.result = null;
+    }
+    if ($("#resetBookmarks")?.checked) {
+      localStorage.removeItem(K.bm);
+      s.bm.clear();
+      $("#bmInfo").textContent = "0 bookmarked questions";
+    }
+    if ($("#resetBank")?.checked) {
+      localStorage.removeItem(K.questions);
+      s.questions = [...questions];
+    }
+    closeModal();
+    updateQuestionCountUI();
+    render();
+    updateExamStatusUI();
+    toast("Selected items have been reset.");
+  };
+};
+
+// 11. Initial Application Hydration
+try {
+  s.bm = new Set(JSON.parse(read(K.bm, "[]")));
+} catch {}
+if ($("#bmInfo")) $("#bmInfo").textContent = s.bm.size + " bookmarked questions";
+render();
+
+const initSt = getStudentSession();
+if (initSt) {
+  s.student = initSt;
+  updateStudentUI(initSt);
+}
+
+// Restore saved result if available
+try {
+  const savedRes = JSON.parse(read(K.result, ""));
+  if (savedRes && savedRes.total) {
+    s.result = savedRes;
+    results();
+  }
+} catch {}
+
+renderSubjects();
+updateHeroSubjectUI();
+updateTranscriptSubjectUI(s.activeSubject);
+updateQuestionCountUI();
+updateExamStatusUI();

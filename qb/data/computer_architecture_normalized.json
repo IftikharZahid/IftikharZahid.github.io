@@ -1,0 +1,665 @@
+[
+  {
+    "id": 1,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the primary focus of Week 1 in Computer Architecture and Organization?",
+    "options": [
+      "CPU registers and addressing modes",
+      "Review of Digital Logic and Design and an overview of computer hardware and software",
+      "Cache mapping only",
+      "Assembly language programming"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Review of Digital Logic and Design and an overview of computer hardware and software",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which number system is commonly used to represent information in digital computers?",
+    "options": [
+      "Decimal",
+      "Binary",
+      "Octal only",
+      "Roman"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Binary",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is a bit?",
+    "options": [
+      "A group of 16 bytes",
+      "A binary digit with a value of 0 or 1",
+      "A CPU instruction",
+      "A storage device"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: A binary digit with a value of 0 or 1",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "How many bits are in one byte?",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: 8",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is digital logic?",
+    "options": [
+      "Logic based on continuous physical quantities only",
+      "Logic based on discrete states used to construct digital circuits",
+      "A programming language",
+      "A type of storage"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Logic based on discrete states used to construct digital circuits",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is a fundamental digital logic building block?",
+    "options": [
+      "Logic gate",
+      "Hard disk",
+      "Compiler",
+      "Keyboard"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Logic gate",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which gate produces 1 only when all required inputs are 1?",
+    "options": [
+      "OR",
+      "AND",
+      "NOT",
+      "XOR"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: AND",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which logic gate performs logical inversion?",
+    "options": [
+      "AND",
+      "OR",
+      "NOT",
+      "NAND"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: NOT",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which gate is the inverse of an AND operation?",
+    "options": [
+      "NOR",
+      "NAND",
+      "XOR",
+      "XNOR"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: NAND",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which gate is the inverse of an OR operation?",
+    "options": [
+      "NAND",
+      "XOR",
+      "NOR",
+      "AND"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: NOR",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "For a two-input XOR gate, the output is 1 when:",
+    "options": [
+      "Both inputs are 0",
+      "Both inputs are 1",
+      "The inputs differ",
+      "The inputs are always equal"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: The inputs differ",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What does a truth table show?",
+    "options": [
+      "Only the input values",
+      "Possible input combinations and their corresponding outputs",
+      "Only CPU registers",
+      "Memory addresses only"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Possible input combinations and their corresponding outputs",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "In combinational logic, the output depends primarily on:",
+    "options": [
+      "Current inputs",
+      "Previous clock cycles only",
+      "Disk contents",
+      "Program files"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Current inputs",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which is an example of sequential logic?",
+    "options": [
+      "Adder",
+      "Multiplexer",
+      "Register",
+      "Decoder"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Register",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement correctly describes sequential logic?",
+    "options": [
+      "Its output depends only on current inputs",
+      "It involves stored state in addition to current inputs",
+      "It cannot store information",
+      "It is used only for input devices"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: It involves stored state in addition to current inputs",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the primary role of the CPU?",
+    "options": [
+      "Permanent storage",
+      "Execute instructions and coordinate processing operations",
+      "Display output",
+      "Provide internet access"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Execute instructions and coordinate processing operations",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which CPU component performs arithmetic and logical operations?",
+    "options": [
+      "Control Unit",
+      "ALU",
+      "Storage Unit",
+      "Input Unit"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: ALU",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What does ALU stand for?",
+    "options": [
+      "Arithmetic and Logic Unit",
+      "Application Logic Utility",
+      "Address Logic Unit",
+      "Arithmetic Loading Unit"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Arithmetic and Logic Unit",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which CPU component coordinates instruction execution?",
+    "options": [
+      "ALU",
+      "Control Unit",
+      "Keyboard",
+      "Secondary Storage"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Control Unit",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the role of the Control Unit?",
+    "options": [
+      "Perform all arithmetic operations",
+      "Coordinate instruction execution and generate control signals",
+      "Store files permanently",
+      "Display information"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Coordinate instruction execution and generate control signals",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What are CPU registers?",
+    "options": [
+      "Large external storage devices",
+      "High-speed storage locations associated directly with the CPU",
+      "Input devices",
+      "Software programs"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: High-speed storage locations associated directly with the CPU",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement about registers is correct?",
+    "options": [
+      "They are slower than secondary storage",
+      "They hold values, addresses, instructions, or control information needed during processing",
+      "They are only used for permanent storage",
+      "They replace all main memory"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: They hold values, addresses, instructions, or control information needed during processing",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the primary role of main memory?",
+    "options": [
+      "Store programs and data needed during processing",
+      "Print documents",
+      "Perform logical operations",
+      "Connect to a network"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Store programs and data needed during processing",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which component provides communication between the computer system and external devices?",
+    "options": [
+      "Input/Output",
+      "ALU",
+      "Register",
+      "Control Unit only"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Input/Output",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is an input device?",
+    "options": [
+      "Display",
+      "Printer",
+      "Keyboard",
+      "Speaker"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Keyboard",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is an output device?",
+    "options": [
+      "Keyboard",
+      "Mouse",
+      "Scanner",
+      "Display"
+    ],
+    "answer": 3,
+    "explanation": "Correct answer: Display",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the purpose of secondary storage?",
+    "options": [
+      "Provide persistent storage for programs and data",
+      "Execute CPU instructions directly",
+      "Perform Boolean operations",
+      "Generate control signals"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Provide persistent storage for programs and data",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement best describes computer hardware?",
+    "options": [
+      "Programs and instructions",
+      "Physical components of a computer system",
+      "Only operating systems",
+      "Only application programs"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Physical components of a computer system",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which statement best describes software?",
+    "options": [
+      "Physical components",
+      "Programs, instructions, and related components that direct hardware",
+      "Only CPU registers",
+      "A type of memory chip"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Programs, instructions, and related components that direct hardware",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is system software?",
+    "options": [
+      "Software that supports operation and management of computer hardware",
+      "Only games",
+      "Only word processors",
+      "Only web pages"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Software that supports operation and management of computer hardware",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which is an example of application software?",
+    "options": [
+      "Operating system",
+      "Device-related software",
+      "Word processing software",
+      "System utility"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Word processing software",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the relationship between hardware and software?",
+    "options": [
+      "They are independent and never interact",
+      "Hardware provides physical resources while software provides instructions for using them",
+      "Software replaces hardware",
+      "Hardware is a type of application"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Hardware provides physical resources while software provides instructions for using them",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which sequence represents the simplified conceptual instruction-processing cycle introduced in Week 1?",
+    "options": [
+      "Execute → Fetch → Decode → Store",
+      "Fetch → Decode → Execute → Store/Write Back",
+      "Decode → Store → Fetch → Execute",
+      "Store → Execute → Fetch → Decode"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Fetch → Decode → Execute → Store/Write Back",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Why is digital logic important in computer architecture?",
+    "options": [
+      "It provides the foundation for digital circuits used in computer hardware",
+      "It replaces software",
+      "It is used only for printers",
+      "It eliminates the need for memory"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: It provides the foundation for digital circuits used in computer hardware",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is an example of combinational logic?",
+    "options": [
+      "Register",
+      "Counter",
+      "Adder",
+      "Memory state circuit"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Adder",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which component stores active programs and data during processing?",
+    "options": [
+      "Main Memory",
+      "Printer",
+      "Keyboard",
+      "Output device"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Main Memory",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which pair is correctly matched?",
+    "options": [
+      "ALU — coordinates instruction execution",
+      "Control Unit — performs arithmetic only",
+      "CPU — executes instructions",
+      "Secondary Storage — performs Boolean logic"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: CPU — executes instructions",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "Which of the following is a key Week 1 concept?",
+    "options": [
+      "Hardware and software relationship",
+      "RAID 10 implementation",
+      "Detailed assembly directives",
+      "Indirect addressing modes"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Hardware and software relationship",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Digital Logic & Hardware/Software Overview",
+    "topic": "Digital Logic and Design",
+    "difficulty": "Medium",
+    "question": "What is the main purpose of Week 1?",
+    "options": [
+      "To study only RAID",
+      "To establish foundational understanding of digital logic, hardware, and software before later architecture topics",
+      "To complete assembly language programming",
+      "To study only CPU flags"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: To establish foundational understanding of digital logic, hardware, and software before later architecture topics",
+    "type": "single"
+  }
+]

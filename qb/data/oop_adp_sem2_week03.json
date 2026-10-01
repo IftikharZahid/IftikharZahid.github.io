@@ -1,0 +1,325 @@
+{
+  "questionBank": {
+    "bankId": "OOP-ADP-W03",
+    "title": "Object-Oriented Programming — Week 3 Question Bank",
+    "subject": "Object-Oriented Programming",
+    "courseCode": "OOP",
+    "program": "ADP Computer Science",
+    "class": "ADP Semester 2",
+    "section": "Week 3",
+    "weekNo": 3,
+    "semester": "Semester 2",
+    "assessmentType": "MCQs",
+    "language": "English",
+    "totalQuestions": 20,
+    "marksPerQuestion": 1,
+    "totalMarks": 20,
+    "preparedBy": "Iftikhar Zahid",
+    "role": "Lecturer, Computer Science",
+    "version": "1.0",
+    "createdFor": "HTML/CSS/JavaScript Question Bank",
+    "syllabusCoverage": "Introduction to classes and objects; fields/data members; methods; parameterized and non-parameterized methods; returning and non-returning methods; namespaces.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Which statement best describes a class in C++?",
+        "options": {
+          "A": "A single value stored in memory",
+          "B": "A user-defined type that groups data and behavior",
+          "C": "A compiler command",
+          "D": "A namespace only"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Classes and Objects",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 2,
+        "question": "An object is best described as:",
+        "options": {
+          "A": "A blueprint for a class",
+          "B": "A comment in a program",
+          "C": "An instance of a class",
+          "D": "A header file"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Classes and Objects",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 3,
+        "question": "Which members primarily represent the state of an object?",
+        "options": {
+          "A": "Data members",
+          "B": "Namespaces",
+          "C": "Operators only",
+          "D": "Header guards"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "topic": "Fields / Data Members",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 4,
+        "question": "Which member represents behavior in an OOP class?",
+        "options": {
+          "A": "Field",
+          "B": "Method",
+          "C": "Namespace",
+          "D": "Literal"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Methods",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 5,
+        "question": "Which method declaration is parameterized?",
+        "options": {
+          "A": "void display()",
+          "B": "int getAge()",
+          "C": "void setAge(int age)",
+          "D": "void show()"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Parameterized Methods",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 6,
+        "question": "What does the return type void indicate?",
+        "options": {
+          "A": "The method returns an integer",
+          "B": "The method does not return a data value",
+          "C": "The method cannot contain statements",
+          "D": "The method is always static"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Non-Returning Methods",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 7,
+        "question": "Which method returns an integer value?",
+        "options": {
+          "A": "void display()",
+          "B": "int getMarks()",
+          "C": "void show()",
+          "D": "void print()"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Returning Methods",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 8,
+        "question": "In calculator.add(5, 7), 5 and 7 are:",
+        "options": {
+          "A": "Classes",
+          "B": "Fields",
+          "C": "Arguments",
+          "D": "Namespaces"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Methods and Arguments",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 9,
+        "question": "In int add(int x, int y), x and y are:",
+        "options": {
+          "A": "Objects",
+          "B": "Parameters",
+          "C": "Classes",
+          "D": "Namespaces"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Methods and Parameters",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 10,
+        "question": "Which operator accesses a member through an ordinary object?",
+        "options": {
+          "A": "::",
+          "B": "->",
+          "C": ".",
+          "D": "#"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Object Member Access",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 11,
+        "question": "If Student is a class, which statement creates an object named s1?",
+        "options": {
+          "A": "class s1 = Student;",
+          "B": "Student s1;",
+          "C": "object Student s1;",
+          "D": "Student::s1;"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Classes and Objects",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 12,
+        "question": "What is the primary purpose of a namespace?",
+        "options": {
+          "A": "Allocate object memory",
+          "B": "Prevent all runtime errors",
+          "C": "Organize identifiers and reduce naming conflicts",
+          "D": "Replace classes"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Namespaces",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 13,
+        "question": "Which namespace contains cout and string?",
+        "options": {
+          "A": "system",
+          "B": "cpp",
+          "C": "standard",
+          "D": "std"
+        },
+        "correctAnswer": "D",
+        "correctOptionIndex": 3,
+        "topic": "std Namespace",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 14,
+        "question": "Which statement explicitly accesses cout in the standard namespace?",
+        "options": {
+          "A": "cout::std",
+          "B": "std::cout",
+          "C": "namespace::cout",
+          "D": "standard.cout"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "std Namespace",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 15,
+        "question": "Which method is non-parameterized?",
+        "options": {
+          "A": "void setName(string n)",
+          "B": "int add(int a, int b)",
+          "C": "void display()",
+          "D": "double area(double r)"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Non-Parameterized Methods",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 16,
+        "question": "Which method is both parameterized and returning?",
+        "options": {
+          "A": "void display()",
+          "B": "int square(int n)",
+          "C": "void show(int n)",
+          "D": "void print()"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Returning and Parameterized Methods",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 17,
+        "question": "If two objects are created from the same class, their non-static data members normally:",
+        "options": {
+          "A": "Must have identical values",
+          "B": "Are independently stored for each object",
+          "C": "Are shared automatically",
+          "D": "Become namespaces"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Objects and Data Members",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 18,
+        "question": "Which declaration correctly defines a method that returns double?",
+        "options": {
+          "A": "void calculate()",
+          "B": "return calculate()",
+          "C": "double calculate()",
+          "D": "method double calculate"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Returning Methods",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 19,
+        "question": "Which statement is correct about a void method?",
+        "options": {
+          "A": "It cannot have parameters",
+          "B": "It cannot perform calculations",
+          "C": "It does not return a data value to the caller",
+          "D": "It must be private"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Non-Returning Methods",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 20,
+        "question": "Which mapping is most appropriate for a Student class?",
+        "options": {
+          "A": "name and rollNo as methods; display as a field",
+          "B": "Student as an object and Ali as a class",
+          "C": "name/rollNo as fields and display() as a method",
+          "D": "std as a field and Student as a method"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Class Design",
+        "difficulty": "Medium",
+        "marks": 1
+      }
+    ]
+  }
+}

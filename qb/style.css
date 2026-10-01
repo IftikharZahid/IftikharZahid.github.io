@@ -686,83 +686,169 @@ nav button:hover {
 }
 
 /* ==========================================================================
-   Subject Selection Card (Compact, Clickable, High Polish)
+   Subject & Book Catalog Cards (Multi-Subject Library)
    ========================================================================== */
-.subject {
-  width: 100%;
-  display: flex;
-  align-items: center;
+.subjectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 16px;
-  padding: 16px 20px;
-  background: var(--card);
-  color: var(--t);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  text-align: left;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
 }
 
-.subject:hover {
+.subjectCard {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.subjectCard:hover {
   border-color: var(--p);
   box-shadow: var(--shadow);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-.subjectIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius);
+.subjectCard.active {
+  border-color: var(--p);
+  background: linear-gradient(180deg, var(--card) 0%, rgba(37, 99, 235, 0.03) 100%);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+}
+
+.subjectCard.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--p), #0284c7);
+}
+
+.subjectCardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.subjectCardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   background: var(--p-subtle);
   color: var(--p);
   display: grid;
   place-items: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   flex-shrink: 0;
 }
 
-.subjectInfo {
+.subjectCard.active .subjectCardIcon {
+  background: var(--p);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+
+.subjectCardHead {
   flex: 1;
 }
 
-.subjectHeader {
+.subjectCardBadges {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
-.subjectHeader b {
-  font-size: 15px;
+.subjectCardTitle {
+  font-size: 15.5px;
   font-weight: 700;
+  color: var(--t);
+  line-height: 1.3;
+  margin: 0 0 4px 0;
+}
+
+.subjectCardTopic {
+  font-size: 12.5px;
+  color: var(--m);
+  line-height: 1.45;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.subjectCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  color: var(--m);
+  flex-wrap: wrap;
+}
+
+.subjectCardMeta span b {
   color: var(--t);
 }
 
-.subjectInfo small {
-  color: var(--m);
-  font-size: 12px;
+.subjectCardFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 2px;
+  flex-wrap: wrap;
 }
 
-.tag {
-  font-size: 10px;
-  background: var(--card-subtle);
-  color: var(--m);
-  padding: 2px 7px;
-  border-radius: 4px;
+.activeIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
   font-weight: 700;
-}
-
-.tag.success {
-  background: rgba(16, 185, 129, 0.1);
   color: var(--g);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 4px 10px;
+  border-radius: 12px;
 }
 
-.subjectCta {
-  padding: 8px 14px;
+.activeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--g);
+  box-shadow: 0 0 6px var(--g);
+}
+
+.subjectCardActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bookImportSummary {
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin: 10px 0 14px 0;
   font-size: 12.5px;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 /* ==========================================================================
@@ -1021,6 +1107,28 @@ nav button:hover {
 
 [data-theme="dark"] .skipBtn:hover {
   color: #fbbf24;
+}
+
+.examSubmitCta {
+  background: var(--card);
+  color: var(--t);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.examSubmitCta:hover {
+  background: var(--p-subtle);
+  border-color: var(--p);
+  color: var(--p);
+  transform: translateY(-1px);
 }
 
 .disabledOption {
@@ -2327,150 +2435,384 @@ footer span {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 10mm 14mm;
+    margin: 8mm 12mm;
   }
 
-  body {
-    background: #ffffff !important;
-    color: #0f172a !important;
-    font-size: 10pt !important;
+  /* 1. Global Reset & Scrollbar Removal */
+  *, *::before, *::after {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
   }
 
-  /* Exclude all navigational and screen elements */
-  header, footer, nav, .hero, #subjects, #live, .tools, #drawer, #toast, #modal, button, .modalActions, .no-print {
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
     display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    opacity: 0 !important;
   }
 
-  /* Exclude all question lists, explanations, and reviews */
-  .review, #review, .reviewItem, #reviewCount {
+  html, body {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 9pt !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  /* 2. Absolute DOM Isolation: Hide every single element on the page that is NOT the academic transcript */
+  body > :not(main),
+  main > :not(#results),
+  #results > :not(#academicTranscript),
+  header, footer, nav, #drawer, #toast, #modal, #file,
+  #home, #subjects, #live, #tools, #examInProgressBanner,
+  .hero, .tools, .siteFooter, .resultTopBar, .analytics, .review,
+  .no-print, button, input, select {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    pointer-events: none !important;
   }
 
+  /* 3. Ensure parent containers take zero extra space and cannot create page breaks */
+  body > main {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  main > #results,
   #results {
     display: block !important;
+    position: static !important;
+    width: 100% !important;
     max-width: 100% !important;
-    padding: 0 !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
     margin: 0 !important;
-  }
-
-  .academicTranscript {
-    border: none !important;
-    box-shadow: none !important;
     padding: 0 !important;
+    border: none !important;
     background: transparent !important;
-    page-break-inside: avoid;
+    box-shadow: none !important;
+    overflow: visible !important;
+    transform: none !important;
+    page-break-before: avoid !important;
+    page-break-after: avoid !important;
+    break-before: avoid !important;
+    break-after: avoid !important;
   }
 
+  #results.wrap,
+  #results.section {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 4. Pristine Academic Transcript Card: Formatted to fit exactly on ONE single A4 page */
+  #results > #academicTranscript,
+  #academicTranscript,
+  .academicTranscript {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    page-break-before: avoid !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-before: avoid !important;
+    break-after: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* 5. Refined Academic Header */
   .academicHeader {
-    border-bottom: 2.5px solid #0f172a !important;
-    padding-bottom: 10px !important;
-    margin-bottom: 12px !important;
+    border-bottom: 2px solid #0f172a !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
   }
 
   .academicLogo {
-    width: 52px !important;
-    height: 52px !important;
+    width: 44px !important;
+    height: 44px !important;
+    object-fit: contain !important;
   }
 
   .institutionName {
     color: #0f172a !important;
-    font-size: 15pt !important;
+    font-size: 13pt !important;
+    font-weight: 800 !important;
+    margin-bottom: 2px !important;
+    line-height: 1.15 !important;
   }
 
   .documentTitle {
     color: #1e3a8a !important;
-    font-size: 11.5pt !important;
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+    margin-bottom: 2px !important;
+    line-height: 1.15 !important;
   }
 
   .transcriptMeta {
     color: #475569 !important;
-    font-size: 9pt !important;
+    font-size: 8pt !important;
+    line-height: 1.15 !important;
   }
 
   .stampTag {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+    border-width: 1.5px !important;
   }
 
+  /* 6. Section Headers & Tables */
   .academicSectionHeader {
     color: #1e3a8a !important;
-    border-bottom-color: #cbd5e1 !important;
-    font-size: 9pt !important;
-    margin: 10px 0 5px 0 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    font-size: 8pt !important;
+    font-weight: 700 !important;
+    margin: 7px 0 3px 0 !important;
+    padding-bottom: 2px !important;
+    line-height: 1.2 !important;
+  }
+
+  .tableResponsive {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    margin-bottom: 6px !important;
+    padding: 0 !important;
+    border: none !important;
+    -webkit-overflow-scrolling: auto !important;
   }
 
   .academicTable {
-    font-size: 9pt !important;
-    margin-bottom: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    font-size: 8pt !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
   }
 
   .academicTable th, .academicTable td {
     border: 1px solid #94a3b8 !important;
-    padding: 5px 8px !important;
+    padding: 3.5px 6px !important;
     color: #0f172a !important;
+    word-break: break-word !important;
+    line-height: 1.2 !important;
   }
 
   .academicTable th {
     background: #f1f5f9 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    font-weight: 700 !important;
   }
 
   .gradeBadge, .statusBadge {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     font-weight: 700 !important;
+    font-size: 8pt !important;
+    padding: 1.5px 6px !important;
   }
 
+  /* 7. Response Metrics (Ultra-Compact Grid) */
   .transcriptMetrics {
     display: grid !important;
     grid-template-columns: repeat(6, 1fr) !important;
-    gap: 6px !important;
-    margin-bottom: 10px !important;
-    page-break-inside: avoid;
+    gap: 4px !important;
+    margin-bottom: 6px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: visible !important;
   }
 
   .transcriptMetrics > div {
     border: 1px solid #94a3b8 !important;
     box-shadow: none !important;
-    padding: 5px 6px !important;
-    font-size: 8pt !important;
+    padding: 3px 4px !important;
+    font-size: 7pt !important;
+    text-align: center !important;
+    line-height: 1.15 !important;
   }
 
   .transcriptMetrics b {
-    font-size: 10pt !important;
+    font-size: 8.5pt !important;
+    display: block !important;
+    margin-top: 1px !important;
   }
 
+  /* 8. Academic Remarks */
   .academicRemarksBox {
     background: #f8fafc !important;
     border: 1px solid #cbd5e1 !important;
-    padding: 6px 10px !important;
-    font-size: 8.5pt !important;
-    margin-bottom: 16px !important;
+    padding: 4px 8px !important;
+    font-size: 7.5pt !important;
+    margin-bottom: 8px !important;
+    border-radius: 2px !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    line-height: 1.2 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
+  /* 9. Official Signatures */
   .academicSignatures {
-    margin-top: 32px !important;
-    page-break-inside: avoid;
+    margin-top: 18px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .sigBlock {
+    width: 28% !important;
+    text-align: center !important;
   }
 
   .sigLine {
     border-top: 1.5px solid #475569 !important;
+    margin-bottom: 3px !important;
   }
 
   .sigBlock span {
     color: #334155 !important;
-    font-size: 8.5pt !important;
+    font-size: 7.5pt !important;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
   }
 
+  /* 10. Certificate Footer */
   .academicCertFooter {
-    margin-top: 12px !important;
+    margin-top: 8px !important;
+    padding-top: 4px !important;
     border-top: 1px dashed #94a3b8 !important;
     color: #64748b !important;
-    font-size: 7.5pt !important;
+    font-size: 6.5pt !important;
+    text-align: center !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
+}
+
+/* Exam in Progress Banner & Active Resume Indicator */
+.examBanner {
+  margin: 16px auto 0 auto;
+  background: var(--card);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-left: 4px solid var(--g);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12);
+  animation: bannerFadeIn 0.25s ease-out;
+}
+
+.examBanner.hidden {
+  display: none !important;
+}
+
+.examBannerContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--t);
+  flex-wrap: wrap;
+}
+
+.examBannerPulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--g);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: bannerPulseAnim 1.8s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes bannerPulseAnim {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes bannerFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.resumeActive {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35) !important;
+}
+
+.resumeActive:hover {
+  background: linear-gradient(135deg, #047857, #059669) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45) !important;
 }
