@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCQs Question Bank | Theory of Automata</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+  <header>
+    <div class="head">
+      <button class="brand" data-go="home">
+        <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg">
+        <span>
+          <strong>MCQs Question Bank</strong>
+          <small>Practice • Learn • Test • Improve</small>
+        </span>
+      </button>
+      <nav>
+        <button data-go="home">Home</button>
+        <button data-go="subjects">Subjects</button>
+        <button data-go="tools">Management</button>
+        <button data-go="results">Results</button>
+      </nav>
+      <div class="headActions">
+        <div id="userBadge" class="userBadge hidden">
+          <span class="userAvatar">👤</span>
+          <span id="headerUserName" class="userName"></span>
+          <button id="logoutBtn" class="logoutBtn" title="Logout from saved credentials">Logout</button>
+        </div>
+        <button id="theme" class="icon" title="Toggle theme">☾</button>
+        <button id="startTop" class="primary">▶ Start Test</button>
+        <button id="menu" class="icon mobile">☰</button>
+      </div>
+    </div>
+    <div id="drawer">
+      <div id="drawerUserBadge" class="drawerUser hidden">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span>👤</span>
+          <b id="drawerUserName" style="font-size:13px;color:var(--t)"></b>
+        </div>
+        <button id="drawerLogoutBtn" class="secondary" style="width:100%;font-size:12px;color:var(--r);border-color:rgba(239,68,68,0.3)">Logout</button>
+      </div>
+      <button data-go="home">Home</button>
+      <button data-go="subjects">Subjects</button>
+      <button data-go="tools">Management</button>
+      <button data-go="results">Results</button>
+      <button id="drawerStartBtn" class="primary" style="margin-top:4px;width:100%;font-size:13.5px;font-weight:700;justify-content:center;background:var(--p);color:#fff;">▶ Start Practice Examination</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero wrap">
+      <div>
+        <div class="badge"><span class="badgeDot"></span>BS Computer Science • Automata • Week 02</div>
+        <h1>Master Your Exams with <span>Smart MCQs</span></h1>
+        <p>Practice verified lecture content on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination, live scoring, and answer explanations.</p>
+        <div class="actions">
+          <button id="startHero" class="primary big">Start Practice Exam →</button>
+          <button data-go="subjects" class="secondary big">View Subject</button>
+        </div>
+        <div class="stats">
+          <div><b id="total">40</b><small>Total MCQs</small></div>
+          <div><b>60</b><small>Minutes</small></div>
+          <div><b>50%</b><small>Pass Mark</small></div>
+          <div><b>Instant</b><small>Review</small></div>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="preview">
+          <div class="previewLogo">
+            <img src="logo.png" alt="MCQs Question Bank Logo" class="previewLogoImg">
+            <div>
+              <small>THEORY OF AUTOMATA • WEEK 02</small>
+              <h3 style="margin:0;">Sample Practice MCQ</h3>
+            </div>
+          </div>
+          <p>A. Union</p>
+          <p>B. Concatenation</p>
+          <p class="ok">C. Kleene Star ✓</p>
+          <p>D. Addition</p>
+          <div class="previewFoot">
+            <span>Score: 82%</span>
+            <span>00:24:18 remaining</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="subjects" class="wrap section">
+      <div class="title">
+        <div>
+          <small class="eyebrow">COURSE MODULE</small>
+          <h2>Subject & Topic</h2>
+        </div>
+        <p>Organized directly from the supplied Week 02 lecture.</p>
+      </div>
+      <button id="startSubject" class="subject">
+        <div class="subjectIcon">Σ</div>
+        <div class="subjectInfo">
+          <div class="subjectHeader">
+            <b>Theory of Automata</b>
+            <span class="tag">Week 02</span>
+            <span class="tag success">40 MCQs Ready</span>
+          </div>
+          <small>Regular Expressions & Recursive Definitions of Languages</small>
+        </div>
+        <span class="primary subjectCta">Start Test →</span>
+      </button>
+    </section>
+
+    <section id="live" class="wrap section hidden">
+      <div class="liveTitle">
+        <div>
+          <small class="eyebrow">EXAM IN PROGRESS • SEQUENTIAL MODE</small>
+          <h2>Week 02 Examination <span class="tag" style="margin-left:6px;font-size:10px;vertical-align:middle;">🔒 Forward-Only</span></h2>
+        </div>
+        <div id="timer" class="timer">
+          <small>TIME REMAINING</small>
+          <b>60:00</b>
+        </div>
+      </div>
+      <div class="score">
+        <span>Score <b id="score">0/40</b></span>
+        <span>Correct <b id="correct">0</b></span>
+        <span>Attempted <b id="attempted">0</b></span>
+        <span>Wrong <b id="wrong">0</b></span>
+        <span>Skipped <b id="skipped">0</b></span>
+        <span>Accuracy <b id="accuracy">0%</b></span>
+      </div>
+      <div class="examLayout">
+        <article id="examQ" class="card examQ"></article>
+        <aside class="card side">
+          <b>Question Navigator</b>
+          <small id="navCount">1/40</small>
+          <div class="navLegend">
+            <span class="navLegendItem"><i class="legendDot current"></i> Current</span>
+            <span class="navLegendItem"><i class="legendDot locked"></i> Locked</span>
+            <span class="navLegendItem"><i class="legendDot skipped"></i> Skipped</span>
+            <span class="navLegendItem"><i class="legendDot upcoming"></i> Remaining</span>
+          </div>
+          <div id="nav" class="nav"></div>
+          <button id="submit" class="secondary full">Submit Examination</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="results" class="wrap section hidden">
+      <!-- Top Action Bar with Prominent Print Button -->
+      <div class="resultTopBar no-print">
+        <div>
+          <small class="eyebrow">EXAMINATION RESULT</small>
+          <h2>Academic Transcript & Performance Overview</h2>
+        </div>
+        <div class="resultTopActions">
+          <button id="printTop" class="primary big printCtaBtn">
+            <span style="font-size:16px;">🖨️</span> Print Official Result Sheet
+          </button>
+          <button id="againTop" class="secondary big">↻ Retake Examination</button>
+        </div>
+      </div>
+
+      <!-- Formal Academic Standard Transcript Card (Rendered On-Screen and Formatted for A4 Print) -->
+      <div id="academicTranscript" class="academicTranscript card">
+        <!-- Institution / University Header -->
+        <div class="academicHeader">
+          <div class="academicLogoWrap">
+            <img src="logo.png" alt="University Logo" class="academicLogo">
+          </div>
+          <div class="academicTitleBlock">
+            <h1 class="institutionName">DEPARTMENT OF COMPUTER SCIENCE</h1>
+            <h2 class="documentTitle">OFFICIAL EXAMINATION TRANSCRIPT & MARKS SHEET</h2>
+            <p class="transcriptMeta">Course: <b>Theory of Automata</b> • BS Computer Science • Continuous Assessment Examination</p>
+          </div>
+          <div class="transcriptStamp">
+            <span class="stampTag" id="transcriptStamp">VERIFIED</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Candidate & Examination Credentials -->
+        <div class="academicSectionHeader">
+          <span>I. CANDIDATE & EXAMINATION CREDENTIALS</span>
+        </div>
+        <div class="tableResponsive">
+          <table class="academicTable candidateTable">
+            <tbody>
+              <tr>
+                <th style="width:18%;">Student Name:</th>
+                <td style="width:32%;" id="dispStudentName"><b>—</b></td>
+                <th style="width:18%;">Roll / Reg No:</th>
+                <td style="width:32%;" id="dispStudentRoll"><b>—</b></td>
+              </tr>
+              <tr>
+                <th>Class / Section:</th>
+                <td id="dispStudentClass">—</td>
+                <th>Subject / Course:</th>
+                <td>Theory of Automata (Week 02)</td>
+              </tr>
+              <tr>
+                <th>Examination Date:</th>
+                <td id="dispExamDate">—</td>
+                <th>Time / Duration:</th>
+                <td id="dispExamTime">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section 2: Marks Evaluation & Academic Summary Table -->
+        <div class="academicSectionHeader">
+          <span>II. MARKS EVALUATION & ASSESSMENT SUMMARY</span>
+        </div>
+        <div class="tableResponsive">
+          <table class="academicTable marksTable">
+            <thead>
+              <tr>
+                <th style="text-align:left;">Assessment Component</th>
+                <th style="text-align:center;">Total Marks</th>
+                <th style="text-align:center;">Marks Obtained</th>
+                <th style="text-align:center;">Percentage</th>
+                <th style="text-align:center;">Grade</th>
+                <th style="text-align:center;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align:left;">
+                  <b>Theory of Automata — MCQs Examination</b><br>
+                  <small style="color:var(--m);">Week 02: Regular Expressions & Recursive Definitions of Languages</small>
+                </td>
+                <td style="text-align:center;font-weight:600;" id="tMaxMarks">40</td>
+                <td style="text-align:center;font-weight:700;color:var(--p);" id="tObtMarks">0</td>
+                <td style="text-align:center;font-weight:700;" id="tPct">0%</td>
+                <td style="text-align:center;"><span class="gradeBadge" id="tGrade">F</span></td>
+                <td style="text-align:center;"><span class="statusBadge" id="tStatus">NOT PASSED</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section 3: Detailed Response Metrics -->
+        <div class="academicSectionHeader">
+          <span>III. DETAILED BREAKDOWN OF RESPONSES</span>
+        </div>
+        <div class="metrics transcriptMetrics">
+          <div>Total Questions<b id="rTotal">40</b></div>
+          <div>Questions Attempted<b id="rAttempted">0</b></div>
+          <div class="good">Correct Marks<b id="rCorrect">0</b></div>
+          <div class="bad">Incorrect Responses<b id="rWrong">0</b></div>
+          <div>Skipped / Unanswered<b id="rUnanswered">0</b></div>
+          <div>Accuracy Rate<b id="rAccuracy">0%</b></div>
+        </div>
+
+        <!-- Section 4: Academic Remarks -->
+        <div class="academicRemarksBox">
+          <div>
+            <b>Academic Remarks: </b>
+            <span id="academicRemarks">Minimum passing criteria is 50%.</span>
+          </div>
+          <div style="font-size:11px;color:var(--m);margin-top:4px;">
+            <b>Grading Scale Reference: </b>
+            <span>A+ (≥85%), A (80-84%), B (70-79%), C (60-69%), D (50-59%), F (&lt;50%)</span>
+          </div>
+        </div>
+
+        <!-- Section 5: Official Institutional Signatures -->
+        <div class="academicSignatures">
+          <div class="sigBlock">
+            <div class="sigLine"></div>
+            <span>Course Instructor / Examiner</span>
+          </div>
+          <div class="sigBlock">
+            <div class="sigLine"></div>
+            <span>Head of Department (CS)</span>
+          </div>
+          <div class="sigBlock">
+            <div class="sigLine"></div>
+            <span>Controller of Examinations</span>
+          </div>
+        </div>
+
+        <div class="academicCertFooter">
+          <small>Official System-Generated Academic Document • Theory of Automata Examination Bank • Verified Record</small>
+        </div>
+      </div>
+
+      <!-- Performance Visual Analytics (Screen Only) -->
+      <div class="analytics no-print">
+        <article class="card panel">
+          <h3>Visual Performance Analytics</h3>
+          <div class="bar"><span>Correct Answers</span><i id="bc"></i><b id="pc">0%</b></div>
+          <div class="bar"><span>Wrong Answers</span><i id="bw"></i><b id="pw">0%</b></div>
+          <div class="bar"><span>Unanswered / Skipped</span><i id="bu"></i><b id="pu">0%</b></div>
+        </article>
+        <article class="card panel">
+          <h3>Examination Operations</h3>
+          <div id="status" class="status">NOT PASSED</div>
+          <p>Minimum passing threshold: <b>50% (20/40 Marks)</b></p>
+          <div style="display:flex;gap:8px;margin-top:14px;">
+            <button id="print" class="secondary" style="font-weight:600;">🖨️ Print Result Sheet</button>
+            <button id="again" class="primary" style="font-weight:600;">↻ Try Again</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Question Answer Review (Screen Only) -->
+      <article class="card review no-print">
+        <div class="title">
+          <div>
+            <small class="eyebrow">POST-EXAM ANALYSIS</small>
+            <h3>Detailed Answer Review & Explanations</h3>
+          </div>
+          <small id="reviewCount"></small>
+        </div>
+        <div id="review"></div>
+      </article>
+    </section>
+
+    <section id="tools" class="wrap section tools">
+      <div class="title">
+        <div>
+          <small class="eyebrow">QUESTION MANAGEMENT</small>
+          <h2>Import / Export</h2>
+        </div>
+      </div>
+      <div class="toolGrid">
+        <article>
+          <div class="toolHeader"><b>↓ Import Questions</b></div>
+          <p>Load a validated JSON array.</p>
+          <button id="import" class="secondary">Choose JSON File</button>
+          <input id="file" type="file" accept=".json" hidden>
+        </article>
+        <article>
+          <div class="toolHeader"><b>↑ Export Questions</b></div>
+          <p>Download the current question bank.</p>
+          <button id="export" class="secondary">Export JSON</button>
+        </article>
+        <article>
+          <div class="toolHeader"><b>★ My Bookmarks</b></div>
+          <p id="bmInfo">0 bookmarked questions</p>
+          <button id="bookmarks" class="secondary">View Bookmarks</button>
+        </article>
+        <article>
+          <div class="toolHeader"><b>↺ Reset Progress</b></div>
+          <p>Clear saved tests and bookmarks.</p>
+          <button id="reset" class="danger">Reset Progress</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="siteFooter">
+    <button class="brand" data-go="home">
+      <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg">
+      <span>
+        <strong>MCQs</strong> Question Bank
+        <small>Practice • Learn • Test • Improve</small>
+      </span>
+    </button>
+    <span>© 2026 MCQs Question Bank</span>
+  </footer>
+
+  <div id="modal" class="modalBg hidden">
+    <div class="modal">
+      <button id="close" class="close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  <div id="toast"></div>
+
+  <script src="script.js?v=10"></script>
+</body>
+</html>
