@@ -964,6 +964,317 @@ nav button:hover {
   gap: 8px;
 }
 
+/* ==========================================================================
+   Grouped Book Catalog & Weekly Examination Modules Tray
+   ========================================================================== */
+.bookCard {
+  cursor: default;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 16px 18px;
+}
+
+.bookCardClickableHeader {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  user-select: none;
+}
+
+.bookCourseSubtitle {
+  font-size: 12px;
+  color: var(--m);
+  font-weight: 500;
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+.moduleBadge {
+  background: var(--p-subtle) !important;
+  color: var(--p) !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.bookWeeksSummaryPills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  background: var(--card-subtle);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  font-size: 11.5px;
+}
+
+.weeksLabel {
+  font-weight: 700;
+  color: var(--t);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-right: 2px;
+}
+
+.weekSummaryPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  color: var(--m);
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.weekSummaryPill.activePill {
+  background: var(--p-subtle);
+  color: var(--p);
+  border-color: var(--p);
+  font-weight: 700;
+}
+
+.bookCardToggleRow {
+  display: flex;
+  width: 100%;
+}
+
+.bookWeeksToggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 14px;
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--t);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bookWeeksToggleBtn:hover, .bookWeeksToggleBtn.btnExpanded {
+  background: var(--p-subtle);
+  border-color: var(--p);
+  color: var(--p);
+}
+
+.toggleBtnLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggleIcon {
+  font-size: 14px;
+}
+
+.toggleChevron {
+  font-size: 11px;
+  color: var(--m);
+  transition: transform 0.25s ease;
+}
+
+.bookWeeksToggleBtn.btnExpanded .toggleChevron {
+  color: var(--p);
+}
+
+/* Expandable Weekly Modules Tray */
+.bookWeeksTray {
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.bookWeeksTray.trayClosed {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  margin-top: 0;
+}
+
+.bookWeeksTray.trayOpen {
+  max-height: 2000px;
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 12px;
+}
+
+.bookWeeksTrayInner {
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trayHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.trayTitle {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--t);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.traySubtitle {
+  font-size: 11px;
+  color: var(--m);
+}
+
+.bookWeeksList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.weekModuleItem {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.18s ease;
+  position: relative;
+}
+
+.weekModuleItem:hover {
+  border-color: var(--p);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.weekModuleItem.activeWeekItem {
+  border-color: var(--p);
+  background: linear-gradient(180deg, var(--card) 0%, rgba(37, 99, 235, 0.04) 100%);
+  border-left: 3.5px solid var(--p);
+}
+
+.weekModuleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.weekModulePillRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.weekPill {
+  font-weight: 800 !important;
+  font-size: 10.5px !important;
+  background: var(--p) !important;
+  color: #ffffff !important;
+  letter-spacing: 0.4px;
+}
+
+.qCountPill {
+  font-weight: 700 !important;
+  font-size: 10.5px !important;
+  background: var(--card-subtle) !important;
+  color: var(--t) !important;
+  border: 1px solid var(--line);
+}
+
+.weekActivePill {
+  font-size: 10px !important;
+  padding: 2px 7px !important;
+}
+
+.weekModuleLevel {
+  font-size: 11px;
+  color: var(--m);
+  font-weight: 600;
+}
+
+.weekModuleTopic {
+  font-size: 12px;
+  color: var(--t);
+  line-height: 1.45;
+  background: var(--card-subtle);
+  padding: 6px 9px;
+  border-radius: 4px;
+  border-left: 2px solid var(--p);
+}
+
+.weekModuleTopic .topicTag {
+  font-weight: 700;
+  color: var(--p);
+  margin-right: 4px;
+}
+
+.weekModuleTopic .topicVal {
+  color: var(--t);
+  font-weight: 500;
+}
+
+.weekModuleActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line);
+  flex-wrap: wrap;
+}
+
+.weekExamBtn {
+  font-size: 12px !important;
+  padding: 6px 14px !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+.selectWeekBtn {
+  font-size: 11.5px !important;
+  padding: 6px 12px !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+.deleteWeekBtn {
+  font-size: 11px !important;
+  padding: 5px 9px !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+@media (max-width: 480px) {
+  .subjectGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .weekModuleActions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .weekModuleActions button {
+    flex: 1;
+    min-height: 38px;
+    justify-content: center;
+  }
+}
+
 .bookImportSummary {
   background: var(--card-subtle);
   border: 1px solid var(--line);
