@@ -1,0 +1,342 @@
+[
+  {
+    "id": 1,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Object-Oriented Analysis",
+    "topic": "Object-Oriented Analysis",
+    "difficulty": "Easy",
+    "question": "What is the primary purpose of Object-Oriented Analysis (OOA)?",
+    "options": [
+      "To write source code immediately",
+      "To understand the problem domain and identify relevant objects and responsibilities",
+      "To compile the final program",
+      "To design the user interface only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Object-Oriented Analysis (OOA) focuses on understanding the problem domain and identifying what the system should do by recognizing relevant domain objects and their responsibilities without worrying about technical implementation details.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Object-Oriented Design",
+    "topic": "Object-Oriented Design",
+    "difficulty": "Easy",
+    "question": "Object-Oriented Design (OOD) primarily focuses on:",
+    "options": [
+      "Converting the analysis model into a detailed software design",
+      "Finding spelling errors in code",
+      "Replacing the programming language",
+      "Creating hardware components"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Object-Oriented Design (OOD) transforms conceptual requirements and analysis models into technical software specifications, defining classes, interfaces, methods, and relationships ready for implementation.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Object-Oriented Programming",
+    "chapter": "UML",
+    "topic": "UML",
+    "difficulty": "Easy",
+    "question": "UML stands for:",
+    "options": [
+      "Universal Modeling Language",
+      "Unified Modeling Language",
+      "Unified Machine Language",
+      "User Modeling Logic"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — UML stands for Unified Modeling Language, the industry-standard visual modeling notation created by the Object Management Group (OMG).",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Object-Oriented Programming",
+    "chapter": "UML",
+    "topic": "UML",
+    "difficulty": "Easy",
+    "question": "Which statement about UML is correct?",
+    "options": [
+      "UML is a programming language",
+      "UML is an executable language",
+      "UML is a visual modeling language",
+      "UML is a database management system"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — UML is a visual modeling language used to specify, visualize, construct, and document artifacts of software systems; it is not a compiled/executable programming language or DBMS.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Object-Oriented Programming",
+    "chapter": "UML Class Diagram",
+    "topic": "UML Class Diagram",
+    "difficulty": "Easy",
+    "question": "Which UML diagram primarily represents classes, attributes, operations, and structural relationships?",
+    "options": [
+      "Sequence Diagram",
+      "Activity Diagram",
+      "Class Diagram",
+      "Use Case Diagram"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — The UML Class Diagram is a static structural diagram displaying the system's classes, their attributes, methods/operations, and the static relationships among them.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Noun Analysis",
+    "topic": "Noun Analysis",
+    "difficulty": "Easy",
+    "question": "In noun analysis, important nouns and noun phrases are initially treated as candidates for:",
+    "options": [
+      "Classes or objects",
+      "Loops",
+      "Compilers",
+      "Operators"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — In noun analysis (natural language analysis), grammatical nouns and noun phrases identified in requirements represent potential candidate classes or objects in the system.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Noun Analysis",
+    "topic": "Noun Analysis",
+    "difficulty": "Medium",
+    "question": "Why should every noun in a problem statement NOT automatically become a class?",
+    "options": [
+      "Some nouns may be attributes, irrelevant terms, or duplicates",
+      "Nouns cannot be used in software",
+      "Classes cannot have names",
+      "UML does not support nouns"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Many nouns turn out to be attributes of other classes (e.g., student name), synonyms/duplicates, outside system scope, or simple values rather than distinct classes with behaviors.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Noun Analysis",
+    "topic": "Noun Analysis",
+    "difficulty": "Easy",
+    "question": "In the statement “A student registers for a course,” the noun “student” is most likely a candidate for a:",
+    "options": [
+      "Method",
+      "Class/object",
+      "Loop",
+      "Parameter only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — In this statement, 'student' represents an autonomous entity with identity, state, and behavior, making it a prime candidate for a Class or Object.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Verb Analysis",
+    "topic": "Verb Analysis",
+    "difficulty": "Easy",
+    "question": "In verb analysis, verbs and verb phrases are commonly used to identify candidate:",
+    "options": [
+      "Attributes only",
+      "Responsibilities or methods",
+      "Programming languages",
+      "Databases"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Verbs describe actions, behaviors, and operations performed by or on entities, making them the primary indicators for methods and responsibilities.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Attributes and Properties",
+    "topic": "Attributes and Properties",
+    "difficulty": "Easy",
+    "question": "Which is most likely an attribute of a Student class?",
+    "options": [
+      "registerCourse()",
+      "viewResult()",
+      "rollNo",
+      "enroll()"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — 'rollNo' stores data describing the state of a Student, making it a member attribute, whereas registerCourse, viewResult, and enroll are behavioral methods.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Methods and Responsibilities",
+    "topic": "Methods and Responsibilities",
+    "difficulty": "Easy",
+    "question": "Which is most likely a responsibility/method of a Student class?",
+    "options": [
+      "name",
+      "semester",
+      "rollNo",
+      "registerCourse()"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — 'registerCourse()' represents a behavioral action or service that the Student performs, whereas name, semester, and rollNo are static attributes.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Object-Oriented Programming",
+    "chapter": "CRC Cards",
+    "topic": "CRC Cards",
+    "difficulty": "Easy",
+    "question": "CRC stands for:",
+    "options": [
+      "Class–Relationship–Code",
+      "Class–Responsibility–Collaborator",
+      "Code–Result–Class",
+      "Class–Record–Compiler"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — CRC stands for Class–Responsibility–Collaborator, an agile brainstorming technique introduced by Kent Beck and Ward Cunningham for object-oriented design.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Object-Oriented Programming",
+    "chapter": "CRC Cards",
+    "topic": "CRC Cards",
+    "difficulty": "Medium",
+    "question": "The 'Responsibility' section of a CRC card describes:",
+    "options": [
+      "What the class is responsible for knowing or doing",
+      "The programming language used",
+      "The physical location of the computer",
+      "The database server address"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Responsibilities on a CRC card represent obligations of a class: what knowledge it maintains (state/data) and what actions it executes (behavior/operations).",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Object-Oriented Programming",
+    "chapter": "CRC Cards",
+    "topic": "CRC Cards",
+    "difficulty": "Medium",
+    "question": "A collaborator in CRC modeling is:",
+    "options": [
+      "Another class that interacts with the class to help fulfill a responsibility",
+      "A compiler error",
+      "A variable with no class",
+      "A programming language"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Collaborators are peer classes that supply information or perform tasks needed by the given class to satisfy its designated responsibilities.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Analysis to Design Workflow",
+    "topic": "Analysis to Design Workflow",
+    "difficulty": "Medium",
+    "question": "Which sequence best represents a basic analysis-to-design workflow?",
+    "options": [
+      "Code → Compile → Analyze → Model",
+      "Problem Statement → Candidate Objects → Attributes/Responsibilities → Relationships → Design",
+      "Database → Compiler → UML → Problem",
+      "Testing → Coding → Requirements → Analysis"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The standard engineering workflow proceeds from examining the Problem Statement to extracting Candidate Objects, assigning Attributes & Responsibilities, determining Relationships, and producing the finalized Design model.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Problem Statement Analysis",
+    "topic": "Problem Statement Analysis",
+    "difficulty": "Easy",
+    "question": "Consider: “The library stores books. Each book has a title, author, and ISBN.” Which is most likely an attribute?",
+    "options": [
+      "Library",
+      "Book",
+      "title",
+      "stores()"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — 'title' is a piece of data describing a Book (an attribute), while 'Library' and 'Book' are classes/objects, and 'stores()' is an action/method.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Responsibilities / Methods",
+    "topic": "Responsibilities / Methods",
+    "difficulty": "Medium",
+    "question": "Consider: “A student borrows and returns a book.” Which is a reasonable candidate responsibility of Student?",
+    "options": [
+      "ISBN",
+      "author",
+      "borrowBook()",
+      "title"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — 'borrowBook()' represents an operational task or responsibility that a Student performs upon a Book, whereas ISBN, author, and title are attributes of Book.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Attributes vs Methods",
+    "topic": "Attributes vs Methods",
+    "difficulty": "Easy",
+    "question": "Which statement best distinguishes an attribute from a method?",
+    "options": [
+      "An attribute represents data/state; a method represents behavior/operation",
+      "An attribute is always a class; a method is always an object",
+      "An attribute compiles code; a method stores hardware",
+      "There is no difference"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Attributes capture the state, properties, and values stored by an object, while methods define the behavioral logic and callable operations that act upon that state.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Object-Oriented Programming",
+    "chapter": "UML Class Diagram",
+    "topic": "UML Class Diagram",
+    "difficulty": "Easy",
+    "question": "What is the main purpose of a UML class diagram in this context?",
+    "options": [
+      "To visually communicate the structural design of classes and their relationships",
+      "To execute the program",
+      "To replace testing",
+      "To store source code"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The UML class diagram acts as an architectural blueprint that visually communicates the system's class structures, internal contents, and relational dependencies.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Noun/Verb Analysis",
+    "topic": "Noun/Verb Analysis",
+    "difficulty": "Medium",
+    "question": "Which modeling practice is most appropriate?",
+    "options": [
+      "Assign responsibilities based only on the nearest verb in the sentence",
+      "Evaluate candidate nouns and verbs in the context of system requirements",
+      "Create a class for every word in the problem statement",
+      "Avoid identifying relationships until after deployment"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Rigorous modeling requires vetting linguistic cues (nouns/verbs) critically against overall system scope, domain logic, and functional requirements rather than naive mechanical translation.",
+    "type": "single"
+  }
+]

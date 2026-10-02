@@ -1,0 +1,337 @@
+{
+  "questionBank": {
+    "bankId": "OOP-BSCS-W02",
+    "title": "Object-Oriented Programming — Week 2 Question Bank",
+    "subject": "Object-Oriented Programming",
+    "courseCode": "OOP",
+    "program": "BS Computer Science",
+    "class": "BS Computer Science",
+    "section": "Week 2",
+    "weekNo": 2,
+    "semester": "BSCS",
+    "assessmentType": "MCQs",
+    "language": "English",
+    "totalQuestions": 20,
+    "marksPerQuestion": 1,
+    "totalMarks": 20,
+    "preparedBy": "Iftikhar Zahid",
+    "role": "Lecturer, Computer Science",
+    "version": "1.0",
+    "createdFor": "HTML/CSS/JavaScript Question Bank",
+    "sourceDocument": "OOP_Week_2_MCQs Only.docx",
+    "syllabusCoverage": "Object-Oriented Analysis and Design using UML; View Model and Object Model; identifying objects, properties and methods using noun/verb analysis; CRC cards.",
+    "topics": [
+      "Object-Oriented Analysis",
+      "Object-Oriented Design",
+      "UML",
+      "UML Class Diagram",
+      "Noun Analysis",
+      "Verb Analysis",
+      "Attributes and Properties",
+      "Methods and Responsibilities",
+      "CRC Cards"
+    ],
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the primary purpose of Object-Oriented Analysis (OOA)?",
+        "options": {
+          "A": "To write source code immediately",
+          "B": "To understand the problem domain and identify relevant objects and responsibilities",
+          "C": "To compile the final program",
+          "D": "To design the user interface only"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "marks": 1,
+        "topic": "Object-Oriented Analysis",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 2,
+        "question": "Object-Oriented Design (OOD) primarily focuses on:",
+        "options": {
+          "A": "Converting the analysis model into a detailed software design",
+          "B": "Finding spelling errors in code",
+          "C": "Replacing the programming language",
+          "D": "Creating hardware components"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "marks": 1,
+        "topic": "Object-Oriented Design",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 3,
+        "question": "UML stands for:",
+        "options": {
+          "A": "Universal Modeling Language",
+          "B": "Unified Modeling Language",
+          "C": "Unified Machine Language",
+          "D": "User Modeling Logic"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "marks": 1,
+        "topic": "UML",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 4,
+        "question": "Which statement about UML is correct?",
+        "options": {
+          "A": "UML is a programming language",
+          "B": "UML is an executable language",
+          "C": "UML is a visual modeling language",
+          "D": "UML is a database management system"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "marks": 1,
+        "topic": "UML",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 5,
+        "question": "Which UML diagram primarily represents classes, attributes, operations, and structural relationships?",
+        "options": {
+          "A": "Sequence Diagram",
+          "B": "Activity Diagram",
+          "C": "Class Diagram",
+          "D": "Use Case Diagram"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "marks": 1,
+        "topic": "UML Class Diagram",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 6,
+        "question": "In noun analysis, important nouns and noun phrases are initially treated as candidates for:",
+        "options": {
+          "A": "Classes or objects",
+          "B": "Loops",
+          "C": "Compilers",
+          "D": "Operators"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "marks": 1,
+        "topic": "Noun Analysis",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 7,
+        "question": "Why should every noun in a problem statement NOT automatically become a class?",
+        "options": {
+          "A": "Some nouns may be attributes, irrelevant terms, or duplicates",
+          "B": "Nouns cannot be used in software",
+          "C": "Classes cannot have names",
+          "D": "UML does not support nouns"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "marks": 1,
+        "topic": "Noun Analysis",
+        "difficulty": "Medium"
+      },
+      {
+        "id": 8,
+        "question": "In the statement “A student registers for a course,” the noun “student” is most likely a candidate for a:",
+        "options": {
+          "A": "Method",
+          "B": "Class/object",
+          "C": "Loop",
+          "D": "Parameter only"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "marks": 1,
+        "topic": "Noun Analysis",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 9,
+        "question": "In verb analysis, verbs and verb phrases are commonly used to identify candidate:",
+        "options": {
+          "A": "Attributes only",
+          "B": "Responsibilities or methods",
+          "C": "Programming languages",
+          "D": "Databases"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "marks": 1,
+        "topic": "Verb Analysis",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 10,
+        "question": "Which is most likely an attribute of a Student class?",
+        "options": {
+          "A": "registerCourse()",
+          "B": "viewResult()",
+          "C": "rollNo",
+          "D": "enroll()"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "marks": 1,
+        "topic": "Attributes and Properties",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 11,
+        "question": "Which is most likely a responsibility/method of a Student class?",
+        "options": {
+          "A": "name",
+          "B": "semester",
+          "C": "rollNo",
+          "D": "registerCourse()"
+        },
+        "correctAnswer": "D",
+        "correctOptionIndex": 3,
+        "marks": 1,
+        "topic": "Methods and Responsibilities",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 12,
+        "question": "CRC stands for:",
+        "options": {
+          "A": "Class–Relationship–Code",
+          "B": "Class–Responsibility–Collaborator",
+          "C": "Code–Result–Class",
+          "D": "Class–Record–Compiler"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "marks": 1,
+        "topic": "CRC Cards",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 13,
+        "question": "The 'Responsibility' section of a CRC card describes:",
+        "options": {
+          "A": "What the class is responsible for knowing or doing",
+          "B": "The programming language used",
+          "C": "The physical location of the computer",
+          "D": "The database server address"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "marks": 1,
+        "topic": "CRC Cards",
+        "difficulty": "Medium"
+      },
+      {
+        "id": 14,
+        "question": "A collaborator in CRC modeling is:",
+        "options": {
+          "A": "Another class that interacts with the class to help fulfill a responsibility",
+          "B": "A compiler error",
+          "C": "A variable with no class",
+          "D": "A programming language"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "marks": 1,
+        "topic": "CRC Cards",
+        "difficulty": "Medium"
+      },
+      {
+        "id": 15,
+        "question": "Which sequence best represents a basic analysis-to-design workflow?",
+        "options": {
+          "A": "Code → Compile → Analyze → Model",
+          "B": "Problem Statement → Candidate Objects → Attributes/Responsibilities → Relationships → Design",
+          "C": "Database → Compiler → UML → Problem",
+          "D": "Testing → Coding → Requirements → Analysis"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "marks": 1,
+        "topic": "Analysis to Design Workflow",
+        "difficulty": "Medium"
+      },
+      {
+        "id": 16,
+        "question": "Consider: “The library stores books. Each book has a title, author, and ISBN.” Which is most likely an attribute?",
+        "options": {
+          "A": "Library",
+          "B": "Book",
+          "C": "title",
+          "D": "stores()"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "marks": 1,
+        "topic": "Problem Statement Analysis",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 17,
+        "question": "Consider: “A student borrows and returns a book.” Which is a reasonable candidate responsibility of Student?",
+        "options": {
+          "A": "ISBN",
+          "B": "author",
+          "C": "borrowBook()",
+          "D": "title"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "marks": 1,
+        "topic": "Responsibilities / Methods",
+        "difficulty": "Medium"
+      },
+      {
+        "id": 18,
+        "question": "Which statement best distinguishes an attribute from a method?",
+        "options": {
+          "A": "An attribute represents data/state; a method represents behavior/operation",
+          "B": "An attribute is always a class; a method is always an object",
+          "C": "An attribute compiles code; a method stores hardware",
+          "D": "There is no difference"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "marks": 1,
+        "topic": "Attributes vs Methods",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 19,
+        "question": "What is the main purpose of a UML class diagram in this context?",
+        "options": {
+          "A": "To visually communicate the structural design of classes and their relationships",
+          "B": "To execute the program",
+          "C": "To replace testing",
+          "D": "To store source code"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "marks": 1,
+        "topic": "UML Class Diagram",
+        "difficulty": "Easy"
+      },
+      {
+        "id": 20,
+        "question": "Which modeling practice is most appropriate?",
+        "options": {
+          "A": "Assign responsibilities based only on the nearest verb in the sentence",
+          "B": "Evaluate candidate nouns and verbs in the context of system requirements",
+          "C": "Create a class for every word in the problem statement",
+          "D": "Avoid identifying relationships until after deployment"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "marks": 1,
+        "topic": "Noun/Verb Analysis",
+        "difficulty": "Medium"
+      }
+    ]
+  }
+}
