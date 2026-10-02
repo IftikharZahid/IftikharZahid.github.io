@@ -54,18 +54,22 @@ function normalizeMCQFile(filePath) {
   if (Array.isArray(parsed)) {
     rawList = parsed;
   } else if (parsed && typeof parsed === "object") {
-    const root = parsed.questionBank || parsed;
+    const root = parsed.questionBank || parsed.metadata || parsed;
     meta = {
       book: root.book || root.subject || root.title || root.courseCode || path.basename(filePath, '.json'),
       course: root.course || root.subject || root.courseCode || "Computer Science",
       week: root.week || root.weekNo || 1,
-      weekTitle: root.weekTitle || root.section || (root.weekNo ? `Week ${String(root.weekNo).padStart(2, '0')}` : "Week 01"),
+      weekTitle: root.weekTitle || root.section || (root.weekNo ? `Week ${String(root.weekNo).padStart(2, '0')}` : (root.week ? `Week ${String(root.week).padStart(2, '0')}` : "Week 01")),
       topic: root.topic || root.syllabusCoverage || root.title || "Course Syllabus Review",
       level: root.level || root.class || root.program || "BS Computer Science",
-      createdBy: root.createdBy || root.preparedBy || root.author || root.instructor || "Course Instructor"
+      createdBy: root.createdBy || root.preparedBy || root.author || root.instructor || root.lecturer || "Course Instructor"
     };
 
-    if (Array.isArray(root.mcqs)) rawList = root.mcqs;
+    if (Array.isArray(parsed.mcqs)) rawList = parsed.mcqs;
+    else if (Array.isArray(parsed.questions)) rawList = parsed.questions;
+    else if (Array.isArray(parsed.data)) rawList = parsed.data;
+    else if (Array.isArray(parsed.items)) rawList = parsed.items;
+    else if (Array.isArray(root.mcqs)) rawList = root.mcqs;
     else if (Array.isArray(root.questions)) rawList = root.questions;
     else if (Array.isArray(root.data)) rawList = root.data;
     else if (Array.isArray(root.items)) rawList = root.items;

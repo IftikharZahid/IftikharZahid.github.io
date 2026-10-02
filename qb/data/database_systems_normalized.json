@@ -1,0 +1,678 @@
+{
+  "id": "database-systems-week-02",
+  "book": "Database Systems",
+  "course": "Database Systems",
+  "week": 2,
+  "weekTitle": "Week 02",
+  "topic": "Three-Level Schema Architecture & Data Independence",
+  "level": "BS Computer Science",
+  "createdBy": "Lec. Iftikhar Zahid",
+  "icon": "🗄️",
+  "isBuiltIn": true,
+  "totalQuestions": 39,
+  "questions": [
+    {
+      "id": 1,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Three-Level Schema Architecture",
+      "difficulty": "Easy",
+      "question": "Which architecture divides a database system into External, Conceptual, and Internal levels?",
+      "options": [
+        "Two-Level Architecture",
+        "Three-Level Schema Architecture",
+        "Client-Server Architecture",
+        "Distributed Architecture"
+      ],
+      "answer": 1,
+      "explanation": "The Three-Level Schema Architecture (ANSI/SPARC) divides a database system into External, Conceptual, and Internal levels.",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Level",
+      "difficulty": "Easy",
+      "question": "The External Level is also known as the:",
+      "options": [
+        "Physical Level",
+        "Logical Level",
+        "View Level",
+        "Storage Level"
+      ],
+      "answer": 2,
+      "explanation": "The External Level is also referred to as the View Level because it describes how individual users perceive data.",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Conceptual Level",
+      "difficulty": "Easy",
+      "question": "The Conceptual Level is also called the:",
+      "options": [
+        "View Level",
+        "Logical Level",
+        "Physical Level",
+        "User Level"
+      ],
+      "answer": 1,
+      "explanation": "The Conceptual Level is also known as the Logical Level, representing the global logical structure of the database.",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Internal Level",
+      "difficulty": "Easy",
+      "question": "The Internal Level is also called the:",
+      "options": [
+        "Physical Level",
+        "View Level",
+        "Logical Level",
+        "Application Level"
+      ],
+      "answer": 0,
+      "explanation": "The Internal Level is also called the Physical Level because it describes physical storage and access mechanisms.",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Level",
+      "difficulty": "Easy",
+      "question": "Which level represents the database from the perspective of individual users?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "Physical Storage Level"
+      ],
+      "answer": 0,
+      "explanation": "The External Level represents customized views tailored to individual users or groups of users.",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Conceptual Level",
+      "difficulty": "Medium",
+      "question": "Which level describes the overall logical structure of the entire database?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "Application Level"
+      ],
+      "answer": 1,
+      "explanation": "The Conceptual Level describes the overall logical structure of the entire database, hiding storage details.",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Internal Level",
+      "difficulty": "Easy",
+      "question": "Which level describes how data is physically stored?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "View Level"
+      ],
+      "answer": 2,
+      "explanation": "The Internal Level specifies how data is physically stored on disks, including file organization and records.",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Level",
+      "difficulty": "Easy",
+      "question": "Which level is primarily concerned with user views?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "Physical Storage"
+      ],
+      "answer": 0,
+      "explanation": "User views and perspectives are primarily the concern of the External Level.",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Conceptual Level",
+      "difficulty": "Medium",
+      "question": "Which level is primarily concerned with entities, relationships, and constraints?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "Storage Level"
+      ],
+      "answer": 1,
+      "explanation": "Entities, data types, relationships, user operations, and integrity constraints are defined at the Conceptual Level.",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Internal Level",
+      "difficulty": "Medium",
+      "question": "Which level is primarily concerned with file organization and indexes?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "User View"
+      ],
+      "answer": 2,
+      "explanation": "File structures, indexing, data compression, and hashing are implemented at the Internal Level.",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Level",
+      "difficulty": "Easy",
+      "question": "A database can have different views for different users at which level?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "Physical Level"
+      ],
+      "answer": 0,
+      "explanation": "Different users can have different custom views at the External Level according to their specific needs and authorization.",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Conceptual Level",
+      "difficulty": "Easy",
+      "question": "The complete logical structure of a database is represented at the:",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "User Level"
+      ],
+      "answer": 1,
+      "explanation": "The complete, enterprise-wide logical structure of a database is represented at the Conceptual Level.",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Database Abstraction",
+      "difficulty": "Medium",
+      "question": "Physical storage details are hidden from users mainly through:",
+      "options": [
+        "Data redundancy",
+        "Database abstraction",
+        "Data duplication",
+        "Data entry"
+      ],
+      "answer": 1,
+      "explanation": "Database abstraction simplifies user interaction by hiding physical storage complexities through multiple schema levels.",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Schema Mapping",
+      "difficulty": "Medium",
+      "question": "Which mapping connects the External Level with the Conceptual Level?",
+      "options": [
+        "Conceptual-Internal Mapping",
+        "External-Conceptual Mapping",
+        "User-Storage Mapping",
+        "Physical-View Mapping"
+      ],
+      "answer": 1,
+      "explanation": "External-Conceptual Mapping connects individual user views (external schemas) with the centralized conceptual schema.",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Schema Mapping",
+      "difficulty": "Medium",
+      "question": "Which mapping connects the Conceptual Level with the Internal Level?",
+      "options": [
+        "External-Conceptual Mapping",
+        "User-Application Mapping",
+        "Conceptual-Internal Mapping",
+        "View-Physical Mapping"
+      ],
+      "answer": 2,
+      "explanation": "Conceptual-Internal Mapping defines how logical records and entities map to physical storage records on disk.",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Schema",
+      "difficulty": "Easy",
+      "question": "Which schema represents a particular user's or application's view of the database?",
+      "options": [
+        "External Schema",
+        "Conceptual Schema",
+        "Internal Schema",
+        "Physical Schema"
+      ],
+      "answer": 0,
+      "explanation": "An External Schema describes the specific part of the database relevant to a particular user or application program.",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Conceptual Schema",
+      "difficulty": "Easy",
+      "question": "Which schema represents the complete logical structure of the database?",
+      "options": [
+        "External Schema",
+        "Conceptual Schema",
+        "Internal Schema",
+        "User Schema"
+      ],
+      "answer": 1,
+      "explanation": "The Conceptual Schema describes the total logical structure of the entire database for all users.",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Internal Schema",
+      "difficulty": "Easy",
+      "question": "Which schema describes the physical organization of database storage?",
+      "options": [
+        "External Schema",
+        "Conceptual Schema",
+        "Internal Schema",
+        "View Schema"
+      ],
+      "answer": 2,
+      "explanation": "The Internal Schema describes the physical storage structures, paths, and internal record organization.",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Schema",
+      "difficulty": "Medium",
+      "question": "A database may have multiple external schemas because:",
+      "options": [
+        "All users have identical requirements",
+        "Different users may require different views",
+        "There is only one user",
+        "Physical storage is duplicated"
+      ],
+      "answer": 1,
+      "explanation": "A database can have multiple external schemas because different users and roles have distinct information needs.",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Conceptual Schema",
+      "difficulty": "Easy",
+      "question": "There is generally how many conceptual schemas for a database?",
+      "options": [
+        "None",
+        "One",
+        "Two",
+        "Many"
+      ],
+      "answer": 1,
+      "explanation": "There is generally only one conceptual schema for a single database, representing the unified logical model.",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Data Independence",
+      "difficulty": "Medium",
+      "question": "Data Independence means the ability to change a schema at one level without:",
+      "options": [
+        "Deleting the database",
+        "Changing the next higher level unnecessarily",
+        "Creating a new DBMS",
+        "Changing all stored data"
+      ],
+      "answer": 1,
+      "explanation": "Data Independence allows schema changes at one level without requiring alterations to schemas at higher levels.",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Data Independence",
+      "difficulty": "Easy",
+      "question": "Which is a major benefit of the Three-Level Schema Architecture?",
+      "options": [
+        "Increased data duplication",
+        "Data independence",
+        "Elimination of databases",
+        "Removal of all constraints"
+      ],
+      "answer": 1,
+      "explanation": "The primary motivation and major benefit of the Three-Level Schema Architecture is achieving data independence.",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Physical Data Independence",
+      "difficulty": "Medium",
+      "question": "Physical Data Independence allows changes to the:",
+      "options": [
+        "External schema without affecting users",
+        "Conceptual schema without affecting storage",
+        "Internal schema without changing the conceptual schema",
+        "User interface without changing the application"
+      ],
+      "answer": 2,
+      "explanation": "Physical Data Independence allows altering the internal schema (storage, indexing) without altering the conceptual schema.",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Logical Data Independence",
+      "difficulty": "Medium",
+      "question": "Logical Data Independence allows changes to the:",
+      "options": [
+        "Internal schema without changing the conceptual schema",
+        "Conceptual schema without requiring changes to external schemas",
+        "Physical storage without changing files",
+        "External schema without changing the conceptual schema"
+      ],
+      "answer": 1,
+      "explanation": "Logical Data Independence allows changing the conceptual schema (adding tables/attributes) without requiring changes to external schemas.",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Physical Data Independence",
+      "difficulty": "Medium",
+      "question": "Changing file organization is an example of:",
+      "options": [
+        "Logical Data Independence",
+        "Physical Data Independence",
+        "Data Redundancy",
+        "Entity Independence"
+      ],
+      "answer": 1,
+      "explanation": "Changing file organization (e.g. from sequential to hashed) is an internal storage modification reflecting Physical Data Independence.",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Physical Data Independence",
+      "difficulty": "Medium",
+      "question": "Creating or removing database indexes is an example of:",
+      "options": [
+        "Physical Data Independence",
+        "Logical Data Independence",
+        "External Schema Change",
+        "Conceptual Modeling"
+      ],
+      "answer": 0,
+      "explanation": "Creating or dropping secondary indexes to tune performance is an example of Physical Data Independence.",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Logical Data Independence",
+      "difficulty": "Medium",
+      "question": "Adding attributes to the conceptual schema can illustrate:",
+      "options": [
+        "Physical Data Independence",
+        "Logical Data Independence",
+        "File Organization",
+        "Storage Allocation"
+      ],
+      "answer": 1,
+      "explanation": "Adding attributes or relationships to the conceptual schema without breaking existing views demonstrates Logical Data Independence.",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Data Independence Comparison",
+      "difficulty": "Hard",
+      "question": "Which type of data independence is generally more difficult to achieve?",
+      "options": [
+        "Physical Data Independence",
+        "Logical Data Independence",
+        "External Independence",
+        "Storage Independence"
+      ],
+      "answer": 1,
+      "explanation": "Logical Data Independence is generally more difficult to achieve because changes to the logical model often impact application programs.",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Physical Data Independence",
+      "difficulty": "Medium",
+      "question": "Changing physical access paths without changing the logical database structure demonstrates:",
+      "options": [
+        "Logical Data Independence",
+        "Physical Data Independence",
+        "Data Modeling",
+        "View Integration"
+      ],
+      "answer": 1,
+      "explanation": "Changing access paths or storage hardware without affecting logical definitions exemplifies Physical Data Independence.",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Level",
+      "difficulty": "Easy",
+      "question": "Which level is closest to end users?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "Storage Level"
+      ],
+      "answer": 0,
+      "explanation": "The External Level is the topmost level, positioned closest to end users and application interfaces.",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Internal Level",
+      "difficulty": "Easy",
+      "question": "Which level is closest to physical storage?",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "View Level"
+      ],
+      "answer": 2,
+      "explanation": "The Internal Level is the lowest level, situated closest to actual physical storage devices and operating system file systems.",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Database Concepts",
+      "difficulty": "Easy",
+      "question": "Which statement correctly describes a schema?",
+      "options": [
+        "Actual values stored in the database",
+        "Logical structure or design of a database",
+        "A physical storage device",
+        "A database user"
+      ],
+      "answer": 1,
+      "explanation": "A schema refers to the overall design, description, and logical structure of a database.",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Database Concepts",
+      "difficulty": "Easy",
+      "question": "Which statement correctly describes data?",
+      "options": [
+        "The structure of database objects",
+        "The actual values stored in the database",
+        "The mapping between levels",
+        "The physical storage method"
+      ],
+      "answer": 1,
+      "explanation": "Data represents the actual information, values, or facts stored in the database at any specific point in time.",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "External Schema",
+      "difficulty": "Medium",
+      "question": "A student view containing Name, Roll Number, Courses, and Marks is an example of:",
+      "options": [
+        "External Schema",
+        "Internal Schema",
+        "Physical Schema",
+        "Storage Schema"
+      ],
+      "answer": 0,
+      "explanation": "A tailored view showing student name, roll number, and marks is an example of an External Schema.",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Conceptual Level",
+      "difficulty": "Medium",
+      "question": "STUDENT, COURSE, ENROLLMENT, and RESULT as part of the overall logical design belong to the:",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "User Interface"
+      ],
+      "answer": 1,
+      "explanation": "Core business entities such as STUDENT, COURSE, ENROLLMENT, and RESULT form the enterprise model at the Conceptual Level.",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Internal Level",
+      "difficulty": "Medium",
+      "question": "Files, pages, records, indexes, and storage blocks are associated mainly with the:",
+      "options": [
+        "External Level",
+        "Conceptual Level",
+        "Internal Level",
+        "View Level"
+      ],
+      "answer": 2,
+      "explanation": "Low-level structures like pages, records, indexes, and storage blocks are managed at the Internal Level.",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Data Independence",
+      "difficulty": "Medium",
+      "question": "Which statement best describes the purpose of data independence?",
+      "options": [
+        "To increase the number of users",
+        "To minimize the impact of schema changes on higher levels",
+        "To eliminate database tables",
+        "To remove all database constraints"
+      ],
+      "answer": 1,
+      "explanation": "The primary purpose of data independence is to minimize the cascading impact of schema changes on higher levels and applications.",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Three-Level Architecture",
+      "difficulty": "Easy",
+      "question": "Which of the following is NOT one of the three schema levels?",
+      "options": [
+        "External",
+        "Conceptual",
+        "Internal",
+        "Application"
+      ],
+      "answer": 3,
+      "explanation": "The three levels of schema architecture are External, Conceptual, and Internal. 'Application' is not one of the three architectural schema levels.",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "subject": "Database Systems",
+      "chapter": "Three-Level Schema Architecture & Data Independence",
+      "topic": "Three-Level Architecture",
+      "difficulty": "Medium",
+      "question": "Which sequence correctly represents the three levels from highest to lowest?",
+      "options": [
+        "Internal → Conceptual → External",
+        "External → Conceptual → Internal",
+        "Conceptual → External → Internal",
+        "External → Internal → Conceptual"
+      ],
+      "answer": 1,
+      "explanation": "From highest level (closest to users) to lowest level (closest to physical storage): External → Conceptual → Internal.",
+      "type": "single"
+    }
+  ]
+}

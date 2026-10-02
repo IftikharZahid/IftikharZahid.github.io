@@ -1634,41 +1634,93 @@ footer span {
 .modalBg {
   position: fixed;
   inset: 0;
-  background: rgba(2, 6, 23, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  padding: 20px;
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: max(12px, 2.5vh) max(10px, 2vw);
+  box-sizing: border-box;
 }
 
 .modal {
-  width: min(480px, 94vw);
-  max-height: 90vh;
-  overflow-y: auto;
+  margin: auto;
+  width: min(520px, 100%);
+  max-height: min(92vh, 92dvh);
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 20px 22px;
   position: relative;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: modalScaleIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+#modalContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   overscroll-behavior: contain;
+  padding: 18px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+#modalContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+#modalContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#modalContent::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+}
+
+#modalContent::-webkit-scrollbar-thumb:hover {
+  background: var(--m);
 }
 
 @media (max-width: 480px) {
+  .modalBg {
+    padding: 8px;
+  }
   .modal {
-    padding: 16px;
-    width: 95vw;
+    width: 100%;
     border-radius: var(--radius-md);
+    max-height: calc(100vh - 16px);
+  }
+  #modalContent {
+    padding: 14px 14px;
   }
 }
 
 .modal h2 {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--t);
   margin-bottom: 4px;
+  padding-right: 32px;
 }
 
 .modal p {
@@ -1680,17 +1732,27 @@ footer span {
 
 .close {
   position: absolute;
-  right: 14px;
-  top: 12px;
-  border: 0;
-  background: none;
+  right: 12px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card-subtle);
   color: var(--m);
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1;
+  cursor: pointer;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  transition: all 0.15s ease;
 }
 
 .close:hover {
   color: var(--t);
+  background: var(--line);
+  border-color: var(--m);
 }
 
 .fields {
@@ -1757,82 +1819,296 @@ footer span {
   font-size: 11.5px;
 }
 
-/* Briefing Screen & Readiness Check */
+/* Briefing Screen & Readiness Check — Compact, Responsive & User-Friendly */
+.briefingModal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.briefingHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-right: 28px;
+}
+
+.briefingBadgeIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--p-subtle);
+  color: var(--p);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.briefingTitle {
+  font-size: 16px !important;
+  font-weight: 800;
+  color: var(--t);
+  margin: 0 !important;
+  line-height: 1.25;
+}
+
+.briefingSubtitle {
+  font-size: 11.5px !important;
+  color: var(--m);
+  margin: 2px 0 0 0 !important;
+  line-height: 1.35;
+}
+
+/* Candidate Bar */
 .briefingCandidateCard {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 10px;
   background: var(--card-subtle);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  margin-bottom: 12px;
+  padding: 6px 12px;
 }
 
 .briefingAvatar {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--p-subtle);
   color: var(--p);
   display: grid;
   place-items: center;
-  font-size: 18px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 
+.briefingCandidateInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.briefingCandidateName {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--t);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.briefingCandidateMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--m);
+}
+
+.briefingCandidateMeta b {
+  color: var(--t);
+}
+
+.briefingCandidateMeta .metaDot {
+  opacity: 0.5;
+}
+
+.briefingEditBtn {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--t);
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.briefingEditBtn:hover {
+  border-color: var(--p);
+  color: var(--p);
+  background: var(--p-subtle);
+}
+
+/* Exam Spec Card */
 .briefingExamSpec {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  padding: 10px 14px;
+  padding: 9px 12px;
   display: flex;
   flex-direction: column;
   gap: 7px;
-  margin-bottom: 12px;
-  font-size: 12px;
 }
 
-.briefingSpecRow {
+.briefingCourseRow {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  color: var(--m);
-  border-bottom: 1px dashed var(--line);
-  padding-bottom: 5px;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
-.briefingSpecRow:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.briefingCoursePill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background: var(--p-subtle);
+  color: var(--p);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
-.briefingSpecRow b {
+.briefingCourseName {
+  font-size: 13px;
   color: var(--t);
   font-weight: 700;
 }
 
+.briefingTopicRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--m);
+  background: var(--card-subtle);
+  padding: 5px 8px;
+  border-radius: 4px;
+  border-left: 2px solid var(--p);
+}
+
+.briefingTopicRow .topicTag {
+  font-weight: 700;
+  color: var(--t);
+  flex-shrink: 0;
+}
+
+.briefingTopicRow .topicText {
+  color: var(--t);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.briefingMetricsBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.briefingMetric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+}
+
+.briefingMetric .metricIcon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.briefingMetric .metricText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.briefingMetric small {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--m);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.briefingMetric b {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--t);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Rules & Guidelines */
 .briefingRules {
-  background: rgba(37, 99, 235, 0.04);
+  background: rgba(37, 99, 235, 0.05);
   border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: var(--radius-sm);
-  padding: 9px 12px;
+  padding: 8px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.briefingRuleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
   font-size: 11.5px;
   color: var(--t);
-  line-height: 1.45;
-  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.briefingRuleItem .ruleIcon {
+  font-size: 13px;
+  line-height: 1.2;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.briefingRuleItem b {
+  color: var(--p);
+  font-weight: 700;
+}
+
+/* Actions Footer */
+.briefingActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
 }
 
 .continueExamBtn {
   font-weight: 700 !important;
+  font-size: 13px !important;
+  padding: 9px 18px !important;
+  border-radius: var(--radius-sm) !important;
   background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35) !important;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35) !important;
+  transition: all 0.18s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #fff !important;
+  cursor: pointer;
 }
 
 .continueExamBtn:hover {
   background: linear-gradient(135deg, #1d4ed8, #1e40af) !important;
-  transform: translateY(-1px);
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45) !important;
+}
+
+.continueExamBtn:active {
+  transform: translateY(0) !important;
 }
 
 .fieldErr {
@@ -2768,30 +3044,39 @@ footer span {
 
   /* Modals */
   .modalBg {
-    padding: 12px;
+    padding: 8px;
   }
 
   .modal {
-    width: min(480px, 100%);
-    padding: 18px 14px;
-    border-radius: var(--radius);
-    max-height: calc(100vh - 24px);
-    overflow-y: auto;
+    width: 100%;
+    border-radius: var(--radius-md);
+    max-height: calc(100vh - 16px);
   }
 
   .modal h2 {
-    font-size: 17px;
+    font-size: 16px;
   }
 
-  .modalActions {
+  .briefingMetricsBar {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .briefingCandidateCard {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .briefingActions, .modalActions {
     flex-direction: column-reverse;
     width: 100%;
     gap: 8px;
   }
 
-  .modalActions button {
+  .briefingActions button, .modalActions button {
     width: 100%;
-    min-height: 46px;
+    min-height: 44px;
     justify-content: center;
   }
 
@@ -2804,6 +3089,37 @@ footer span {
   /* Tools grid */
   .toolGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Short Viewports & Landscape Devices (e.g. height <= 640px) */
+@media (max-height: 640px) {
+  .modalBg {
+    padding: 6px;
+  }
+  .modal {
+    max-height: calc(100vh - 12px);
+  }
+  #modalContent {
+    padding: 10px 14px;
+  }
+  .briefingModal {
+    gap: 6px;
+  }
+  .briefingCandidateCard {
+    padding: 4px 8px;
+  }
+  .briefingExamSpec {
+    padding: 6px 10px;
+    gap: 5px;
+  }
+  .briefingRules {
+    padding: 6px 9px;
+    gap: 4px;
+  }
+  .briefingActions {
+    margin-top: 2px;
+    padding-top: 6px;
   }
 }
 

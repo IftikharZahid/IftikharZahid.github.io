@@ -1689,6 +1689,672 @@ const oopQuestions = [
   }
 ];
 
+const databaseSystemsQuestions = [
+  {
+    "id": 1,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Three-Level Schema Architecture",
+    "difficulty": "Easy",
+    "question": "Which architecture divides a database system into External, Conceptual, and Internal levels?",
+    "options": [
+      "Two-Level Architecture",
+      "Three-Level Schema Architecture",
+      "Client-Server Architecture",
+      "Distributed Architecture"
+    ],
+    "answer": 1,
+    "explanation": "The Three-Level Schema Architecture (ANSI/SPARC) divides a database system into External, Conceptual, and Internal levels.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Level",
+    "difficulty": "Easy",
+    "question": "The External Level is also known as the:",
+    "options": [
+      "Physical Level",
+      "Logical Level",
+      "View Level",
+      "Storage Level"
+    ],
+    "answer": 2,
+    "explanation": "The External Level is also referred to as the View Level because it describes how individual users perceive data.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Conceptual Level",
+    "difficulty": "Easy",
+    "question": "The Conceptual Level is also called the:",
+    "options": [
+      "View Level",
+      "Logical Level",
+      "Physical Level",
+      "User Level"
+    ],
+    "answer": 1,
+    "explanation": "The Conceptual Level is also known as the Logical Level, representing the global logical structure of the database.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Internal Level",
+    "difficulty": "Easy",
+    "question": "The Internal Level is also called the:",
+    "options": [
+      "Physical Level",
+      "View Level",
+      "Logical Level",
+      "Application Level"
+    ],
+    "answer": 0,
+    "explanation": "The Internal Level is also called the Physical Level because it describes physical storage and access mechanisms.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Level",
+    "difficulty": "Easy",
+    "question": "Which level represents the database from the perspective of individual users?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "Physical Storage Level"
+    ],
+    "answer": 0,
+    "explanation": "The External Level represents customized views tailored to individual users or groups of users.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Conceptual Level",
+    "difficulty": "Medium",
+    "question": "Which level describes the overall logical structure of the entire database?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "Application Level"
+    ],
+    "answer": 1,
+    "explanation": "The Conceptual Level describes the overall logical structure of the entire database, hiding storage details.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Internal Level",
+    "difficulty": "Easy",
+    "question": "Which level describes how data is physically stored?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "View Level"
+    ],
+    "answer": 2,
+    "explanation": "The Internal Level specifies how data is physically stored on disks, including file organization and records.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Level",
+    "difficulty": "Easy",
+    "question": "Which level is primarily concerned with user views?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "Physical Storage"
+    ],
+    "answer": 0,
+    "explanation": "User views and perspectives are primarily the concern of the External Level.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Conceptual Level",
+    "difficulty": "Medium",
+    "question": "Which level is primarily concerned with entities, relationships, and constraints?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "Storage Level"
+    ],
+    "answer": 1,
+    "explanation": "Entities, data types, relationships, user operations, and integrity constraints are defined at the Conceptual Level.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Internal Level",
+    "difficulty": "Medium",
+    "question": "Which level is primarily concerned with file organization and indexes?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "User View"
+    ],
+    "answer": 2,
+    "explanation": "File structures, indexing, data compression, and hashing are implemented at the Internal Level.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Level",
+    "difficulty": "Easy",
+    "question": "A database can have different views for different users at which level?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "Physical Level"
+    ],
+    "answer": 0,
+    "explanation": "Different users can have different custom views at the External Level according to their specific needs and authorization.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Conceptual Level",
+    "difficulty": "Easy",
+    "question": "The complete logical structure of a database is represented at the:",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "User Level"
+    ],
+    "answer": 1,
+    "explanation": "The complete, enterprise-wide logical structure of a database is represented at the Conceptual Level.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Database Abstraction",
+    "difficulty": "Medium",
+    "question": "Physical storage details are hidden from users mainly through:",
+    "options": [
+      "Data redundancy",
+      "Database abstraction",
+      "Data duplication",
+      "Data entry"
+    ],
+    "answer": 1,
+    "explanation": "Database abstraction simplifies user interaction by hiding physical storage complexities through multiple schema levels.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Schema Mapping",
+    "difficulty": "Medium",
+    "question": "Which mapping connects the External Level with the Conceptual Level?",
+    "options": [
+      "Conceptual-Internal Mapping",
+      "External-Conceptual Mapping",
+      "User-Storage Mapping",
+      "Physical-View Mapping"
+    ],
+    "answer": 1,
+    "explanation": "External-Conceptual Mapping connects individual user views (external schemas) with the centralized conceptual schema.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Schema Mapping",
+    "difficulty": "Medium",
+    "question": "Which mapping connects the Conceptual Level with the Internal Level?",
+    "options": [
+      "External-Conceptual Mapping",
+      "User-Application Mapping",
+      "Conceptual-Internal Mapping",
+      "View-Physical Mapping"
+    ],
+    "answer": 2,
+    "explanation": "Conceptual-Internal Mapping defines how logical records and entities map to physical storage records on disk.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Schema",
+    "difficulty": "Easy",
+    "question": "Which schema represents a particular user's or application's view of the database?",
+    "options": [
+      "External Schema",
+      "Conceptual Schema",
+      "Internal Schema",
+      "Physical Schema"
+    ],
+    "answer": 0,
+    "explanation": "An External Schema describes the specific part of the database relevant to a particular user or application program.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Conceptual Schema",
+    "difficulty": "Easy",
+    "question": "Which schema represents the complete logical structure of the database?",
+    "options": [
+      "External Schema",
+      "Conceptual Schema",
+      "Internal Schema",
+      "User Schema"
+    ],
+    "answer": 1,
+    "explanation": "The Conceptual Schema describes the total logical structure of the entire database for all users.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Internal Schema",
+    "difficulty": "Easy",
+    "question": "Which schema describes the physical organization of database storage?",
+    "options": [
+      "External Schema",
+      "Conceptual Schema",
+      "Internal Schema",
+      "View Schema"
+    ],
+    "answer": 2,
+    "explanation": "The Internal Schema describes the physical storage structures, paths, and internal record organization.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Schema",
+    "difficulty": "Medium",
+    "question": "A database may have multiple external schemas because:",
+    "options": [
+      "All users have identical requirements",
+      "Different users may require different views",
+      "There is only one user",
+      "Physical storage is duplicated"
+    ],
+    "answer": 1,
+    "explanation": "A database can have multiple external schemas because different users and roles have distinct information needs.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Conceptual Schema",
+    "difficulty": "Easy",
+    "question": "There is generally how many conceptual schemas for a database?",
+    "options": [
+      "None",
+      "One",
+      "Two",
+      "Many"
+    ],
+    "answer": 1,
+    "explanation": "There is generally only one conceptual schema for a single database, representing the unified logical model.",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Data Independence",
+    "difficulty": "Medium",
+    "question": "Data Independence means the ability to change a schema at one level without:",
+    "options": [
+      "Deleting the database",
+      "Changing the next higher level unnecessarily",
+      "Creating a new DBMS",
+      "Changing all stored data"
+    ],
+    "answer": 1,
+    "explanation": "Data Independence allows schema changes at one level without requiring alterations to schemas at higher levels.",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Data Independence",
+    "difficulty": "Easy",
+    "question": "Which is a major benefit of the Three-Level Schema Architecture?",
+    "options": [
+      "Increased data duplication",
+      "Data independence",
+      "Elimination of databases",
+      "Removal of all constraints"
+    ],
+    "answer": 1,
+    "explanation": "The primary motivation and major benefit of the Three-Level Schema Architecture is achieving data independence.",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Physical Data Independence",
+    "difficulty": "Medium",
+    "question": "Physical Data Independence allows changes to the:",
+    "options": [
+      "External schema without affecting users",
+      "Conceptual schema without affecting storage",
+      "Internal schema without changing the conceptual schema",
+      "User interface without changing the application"
+    ],
+    "answer": 2,
+    "explanation": "Physical Data Independence allows altering the internal schema (storage, indexing) without altering the conceptual schema.",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Logical Data Independence",
+    "difficulty": "Medium",
+    "question": "Logical Data Independence allows changes to the:",
+    "options": [
+      "Internal schema without changing the conceptual schema",
+      "Conceptual schema without requiring changes to external schemas",
+      "Physical storage without changing files",
+      "External schema without changing the conceptual schema"
+    ],
+    "answer": 1,
+    "explanation": "Logical Data Independence allows changing the conceptual schema (adding tables/attributes) without requiring changes to external schemas.",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Physical Data Independence",
+    "difficulty": "Medium",
+    "question": "Changing file organization is an example of:",
+    "options": [
+      "Logical Data Independence",
+      "Physical Data Independence",
+      "Data Redundancy",
+      "Entity Independence"
+    ],
+    "answer": 1,
+    "explanation": "Changing file organization (e.g. from sequential to hashed) is an internal storage modification reflecting Physical Data Independence.",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Physical Data Independence",
+    "difficulty": "Medium",
+    "question": "Creating or removing database indexes is an example of:",
+    "options": [
+      "Physical Data Independence",
+      "Logical Data Independence",
+      "External Schema Change",
+      "Conceptual Modeling"
+    ],
+    "answer": 0,
+    "explanation": "Creating or dropping secondary indexes to tune performance is an example of Physical Data Independence.",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Logical Data Independence",
+    "difficulty": "Medium",
+    "question": "Adding attributes to the conceptual schema can illustrate:",
+    "options": [
+      "Physical Data Independence",
+      "Logical Data Independence",
+      "File Organization",
+      "Storage Allocation"
+    ],
+    "answer": 1,
+    "explanation": "Adding attributes or relationships to the conceptual schema without breaking existing views demonstrates Logical Data Independence.",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Data Independence Comparison",
+    "difficulty": "Hard",
+    "question": "Which type of data independence is generally more difficult to achieve?",
+    "options": [
+      "Physical Data Independence",
+      "Logical Data Independence",
+      "External Independence",
+      "Storage Independence"
+    ],
+    "answer": 1,
+    "explanation": "Logical Data Independence is generally more difficult to achieve because changes to the logical model often impact application programs.",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Physical Data Independence",
+    "difficulty": "Medium",
+    "question": "Changing physical access paths without changing the logical database structure demonstrates:",
+    "options": [
+      "Logical Data Independence",
+      "Physical Data Independence",
+      "Data Modeling",
+      "View Integration"
+    ],
+    "answer": 1,
+    "explanation": "Changing access paths or storage hardware without affecting logical definitions exemplifies Physical Data Independence.",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Level",
+    "difficulty": "Easy",
+    "question": "Which level is closest to end users?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "Storage Level"
+    ],
+    "answer": 0,
+    "explanation": "The External Level is the topmost level, positioned closest to end users and application interfaces.",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Internal Level",
+    "difficulty": "Easy",
+    "question": "Which level is closest to physical storage?",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "View Level"
+    ],
+    "answer": 2,
+    "explanation": "The Internal Level is the lowest level, situated closest to actual physical storage devices and operating system file systems.",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Database Concepts",
+    "difficulty": "Easy",
+    "question": "Which statement correctly describes a schema?",
+    "options": [
+      "Actual values stored in the database",
+      "Logical structure or design of a database",
+      "A physical storage device",
+      "A database user"
+    ],
+    "answer": 1,
+    "explanation": "A schema refers to the overall design, description, and logical structure of a database.",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Database Concepts",
+    "difficulty": "Easy",
+    "question": "Which statement correctly describes data?",
+    "options": [
+      "The structure of database objects",
+      "The actual values stored in the database",
+      "The mapping between levels",
+      "The physical storage method"
+    ],
+    "answer": 1,
+    "explanation": "Data represents the actual information, values, or facts stored in the database at any specific point in time.",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "External Schema",
+    "difficulty": "Medium",
+    "question": "A student view containing Name, Roll Number, Courses, and Marks is an example of:",
+    "options": [
+      "External Schema",
+      "Internal Schema",
+      "Physical Schema",
+      "Storage Schema"
+    ],
+    "answer": 0,
+    "explanation": "A tailored view showing student name, roll number, and marks is an example of an External Schema.",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Conceptual Level",
+    "difficulty": "Medium",
+    "question": "STUDENT, COURSE, ENROLLMENT, and RESULT as part of the overall logical design belong to the:",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "User Interface"
+    ],
+    "answer": 1,
+    "explanation": "Core business entities such as STUDENT, COURSE, ENROLLMENT, and RESULT form the enterprise model at the Conceptual Level.",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Internal Level",
+    "difficulty": "Medium",
+    "question": "Files, pages, records, indexes, and storage blocks are associated mainly with the:",
+    "options": [
+      "External Level",
+      "Conceptual Level",
+      "Internal Level",
+      "View Level"
+    ],
+    "answer": 2,
+    "explanation": "Low-level structures like pages, records, indexes, and storage blocks are managed at the Internal Level.",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Data Independence",
+    "difficulty": "Medium",
+    "question": "Which statement best describes the purpose of data independence?",
+    "options": [
+      "To increase the number of users",
+      "To minimize the impact of schema changes on higher levels",
+      "To eliminate database tables",
+      "To remove all database constraints"
+    ],
+    "answer": 1,
+    "explanation": "The primary purpose of data independence is to minimize the cascading impact of schema changes on higher levels and applications.",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Three-Level Architecture",
+    "difficulty": "Easy",
+    "question": "Which of the following is NOT one of the three schema levels?",
+    "options": [
+      "External",
+      "Conceptual",
+      "Internal",
+      "Application"
+    ],
+    "answer": 3,
+    "explanation": "The three levels of schema architecture are External, Conceptual, and Internal. 'Application' is not one of the three architectural schema levels.",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Database Systems",
+    "chapter": "Three-Level Schema Architecture & Data Independence",
+    "topic": "Three-Level Architecture",
+    "difficulty": "Medium",
+    "question": "Which sequence correctly represents the three levels from highest to lowest?",
+    "options": [
+      "Internal → Conceptual → External",
+      "External → Conceptual → Internal",
+      "Conceptual → External → Internal",
+      "External → Internal → Conceptual"
+    ],
+    "answer": 1,
+    "explanation": "From highest level (closest to users) to lowest level (closest to physical storage): External → Conceptual → Internal.",
+    "type": "single"
+  }
+];
+
 const DEFAULT_SUBJECTS = [
   {
     id: "theory-of-automata-week-02",
@@ -1734,6 +2400,21 @@ const DEFAULT_SUBJECTS = [
     isBuiltIn: true,
     totalQuestions: oopQuestions.length,
     questions: oopQuestions
+  },
+  {
+    id: "database-systems-week-02",
+    legacyIds: ["database-systems-w02", "dbs-w02"],
+    book: "Database Systems",
+    course: "Database Systems",
+    week: 2,
+    weekTitle: "Week 02",
+    topic: "Three-Level Schema Architecture & Data Independence",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "🗄️",
+    isBuiltIn: true,
+    totalQuestions: databaseSystemsQuestions.length,
+    questions: databaseSystemsQuestions
   }
 ];
 
@@ -1798,6 +2479,7 @@ function getStoredActiveSubjectId(subList) {
   if (savedId === "theory-of-automata-w02") savedId = "theory-of-automata-week-02";
   if (savedId === "computer-architecture-w01") savedId = "computer-architecture-and-organization-week-01";
   if (savedId === "oop-adp-sem2-w03") savedId = "object-oriented-programming-week-3";
+  if (savedId === "database-systems-w02" || savedId === "dbs-w02") savedId = "database-systems-week-02";
   if (savedId && subList.some(s => s.id === savedId)) return savedId;
   return subList[0]?.id || DEFAULT_SUBJECTS[0].id;
 }
@@ -2296,38 +2978,81 @@ function openBriefingModal(student){
   const sub = s.activeSubject || DEFAULT_SUBJECTS[0];
   const qCount = s.questions ? s.questions.length : 40;
 
-  modal(`<h2>Examination Briefing & Ready Check</h2>
-<p style="font-size:12px;color:var(--m);margin-bottom:12px;">Candidate credentials verified. Please review test guidelines before continuing.</p>
-
-<div class="briefingCandidateCard">
-  <div class="briefingAvatar">👤</div>
-  <div style="flex:1;">
-    <div style="font-size:14px;font-weight:700;color:var(--t);">${esc(st.name || "Student")}</div>
-    <div style="font-size:12px;color:var(--m);margin-top:2px;">
-      Roll No: <b style="color:var(--t);">${esc(st.roll || "—")}</b> &nbsp;•&nbsp; 
-      Class: <b style="color:var(--t);">${esc(st.className || "—")}</b>
+  modal(`<div class="briefingModal">
+  <div class="briefingHeader">
+    <div class="briefingBadgeIcon">📋</div>
+    <div>
+      <h2 class="briefingTitle">Examination Briefing &amp; Ready Check</h2>
+      <p class="briefingSubtitle">Candidate credentials verified • Review test guidelines before beginning</p>
     </div>
   </div>
-  <button id="editLoginBtn" class="secondary" style="font-size:11.5px;padding:4px 10px;border-radius:var(--radius-sm);" title="Edit student credentials">Edit</button>
-</div>
 
-<div class="briefingExamSpec">
-  <div class="briefingSpecRow"><span>📚 Course:</span> <b>${esc(sub.course || sub.book)}</b></div>
-  <div class="briefingSpecRow"><span>📖 Topic:</span> <b>${esc(sub.topic || "General Topic")}</b></div>
-  <div class="briefingSpecRow"><span>📝 Questions:</span> <b>${qCount} Multiple Choice Questions</b></div>
-  <div class="briefingSpecRow"><span>⏱️ Allowed Time:</span> <b>60 Minutes (Countdown Timer)</b></div>
-  <div class="briefingSpecRow"><span>🎯 Passing Criteria:</span> <b>50% (Standard Benchmark)</b></div>
-</div>
+  <div class="briefingCandidateCard">
+    <div class="briefingAvatar">👤</div>
+    <div class="briefingCandidateInfo">
+      <div class="briefingCandidateName">${esc(st.name || "Student")}</div>
+      <div class="briefingCandidateMeta">
+        <span>Roll: <b>${esc(st.roll || "—")}</b></span>
+        <span class="metaDot">•</span>
+        <span>Class: <b>${esc(st.className || "—")}</b></span>
+      </div>
+    </div>
+    <button id="editLoginBtn" class="briefingEditBtn" title="Edit candidate credentials" type="button">Edit ✏️</button>
+  </div>
 
-<div class="briefingRules">
-  <div><b>🔒 Sequential Exam Policy:</b> Questions must be completed in order. Once an answer is locked, you proceed to the next question.</div>
-  <div style="margin-top:4px;"><b>↷ Skipped Questions:</b> You can skip questions and resume them before final submission.</div>
-  <div style="margin-top:4px;"><b>⏱️ Timer Notice:</b> The 60-minute examination timer will begin once you click 'Continue to Examination'.</div>
-</div>
+  <div class="briefingExamSpec">
+    <div class="briefingCourseRow">
+      <span class="briefingCoursePill">${esc(sub.weekTitle || "Week " + sub.week)}</span>
+      <b class="briefingCourseName">${esc(sub.course || sub.book)}</b>
+    </div>
+    <div class="briefingTopicRow" title="${esc(sub.topic || "Course Syllabus Review")}">
+      <span class="topicTag">Topic:</span>
+      <span class="topicText">${esc(sub.topic || "Course Syllabus Review")}</span>
+    </div>
+    <div class="briefingMetricsBar">
+      <div class="briefingMetric">
+        <span class="metricIcon">📝</span>
+        <div class="metricText">
+          <small>QUESTIONS</small>
+          <b>${qCount} MCQs</b>
+        </div>
+      </div>
+      <div class="briefingMetric">
+        <span class="metricIcon">⏱️</span>
+        <div class="metricText">
+          <small>TIME ALLOWED</small>
+          <b>60 Mins</b>
+        </div>
+      </div>
+      <div class="briefingMetric">
+        <span class="metricIcon">🎯</span>
+        <div class="metricText">
+          <small>PASS BENCHMARK</small>
+          <b>50% Mark</b>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="modalActions" style="gap:8px;flex-wrap:wrap;margin-top:16px;">
-  <button class="secondary" id="closeBriefing">Prepare / Review Syllabus</button>
-  <button class="primary continueExamBtn" id="continueToExam">▶ Continue to Examination →</button>
+  <div class="briefingRules">
+    <div class="briefingRuleItem">
+      <span class="ruleIcon">🔒</span>
+      <span><b>Sequential Mode:</b> Forward-only exam. Answers are locked as you proceed.</span>
+    </div>
+    <div class="briefingRuleItem">
+      <span class="ruleIcon">↷</span>
+      <span><b>Skipped Questions:</b> Unanswered questions can be revisited before final submit.</span>
+    </div>
+    <div class="briefingRuleItem">
+      <span class="ruleIcon">⏱️</span>
+      <span><b>Live Timer:</b> 60-minute countdown starts automatically when you continue.</span>
+    </div>
+  </div>
+
+  <div class="briefingActions modalActions">
+    <button class="secondary" id="closeBriefing" type="button">Prepare / Review Syllabus</button>
+    <button class="primary continueExamBtn" id="continueToExam" type="button">▶ Continue to Examination →</button>
+  </div>
 </div>`);
 
   if($("#editLoginBtn")) $("#editLoginBtn").onclick=()=>{ close(); openStartModal(); };
@@ -3213,17 +3938,21 @@ function handleFileImport(e){
       if(Array.isArray(parsed)){
         rawList=parsed;
       }else if(parsed&&typeof parsed==="object"){
-        const qbRoot = parsed.questionBank || parsed;
+        const qbRoot = parsed.questionBank || parsed.metadata || parsed;
         detectedMeta={
           book: qbRoot.book || qbRoot.subject || qbRoot.title || qbRoot.courseCode,
           course: qbRoot.course || qbRoot.subject || qbRoot.courseCode,
           week: qbRoot.week || qbRoot.weekNo,
-          weekTitle: qbRoot.weekTitle || qbRoot.section || (qbRoot.weekNo ? "Week " + String(qbRoot.weekNo).padStart(2, "0") : ""),
+          weekTitle: qbRoot.weekTitle || qbRoot.section || (qbRoot.weekNo ? "Week " + String(qbRoot.weekNo).padStart(2, "0") : (qbRoot.week ? "Week " + String(qbRoot.week).padStart(2, "0") : "")),
           topic: qbRoot.topic || qbRoot.syllabusCoverage || qbRoot.title,
           level: qbRoot.level || qbRoot.class || qbRoot.program,
-          createdBy: qbRoot.createdBy || qbRoot.preparedBy || qbRoot.author || qbRoot.instructor
+          createdBy: qbRoot.createdBy || qbRoot.preparedBy || qbRoot.author || qbRoot.instructor || qbRoot.lecturer
         };
-        if(Array.isArray(qbRoot.mcqs)) rawList=qbRoot.mcqs;
+        if(Array.isArray(parsed.mcqs)) rawList=parsed.mcqs;
+        else if(Array.isArray(parsed.questions)) rawList=parsed.questions;
+        else if(Array.isArray(parsed.data)) rawList=parsed.data;
+        else if(Array.isArray(parsed.items)) rawList=parsed.items;
+        else if(Array.isArray(qbRoot.mcqs)) rawList=qbRoot.mcqs;
         else if(Array.isArray(qbRoot.questions)) rawList=qbRoot.questions;
         else if(Array.isArray(qbRoot.data)) rawList=qbRoot.data;
         else if(Array.isArray(qbRoot.items)) rawList=qbRoot.items;
@@ -3342,7 +4071,7 @@ function handleFileImport(e){
 
 function confirmRestoreDefaults(){
   modal(`<h2>Reset to Built-in Books?</h2>
-<p style="font-size:13px;line-height:1.5;">Are you sure you want to reset your catalog to the built-in books (<b>Theory of Automata</b>, <b>Computer Architecture</b>, and <b>Object-Oriented Programming (ADP Sem 2)</b>)?</p>
+<p style="font-size:13px;line-height:1.5;">Are you sure you want to reset your catalog to the built-in books (<b>Theory of Automata</b>, <b>Computer Architecture</b>, <b>Object-Oriented Programming (ADP Sem 2)</b>, and <b>Database Systems</b>)?</p>
 <p style="font-size:12px;color:var(--m);margin-top:8px;">Custom imported books will be removed.</p>
 <div class="modalActions">
   <button class="secondary" onclick="closeModal()">Cancel</button>
@@ -3474,6 +4203,15 @@ if ($("#modal")) {
 }
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeModal();
+  if (e.key === "Enter" && !$("#modal")?.classList.contains("hidden")) {
+    const activeEl = document.activeElement;
+    if (activeEl && (activeEl.tagName === "INPUT" || activeEl.tagName === "TEXTAREA" || activeEl.tagName === "BUTTON")) return;
+    const contBtn = $("#continueToExam");
+    if (contBtn && document.contains(contBtn)) {
+      e.preventDefault();
+      contBtn.click();
+    }
+  }
 });
 
 // ==========================================================================

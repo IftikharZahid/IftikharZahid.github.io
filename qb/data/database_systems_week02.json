@@ -1,0 +1,482 @@
+{
+  "metadata": {
+    "title": "Database Systems – Week 02 MCQs",
+    "subject": "Database Systems",
+    "week": 2,
+    "topic": "Three-Level Schema Architecture & Data Independence",
+    "program": "BS Computer Science",
+    "lecturer": "Lec. Iftikhar Zahid",
+    "totalQuestions": 39,
+    "formatVersion": "1.0"
+  },
+  "questions": [
+    {
+      "id": "DBS-W02-Q01",
+      "questionNumber": 1,
+      "question": "Which architecture divides a database system into External, Conceptual, and Internal levels?",
+      "options": {
+        "A": "Two-Level Architecture",
+        "B": "Three-Level Schema Architecture",
+        "C": "Client-Server Architecture",
+        "D": "Distributed Architecture"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q02",
+      "questionNumber": 2,
+      "question": "The External Level is also known as the:",
+      "options": {
+        "A": "Physical Level",
+        "B": "Logical Level",
+        "C": "View Level",
+        "D": "Storage Level"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q03",
+      "questionNumber": 3,
+      "question": "The Conceptual Level is also called the:",
+      "options": {
+        "A": "View Level",
+        "B": "Logical Level",
+        "C": "Physical Level",
+        "D": "User Level"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q04",
+      "questionNumber": 4,
+      "question": "The Internal Level is also called the:",
+      "options": {
+        "A": "Physical Level",
+        "B": "View Level",
+        "C": "Logical Level",
+        "D": "Application Level"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q05",
+      "questionNumber": 5,
+      "question": "Which level represents the database from the perspective of individual users?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "Physical Storage Level"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q06",
+      "questionNumber": 6,
+      "question": "Which level describes the overall logical structure of the entire database?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "Application Level"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q07",
+      "questionNumber": 7,
+      "question": "Which level describes how data is physically stored?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "View Level"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q08",
+      "questionNumber": 8,
+      "question": "Which level is primarily concerned with user views?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "Physical Storage"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q09",
+      "questionNumber": 9,
+      "question": "Which level is primarily concerned with entities, relationships, and constraints?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "Storage Level"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q10",
+      "questionNumber": 10,
+      "question": "Which level is primarily concerned with file organization and indexes?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "User View"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q11",
+      "questionNumber": 11,
+      "question": "A database can have different views for different users at which level?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "Physical Level"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q12",
+      "questionNumber": 12,
+      "question": "The complete logical structure of a database is represented at the:",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "User Level"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q13",
+      "questionNumber": 13,
+      "question": "Physical storage details are hidden from users mainly through:",
+      "options": {
+        "A": "Data redundancy",
+        "B": "Database abstraction",
+        "C": "Data duplication",
+        "D": "Data entry"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q14",
+      "questionNumber": 14,
+      "question": "Which mapping connects the External Level with the Conceptual Level?",
+      "options": {
+        "A": "Conceptual-Internal Mapping",
+        "B": "External-Conceptual Mapping",
+        "C": "User-Storage Mapping",
+        "D": "Physical-View Mapping"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q15",
+      "questionNumber": 15,
+      "question": "Which mapping connects the Conceptual Level with the Internal Level?",
+      "options": {
+        "A": "External-Conceptual Mapping",
+        "B": "User-Application Mapping",
+        "C": "Conceptual-Internal Mapping",
+        "D": "View-Physical Mapping"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q16",
+      "questionNumber": 16,
+      "question": "Which schema represents a particular user's or application's view of the database?",
+      "options": {
+        "A": "External Schema",
+        "B": "Conceptual Schema",
+        "C": "Internal Schema",
+        "D": "Physical Schema"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q17",
+      "questionNumber": 17,
+      "question": "Which schema represents the complete logical structure of the database?",
+      "options": {
+        "A": "External Schema",
+        "B": "Conceptual Schema",
+        "C": "Internal Schema",
+        "D": "User Schema"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q18",
+      "questionNumber": 18,
+      "question": "Which schema describes the physical organization of database storage?",
+      "options": {
+        "A": "External Schema",
+        "B": "Conceptual Schema",
+        "C": "Internal Schema",
+        "D": "View Schema"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q19",
+      "questionNumber": 19,
+      "question": "A database may have multiple external schemas because:",
+      "options": {
+        "A": "All users have identical requirements",
+        "B": "Different users may require different views",
+        "C": "There is only one user",
+        "D": "Physical storage is duplicated"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q20",
+      "questionNumber": 20,
+      "question": "There is generally how many conceptual schemas for a database?",
+      "options": {
+        "A": "None",
+        "B": "One",
+        "C": "Two",
+        "D": "Many"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q21",
+      "questionNumber": 21,
+      "question": "Data Independence means the ability to change a schema at one level without:",
+      "options": {
+        "A": "Deleting the database",
+        "B": "Changing the next higher level unnecessarily",
+        "C": "Creating a new DBMS",
+        "D": "Changing all stored data"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q22",
+      "questionNumber": 22,
+      "question": "Which is a major benefit of the Three-Level Schema Architecture?",
+      "options": {
+        "A": "Increased data duplication",
+        "B": "Data independence",
+        "C": "Elimination of databases",
+        "D": "Removal of all constraints"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q23",
+      "questionNumber": 23,
+      "question": "Physical Data Independence allows changes to the:",
+      "options": {
+        "A": "External schema without affecting users",
+        "B": "Conceptual schema without affecting storage",
+        "C": "Internal schema without changing the conceptual schema",
+        "D": "User interface without changing the application"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q24",
+      "questionNumber": 24,
+      "question": "Logical Data Independence allows changes to the:",
+      "options": {
+        "A": "Internal schema without changing the conceptual schema",
+        "B": "Conceptual schema without requiring changes to external schemas",
+        "C": "Physical storage without changing files",
+        "D": "External schema without changing the conceptual schema"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q25",
+      "questionNumber": 25,
+      "question": "Changing file organization is an example of:",
+      "options": {
+        "A": "Logical Data Independence",
+        "B": "Physical Data Independence",
+        "C": "Data Redundancy",
+        "D": "Entity Independence"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q26",
+      "questionNumber": 26,
+      "question": "Creating or removing database indexes is an example of:",
+      "options": {
+        "A": "Physical Data Independence",
+        "B": "Logical Data Independence",
+        "C": "External Schema Change",
+        "D": "Conceptual Modeling"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q27",
+      "questionNumber": 27,
+      "question": "Adding attributes to the conceptual schema can illustrate:",
+      "options": {
+        "A": "Physical Data Independence",
+        "B": "Logical Data Independence",
+        "C": "File Organization",
+        "D": "Storage Allocation"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q28",
+      "questionNumber": 28,
+      "question": "Which type of data independence is generally more difficult to achieve?",
+      "options": {
+        "A": "Physical Data Independence",
+        "B": "Logical Data Independence",
+        "C": "External Independence",
+        "D": "Storage Independence"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q29",
+      "questionNumber": 29,
+      "question": "Changing physical access paths without changing the logical database structure demonstrates:",
+      "options": {
+        "A": "Logical Data Independence",
+        "B": "Physical Data Independence",
+        "C": "Data Modeling",
+        "D": "View Integration"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q30",
+      "questionNumber": 30,
+      "question": "Which level is closest to end users?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "Storage Level"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q31",
+      "questionNumber": 31,
+      "question": "Which level is closest to physical storage?",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "View Level"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q32",
+      "questionNumber": 32,
+      "question": "Which statement correctly describes a schema?",
+      "options": {
+        "A": "Actual values stored in the database",
+        "B": "Logical structure or design of a database",
+        "C": "A physical storage device",
+        "D": "A database user"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q33",
+      "questionNumber": 33,
+      "question": "Which statement correctly describes data?",
+      "options": {
+        "A": "The structure of database objects",
+        "B": "The actual values stored in the database",
+        "C": "The mapping between levels",
+        "D": "The physical storage method"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q34",
+      "questionNumber": 34,
+      "question": "A student view containing Name, Roll Number, Courses, and Marks is an example of:",
+      "options": {
+        "A": "External Schema",
+        "B": "Internal Schema",
+        "C": "Physical Schema",
+        "D": "Storage Schema"
+      },
+      "correctAnswer": "A"
+    },
+    {
+      "id": "DBS-W02-Q35",
+      "questionNumber": 35,
+      "question": "STUDENT, COURSE, ENROLLMENT, and RESULT as part of the overall logical design belong to the:",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "User Interface"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q36",
+      "questionNumber": 36,
+      "question": "Files, pages, records, indexes, and storage blocks are associated mainly with the:",
+      "options": {
+        "A": "External Level",
+        "B": "Conceptual Level",
+        "C": "Internal Level",
+        "D": "View Level"
+      },
+      "correctAnswer": "C"
+    },
+    {
+      "id": "DBS-W02-Q37",
+      "questionNumber": 37,
+      "question": "Which statement best describes the purpose of data independence?",
+      "options": {
+        "A": "To increase the number of users",
+        "B": "To minimize the impact of schema changes on higher levels",
+        "C": "To eliminate database tables",
+        "D": "To remove all database constraints"
+      },
+      "correctAnswer": "B"
+    },
+    {
+      "id": "DBS-W02-Q38",
+      "questionNumber": 38,
+      "question": "Which of the following is NOT one of the three schema levels?",
+      "options": {
+        "A": "External",
+        "B": "Conceptual",
+        "C": "Internal",
+        "D": "Application"
+      },
+      "correctAnswer": "D"
+    },
+    {
+      "id": "DBS-W02-Q39",
+      "questionNumber": 39,
+      "question": "Which sequence correctly represents the three levels from highest to lowest?",
+      "options": {
+        "A": "Internal → Conceptual → External",
+        "B": "External → Conceptual → Internal",
+        "C": "Conceptual → External → Internal",
+        "D": "External → Internal → Conceptual"
+      },
+      "correctAnswer": "B"
+    }
+  ]
+}
