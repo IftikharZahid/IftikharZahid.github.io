@@ -1,0 +1,17 @@
+{
+  "name": "mcqs-question-bank",
+  "version": "1.0.0",
+  "description": "Smart MCQs Examination Bank with MongoDB Atlas Cloud Integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node server.js",
+    "mongo:upload": "node scripts/upload_to_mongodb.js",
+    "mongo:upload-all": "node scripts/upload_to_mongodb.js --all",
+    "mongo:fetch": "node scripts/fetch_from_mongodb.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "mongodb": "^7.7.0"
+  }
+}

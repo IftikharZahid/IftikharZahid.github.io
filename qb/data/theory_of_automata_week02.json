@@ -1,0 +1,1174 @@
+{
+  "book": "Theory of Automata",
+  "course": "Theory of Automata",
+  "week": 2,
+  "weekTitle": "Week 02",
+  "topic": "Regular Expressions & Recursive Definitions of Languages",
+  "level": "BS Computer Science",
+  "questionType": "MCQ",
+  "language": "English",
+  "createdBy": "Lec. Iftikhar Zahid",
+  "totalQuestions": 40,
+  "mcqs": [
+    {
+      "id": 1,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Regular Expressions",
+      "difficulty": "Easy",
+      "question": "A Regular Expression is primarily used to describe:",
+      "options": [
+        {
+          "text": "Any programming language",
+          "isCorrect": false
+        },
+        {
+          "text": "Regular languages",
+          "isCorrect": true
+        },
+        {
+          "text": "Only context-free languages",
+          "isCorrect": false
+        },
+        {
+          "text": "Computer hardware",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "Regular expressions are formal notation used to describe regular languages.",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Kleene Star",
+      "difficulty": "Easy",
+      "question": "For Σ = {a,b}, which expression represents zero or more a's?",
+      "options": [
+        {
+          "text": "a+",
+          "isCorrect": false
+        },
+        {
+          "text": "a*",
+          "isCorrect": true
+        },
+        {
+          "text": "ab",
+          "isCorrect": false
+        },
+        {
+          "text": "a|b",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The Kleene Star represents zero or more occurrences and includes ε.",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Union",
+      "difficulty": "Easy",
+      "question": "Which operation represents a choice between alternatives in a Regular Expression?",
+      "options": [
+        {
+          "text": "Concatenation",
+          "isCorrect": false
+        },
+        {
+          "text": "Union",
+          "isCorrect": true
+        },
+        {
+          "text": "Recursion",
+          "isCorrect": false
+        },
+        {
+          "text": "Reversal",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "Union represents a choice between alternatives.",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Concatenation",
+      "difficulty": "Easy",
+      "question": "What does the expression ab represent?",
+      "options": [
+        {
+          "text": "a or b",
+          "isCorrect": false
+        },
+        {
+          "text": "Zero or more a's",
+          "isCorrect": false
+        },
+        {
+          "text": "The string formed by concatenating a and b",
+          "isCorrect": true
+        },
+        {
+          "text": "Only the empty string",
+          "isCorrect": false
+        }
+      ],
+      "answer": 2,
+      "explanation": "Concatenation places expressions next to each other, so a followed by b gives ab.",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Kleene Star",
+      "difficulty": "Easy",
+      "question": "The Kleene Star (*) represents:",
+      "options": [
+        {
+          "text": "Exactly one occurrence",
+          "isCorrect": false
+        },
+        {
+          "text": "Zero or more occurrences",
+          "isCorrect": true
+        },
+        {
+          "text": "One or more occurrences",
+          "isCorrect": false
+        },
+        {
+          "text": "Two occurrences",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "R* means zero or more repetitions of R.",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Positive Closure",
+      "difficulty": "Easy",
+      "question": "Which language is represented by a+?",
+      "options": [
+        {
+          "text": "{ε, a, aa, aaa, ...}",
+          "isCorrect": false
+        },
+        {
+          "text": "{a, aa, aaa, ...}",
+          "isCorrect": true
+        },
+        {
+          "text": "{ε}",
+          "isCorrect": false
+        },
+        {
+          "text": "{a,b}",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "Positive closure means one or more occurrences and therefore does not include ε.",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Positive Closure",
+      "difficulty": "Easy",
+      "question": "What is the main difference between a* and a+?",
+      "options": [
+        {
+          "text": "a* excludes ε",
+          "isCorrect": false
+        },
+        {
+          "text": "a+ includes ε",
+          "isCorrect": false
+        },
+        {
+          "text": "a* includes ε, while a+ does not",
+          "isCorrect": true
+        },
+        {
+          "text": "There is no difference",
+          "isCorrect": false
+        }
+      ],
+      "answer": 2,
+      "explanation": "The supplied lecture explicitly distinguishes zero-or-more from one-or-more.",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Union",
+      "difficulty": "Easy",
+      "question": "Which Regular Expression represents either a or b?",
+      "options": [
+        {
+          "text": "ab",
+          "isCorrect": false
+        },
+        {
+          "text": "a*",
+          "isCorrect": false
+        },
+        {
+          "text": "a+b",
+          "isCorrect": true
+        },
+        {
+          "text": "(ab)*",
+          "isCorrect": false
+        }
+      ],
+      "answer": 2,
+      "explanation": "a+b represents the choice between a and b in the lecture notation.",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Strings Beginning with a",
+      "difficulty": "Medium",
+      "question": "For Σ={a,b}, which expression describes strings beginning with a?",
+      "options": [
+        {
+          "text": "(a+b)*a",
+          "isCorrect": false
+        },
+        {
+          "text": "a(a+b)*",
+          "isCorrect": true
+        },
+        {
+          "text": "(a+b)a",
+          "isCorrect": false
+        },
+        {
+          "text": "ab*",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "a(a+b)* fixes a at the beginning and allows any sequence of a and b after it.",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Strings Ending with a",
+      "difficulty": "Medium",
+      "question": "For Σ={a,b}, which expression describes strings ending with a?",
+      "options": [
+        {
+          "text": "a(a+b)*",
+          "isCorrect": false
+        },
+        {
+          "text": "(a+b)*a",
+          "isCorrect": true
+        },
+        {
+          "text": "a*b",
+          "isCorrect": false
+        },
+        {
+          "text": "(a+b)a*",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "(a+b)* allows any prefix, followed by the final a.",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Containing ab",
+      "difficulty": "Medium",
+      "question": "Which expression describes strings containing the substring ab?",
+      "options": [
+        {
+          "text": "ab*",
+          "isCorrect": false
+        },
+        {
+          "text": "(a+b)*ab(a+b)*",
+          "isCorrect": true
+        },
+        {
+          "text": "a(a+b)",
+          "isCorrect": false
+        },
+        {
+          "text": "(ab)*",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The expression places ab between arbitrary strings from the alphabet.",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Operator Precedence",
+      "difficulty": "Medium",
+      "question": "In regular-expression precedence, which operation generally has the highest priority?",
+      "options": [
+        {
+          "text": "Union",
+          "isCorrect": false
+        },
+        {
+          "text": "Concatenation",
+          "isCorrect": false
+        },
+        {
+          "text": "Kleene Star",
+          "isCorrect": true
+        },
+        {
+          "text": "Addition",
+          "isCorrect": false
+        }
+      ],
+      "answer": 2,
+      "explanation": "The lecture lists Kleene Star above concatenation and union in precedence.",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Operator Precedence",
+      "difficulty": "Medium",
+      "question": "In the expression ab*, the correct interpretation is:",
+      "options": [
+        {
+          "text": "(ab)*",
+          "isCorrect": false
+        },
+        {
+          "text": "a(b*)",
+          "isCorrect": true
+        },
+        {
+          "text": "(a*b)",
+          "isCorrect": false
+        },
+        {
+          "text": "a+b",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The star applies to b first, so ab* means a(b*).",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Empty String",
+      "difficulty": "Easy",
+      "question": "Which notation represents the empty string?",
+      "options": [
+        {
+          "text": "0",
+          "isCorrect": false
+        },
+        {
+          "text": "ε",
+          "isCorrect": true
+        },
+        {
+          "text": "∅",
+          "isCorrect": false
+        },
+        {
+          "text": "λ*",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The empty string is denoted by ε in the lecture.",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Base Case",
+      "difficulty": "Easy",
+      "question": "A recursive definition normally begins with a:",
+      "options": [
+        {
+          "text": "Recursive call",
+          "isCorrect": false
+        },
+        {
+          "text": "Base case",
+          "isCorrect": true
+        },
+        {
+          "text": "Kleene Star",
+          "isCorrect": false
+        },
+        {
+          "text": "Union",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The base case provides the starting element.",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Components",
+      "difficulty": "Easy",
+      "question": "Which is NOT normally listed as a component of a recursive definition?",
+      "options": [
+        {
+          "text": "Base Case",
+          "isCorrect": false
+        },
+        {
+          "text": "Recursive Rule",
+          "isCorrect": false
+        },
+        {
+          "text": "Closure Condition",
+          "isCorrect": false
+        },
+        {
+          "text": "Database Schema",
+          "isCorrect": true
+        }
+      ],
+      "answer": 3,
+      "explanation": "The lecture identifies base case, recursive rule and closure condition as the three components.",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Base Case",
+      "difficulty": "Easy",
+      "question": "The base case in a recursive definition provides:",
+      "options": [
+        {
+          "text": "The stopping or starting element",
+          "isCorrect": true
+        },
+        {
+          "text": "A random element",
+          "isCorrect": false
+        },
+        {
+          "text": "Only invalid strings",
+          "isCorrect": false
+        },
+        {
+          "text": "A physical storage location",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "A recursive definition starts from its base case.",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Recursive Rule",
+      "difficulty": "Easy",
+      "question": "A recursive rule is used to:",
+      "options": [
+        {
+          "text": "Generate new elements from existing elements",
+          "isCorrect": true
+        },
+        {
+          "text": "Delete all elements",
+          "isCorrect": false
+        },
+        {
+          "text": "Define hardware",
+          "isCorrect": false
+        },
+        {
+          "text": "Remove the base case",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "Recursive rules generate new elements from existing elements.",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Closure Condition",
+      "difficulty": "Medium",
+      "question": "The closure condition in a recursive definition ensures that:",
+      "options": [
+        {
+          "text": "Only generated elements belong to the defined set",
+          "isCorrect": true
+        },
+        {
+          "text": "Every possible string belongs to the language",
+          "isCorrect": false
+        },
+        {
+          "text": "The alphabet changes",
+          "isCorrect": false
+        },
+        {
+          "text": "The base case is removed",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "Closure restricts membership to elements generated according to the definition.",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Even Numbers",
+      "difficulty": "Medium",
+      "question": "Which is a recursive definition of the even numbers?",
+      "options": [
+        {
+          "text": "1 ∈ E and n → n+1",
+          "isCorrect": false
+        },
+        {
+          "text": "0 ∈ E and n ∈ E ⇒ n+2 ∈ E",
+          "isCorrect": true
+        },
+        {
+          "text": "2 ∈ E and n → n−1",
+          "isCorrect": false
+        },
+        {
+          "text": "ε ∈ E and n → 2n",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The lecture uses 0 as the base case and adds 2 recursively.",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Even Numbers",
+      "difficulty": "Easy",
+      "question": "Starting from 0 and repeatedly adding 2 generates:",
+      "options": [
+        {
+          "text": "Odd numbers",
+          "isCorrect": false
+        },
+        {
+          "text": "Prime numbers only",
+          "isCorrect": false
+        },
+        {
+          "text": "Even numbers",
+          "isCorrect": true
+        },
+        {
+          "text": "All integers",
+          "isCorrect": false
+        }
+      ],
+      "answer": 2,
+      "explanation": "0, 2, 4, 6, ... are the even numbers.",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Recursive Languages",
+      "difficulty": "Medium",
+      "question": "A recursively defined language specifies:",
+      "options": [
+        {
+          "text": "Only its alphabet",
+          "isCorrect": false
+        },
+        {
+          "text": "Initial strings, generation rules, and closure",
+          "isCorrect": true
+        },
+        {
+          "text": "Only its physical storage",
+          "isCorrect": false
+        },
+        {
+          "text": "Only its final string",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The lecture defines recursive languages using initial strings, rules, and a closure condition.",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Definition",
+      "difficulty": "Medium",
+      "question": "The language L = {a^n b^n | n ≥ 0} requires:",
+      "options": [
+        {
+          "text": "More b's than a's",
+          "isCorrect": false
+        },
+        {
+          "text": "Equal numbers of a's and b's, with all a's before b's",
+          "isCorrect": true
+        },
+        {
+          "text": "Equal numbers in any order",
+          "isCorrect": false
+        },
+        {
+          "text": "Only a's",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The language contains equal numbers of a's followed by equal numbers of b's.",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Membership",
+      "difficulty": "Medium",
+      "question": "Which string belongs to L = {a^n b^n | n ≥ 0}?",
+      "options": [
+        {
+          "text": "aab",
+          "isCorrect": false
+        },
+        {
+          "text": "abb",
+          "isCorrect": false
+        },
+        {
+          "text": "aabb",
+          "isCorrect": true
+        },
+        {
+          "text": "ababab",
+          "isCorrect": false
+        }
+      ],
+      "answer": 2,
+      "explanation": "aabb has two a's followed by two b's, so n=2.",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Generation",
+      "difficulty": "Easy",
+      "question": "Which string is generated for n = 3 in a^n b^n?",
+      "options": [
+        {
+          "text": "aaabb",
+          "isCorrect": false
+        },
+        {
+          "text": "aaabbb",
+          "isCorrect": true
+        },
+        {
+          "text": "aabbbb",
+          "isCorrect": false
+        },
+        {
+          "text": "aaaab",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "For n=3, there must be three a's followed by three b's.",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Recursive Definition",
+      "difficulty": "Easy",
+      "question": "What is the base case for the recursive definition of a^n b^n used in this lecture?",
+      "options": [
+        {
+          "text": "a",
+          "isCorrect": false
+        },
+        {
+          "text": "b",
+          "isCorrect": false
+        },
+        {
+          "text": "ab",
+          "isCorrect": false
+        },
+        {
+          "text": "ε",
+          "isCorrect": true
+        }
+      ],
+      "answer": 3,
+      "explanation": "For n=0, a^0b^0 = ε, which is the base case.",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Recursive Rule",
+      "difficulty": "Medium",
+      "question": "Which recursive rule defines a^n b^n?",
+      "options": [
+        {
+          "text": "If w ∈ L, then awb ∈ L",
+          "isCorrect": true
+        },
+        {
+          "text": "If w ∈ L, then abw ∈ L only",
+          "isCorrect": false
+        },
+        {
+          "text": "If w ∈ L, then ww ∈ L",
+          "isCorrect": false
+        },
+        {
+          "text": "If w ∈ L, then aaw ∈ L only",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "Adding one a to the beginning and one b to the end preserves equality.",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Recursive Rule",
+      "difficulty": "Easy",
+      "question": "Why does the rule w → awb preserve equal numbers of a's and b's?",
+      "options": [
+        {
+          "text": "It removes one of each",
+          "isCorrect": false
+        },
+        {
+          "text": "It adds one a and one b",
+          "isCorrect": true
+        },
+        {
+          "text": "It adds two a's",
+          "isCorrect": false
+        },
+        {
+          "text": "It changes the alphabet",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "Each application adds exactly one a and one b.",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Generation",
+      "difficulty": "Medium",
+      "question": "Which sequence correctly shows recursive generation of a^n b^n?",
+      "options": [
+        {
+          "text": "ε → ab → aabb → aaabbb",
+          "isCorrect": true
+        },
+        {
+          "text": "a → aa → aaa",
+          "isCorrect": false
+        },
+        {
+          "text": "ε → a → aa",
+          "isCorrect": false
+        },
+        {
+          "text": "ab → ba → abab",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "The sequence starts at ε and adds a at the beginning and b at the end.",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "subject": "Theory of Automata",
+      "chapter": "Language a^n b^n",
+      "topic": "Base Case",
+      "difficulty": "Easy",
+      "question": "For n = 0, a^n b^n is:",
+      "options": [
+        {
+          "text": "a",
+          "isCorrect": false
+        },
+        {
+          "text": "b",
+          "isCorrect": false
+        },
+        {
+          "text": "ab",
+          "isCorrect": false
+        },
+        {
+          "text": "ε",
+          "isCorrect": true
+        }
+      ],
+      "answer": 3,
+      "explanation": "Both a^0 and b^0 are 1, represented by the empty string in the language construction.",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Factorial",
+      "difficulty": "Easy",
+      "question": "Factorial is an example of:",
+      "options": [
+        {
+          "text": "Recursive definition",
+          "isCorrect": true
+        },
+        {
+          "text": "Regular expression only",
+          "isCorrect": false
+        },
+        {
+          "text": "Union operation",
+          "isCorrect": false
+        },
+        {
+          "text": "Finite alphabet",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "The lecture presents factorial as another recursive example.",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Factorial",
+      "difficulty": "Easy",
+      "question": "What is the base case of factorial?",
+      "options": [
+        {
+          "text": "0! = 0",
+          "isCorrect": false
+        },
+        {
+          "text": "0! = 1",
+          "isCorrect": true
+        },
+        {
+          "text": "1! = 0",
+          "isCorrect": false
+        },
+        {
+          "text": "1! = 2",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The factorial definition starts with 0! = 1.",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Factorial",
+      "difficulty": "Medium",
+      "question": "Which is the recursive rule for factorial?",
+      "options": [
+        {
+          "text": "n! = n + (n−1)!",
+          "isCorrect": false
+        },
+        {
+          "text": "n! = n(n−1)!",
+          "isCorrect": true
+        },
+        {
+          "text": "n! = n! + 1",
+          "isCorrect": false
+        },
+        {
+          "text": "n! = (n+1)!",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "For n>0, factorial is recursively defined as n! = n(n−1)!.",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "subject": "Theory of Automata",
+      "chapter": "Recursive Definitions",
+      "topic": "Factorial",
+      "difficulty": "Easy",
+      "question": "What is 4!?",
+      "options": [
+        {
+          "text": "12",
+          "isCorrect": false
+        },
+        {
+          "text": "16",
+          "isCorrect": false
+        },
+        {
+          "text": "24",
+          "isCorrect": true
+        },
+        {
+          "text": "32",
+          "isCorrect": false
+        }
+      ],
+      "answer": 2,
+      "explanation": "4! = 4×3×2×1 = 24.",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "subject": "Theory of Automata",
+      "chapter": "Comparison",
+      "topic": "RE vs Recursive Definition",
+      "difficulty": "Medium",
+      "question": "Which statement correctly compares Regular Expressions and recursive definitions?",
+      "options": [
+        {
+          "text": "Both are identical techniques",
+          "isCorrect": false
+        },
+        {
+          "text": "Regular Expressions describe regular languages; recursive definitions use base cases and recursive rules",
+          "isCorrect": true
+        },
+        {
+          "text": "Recursive definitions are only for hardware",
+          "isCorrect": false
+        },
+        {
+          "text": "Regular Expressions cannot describe strings",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "The lecture distinguishes compact regular-language notation from recursive construction.",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Kleene Star",
+      "difficulty": "Easy",
+      "question": "Which of the following is a Regular Expression for zero or more b's?",
+      "options": [
+        {
+          "text": "b+",
+          "isCorrect": false
+        },
+        {
+          "text": "b*",
+          "isCorrect": true
+        },
+        {
+          "text": "bb",
+          "isCorrect": false
+        },
+        {
+          "text": "b",
+          "isCorrect": false
+        }
+      ],
+      "answer": 1,
+      "explanation": "b* represents zero or more b's.",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Concatenation and Closure",
+      "difficulty": "Medium",
+      "question": "Which expression describes strings consisting of one or more a's followed by b?",
+      "options": [
+        {
+          "text": "a*b",
+          "isCorrect": true
+        },
+        {
+          "text": "a+b",
+          "isCorrect": false
+        },
+        {
+          "text": "ab*",
+          "isCorrect": false
+        },
+        {
+          "text": "(a+b)*",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "a* allows zero or more a's before b; the supplied MCQ key identifies a*b.",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "subject": "Theory of Automata",
+      "chapter": "Regular Expressions",
+      "topic": "Definition",
+      "difficulty": "Easy",
+      "question": "Which statement about a regular expression is correct?",
+      "options": [
+        {
+          "text": "It is a compact pattern for describing a set of strings",
+          "isCorrect": true
+        },
+        {
+          "text": "It must always contain a recursion rule",
+          "isCorrect": false
+        },
+        {
+          "text": "It only represents one string",
+          "isCorrect": false
+        },
+        {
+          "text": "It is a database schema",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "A regular expression is a compact pattern used to describe a set of strings.",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "subject": "Theory of Automata",
+      "chapter": "Introduction",
+      "topic": "Week 01 Foundation",
+      "difficulty": "Easy",
+      "question": "Which concept from Week 01 provides a foundation for the Week 02 discussion?",
+      "options": [
+        {
+          "text": "Alphabet, strings, and languages",
+          "isCorrect": true
+        },
+        {
+          "text": "Database normalization",
+          "isCorrect": false
+        },
+        {
+          "text": "CPU registers",
+          "isCorrect": false
+        },
+        {
+          "text": "Cache mapping",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "Week 02 builds on the Week 01 foundation of alphabet, strings and language.",
+      "type": "single"
+    },
+    {
+      "id": 40,
+      "subject": "Theory of Automata",
+      "chapter": "Course Content",
+      "topic": "Week 03",
+      "difficulty": "Easy",
+      "question": "Which topic is scheduled for Week 03 according to the provided course content?",
+      "options": [
+        {
+          "text": "Three-Level Schema Architecture",
+          "isCorrect": false
+        },
+        {
+          "text": "Kleene's Theorem",
+          "isCorrect": false
+        },
+        {
+          "text": "Cache Memory",
+          "isCorrect": false
+        },
+        {
+          "text": "Relational Algebra",
+          "isCorrect": false
+        }
+      ],
+      "answer": 0,
+      "explanation": "The lecture's final section identifies Kleene's Theorem as the next week's topic.",
+      "type": "single"
+    }
+  ]
+}

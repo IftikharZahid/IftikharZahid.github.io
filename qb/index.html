@@ -7,34 +7,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=11">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
   <header>
     <div class="head">
-      <button class="brand" data-go="home">
-        <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg">
-        <span>
-          <strong>MCQs Question Bank</strong>
-          <small>Practice • Learn • Test • Improve</small>
+      <button class="brand" data-go="home" aria-label="Go to MCQs Question Bank Home">
+        <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg" width="52" height="52" fetchpriority="high">
+        <span class="brandText">
+          <strong class="brandTitle">MCQs Question Bank</strong>
+          <small class="brandSubtitle">Practice • Learn • Test • Improve</small>
         </span>
       </button>
-      <nav>
+      <nav aria-label="Primary Navigation">
         <button data-go="home">Home</button>
         <button data-go="subjects">Subjects</button>
         <button data-go="tools">Management</button>
         <button data-go="results">Results</button>
       </nav>
       <div class="headActions">
-        <div id="userBadge" class="userBadge hidden">
+        <div id="userBadge" class="userBadge hidden" title="Student Session Active">
           <span class="userAvatar">👤</span>
           <span id="headerUserName" class="userName"></span>
           <button id="logoutBtn" class="logoutBtn" title="Logout from saved credentials">Logout</button>
         </div>
-        <button id="theme" class="icon" title="Toggle theme">☾</button>
-        <button id="startTop" class="primary">▶ Start Test</button>
-        <button id="menu" class="icon mobile">☰</button>
+        <button id="theme" class="icon" title="Toggle theme" aria-label="Toggle dark/light theme">☾</button>
+        <button id="startTop" class="primary" aria-label="Start Examination">▶ Start Test</button>
+        <button id="menu" class="icon mobile" aria-label="Open mobile menu">☰</button>
       </div>
     </div>
     <div id="drawer">
@@ -66,7 +66,7 @@
       <div>
         <div class="badge" id="heroBadge"><span class="badgeDot"></span><span id="heroBadgeText">BS Computer Science • Theory of Automata • Week 02</span></div>
         <h1>Master Your Exams with <span>Smart MCQs</span></h1>
-        <p id="heroDesc">Practice verified lecture content on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination, live scoring, and answer explanations.</p>
+        <p id="heroDesc">Practice verified lecture content on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination, progress tracking, and comprehensive post-exam evaluation.</p>
         <div class="actions">
           <button id="startHero" class="primary big">Start Practice Exam →</button>
           <button data-go="subjects" class="secondary big">View Subject</button>
@@ -107,7 +107,10 @@
           <small class="eyebrow">ACADEMIC COURSE CATALOG & BOOKS</small>
           <h2>Subject & Book Records</h2>
         </div>
-        <div class="subjectCatalogActions">
+        <div class="subjectCatalogActions" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <button id="mongoSyncCatalogBtn" class="secondary" style="font-size:12.5px;padding:8px 14px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;" title="Load books stored in MongoDB Atlas">
+            <span>🍃</span> Sync from MongoDB
+          </button>
           <button id="addSubjectBtn" class="primary" style="font-size:12.5px;padding:8px 16px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;">
             <span>➕</span> Add / Import Book Record
           </button>
@@ -130,13 +133,31 @@
           <b>60:00</b>
         </div>
       </div>
-      <div class="score">
-        <span>Score <b id="score">0/40</b></span>
-        <span>Correct <b id="correct">0</b></span>
-        <span>Attempted <b id="attempted">0</b></span>
-        <span>Wrong <b id="wrong">0</b></span>
-        <span>Skipped <b id="skipped">0</b></span>
-        <span>Accuracy <b id="accuracy">0%</b></span>
+      <div class="score examProgressTracker" id="examProgressTracker" role="region" aria-label="Exam Progress Tracker">
+        <span class="trackerItem" title="Total Questions">
+          <span class="trackerLabel"><span class="lblFull">Total Questions:</span><span class="lblShort">Total:</span></span>
+          <b id="liveTotalQ" class="trackerVal">40</b>
+        </span>
+        <span class="trackerItem" title="Answered & Locked Questions">
+          <span class="trackerLabel"><span class="lblFull">Answered & Locked:</span><span class="lblShort">Locked:</span></span>
+          <b id="liveAnsweredQ" class="trackerVal">0/40</b>
+        </span>
+        <span class="trackerItem" title="Skipped Questions">
+          <span class="trackerLabel"><span class="lblFull">Skipped:</span><span class="lblShort">Skipped:</span></span>
+          <b id="liveSkippedQ" class="trackerVal">0</b>
+        </span>
+        <span class="trackerItem" title="Remaining Questions">
+          <span class="trackerLabel"><span class="lblFull">Remaining:</span><span class="lblShort">Remaining:</span></span>
+          <b id="liveRemainingQ" class="trackerVal">40</b>
+        </span>
+        <span class="trackerItem" title="Current Question Number">
+          <span class="trackerLabel"><span class="lblFull">Current:</span><span class="lblShort">Question:</span></span>
+          <b id="liveCurrentQ" class="trackerVal"><span class="qWord">Question </span>1</b>
+        </span>
+        <span class="trackerItem" title="Overall Progress">
+          <span class="trackerLabel"><span class="lblFull">Progress:</span><span class="lblShort">Progress:</span></span>
+          <b id="liveProgressPct" class="trackerVal">0%</b>
+        </span>
       </div>
       <div class="examLayout">
         <article id="examQ" class="card examQ"></article>
@@ -167,6 +188,40 @@
             <span style="font-size:16px;">🖨️</span> Print Official Result Sheet
           </button>
           <button id="againTop" class="secondary big">↻ Retake Examination</button>
+        </div>
+      </div>
+
+      <!-- Prominent Post-Exam True/False & Score Summary Grid (Screen Only) -->
+      <div class="postExamSummaryGrid no-print">
+        <div class="summaryStatCard statTotal">
+          <small class="statLabel">TOTAL QUESTIONS</small>
+          <div class="statVal" id="sumTotal">40</div>
+          <span class="statSub">Full Examination Bank</span>
+        </div>
+        <div class="summaryStatCard statTrue">
+          <small class="statLabel">✓ TRUE / CORRECT</small>
+          <div class="statVal" id="sumTrue">0</div>
+          <span class="statSub" id="sumTrueMarks">0 Marks Awarded</span>
+        </div>
+        <div class="summaryStatCard statFalse">
+          <small class="statLabel">✕ FALSE / INCORRECT</small>
+          <div class="statVal" id="sumFalse">0</div>
+          <span class="statSub">0 Marks (Incorrect)</span>
+        </div>
+        <div class="summaryStatCard statSkipped">
+          <small class="statLabel">↷ SKIPPED / UNANSWERED</small>
+          <div class="statVal" id="sumSkipped">0</div>
+          <span class="statSub">0 Marks (Unattempted)</span>
+        </div>
+        <div class="summaryStatCard statScore">
+          <small class="statLabel">OBTAINED SCORE</small>
+          <div class="statVal" id="sumPct">0%</div>
+          <span class="statSub" id="sumScoreRatio">0 / 40 Marks</span>
+        </div>
+        <div class="summaryStatCard statResult" id="sumStatusCard">
+          <small class="statLabel">FINAL RESULT</small>
+          <div class="statVal" id="sumStatus">NOT PASSED</div>
+          <span class="statSub" id="sumGrade">Grade: F</span>
         </div>
       </div>
 
@@ -255,8 +310,8 @@
         <div class="metrics transcriptMetrics">
           <div>Total Questions<b id="rTotal">40</b></div>
           <div>Questions Attempted<b id="rAttempted">0</b></div>
-          <div class="good">Correct Marks<b id="rCorrect">0</b></div>
-          <div class="bad">Incorrect Responses<b id="rWrong">0</b></div>
+          <div class="good">✓ True / Correct Answers<b id="rCorrect">0</b></div>
+          <div class="bad">✕ False / Incorrect Answers<b id="rWrong">0</b></div>
           <div>Skipped / Unanswered<b id="rUnanswered">0</b></div>
           <div>Accuracy Rate<b id="rAccuracy">0%</b></div>
         </div>
@@ -343,6 +398,22 @@
           </div>
           <input id="file" type="file" accept=".json,application/json" hidden>
         </article>
+        <article class="mongoSyncCard">
+          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
+            <b>🍃 MongoDB Atlas Cloud Database</b>
+            <span id="mongoStatusBadge" class="tag" style="font-size:10px;padding:3px 7px;">Checking...</span>
+          </div>
+          <p id="mongoSyncInfo">Cloud MongoDB connection (<code>cluster0.3kgnmwl.mongodb.net</code>). Upload JSON questions to cloud or sync remote books.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;">
+            <button id="mongoUploadBtn" class="primary" style="font-size:12px;padding:7px 12px;display:inline-flex;align-items:center;gap:6px;">
+              <span>⬆</span> Upload JSON to MongoDB
+            </button>
+            <button id="mongoSyncBtn" class="secondary" style="font-size:12px;padding:7px 12px;display:inline-flex;align-items:center;gap:6px;">
+              <span>↺</span> Sync Books from MongoDB
+            </button>
+          </div>
+          <input id="mongoFileInput" type="file" accept=".json,application/json" hidden>
+        </article>
         <article>
           <div class="toolHeader"><b>↑ Export Questions</b></div>
           <p id="exportStatusText">Download the current question bank.</p>
@@ -363,11 +434,11 @@
   </main>
 
   <footer class="siteFooter">
-    <button class="brand" data-go="home">
-      <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg">
-      <span>
-        <strong>MCQs</strong> Question Bank
-        <small>Practice • Learn • Test • Improve</small>
+    <button class="brand" data-go="home" aria-label="Go to MCQs Question Bank Home">
+      <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg" width="44" height="44" loading="lazy">
+      <span class="brandText">
+        <strong class="brandTitle">MCQs Question Bank</strong>
+        <small class="brandSubtitle">Practice • Learn • Test • Improve</small>
       </span>
     </button>
     <span>© 2026 MCQs Question Bank</span>
@@ -381,6 +452,6 @@
   </div>
   <div id="toast"></div>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>

@@ -1691,7 +1691,8 @@ const oopQuestions = [
 
 const DEFAULT_SUBJECTS = [
   {
-    id: "theory-of-automata-w02",
+    id: "theory-of-automata-week-02",
+    legacyIds: ["theory-of-automata-w02"],
     book: "Theory of Automata",
     course: "Theory of Automata",
     week: 2,
@@ -1701,10 +1702,12 @@ const DEFAULT_SUBJECTS = [
     createdBy: "Lec. Iftikhar Zahid",
     icon: "Σ",
     isBuiltIn: true,
+    totalQuestions: questions.length,
     questions: questions
   },
   {
-    id: "computer-architecture-w01",
+    id: "computer-architecture-and-organization-week-01",
+    legacyIds: ["computer-architecture-w01"],
     book: "Computer Architecture and Organization",
     course: "Computer Architecture and Organization",
     week: 1,
@@ -1714,10 +1717,12 @@ const DEFAULT_SUBJECTS = [
     createdBy: "Lec. Iftikhar Zahid",
     icon: "💻",
     isBuiltIn: true,
+    totalQuestions: computerArchitectureQuestions.length,
     questions: computerArchitectureQuestions
   },
   {
-    id: "oop-adp-sem2-w03",
+    id: "object-oriented-programming-week-3",
+    legacyIds: ["oop-adp-sem2-w03"],
     book: "Object-Oriented Programming",
     course: "Object-Oriented Programming (OOP)",
     week: 3,
@@ -1727,6 +1732,7 @@ const DEFAULT_SUBJECTS = [
     createdBy: "Lec. Iftikhar Zahid",
     icon: "☕",
     isBuiltIn: true,
+    totalQuestions: oopQuestions.length,
     questions: oopQuestions
   }
 ];
@@ -1763,11 +1769,17 @@ function loadStoredSubjects() {
     } catch {}
   }
   DEFAULT_SUBJECTS.forEach(defSub => {
-    const existing = list.find(s => s.id === defSub.id);
+    const existing = list.find(s => 
+      s.id === defSub.id || 
+      (defSub.legacyIds && defSub.legacyIds.includes(s.id)) || 
+      (s.book && s.book.trim().toLowerCase() === defSub.book.trim().toLowerCase() && Number(s.week) === Number(defSub.week))
+    );
     if (!existing) {
       list.push({ ...defSub, questions: [...defSub.questions] });
     } else {
+      existing.id = defSub.id;
       if (!existing.questions || !existing.questions.length) existing.questions = [...defSub.questions];
+      existing.totalQuestions = existing.questions.length;
       existing.isBuiltIn = true;
       if (!existing.book) existing.book = defSub.book;
       if (!existing.course) existing.course = defSub.course;
@@ -1782,9 +1794,12 @@ function loadStoredSubjects() {
 }
 
 function getStoredActiveSubjectId(subList) {
-  const savedId = read(K.activeSubject, "");
+  let savedId = read(K.activeSubject, "");
+  if (savedId === "theory-of-automata-w02") savedId = "theory-of-automata-week-02";
+  if (savedId === "computer-architecture-w01") savedId = "computer-architecture-and-organization-week-01";
+  if (savedId === "oop-adp-sem2-w03") savedId = "object-oriented-programming-week-3";
   if (savedId && subList.some(s => s.id === savedId)) return savedId;
-  return DEFAULT_SUBJECTS[0].id;
+  return subList[0]?.id || DEFAULT_SUBJECTS[0].id;
 }
 
 const initialSubjects = loadStoredSubjects();
@@ -1985,7 +2000,17 @@ function logoutStudent(){
   try{localStorage.removeItem(K.student)}catch{}
   s.student={};
   updateStudentUI(null);
-  toast("Logged out. Saved credentials cleared.");
+  discardSession();
+  try{
+    localStorage.removeItem(K.result);
+    localStorage.removeItem(K.progress);
+  }catch{}
+  s.result=null;
+  ["live","results"].forEach(id=>$("#"+id)?.classList.add("hidden"));
+  ["home","subjects","tools"].forEach(id=>$("#"+id)?.classList.remove("hidden"));
+  go("home");
+  updateExamStatusUI();
+  toast("Logged out. Active session & saved credentials cleared.");
 }
 function updateStudentUI(st){
   const badge=$("#userBadge"),hName=$("#headerUserName"),dBadge=$("#drawerUserBadge"),dName=$("#drawerUserName");
@@ -2041,9 +2066,6 @@ function getResumeIndex(p){
 
   let savedIdx=(typeof p.i==="number"&&p.i>=0&&p.i<p.exam.length)?p.i:0;
 
-  // "keep the resume from the question where it is left, example. the question 5 attempts, then it start from 5 and next"
-  // If questions up to Question 5 were attempted (lastAttemptedIdx = 4):
-  // Start from Question 5, display Question 5 with its attempt, and clicking Next proceeds to Question 6 and next.
   if(lastAttemptedIdx>=0){
     return lastAttemptedIdx;
   }
@@ -2051,6 +2073,11 @@ function getResumeIndex(p){
 }
 
 function resumeActiveExam(){
+  const student = s.student?.name ? s.student : getStudentSession();
+  if(!student || !student.name){
+    openStartModal();
+    return;
+  }
   if(s.exam&&s.exam.length&&!s.result){
     ["home","subjects","tools","results"].forEach(id=>$("#"+id)?.classList.add("hidden"));
     $("#live").classList.remove("hidden");
@@ -2074,7 +2101,7 @@ function resumeActiveExam(){
         s.locked=new Set(p.locked||[]);
         s.skipped=new Set(p.skipped||[]);
         s.sec=typeof p.sec==="number"?p.sec:3600;
-        s.student=p.student||getStudentSession()||{};
+        s.student=p.student||student||{};
         s.result=null;
         ["home","subjects","tools","results"].forEach(id=>$("#"+id)?.classList.add("hidden"));
         $("#live").classList.remove("hidden");
@@ -2087,7 +2114,7 @@ function resumeActiveExam(){
       }
     }catch{}
   }
-  openStartModal();
+  openBriefingModal(student);
 }
 
 function discardSession(){
@@ -2106,15 +2133,20 @@ function discardSession(){
 }
 
 function start(){
+  const student = s.student?.name ? s.student : getStudentSession();
+  const isLoggedIn = !!(student && student.name);
+
   if(hasActiveExam()){
     let p=null;
     try{p=JSON.parse(read(K.progress,""))}catch{}
     let rIdx=(s.exam&&s.exam.length)?s.i:(p?getResumeIndex(p):0);
     let qNum=rIdx+1;
     let sec=(s.exam&&s.exam.length)?s.sec:(p?.sec||3600);
-    let stName=s.student?.name||p?.student?.name||"Student";
+    let stName=student?.name||"Student";
+    let hasAttempts = (s.exam&&s.exam.length) ? (s.locked.size>0||s.skipped.size>0||Object.keys(s.ans).length>0) : (p?.locked?.length>0||p?.skipped?.length>0);
 
-    modal(`<h2>Examination in Progress</h2>
+    if(hasAttempts && isLoggedIn){
+      modal(`<h2>Examination in Progress</h2>
 <p>An active examination session is currently underway in your browser.</p>
 <div style="background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;margin:12px 0;font-size:12.5px;color:var(--t);line-height:1.6;">
   <div>👤 <b>Student:</b> ${esc(stName)}</div>
@@ -2126,51 +2158,74 @@ function start(){
   <button class="primary" id="promptResume">▶ Resume at Question ${qNum}</button>
 </div>`);
 
-    $("#promptResume").onclick=()=>{close();resumeActiveExam()};
-    $("#promptDiscard").onclick=()=>{
-      close();
-      modal(`<h2>Discard Active Examination?</h2>
+      $("#promptResume").onclick=()=>{close();resumeActiveExam()};
+      $("#promptDiscard").onclick=()=>{
+        close();
+        modal(`<h2>Discard Active Examination?</h2>
 <p style="color:var(--r);font-size:13px;line-height:1.5;">Are you sure you want to discard your current test? All answers up to Question ${qNum} will be cleared and cannot be recovered.</p>
 <div class="modalActions">
   <button class="secondary" id="keepActive">Keep Exam</button>
   <button class="danger" id="discardConfirm">Yes, Discard & Start New</button>
 </div>`);
-      $("#keepActive").onclick=close;
-      $("#discardConfirm").onclick=()=>{
-        close();
-        discardSession();
-        openStartModal();
+        $("#keepActive").onclick=close;
+        $("#discardConfirm").onclick=()=>{
+          close();
+          discardSession();
+          openBriefingModal();
+        };
       };
-    };
-    return;
+      return;
+    }
   }
-  openStartModal();
+
+  // If already logged in, show examination briefing with Continue to Exam CTA (does NOT start immediately)
+  if(isLoggedIn){
+    openBriefingModal(student);
+  } else {
+    // If not logged in, prompt for credentials with compact responsive modal
+    openStartModal();
+  }
 }
 
 function openStartModal(){
   const saved=getStudentSession()||s.student||{};
   const hasSaved=!!(saved.name&&saved.roll&&saved.className);
-  modal(`<h2>Start Examination</h2>
-<p>${hasSaved?"Review your student credentials to begin.":"All credentials (<b>Name</b>, <b>Roll Number</b>, and <b>Class</b>) are required to start the test."}</p>
-<div class="fields">
-  <label>Name <span style="color:var(--r);font-weight:700;">*</span>
-    <input id="sn" value="${esc(saved.name||"")}" placeholder="Enter full name" autocomplete="name" required>
-    <small id="snErr" class="fieldErr hidden">Student Name is required to start.</small>
+
+  modal(`<h2>Candidate Verification & Login</h2>
+<p style="font-size:12px;color:var(--m);margin-bottom:12px;">Enter your student credentials to register for the continuous assessment examination.</p>
+
+<div class="fields compactFields">
+  <label>Full Student Name <span style="color:var(--r);font-weight:700;">*</span>
+    <input id="sn" value="${esc(saved.name||"")}" placeholder="e.g. Muhammad Zahid" autocomplete="name" required>
+    <small id="snErr" class="fieldErr hidden">Student Name is required.</small>
   </label>
-  <label>Roll Number <span style="color:var(--r);font-weight:700;">*</span>
-    <input id="sr" value="${esc(saved.roll||"")}" placeholder="e.g. BC190400123" required>
-    <small id="srErr" class="fieldErr hidden">Roll Number is required to start.</small>
-  </label>
-  <label>Class <span style="color:var(--r);font-weight:700;">*</span>
-    <input id="sc" value="${esc(saved.className||"")}" placeholder="e.g. BSCS-6th" required>
-    <small id="scErr" class="fieldErr hidden">Class is required to start.</small>
-  </label>
-  <label><input id="rq" type="checkbox"> Randomize Questions</label>
-  <label><input id="ro" type="checkbox"> Randomize Options</label>
+
+  <div class="fieldsRow">
+    <label>Roll / Reg Number <span style="color:var(--r);font-weight:700;">*</span>
+      <input id="sr" value="${esc(saved.roll||"")}" placeholder="e.g. CS-2024-401" required>
+      <small id="srErr" class="fieldErr hidden">Roll Number is required.</small>
+    </label>
+    <label>Class / Semester <span style="color:var(--r);font-weight:700;">*</span>
+      <input id="sc" value="${esc(saved.className||"")}" placeholder="e.g. ADP Semester 2" required>
+      <small id="scErr" class="fieldErr hidden">Class is required.</small>
+    </label>
+  </div>
+
+  <div class="examOptCheckboxes">
+    <label><input id="rq" type="checkbox"> Randomize Questions</label>
+    <label><input id="ro" type="checkbox"> Randomize Options</label>
+  </div>
 </div>
-${hasSaved?`<div class="cookieNotice"><span>💾 <b>Logged In:</b> Credentials loaded from browser cookies</span><button id="modalLogout" class="logoutLink" type="button">Logout / Clear</button></div>`:`<div class="cookieNotice subtle"><span>🍪 <b>Auto-Save:</b> Entered credentials will be saved in browser cookies for future visits until you click Logout.</span></div>`}
-<div style="margin:12px 0 4px;padding:9px 12px;background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);font-size:12px;color:var(--m);line-height:1.4;"><b style="color:var(--t)">🔒 Sequential Exam Rule:</b> Questions must be completed in order. Once you select an answer and click Next, your response is locked. Unanswered questions can be skipped and will be resumed automatically. Your progress is continuously auto-saved so you can resume where you left off at any time.</div>
-<div class="modalActions"><button class="secondary" id="cancel">Cancel</button><button class="primary" id="begin">Begin Examination</button></div>`);
+
+<div class="cookieNotice" style="margin-top:10px;">
+  <span>💾 <b>Candidate Session:</b> Credentials are saved in browser cookies for easy access.</span>
+  ${hasSaved?`<button id="modalLogout" class="logoutLink" type="button">Logout / Clear</button>`:""}
+</div>
+
+<div class="modalActions" style="margin-top:16px;">
+  <button class="secondary" id="cancel">Cancel</button>
+  <button class="primary" id="saveLogin">Verify & Proceed →</button>
+</div>`);
 
   ["sn","sr","sc"].forEach(id=>{
     let el=$("#"+id);
@@ -2184,50 +2239,115 @@ ${hasSaved?`<div class="cookieNotice"><span>💾 <b>Logged In:</b> Credentials l
     }
   });
 
-  $("#cancel").onclick=close;
-  $("#begin").onclick=begin;
-  if($("#modalLogout"))$("#modalLogout").onclick=()=>{logoutStudent();openStartModal()};
+  if($("#cancel")) $("#cancel").onclick=close;
+  if($("#modalLogout")) $("#modalLogout").onclick=()=>{ logoutStudent(); openStartModal(); };
+
+  if($("#saveLogin")) {
+    $("#saveLogin").onclick=()=>{
+      const snEl=$("#sn"), srEl=$("#sr"), scEl=$("#sc");
+      const name=(snEl?.value||"").trim();
+      const roll=(srEl?.value||"").trim();
+      const className=(scEl?.value||"").trim();
+
+      [snEl,srEl,scEl].forEach(el=>el?.classList.remove("inputErr"));
+      ["#snErr","#srErr","#scErr"].forEach(id=>$(id)?.classList.add("hidden"));
+
+      let hasErr=false;
+      if(!name){
+        snEl?.classList.add("inputErr");
+        $("#snErr")?.classList.remove("hidden");
+        if(!hasErr) snEl?.focus();
+        hasErr=true;
+      }
+      if(!roll){
+        srEl?.classList.add("inputErr");
+        $("#srErr")?.classList.remove("hidden");
+        if(!hasErr) srEl?.focus();
+        hasErr=true;
+      }
+      if(!className){
+        scEl?.classList.add("inputErr");
+        $("#scErr")?.classList.remove("hidden");
+        if(!hasErr) scEl?.focus();
+        hasErr=true;
+      }
+
+      if(hasErr){
+        toast("All student credentials are required to continue.",true);
+        return;
+      }
+
+      s.student={name,roll,className};
+      saveStudentSession(s.student);
+      updateStudentUI(s.student);
+      s.randomizeQ=!!$("#rq")?.checked;
+      s.randomizeO=!!$("#ro")?.checked;
+      updateExamStatusUI();
+      toast(`Welcome, ${name}! Credentials verified.`);
+      
+      // Professional standard: do NOT start instantly, show Briefing & Ready Check
+      openBriefingModal(s.student);
+    };
+  }
 }
 
-function begin(){
-  const snEl=$("#sn"), srEl=$("#sr"), scEl=$("#sc");
-  const name=(snEl?.value||"").trim();
-  const roll=(srEl?.value||"").trim();
-  const className=(scEl?.value||"").trim();
+function openBriefingModal(student){
+  const st = student || s.student || getStudentSession() || {};
+  const sub = s.activeSubject || DEFAULT_SUBJECTS[0];
+  const qCount = s.questions ? s.questions.length : 40;
 
-  [snEl,srEl,scEl].forEach(el=>el?.classList.remove("inputErr"));
-  ["#snErr","#srErr","#scErr"].forEach(id=>$(id)?.classList.add("hidden"));
+  modal(`<h2>Examination Briefing & Ready Check</h2>
+<p style="font-size:12px;color:var(--m);margin-bottom:12px;">Candidate credentials verified. Please review test guidelines before continuing.</p>
 
-  let hasErr=false;
-  if(!name){
-    snEl?.classList.add("inputErr");
-    $("#snErr")?.classList.remove("hidden");
-    if(!hasErr) snEl?.focus();
-    hasErr=true;
-  }
-  if(!roll){
-    srEl?.classList.add("inputErr");
-    $("#srErr")?.classList.remove("hidden");
-    if(!hasErr) srEl?.focus();
-    hasErr=true;
-  }
-  if(!className){
-    scEl?.classList.add("inputErr");
-    $("#scErr")?.classList.remove("hidden");
-    if(!hasErr) scEl?.focus();
-    hasErr=true;
-  }
+<div class="briefingCandidateCard">
+  <div class="briefingAvatar">👤</div>
+  <div style="flex:1;">
+    <div style="font-size:14px;font-weight:700;color:var(--t);">${esc(st.name || "Student")}</div>
+    <div style="font-size:12px;color:var(--m);margin-top:2px;">
+      Roll No: <b style="color:var(--t);">${esc(st.roll || "—")}</b> &nbsp;•&nbsp; 
+      Class: <b style="color:var(--t);">${esc(st.className || "—")}</b>
+    </div>
+  </div>
+  <button id="editLoginBtn" class="secondary" style="font-size:11.5px;padding:4px 10px;border-radius:var(--radius-sm);" title="Edit student credentials">Edit</button>
+</div>
 
-  if(hasErr){
-    toast("Student Name, Roll Number, and Class are required to start the test.",true);
+<div class="briefingExamSpec">
+  <div class="briefingSpecRow"><span>📚 Course:</span> <b>${esc(sub.course || sub.book)}</b></div>
+  <div class="briefingSpecRow"><span>📖 Topic:</span> <b>${esc(sub.topic || "General Topic")}</b></div>
+  <div class="briefingSpecRow"><span>📝 Questions:</span> <b>${qCount} Multiple Choice Questions</b></div>
+  <div class="briefingSpecRow"><span>⏱️ Allowed Time:</span> <b>60 Minutes (Countdown Timer)</b></div>
+  <div class="briefingSpecRow"><span>🎯 Passing Criteria:</span> <b>50% (Standard Benchmark)</b></div>
+</div>
+
+<div class="briefingRules">
+  <div><b>🔒 Sequential Exam Policy:</b> Questions must be completed in order. Once an answer is locked, you proceed to the next question.</div>
+  <div style="margin-top:4px;"><b>↷ Skipped Questions:</b> You can skip questions and resume them before final submission.</div>
+  <div style="margin-top:4px;"><b>⏱️ Timer Notice:</b> The 60-minute examination timer will begin once you click 'Continue to Examination'.</div>
+</div>
+
+<div class="modalActions" style="gap:8px;flex-wrap:wrap;margin-top:16px;">
+  <button class="secondary" id="closeBriefing">Prepare / Review Syllabus</button>
+  <button class="primary continueExamBtn" id="continueToExam">▶ Continue to Examination →</button>
+</div>`);
+
+  if($("#editLoginBtn")) $("#editLoginBtn").onclick=()=>{ close(); openStartModal(); };
+  if($("#closeBriefing")) $("#closeBriefing").onclick=close;
+  if($("#continueToExam")) $("#continueToExam").onclick=()=>{
+    close();
+    beginExamNow();
+  };
+}
+
+function beginExamNow(){
+  const student = s.student?.name ? s.student : getStudentSession();
+  if(!student || !student.name){
+    openStartModal();
     return;
   }
-
-  s.student={name,roll,className};
-  saveStudentSession(s.student);
+  s.student = student;
   s.exam=s.questions.map(q=>({...q,options:q.options.map((text,index)=>({text,index}))}));
-  if($("#rq")?.checked)s.exam.sort(()=>Math.random()-.5);
-  if($("#ro")?.checked)s.exam.forEach(q=>q.options.sort(()=>Math.random()-.5));
+  if(s.randomizeQ) s.exam.sort(()=>Math.random()-.5);
+  if(s.randomizeO) s.exam.forEach(q=>q.options.sort(()=>Math.random()-.5));
   s.ans={};s.marked=new Set();s.locked=new Set();s.skipped=new Set();s.i=0;s.sec=3600;s.result=null;close();
   ["home","subjects","tools","results"].forEach(x=>$("#"+x)?.classList.add("hidden"));
   $("#live").classList.remove("hidden");
@@ -2236,6 +2356,7 @@ function begin(){
   clock();
   go("live");
   updateExamStatusUI();
+  toast("Examination started. Timer is running!");
 }
 
 function drawExam(){
@@ -2258,6 +2379,9 @@ function drawExam(){
   else if(isSkipped) tagElements.push('<span class="tag skippedBadge">↷ Skipped — Answer to Complete</span>');
 
   let lockHintText="";
+  let hintIcon = isLocked ? "🔒" : (isSkipped ? "↷" : (isAnswered ? "✓" : "ℹ️"));
+  let hintClass = isLocked ? "hintLocked" : (isSkipped ? "hintSkipped" : (isAnswered ? "hintAnswered" : "hintDefault"));
+
   if(isLocked) lockHintText="Question locked. Click 'Next Question →' to continue.";
   else if(isSkipped) lockHintText=isAnswered?"Answer selected. Click 'Lock & Continue' to advance.":"This question was skipped. Select your answer, or skip to revisit later.";
   else if(isAnswered) lockHintText="Answer selected. Click Next to lock & advance.";
@@ -2272,14 +2396,16 @@ function drawExam(){
       ${q.options.map((o,i)=>`<button class="option ${s.ans[q.id]===o.index?"selected":""} ${isLocked?"disabledOption":""}" data-e="${i}" ${isLocked?"disabled":""}><b class="letter">${L[i]}</b>${esc(o.text)}</button>`).join("")}
     </div>
     <div class="examControls">
-      <div class="lockHint">
-        <span class="lockIcon">${isLocked?"🔒":(isSkipped?"↷":"ℹ️")}</span>
-        <span>${lockHintText}</span>
+      <div class="lockHint ${hintClass}">
+        <span class="lockIcon">${hintIcon}</span>
+        <span class="lockHintText">${lockHintText}</span>
       </div>
-      <div class="examControlBtns" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-        ${!isLocked?`<button class="skipBtn" id="skip" type="button" title="Skip this question and resume it later">↷ Skip Question</button>`:""}
-        <button class="primary" id="next" ${!isAnswered && !isLocked ? "disabled" : ""}>${buttonText}</button>
+      <div class="examControlBtns">
         <button class="secondary examSubmitCta" id="examSubmitBtn" type="button" title="Finish and submit examination">Submit Exam</button>
+        <div class="examNavBtns">
+          ${!isLocked?`<button class="skipBtn" id="skip" type="button" title="Skip this question and resume it later">↷ Skip Question</button>`:""}
+          <button class="primary" id="next" ${!isAnswered && !isLocked ? "disabled" : ""}>${buttonText}</button>
+        </div>
       </div>
     </div>`;
 
@@ -2468,21 +2594,19 @@ function drawNav(){
 }
 
 function live(){
-  let c=0,a=0;
-  s.exam.forEach(q=>{
-    let isAns = s.ans[q.id]!==undefined;
-    let isLk = s.locked.has(q.id);
-    if(isLk || isAns){
-      if(isAns) a++;
-      if(isAns && s.ans[q.id]===q.answer) c++;
-    }
-  });
-  $("#score").textContent=`${c}/${s.exam.length}`;
-  $("#correct").textContent=c;
-  $("#attempted").textContent=a;
-  $("#wrong").textContent=a-c;
-  $("#accuracy").textContent=(a?c/a*100:0).toFixed(1)+"%";
-  if($("#skipped")) $("#skipped").textContent=s.skipped.size;
+  let total=s.exam.length;
+  let lockedCount=s.locked.size;
+  let skippedCount=s.exam.filter(q=>!s.locked.has(q.id)&&s.skipped.has(q.id)).length;
+  let remainingCount=s.exam.filter(q=>!s.locked.has(q.id)).length;
+  let currentNum=(s.i+1);
+  let progressPct=total?Math.round((lockedCount/total)*100):0;
+
+  if($("#liveTotalQ")) $("#liveTotalQ").textContent=total;
+  if($("#liveAnsweredQ")) $("#liveAnsweredQ").textContent=`${lockedCount}/${total}`;
+  if($("#liveSkippedQ")) $("#liveSkippedQ").textContent=skippedCount;
+  if($("#liveRemainingQ")) $("#liveRemainingQ").textContent=remainingCount;
+  if($("#liveCurrentQ")) $("#liveCurrentQ").innerHTML=`<span class="qWord">Question </span>${currentNum}`;
+  if($("#liveProgressPct")) $("#liveProgressPct").textContent=`${progressPct}%`;
 }
 function clock(){clearInterval(s.timer);s.timer=setInterval(()=>{s.sec--;uiClock();save();if(s.sec<=0){clearInterval(s.timer);finish(true)}},1000);uiClock()}function uiClock(){let m=Math.floor(Math.max(0,s.sec)/60),x=Math.max(0,s.sec)%60;$("#timer b").textContent=`${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`;$("#timer").classList.toggle("warning",s.sec<=300&&s.sec>60);$("#timer").classList.toggle("danger",s.sec<=60)}
 function confirmSubmit(){
@@ -2590,6 +2714,23 @@ function results(){
   // Synchronize Academic Transcript with tested course
   updateTranscriptSubjectUI(resSub);
 
+  // Screen-only prominent True/False & Marks summary grid
+  if($("#sumTotal")) $("#sumTotal").textContent=r.total;
+  if($("#sumTrue")) $("#sumTrue").textContent=r.correct;
+  if($("#sumTrueMarks")) $("#sumTrueMarks").textContent=`${r.correct} Marks Awarded`;
+  if($("#sumFalse")) $("#sumFalse").textContent=r.wrong;
+  if($("#sumSkipped")) $("#sumSkipped").textContent=r.unanswered;
+  if($("#sumPct")) $("#sumPct").textContent=`${r.percentage.toFixed(1)}%`;
+  if($("#sumScoreRatio")) $("#sumScoreRatio").textContent=`${r.correct} / ${r.total} Marks`;
+  if($("#sumStatus")){
+    $("#sumStatus").textContent=pass?"PASSED":"NOT PASSED";
+  }
+  if($("#sumGrade")) $("#sumGrade").textContent=`Grade: ${gi.grade}`;
+  if($("#sumStatusCard")){
+    $("#sumStatusCard").classList.toggle("pass", pass);
+    $("#sumStatusCard").classList.toggle("fail", !pass);
+  }
+
   // Top summary & legacy metrics
   if($("#pct")) $("#pct").textContent=r.percentage.toFixed(0)+"%";
   $("#rTotal").textContent=r.total;
@@ -2662,7 +2803,23 @@ function results(){
     let userDisplay=isAns&&so?`${soLetter?soLetter+". ":""}${esc(optText(so))}`:"Not Answered (Skipped)";
     let correctDisplay=co?`${coLetter?coLetter+". ":""}${esc(optText(co))}`:`Option ${L[q.answer]||(q.answer+1)}`;
 
-    return `<div class="reviewItem"><h4>Q${i+1}. ${esc(q.question)}</h4><div class="${ok?"correct":"wrong"}">${ok?"✓ Correct":(isAns?"✕ Incorrect":"↷ Skipped / Unanswered")} — Your Answer: ${userDisplay}</div><div class="correct">Correct Answer: ${correctDisplay}</div><div class="explain">${esc(q.explanation||"")}</div></div>`;
+    let statusBadge = ok
+      ? `<span class="reviewBadge trueBadge">✓ True / Correct (+1 Mark)</span>`
+      : (isAns
+        ? `<span class="reviewBadge falseBadge">✕ False / Incorrect (0 Marks)</span>`
+        : `<span class="reviewBadge skippedBadge">↷ Skipped / Unanswered (0 Marks)</span>`);
+
+    return `<div class="reviewItem ${ok?"itemCorrect":(isAns?"itemWrong":"itemSkipped")}">
+      <div class="reviewItemHeader">
+        <h4>Q${i+1}. ${esc(q.question)}</h4>
+        ${statusBadge}
+      </div>
+      <div class="reviewAnsBlock ${ok?"userCorrect":"userWrong"}">
+        <b>Your Answer:</b> <span>${userDisplay}</span>
+      </div>
+      ${!ok ? `<div class="reviewAnsBlock ansSolution"><b>Correct Answer:</b> <span>${correctDisplay}</span></div>` : ""}
+      ${q.explanation ? `<div class="explain"><b>Explanation:</b> ${esc(q.explanation)}</div>` : ""}
+    </div>`;
   }).join("");
 }
 
@@ -2684,64 +2841,91 @@ function save(){
 }
 
 function updateExamStatusUI(){
-  const hasExam=(s.exam&&s.exam.length&&!s.result)||!!read(K.progress,"");
-  let qNum=1;
-  let remainingSec=3600;
+  const student = s.student?.name ? s.student : getStudentSession();
+  const isLoggedIn = !!(student && student.name);
+  const hasActiveProgress = (s.exam && s.exam.length && !s.result) || !!read(K.progress, "");
   
-  if(s.exam&&s.exam.length&&!s.result){
-    qNum=(typeof s.i==="number"?s.i:0)+1;
-    remainingSec=s.sec||3600;
-  }else{
-    try{
-      const p=JSON.parse(read(K.progress,""));
-      if(p&&p.exam&&p.exam.length){
-        let rIdx=getResumeIndex(p);
-        qNum=rIdx+1;
-        remainingSec=p.sec||3600;
+  let qNum = 1;
+  let remainingSec = 3600;
+  let hasAttemptedQuestions = false;
+
+  if(s.exam && s.exam.length && !s.result){
+    qNum = (typeof s.i === "number" ? s.i : 0) + 1;
+    remainingSec = s.sec || 3600;
+    hasAttemptedQuestions = (s.locked.size > 0 || Object.keys(s.ans).length > 0 || s.skipped.size > 0);
+  } else {
+    try {
+      const p = JSON.parse(read(K.progress, ""));
+      if(p && p.exam && p.exam.length){
+        let rIdx = getResumeIndex(p);
+        qNum = rIdx + 1;
+        remainingSec = p.sec || 3600;
+        hasAttemptedQuestions = (p.locked?.length > 0 || Object.keys(p.ans || {}).length > 0 || p.skipped?.length > 0);
       }
-    }catch{}
+    } catch {}
   }
 
-  const startTopBtn=$("#startTop");
-  const drawerStartBtn=$("#drawerStartBtn");
-  const startHeroBtn=$("#startHero");
-  const banner=$("#examInProgressBanner");
-  const isLiveVisible=!$("#live")?.classList.contains("hidden");
+  const startTopBtn = $("#startTop");
+  const drawerStartBtn = $("#drawerStartBtn");
+  const startHeroBtn = $("#startHero");
+  const banner = $("#examInProgressBanner");
+  const isLiveVisible = !$("#live")?.classList.contains("hidden");
 
-  if(hasExam){
+  // CASE 1: Student is Logged In AND has an active exam in progress with attempts
+  if(isLoggedIn && hasActiveProgress && hasAttemptedQuestions){
     if(startTopBtn){
-      startTopBtn.innerHTML=`▶ Resume Exam <small style="opacity:0.85;font-weight:600;">(Q${qNum})</small>`;
-      startTopBtn.title=`Resume active examination at Question ${qNum}`;
+      startTopBtn.innerHTML = `▶ Resume Exam <small style="opacity:0.85;font-weight:600;">(Q${qNum})</small>`;
+      startTopBtn.title = `Resume active examination at Question ${qNum}`;
       startTopBtn.classList.add("resumeActive");
     }
     if(drawerStartBtn){
-      drawerStartBtn.innerHTML=`▶ Resume Examination (Question ${qNum})`;
+      drawerStartBtn.innerHTML = `▶ Resume Examination (Question ${qNum})`;
       drawerStartBtn.classList.add("resumeActive");
     }
     if(startHeroBtn){
-      startHeroBtn.innerHTML=`Resume Practice Exam (Question ${qNum}) →`;
+      startHeroBtn.innerHTML = `Resume Practice Exam (Question ${qNum}) →`;
     }
     if(banner){
       if(isLiveVisible){
         banner.classList.add("hidden");
       }else{
         banner.classList.remove("hidden");
-        const bInfo=$("#bannerInfo");
-        if(bInfo) bInfo.innerHTML=`<b>Exam in Progress:</b> ${esc(s.activeSubject.book)} • Question ${qNum} of ${s.questions.length} • ${fmt(remainingSec)} remaining`;
+        const bInfo = $("#bannerInfo");
+        if(bInfo) bInfo.innerHTML = `<b>Exam in Progress:</b> ${esc(s.activeSubject?.book || "Exam")} • Question ${qNum} of ${s.questions?.length || 40} • ${fmt(remainingSec)} remaining`;
       }
     }
-  }else{
+  } 
+  // CASE 2: Student is Logged In, but has not started or attempted yet (Show Continue to Exam)
+  else if(isLoggedIn){
     if(startTopBtn){
-      startTopBtn.innerHTML="▶ Start Test";
-      startTopBtn.title="Start practice examination";
+      startTopBtn.innerHTML = "▶ Continue to Exam";
+      startTopBtn.title = "Review examination briefing and begin test";
       startTopBtn.classList.remove("resumeActive");
     }
     if(drawerStartBtn){
-      drawerStartBtn.innerHTML="▶ Start Practice Examination";
+      drawerStartBtn.innerHTML = "▶ Continue to Examination";
       drawerStartBtn.classList.remove("resumeActive");
     }
     if(startHeroBtn){
-      startHeroBtn.innerHTML="Start Practice Exam →";
+      startHeroBtn.innerHTML = "Continue to Exam →";
+    }
+    if(banner){
+      banner.classList.add("hidden");
+    }
+  } 
+  // CASE 3: Logged Out / Clean Guest State (NO RESUME BUTTON, NO ACTIVE SESSION)
+  else {
+    if(startTopBtn){
+      startTopBtn.innerHTML = "▶ Start Test";
+      startTopBtn.title = "Start practice examination";
+      startTopBtn.classList.remove("resumeActive");
+    }
+    if(drawerStartBtn){
+      drawerStartBtn.innerHTML = "▶ Start Practice Examination";
+      drawerStartBtn.classList.remove("resumeActive");
+    }
+    if(startHeroBtn){
+      startHeroBtn.innerHTML = "Start Practice Exam →";
     }
     if(banner){
       banner.classList.add("hidden");
@@ -2887,6 +3071,13 @@ function promptAddBookRecord(detectedMeta, validQuestions, fileName){
       </label>
     </div>
   </div>
+
+  <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.25);border-radius:var(--radius-sm);padding:8px 12px;margin-top:2px;">
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--t);">
+      <input type="checkbox" id="recUploadMongo" checked>
+      <span><b>🍃 Also sync to MongoDB Atlas Cloud Database</b> (cluster0)</span>
+    </label>
+  </div>
 </div>
 
 <div class="modalActions" style="margin-top:16px;">
@@ -2971,6 +3162,9 @@ function promptAddBookRecord(detectedMeta, validQuestions, fileName){
       saveSubjects();
       applySubjectSwitch(newSub,false);
       toast(`✓ Added new book: "${bookVal}" (${weekTitle}) with ${validQuestions.length} MCQs!`);
+      if ($("#recUploadMongo")?.checked) {
+        uploadRecordToMongo(newSub);
+      }
       go("subjects");
     }else{
       s.activeSubject.book=bookVal;
@@ -2986,6 +3180,9 @@ function promptAddBookRecord(detectedMeta, validQuestions, fileName){
       saveSubjects();
       applySubjectSwitch(s.activeSubject,false);
       toast(`✓ Updated active book "${bookVal}" with ${validQuestions.length} MCQs!`);
+      if ($("#recUploadMongo")?.checked) {
+        uploadRecordToMongo(s.activeSubject);
+      }
     }
   };
 }
@@ -3172,6 +3369,9 @@ window.close = closeModal;
 window.confirmSubmit = confirmSubmit;
 window.resumeActiveExam = resumeActiveExam;
 window.logoutStudent = logoutStudent;
+window.openStartModal = openStartModal;
+window.openBriefingModal = openBriefingModal;
+window.beginExamNow = beginExamNow;
 
 // 1. Navigation & Click Delegation
 document.addEventListener("click", e => {
@@ -3276,12 +3476,178 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeModal();
 });
 
+// ==========================================================================
+// 9.5 MongoDB Atlas Cloud Sync & Upload Integration
+// ==========================================================================
+const MONGO_API_URL = (typeof window !== "undefined" && window.location && (window.location.port === "3000" || window.location.port === 3000))
+  ? `${window.location.origin}/api`
+  : "http://localhost:3000/api";
+
+async function checkMongoStatus(quiet = false) {
+  const badge = $("#mongoStatusBadge");
+  const info = $("#mongoSyncInfo");
+  if (!badge) return;
+
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 3000);
+    const res = await fetch(`${MONGO_API_URL}/status`, { signal: ctrl.signal });
+    clearTimeout(timer);
+
+    if (res.ok) {
+      const data = await res.json();
+      badge.textContent = `✓ Connected (${data.subjectsCount} Books)`;
+      badge.className = "tag success";
+      if (info) {
+        info.innerHTML = `Connected to MongoDB Atlas (<code>${data.cluster}</code>). Database: <b>${data.database}</b> (${data.subjectsCount} books, ${data.questionsCount} MCQs).`;
+      }
+      return data;
+    }
+  } catch (err) {
+    badge.textContent = "API Offline";
+    badge.className = "tag";
+    if (info) {
+      info.innerHTML = `MongoDB Atlas ready. Start server with <code>node server.js</code> or use <code>node scripts/upload_to_mongodb.js</code>.`;
+    }
+  }
+  return null;
+}
+
+async function uploadRecordToMongo(subjectRecord) {
+  try {
+    const res = await fetch(`${MONGO_API_URL}/upload`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(subjectRecord)
+    });
+    const data = await res.json();
+    if (data.success) {
+      toast(`✓ Synced "${subjectRecord.book}" to MongoDB Atlas!`);
+      checkMongoStatus(true);
+    }
+  } catch (err) {
+    console.log("Local MongoDB server not running on port 3000:", err.message);
+  }
+}
+
+async function syncBooksFromMongo(silent = false) {
+  if (!silent) toast("Connecting to MongoDB Atlas...");
+  try {
+    const res = await fetch(`${MONGO_API_URL}/subjects`);
+    if (!res.ok) throw new Error("Could not reach MongoDB server.");
+    const data = await res.json();
+    if (!data.success || !data.subjects || !data.subjects.length) {
+      if (!silent) toast("No books found in MongoDB Atlas.");
+      return;
+    }
+
+    let addedCount = 0;
+    let updatedCount = 0;
+    for (const sub of data.subjects) {
+      const fullRes = await fetch(`${MONGO_API_URL}/subjects/${sub.id}`);
+      if (fullRes.ok) {
+        const fullData = await fullRes.json();
+        if (fullData.success && fullData.subject) {
+          const freshSub = fullData.subject;
+          const idx = s.subjects.findIndex(existing => 
+            existing.id === freshSub.id || 
+            (existing.book && existing.book.trim().toLowerCase() === freshSub.book.trim().toLowerCase() && Number(existing.week) === Number(freshSub.week))
+          );
+
+          if (idx !== -1) {
+            const prevIcon = s.subjects[idx].icon;
+            s.subjects[idx] = {
+              ...s.subjects[idx],
+              ...freshSub,
+              icon: prevIcon || freshSub.icon || "📚"
+            };
+            if (s.activeSubjectId === s.subjects[idx].id || (s.activeSubject && s.activeSubject.book.trim().toLowerCase() === freshSub.book.trim().toLowerCase() && Number(s.activeSubject.week) === Number(freshSub.week))) {
+              s.activeSubject = s.subjects[idx];
+              s.activeSubjectId = s.subjects[idx].id;
+              s.questions = s.subjects[idx].questions || [];
+            }
+            updatedCount++;
+          } else {
+            s.subjects.push(freshSub);
+            addedCount++;
+          }
+        }
+      }
+    }
+
+    saveSubjects();
+    renderSubjects();
+    updateHeroSubjectUI();
+    updateTranscriptSubjectUI(s.activeSubject);
+    updateQuestionCountUI();
+    render();
+    checkMongoStatus(true);
+
+    if (!silent) {
+      if (addedCount > 0 || updatedCount > 0) {
+        toast(`✓ Synced with MongoDB Atlas! (${addedCount} added, ${updatedCount} updated, ${data.subjects.length} books total)`);
+        go("subjects");
+      } else {
+        toast(`✓ All ${data.subjects.length} books in MongoDB Atlas are up to date.`);
+      }
+    }
+
+  } catch (err) {
+    if (!silent) {
+      toast(`MongoDB API offline. Start server with "node server.js" (or run "node scripts/upload_to_mongodb.js")`, true);
+    }
+  }
+}
+
+function handleMongoFileSelect(e) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = async () => {
+    try {
+      const parsed = JSON.parse(reader.result);
+      toast("Uploading JSON to MongoDB Atlas...");
+
+      const res = await fetch(`${MONGO_API_URL}/upload`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed)
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast(data.message || `✓ Successfully uploaded to MongoDB Atlas!`);
+        checkMongoStatus(true);
+        syncBooksFromMongo();
+      } else {
+        throw new Error(data.error || "Upload failed");
+      }
+    } catch (err) {
+      toast("MongoDB Upload Error: " + err.message, true);
+    } finally {
+      if ($("#mongoFileInput")) $("#mongoFileInput").value = "";
+    }
+  };
+  reader.readAsText(file);
+}
+
 // 10. Tools & Management Action Buttons
 if ($("#export")) $("#export").onclick = exportQuestionsJSON;
 if ($("#import")) $("#import").onclick = () => $("#file").click();
 if ($("#file")) $("#file").onchange = handleFileImport;
 if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = confirmRestoreDefaults;
 if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => $("#file").click();
+if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => $("#mongoFileInput")?.click();
+if ($("#mongoFileInput")) $("#mongoFileInput").onchange = handleMongoFileSelect;
+if ($("#mongoSyncBtn")) $("#mongoSyncBtn").onclick = syncBooksFromMongo;
+if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = syncBooksFromMongo;
+
+// Check MongoDB status & auto-sync if connected
+checkMongoStatus(true).then(stat => {
+  if (stat && stat.connected) {
+    syncBooksFromMongo(true);
+  }
+});
 if ($("#bookmarks")) $("#bookmarks").onclick = () => {
   if (!s.bm.size) {
     toast("No bookmarked questions", true);
