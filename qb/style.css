@@ -965,313 +965,501 @@ nav button:hover {
 }
 
 /* ==========================================================================
-   Grouped Book Catalog & Weekly Examination Modules Tray
+   Multi-Screen Book Catalog & Dedicated Weekly Modules Sub-Screen
    ========================================================================== */
 .bookCard {
-  cursor: default;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 16px 18px;
-}
-
-.bookCardClickableHeader {
-  cursor: pointer;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
   user-select: none;
+}
+
+.bookCard:hover {
+  border-color: var(--p);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12), var(--shadow);
+  transform: translateY(-2px);
+}
+
+.bookCard.active {
+  border-color: var(--p);
+  background: linear-gradient(180deg, var(--card) 0%, rgba(37, 99, 235, 0.03) 100%);
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.14);
+}
+
+.bookCard.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--p), #0284c7);
+}
+
+.bookCardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.bookCardIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--p-subtle);
+  color: var(--p);
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.bookCard:hover .bookCardIcon {
+  background: var(--p);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.bookCard.active .bookCardIcon {
+  background: var(--p);
+  color: #ffffff;
+}
+
+.bookCardHead {
+  flex: 1;
+  min-width: 0;
+}
+
+.bookCardBadges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.bookCardTitle {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--t);
+  line-height: 1.3;
+  margin: 0 0 3px 0;
 }
 
 .bookCourseSubtitle {
   font-size: 12px;
   color: var(--m);
   font-weight: 500;
-  margin-top: 2px;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
-.moduleBadge {
-  background: var(--p-subtle) !important;
-  color: var(--p) !important;
-  font-weight: 700 !important;
-  border: 1px solid rgba(37, 99, 235, 0.2);
-}
-
-.bookWeeksSummaryPills {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  padding: 8px 10px;
-  background: var(--card-subtle);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
-  font-size: 11.5px;
-}
-
-.weeksLabel {
-  font-weight: 700;
-  color: var(--t);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  margin-right: 2px;
-}
-
-.weekSummaryPill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 3px 8px;
-  border-radius: var(--radius-pill);
-  font-size: 11px;
-  color: var(--m);
-  font-weight: 600;
-  transition: all 0.15s ease;
-}
-
-.weekSummaryPill.activePill {
-  background: var(--p-subtle);
-  color: var(--p);
-  border-color: var(--p);
-  font-weight: 700;
-}
-
-.bookCardToggleRow {
-  display: flex;
-  width: 100%;
-}
-
-.bookWeeksToggleBtn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 8px 14px;
-  background: var(--card-subtle);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  color: var(--t);
+.bookCardIntro {
   font-size: 12.5px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bookWeeksToggleBtn:hover, .bookWeeksToggleBtn.btnExpanded {
-  background: var(--p-subtle);
-  border-color: var(--p);
-  color: var(--p);
-}
-
-.toggleBtnLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.toggleIcon {
-  font-size: 14px;
-}
-
-.toggleChevron {
-  font-size: 11px;
   color: var(--m);
-  transition: transform 0.25s ease;
-}
-
-.bookWeeksToggleBtn.btnExpanded .toggleChevron {
-  color: var(--p);
-}
-
-/* Expandable Weekly Modules Tray */
-.bookWeeksTray {
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
 
-.bookWeeksTray.trayClosed {
-  max-height: 0;
-  opacity: 0;
-  pointer-events: none;
-  margin-top: 0;
-}
-
-.bookWeeksTray.trayOpen {
-  max-height: 2000px;
-  opacity: 1;
-  pointer-events: auto;
-  margin-top: 12px;
-}
-
-.bookWeeksTrayInner {
-  background: var(--card-subtle);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 12px;
+.bookCardMeta {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  color: var(--m);
+  flex-wrap: wrap;
 }
 
-.trayHeader {
+.bookCardMeta span b {
+  color: var(--t);
+}
+
+.bookCardFoot {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
   flex-wrap: wrap;
-  gap: 6px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--line);
 }
 
-.trayTitle {
+.bookModulesPill {
   font-size: 11.5px;
   font-weight: 700;
-  color: var(--t);
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
+  color: var(--p);
+  background: var(--p-subtle);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.traySubtitle {
-  font-size: 11px;
+.viewModulesBtn {
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  padding: 8px 16px !important;
+  border-radius: var(--radius-pill) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
+  transition: all 0.18s ease !important;
+}
+
+.bookCard:hover .viewModulesBtn {
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+}
+
+/* ==========================================================================
+   VIEW 2: Dedicated Weekly Examination Modules Sub-Screen
+   ========================================================================== */
+#bookDetailView {
+  animation: fadeInView 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInView {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bookDetailTopBar {
+  margin-bottom: 16px;
+}
+
+.backToBooksBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--p);
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.backToBooksBtn:hover {
+  background: var(--p-subtle);
+  border-color: var(--p);
+  color: var(--p);
+  transform: translateX(-3px);
+}
+
+.backToBooksBtn span {
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform 0.18s ease;
+}
+
+.backToBooksBtn:hover span {
+  transform: translateX(-2px);
+}
+
+.bookDetailHero {
+  padding: 22px 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bookDetailHero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  bottom: 0;
+  background: linear-gradient(180deg, var(--p), #0284c7);
+}
+
+.heroHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.heroBookIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--p-subtle);
+  color: var(--p);
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.heroBookInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.heroBookInfo h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--t);
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.heroBookMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
   color: var(--m);
 }
 
-.bookWeeksList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.heroStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
 
-.weekModuleItem {
-  background: var(--card);
+.heroStatCard {
+  background: var(--card-subtle);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  transition: all 0.18s ease;
+  gap: 2px;
+}
+
+.heroStatCard small {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--m);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.heroStatCard b {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--t);
+}
+
+.bookModulesSectionTitle {
+  margin-bottom: 12px;
+}
+
+.bookWeeksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 18px;
+}
+
+.weekModuleCard {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  overflow: hidden;
 }
 
-.weekModuleItem:hover {
+.weekModuleCard:hover {
   border-color: var(--p);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
 }
 
-.weekModuleItem.activeWeekItem {
+.weekModuleCard.activeWeek {
   border-color: var(--p);
   background: linear-gradient(180deg, var(--card) 0%, rgba(37, 99, 235, 0.04) 100%);
-  border-left: 3.5px solid var(--p);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
 }
 
-.weekModuleHeader {
+.weekModuleCard.activeWeek::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--p), #0284c7);
+}
+
+.weekCardHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
 }
 
-.weekModulePillRow {
+.weekCardPillRow {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
 }
 
-.weekPill {
+.weekTitlePill {
+  font-size: 11px !important;
   font-weight: 800 !important;
-  font-size: 10.5px !important;
+  padding: 3px 9px !important;
   background: var(--p) !important;
   color: #ffffff !important;
   letter-spacing: 0.4px;
+  border-radius: var(--radius-pill) !important;
 }
 
-.qCountPill {
+.weekQBadge {
+  font-size: 11px !important;
   font-weight: 700 !important;
-  font-size: 10.5px !important;
+  padding: 3px 8px !important;
   background: var(--card-subtle) !important;
   color: var(--t) !important;
   border: 1px solid var(--line);
+  border-radius: var(--radius-pill) !important;
 }
 
-.weekActivePill {
-  font-size: 10px !important;
-  padding: 2px 7px !important;
-}
-
-.weekModuleLevel {
-  font-size: 11px;
-  color: var(--m);
-  font-weight: 600;
-}
-
-.weekModuleTopic {
-  font-size: 12px;
-  color: var(--t);
-  line-height: 1.45;
+.weekCardTopicBox {
   background: var(--card-subtle);
-  padding: 6px 9px;
+  border-left: 3px solid var(--p);
+  padding: 10px 12px;
   border-radius: 4px;
-  border-left: 2px solid var(--p);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.weekModuleTopic .topicTag {
+.topicBoxLabel {
+  font-size: 10px;
   font-weight: 700;
   color: var(--p);
-  margin-right: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
-.weekModuleTopic .topicVal {
+.topicBoxText {
+  font-size: 13px;
+  font-weight: 600;
   color: var(--t);
-  font-weight: 500;
+  line-height: 1.45;
 }
 
-.weekModuleActions {
+.weekCardMetaGrid {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11.5px;
+  color: var(--m);
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.weekCardMetaGrid span b {
+  color: var(--t);
+}
+
+.weekCardActions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  margin-top: 2px;
-  padding-top: 6px;
+  padding-top: 8px;
   border-top: 1px dashed var(--line);
   flex-wrap: wrap;
 }
 
-.weekExamBtn {
-  font-size: 12px !important;
-  padding: 6px 14px !important;
+.takeExamBtn {
+  font-size: 13px !important;
   font-weight: 700 !important;
+  padding: 8px 18px !important;
   border-radius: var(--radius-pill) !important;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35) !important;
+  color: #fff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer;
 }
 
-.selectWeekBtn {
-  font-size: 11.5px !important;
-  padding: 6px 12px !important;
-  border-radius: var(--radius-pill) !important;
+.takeExamBtn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45) !important;
 }
 
-.deleteWeekBtn {
-  font-size: 11px !important;
-  padding: 5px 9px !important;
+.selectModuleBtn {
+  font-size: 12px !important;
+  padding: 7px 14px !important;
   border-radius: var(--radius-pill) !important;
 }
 
 @media (max-width: 480px) {
-  .subjectGrid {
+  .bookWeeksGrid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  .weekModuleActions {
+  .weekCardActions {
     width: 100%;
-    justify-content: stretch;
+    flex-direction: column-reverse;
   }
-  .weekModuleActions button {
-    flex: 1;
-    min-height: 38px;
+  .weekCardActions button {
+    width: 100%;
+    min-height: 42px;
     justify-content: center;
+  }
+  .heroHeaderRow {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 

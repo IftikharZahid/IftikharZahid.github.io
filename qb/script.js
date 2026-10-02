@@ -2924,120 +2924,185 @@ function getGroupedBooks() {
   return books;
 }
 
-window.toggleBookWeeks = function(bookKey, e) {
-  if (e) e.stopPropagation();
-  if (!s.expandedBooks) s.expandedBooks = new Set();
-  if (s.expandedBooks.has(bookKey)) {
-    s.expandedBooks.delete(bookKey);
-  } else {
-    s.expandedBooks.add(bookKey);
-  }
-  renderSubjects();
-};
-
 function renderSubjects() {
   const grid = $("#subjectGrid");
   if (!grid) return;
 
   const groupedBooks = getGroupedBooks();
 
-  if (!s.expandedBooks) s.expandedBooks = new Set();
-  if (s.expandedBooks.size === 0 && s.activeSubject) {
-    s.expandedBooks.add(getBookGroupKey(s.activeSubject));
+  // If a book detail sub-screen is currently open, refresh it
+  if (s.currentBookView) {
+    const stillExists = groupedBooks.some(b => b.book === s.currentBookView);
+    if (stillExists) {
+      renderBookDetailView(s.currentBookView);
+    } else {
+      closeBookDetail();
+    }
   }
 
   grid.innerHTML = groupedBooks.map(book => {
-    const isExpanded = s.expandedBooks.has(book.book);
     const hasActive = !!book.hasActiveWeek;
     const weekCount = book.weeks.length;
     const weekCountLabel = weekCount === 1 ? "1 Weekly Module" : `${weekCount} Weekly Modules`;
-    const bookSlug = book.book.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
-    return `<article class="subjectCard bookCard ${hasActive ? "active" : ""}" data-book-key="${esc(book.book)}">
-      <div class="bookCardClickableHeader" onclick="toggleBookWeeks('${esc(book.book)}', event)" title="Click to view weekly examination modules">
-        <div class="subjectCardTop">
-          <div class="subjectCardIcon">${esc(book.icon || "📚")}</div>
-          <div class="subjectCardHead">
-            <div class="subjectCardBadges">
-              <span class="tag moduleBadge">📅 ${weekCountLabel}</span>
-              <span class="tag success">${book.totalQuestions} Total MCQs</span>
-              ${hasActive ? `<span class="activeIndicator"><i class="activeDot"></i> Active Book (${esc(book.activeWeek.weekTitle || "Week " + book.activeWeek.week)})</span>` : ""}
-            </div>
-            <h3 class="subjectCardTitle">${esc(book.book)}</h3>
-            <div class="bookCourseSubtitle">${esc(book.course)}</div>
+    return `<article class="subjectCard bookCard ${hasActive ? "active" : ""}" data-book-key="${esc(book.book)}" onclick="openBookDetail('${esc(book.book)}')" title="Click to view weekly examination modules">
+      <div class="bookCardTop">
+        <div class="bookCardIcon">${esc(book.icon || "📚")}</div>
+        <div class="bookCardHead">
+          <div class="bookCardBadges">
+            <span class="tag" style="background:var(--p-subtle);color:var(--p);font-weight:700;">📅 ${weekCountLabel}</span>
+            <span class="tag success">${book.totalQuestions} Total MCQs</span>
+            ${hasActive ? `<span class="activeIndicator"><i class="activeDot"></i> Active Book (${esc(book.activeWeek.weekTitle || "Week " + book.activeWeek.week)})</span>` : ""}
           </div>
-        </div>
-
-        <div class="bookWeeksSummaryPills">
-          <span class="weeksLabel">Modules:</span>
-          ${book.weeks.map(w => {
-            const isThisWkActive = w.id === s.activeSubjectId;
-            const qCount = w.questions ? w.questions.length : 0;
-            return `<span class="weekSummaryPill ${isThisWkActive ? "activePill" : ""}">
-              ${esc(w.weekTitle || "Week " + w.week)} (${qCount} Qs)
-            </span>`;
-          }).join("")}
-        </div>
-
-        <div class="subjectCardMeta">
-          <span>Level: <b>${esc(book.level || "BS Computer Science")}</b></span>
-          <span>Instructor: <b>${esc(book.createdBy || "Lec. Iftikhar Zahid")}</b></span>
-        </div>
-
-        <div class="bookCardToggleRow">
-          <button class="bookWeeksToggleBtn ${isExpanded ? "btnExpanded" : ""}" type="button" aria-expanded="${isExpanded}">
-            <span class="toggleBtnLabel">
-              <span class="toggleIcon">${isExpanded ? "📂" : "📁"}</span>
-              <b>${isExpanded ? "Hide Weekly Exams" : `Explore Weekly Examination Modules (${weekCount})`}</b>
-            </span>
-            <span class="toggleChevron">${isExpanded ? "▲" : "▼"}</span>
-          </button>
+          <h3 class="bookCardTitle">${esc(book.book)}</h3>
+          <div class="bookCourseSubtitle">${esc(book.course)}</div>
         </div>
       </div>
 
-      <div class="bookWeeksTray ${isExpanded ? "trayOpen" : "trayClosed"}" id="tray-${bookSlug}">
-        <div class="bookWeeksTrayInner">
-          <div class="trayHeader">
-            <span class="trayTitle">⚡ Weekly Examination Modules:</span>
-            <small class="traySubtitle">Select a week to review syllabus &amp; start exam</small>
-          </div>
-          <div class="bookWeeksList">
-            ${book.weeks.map(w => {
-              const isThisActive = w.id === s.activeSubjectId;
-              const qCount = w.questions ? w.questions.length : 0;
-              const isBuiltIn = !!w.isBuiltIn;
-              const topicStr = w.topic || "Course Syllabus Review";
+      <p class="bookCardIntro">Continuous assessment course for <b>${esc(book.level || "BS Computer Science")}</b>. Contains <b>${weekCountLabel}</b> covering verified lecture syllabus and examination practice.</p>
 
-              return `<div class="weekModuleItem ${isThisActive ? "activeWeekItem" : ""}">
-                <div class="weekModuleHeader">
-                  <div class="weekModulePillRow">
-                    <span class="tag weekPill">${esc(w.weekTitle || "Week " + w.week)}</span>
-                    <span class="tag qCountPill">${qCount} MCQs</span>
-                    ${isThisActive ? `<span class="activeIndicator weekActivePill"><i class="activeDot"></i> Current Active</span>` : ""}
-                  </div>
-                  <div class="weekModuleLevel">${esc(w.level || book.level || "")}</div>
-                </div>
+      <div class="bookCardMeta">
+        <span>Class: <b>${esc(book.level || "BS Computer Science")}</b></span>
+        <span>Instructor: <b>${esc(book.createdBy || "Lec. Iftikhar Zahid")}</b></span>
+      </div>
 
-                <div class="weekModuleTopic" title="${esc(topicStr)}">
-                  <span class="topicTag">Syllabus Topic:</span>
-                  <span class="topicVal">${esc(topicStr)}</span>
-                </div>
-
-                <div class="weekModuleActions">
-                  ${isThisActive 
-                    ? `<button class="primary weekExamBtn" type="button" onclick="event.stopPropagation(); start();">▶ Start / Resume Exam</button>` 
-                    : `<button class="secondary selectWeekBtn" type="button" onclick="event.stopPropagation(); switchSubject('${esc(w.id)}', false);">Select Module</button>
-                       <button class="primary weekExamBtn" type="button" onclick="event.stopPropagation(); switchSubject('${esc(w.id)}', true);">▶ Take Exam →</button>`
-                  }
-                  ${!isBuiltIn ? `<button class="danger deleteWeekBtn" type="button" onclick="event.stopPropagation(); deleteCustomSubject('${esc(w.id)}');" title="Remove custom week">🗑</button>` : ""}
-                </div>
-              </div>`;
-            }).join("")}
-          </div>
-        </div>
+      <div class="bookCardFoot">
+        <span class="bookModulesPill">📖 ${weekCount} ${weekCount === 1 ? "Week Available" : "Weeks Available"}</span>
+        <button class="primary viewModulesBtn" type="button" onclick="event.stopPropagation(); openBookDetail('${esc(book.book)}')">
+          View Weekly Modules (${weekCount}) →
+        </button>
       </div>
     </article>`;
   }).join("");
+}
+
+function openBookDetail(bookKey) {
+  const books = getGroupedBooks();
+  const book = books.find(b => b.book === bookKey);
+  if (!book) return;
+
+  s.currentBookView = bookKey;
+
+  const allView = $("#allBooksView");
+  const detailView = $("#bookDetailView");
+  if (allView) allView.classList.add("hidden");
+  if (detailView) detailView.classList.remove("hidden");
+
+  renderBookDetailView(bookKey);
+
+  const subSection = $("#subjects");
+  if (subSection) subSection.scrollIntoView({ behavior: "smooth" });
+}
+
+function renderBookDetailView(bookKey) {
+  const books = getGroupedBooks();
+  const book = books.find(b => b.book === bookKey);
+  if (!book) return;
+
+  const hero = $("#bookDetailHero");
+  const weeksGrid = $("#bookWeeksGrid");
+  const heading = $("#bookModulesHeading");
+
+  if (heading) {
+    heading.textContent = `${book.book} — Weekly Examination Modules`;
+  }
+
+  if (hero) {
+    hero.innerHTML = `
+      <div class="heroHeaderRow">
+        <div class="heroBookIcon">${esc(book.icon || "📚")}</div>
+        <div class="heroBookInfo">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px;">
+            <span class="tag" style="background:var(--p-subtle);color:var(--p);font-weight:700;">${esc(book.level || "BS Computer Science")}</span>
+            <span class="tag success">${book.totalQuestions} Questions Total</span>
+            ${book.hasActiveWeek ? `<span class="activeIndicator"><i class="activeDot"></i> Current Active Book</span>` : ""}
+          </div>
+          <h1>${esc(book.book)}</h1>
+          <div class="heroBookMeta">
+            <span>Course: <b>${esc(book.course)}</b></span>
+            <span>•</span>
+            <span>Instructor: <b>${esc(book.createdBy || "Lec. Iftikhar Zahid")}</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroStatsGrid">
+        <div class="heroStatCard">
+          <small>WEEKLY MODULES</small>
+          <b>${book.weeks.length} Exam Modules</b>
+        </div>
+        <div class="heroStatCard">
+          <small>QUESTION BANK</small>
+          <b>${book.totalQuestions} Total MCQs</b>
+        </div>
+        <div class="heroStatCard">
+          <small>TIME ALLOWED</small>
+          <b>60 Mins per Test</b>
+        </div>
+        <div class="heroStatCard">
+          <small>PASS BENCHMARK</small>
+          <b>50% Standard Mark</b>
+        </div>
+      </div>
+    `;
+  }
+
+  if (weeksGrid) {
+    weeksGrid.innerHTML = book.weeks.map(w => {
+      const isThisActive = w.id === s.activeSubjectId;
+      const qCount = w.questions ? w.questions.length : 0;
+      const isBuiltIn = !!w.isBuiltIn;
+      const topicStr = w.topic || "Course Syllabus Review";
+
+      return `<article class="weekModuleCard ${isThisActive ? "activeWeek" : ""}">
+        <div class="weekCardHeader">
+          <div class="weekCardPillRow">
+            <span class="weekTitlePill">${esc(w.weekTitle || "Week " + w.week)}</span>
+            <span class="weekQBadge">${qCount} Questions</span>
+            <span class="tag" style="font-size:10px;background:var(--card-subtle);">⏱️ 60 Mins</span>
+            ${isThisActive ? `<span class="activeIndicator" style="font-size:10.5px;padding:3px 8px;"><i class="activeDot"></i> Currently Active</span>` : ""}
+          </div>
+        </div>
+
+        <div class="weekCardTopicBox">
+          <span class="topicBoxLabel">LECTURE &amp; SYLLABUS TOPIC</span>
+          <div class="topicBoxText">${esc(topicStr)}</div>
+        </div>
+
+        <div class="weekCardMetaGrid">
+          <span>Target Class: <b>${esc(w.level || book.level || "BS Computer Science")}</b></span>
+          <span>Pass Mark: <b>50% Benchmark</b></span>
+        </div>
+
+        <div class="weekCardActions">
+          ${isThisActive 
+            ? `<button class="primary takeExamBtn" type="button" onclick="start();">▶ Start / Resume Exam</button>` 
+            : `<button class="secondary selectModuleBtn" type="button" onclick="switchSubject('${esc(w.id)}', false);">Select for Practice</button>
+               <button class="primary takeExamBtn" type="button" onclick="switchSubject('${esc(w.id)}', true);">▶ Take Examination →</button>`
+          }
+          ${!isBuiltIn ? `<button class="danger selectModuleBtn" type="button" onclick="deleteCustomSubject('${esc(w.id)}');" title="Delete custom week">🗑 Delete</button>` : ""}
+        </div>
+      </article>`;
+    }).join("");
+  }
+}
+
+function closeBookDetail() {
+  s.currentBookView = null;
+  const allView = $("#allBooksView");
+  const detailView = $("#bookDetailView");
+  if (allView) allView.classList.remove("hidden");
+  if (detailView) detailView.classList.add("hidden");
+
+  renderSubjects();
+
+  const subSection = $("#subjects");
+  if (subSection) subSection.scrollIntoView({ behavior: "smooth" });
+}
+
+// Bind back button
+if ($("#backToBooksBtn")) {
+  $("#backToBooksBtn").onclick = closeBookDetail;
 }
 
 function switchSubject(subId, startExamAfter = false) {
@@ -4591,6 +4656,8 @@ window.logoutStudent = logoutStudent;
 window.openStartModal = openStartModal;
 window.openBriefingModal = openBriefingModal;
 window.beginExamNow = beginExamNow;
+window.openBookDetail = openBookDetail;
+window.closeBookDetail = closeBookDetail;
 
 // 1. Navigation & Click Delegation
 document.addEventListener("click", e => {
@@ -4605,6 +4672,18 @@ document.addEventListener("click", e => {
       } else {
         toast("No examination result found. Please start an exam first.");
       }
+    } else if (target === "subjects") {
+      main();
+      if (g.textContent.includes("View Subject")) {
+        if (s.activeSubject) {
+          openBookDetail(getBookGroupKey(s.activeSubject));
+        } else {
+          closeBookDetail();
+        }
+      } else {
+        closeBookDetail();
+      }
+      go("subjects");
     } else {
       main();
       go(target);

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="style.css?v=16">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
@@ -102,23 +102,51 @@
     </section>
 
     <section id="subjects" class="wrap section">
-      <div class="title">
-        <div>
-          <small class="eyebrow">ACADEMIC COURSE CATALOG & BOOKS</small>
-          <h2>Subject & Book Records</h2>
+      <!-- VIEW 1: All Course Books Grid -->
+      <div id="allBooksView">
+        <div class="title">
+          <div>
+            <small class="eyebrow">ACADEMIC COURSE CATALOG &amp; BOOKS</small>
+            <h2>Subject &amp; Book Records</h2>
+          </div>
+          <div class="subjectCatalogActions" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button id="mongoSyncCatalogBtn" class="secondary" style="font-size:12.5px;padding:8px 14px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;" title="Load books stored in MongoDB Atlas">
+              <span>🍃</span> Sync from MongoDB
+            </button>
+            <button id="addSubjectBtn" class="primary" style="font-size:12.5px;padding:8px 16px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;">
+              <span>➕</span> Add / Import Book Record
+            </button>
+          </div>
         </div>
-        <div class="subjectCatalogActions" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-          <button id="mongoSyncCatalogBtn" class="secondary" style="font-size:12.5px;padding:8px 14px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;" title="Load books stored in MongoDB Atlas">
-            <span>🍃</span> Sync from MongoDB
-          </button>
-          <button id="addSubjectBtn" class="primary" style="font-size:12.5px;padding:8px 16px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;">
-            <span>➕</span> Add / Import Book Record
-          </button>
+        <p style="color:var(--m);font-size:13px;margin:-10px 0 16px 0;">Select an academic course book below to explore its weekly examination modules and begin timed tests.</p>
+        <div id="subjectGrid" class="subjectGrid">
+          <!-- Rendered dynamically -->
         </div>
       </div>
-      <p style="color:var(--m);font-size:13px;margin:-10px 0 16px 0;">Select an academic course book below to explore its weekly examination modules and begin timed tests.</p>
-      <div id="subjectGrid" class="subjectGrid">
-        <!-- Rendered dynamically -->
+
+      <!-- VIEW 2: Dedicated Weekly Examination Modules Screen -->
+      <div id="bookDetailView" class="hidden">
+        <div class="bookDetailTopBar">
+          <button id="backToBooksBtn" class="backToBooksBtn" type="button">
+            <span>←</span> Back to All Course Books
+          </button>
+        </div>
+
+        <div id="bookDetailHero" class="bookDetailHero card">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <div class="bookModulesSectionTitle">
+          <div>
+            <small class="eyebrow">COURSE MODULES &amp; SYLLABUS</small>
+            <h2 id="bookModulesHeading">Weekly Examination Modules</h2>
+          </div>
+        </div>
+        <p style="color:var(--m);font-size:13px;margin:-10px 0 16px 0;">Choose a weekly syllabus module below to review topics and launch the timed continuous assessment examination.</p>
+
+        <div id="bookWeeksGrid" class="bookWeeksGrid">
+          <!-- Rendered dynamically -->
+        </div>
       </div>
     </section>
 
@@ -452,6 +480,6 @@
   </div>
   <div id="toast"></div>
 
-  <script src="script.js?v=15"></script>
+  <script src="script.js?v=16"></script>
 </body>
 </html>
