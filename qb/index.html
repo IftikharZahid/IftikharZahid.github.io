@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=17">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
@@ -32,6 +32,7 @@
           <span id="headerUserName" class="userName"></span>
           <button id="logoutBtn" class="logoutBtn" title="Logout from saved credentials">Logout</button>
         </div>
+        <button id="portalLockBtn" class="icon" title="Lock Portal" aria-label="Lock Question Bank Portal">🔒</button>
         <button id="theme" class="icon" title="Toggle theme" aria-label="Toggle dark/light theme">☾</button>
         <button id="startTop" class="primary" aria-label="Start Examination">▶ Start Test</button>
         <button id="menu" class="icon mobile" aria-label="Open mobile menu">☰</button>
@@ -49,6 +50,7 @@
       <button data-go="subjects">Subjects</button>
       <button data-go="tools">Management</button>
       <button data-go="results">Results</button>
+      <button id="drawerPortalLockBtn" class="secondary" style="margin-top:6px;width:100%;font-size:12.5px;justify-content:center;">🔒 Lock Portal</button>
       <button id="drawerStartBtn" class="primary" style="margin-top:4px;width:100%;font-size:13.5px;font-weight:700;justify-content:center;background:var(--p);color:#fff;">▶ Start Practice Examination</button>
     </div>
   </header>
@@ -472,6 +474,88 @@
     <span>© 2026 MCQs Question Bank</span>
   </footer>
 
+  <!-- ==========================================================================
+       Portal Entrance Authentication & App Announcement Modal
+       ========================================================================== -->
+  <div id="authGateModal" class="authGateBg hidden" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
+    <div class="authGateCard" id="authGateCard">
+      <!-- Top Branding -->
+      <div class="authGateTop">
+        <div class="authGateBrand">
+          <img src="logo.png" alt="MCQs Question Bank Logo" class="authGateLogo" width="54" height="54">
+          <div class="authGateTitles">
+            <div class="authSecurityBadge">🔒 Protected Academic Portal</div>
+            <h2 id="authGateTitle" class="authGateHeading">MCQs Question Bank</h2>
+            <p class="authGateSub">Computer Science Continuous Assessment System</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Development Notification Banner -->
+      <div class="authNoticeBanner">
+        <div class="authNoticeHeader">
+          <div class="authNoticeIconWrap">
+            <span class="authNoticeIcon">📱</span>
+          </div>
+          <div class="authNoticeHeadText">
+            <div class="authNoticeBadge">UPCOMING RELEASE</div>
+            <h3 class="authNoticeHeading">Dedicated Mobile & Desktop Application Coming Soon!</h3>
+          </div>
+        </div>
+        <p class="authNoticeBody">
+          We are developing a dedicated official <strong>MCQs Question Bank Application</strong>. Soon, students and faculty will be able to download the app to easily attempt, practice, and track continuous exams and quizzes online with offline support and enhanced responsiveness.
+        </p>
+        <div class="authNoticeUrdu" dir="rtl">
+          📢 <b>اہم اطلاع:</b> تمام طلبہ کو مطلع کیا جاتا ہے کہ اس پورٹل کے لیے خصوصی موبائل و ڈیسک ٹاپ ایپلی کیشن تیار کی جا رہی ہے۔ عنقریب آپ ایپ ڈاؤن لوڈ کر کے اپنے تمام آن لائن امتحانات باآسانی دے سکیں گے اور تیاری کر سکیں گے۔
+        </div>
+      </div>
+
+      <!-- Login Authentication Form -->
+      <div class="authFormWrap">
+        <div class="authFormTitleRow">
+          <h4>Portal Verification & Sign In</h4>
+          <span class="authFormHint">Please enter authorized credentials to access Question Banks</span>
+        </div>
+
+        <form id="authGateForm" novalidate autocomplete="on">
+          <div id="authErrorMsg" class="authError hidden" role="alert"></div>
+
+          <div class="authField">
+            <label for="authEmail">Email Address</label>
+            <div class="authInputWrapper">
+              <span class="authInputIcon">✉️</span>
+              <input type="email" id="authEmail" name="email" placeholder="e.g. IftkharXahid@gmail.com" required autocomplete="username" spellcheck="false">
+            </div>
+          </div>
+
+          <div class="authField">
+            <label for="authPassword">Password</label>
+            <div class="authInputWrapper">
+              <span class="authInputIcon">🔑</span>
+              <input type="password" id="authPassword" name="password" placeholder="Enter portal password" required autocomplete="current-password">
+              <button type="button" id="authTogglePwd" class="authEyeBtn" title="Toggle password visibility" aria-label="Toggle password visibility">👁️</button>
+            </div>
+          </div>
+
+          <div class="authFormFooter">
+            <label class="authRememberLabel">
+              <input type="checkbox" id="authRemember" checked>
+              <span>Keep portal unlocked on this device</span>
+            </label>
+          </div>
+
+          <button type="submit" id="authSubmitBtn" class="primary authSubmitBtn">
+            <span id="authBtnText">Unlock & Enter Portal →</span>
+          </button>
+        </form>
+
+        <div class="authPortalFooter">
+          <span>Prepared by <b>Lec. Iftikhar Zahid</b> • Department of Computer Science</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="modal" class="modalBg hidden">
     <div class="modal">
       <button id="close" class="close">×</button>
@@ -480,6 +564,6 @@
   </div>
   <div id="toast"></div>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=17"></script>
 </body>
 </html>

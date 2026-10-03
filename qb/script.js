@@ -3144,7 +3144,9 @@ const K = {
   student: "qstudent",
   questions: "qcustom_questions",
   subjects: "qsubjects",
-  activeSubject: "qactive_subject"
+  activeSubject: "qactive_subject",
+  portalAuth: "qb_portal_auth_v1",
+  portalUser: "qb_portal_user_v1"
 };
 
 const $ = x => document.querySelector(x);
@@ -5392,3 +5394,136 @@ updateHeroSubjectUI();
 updateTranscriptSubjectUI(s.activeSubject);
 updateQuestionCountUI();
 updateExamStatusUI();
+// ==========================================================================
+// 12. Portal Entrance Security & App Announcement Gatekeeper
+// ==========================================================================
+const PORTAL_AUTH_CONFIG = {
+  validEmails: [
+    "iftkharxahid@gmail.com",
+    "iftikharzahid@gmail.com"
+  ],
+  validPassword: "110022"
+};
+
+function isPortalAuthenticated() {
+  try {
+    const sAuth = sessionStorage.getItem(K.portalAuth);
+    const lAuth = localStorage.getItem(K.portalAuth);
+    return sAuth === "true" || lAuth === "true";
+  } catch {
+    return false;
+  }
+}
+
+function showAuthGate() {
+  const modal = $("#authGateModal");
+  if (!modal) return;
+  document.body.classList.add("portal-locked");
+  modal.classList.remove("hidden");
+
+  const savedUser = localStorage.getItem(K.portalUser) || sessionStorage.getItem(K.portalUser) || "";
+  const emailInput = $("#authEmail");
+  const passInput = $("#authPassword");
+  const errBox = $("#authErrorMsg");
+
+  if (errBox) errBox.classList.add("hidden");
+  if (passInput) passInput.value = "";
+
+  if (emailInput) {
+    if (savedUser) {
+      emailInput.value = savedUser;
+      if (passInput) passInput.focus();
+    } else {
+      emailInput.focus();
+    }
+  }
+}
+
+function hideAuthGate() {
+  const modal = $("#authGateModal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  document.body.classList.remove("portal-locked");
+}
+
+function lockPortal() {
+  try {
+    sessionStorage.removeItem(K.portalAuth);
+    sessionStorage.removeItem(K.portalUser);
+    localStorage.removeItem(K.portalAuth);
+  } catch {}
+  showAuthGate();
+  toast("Portal locked. Please sign in to resume.");
+}
+
+function initAuthGate() {
+  const form = $("#authGateForm");
+  const emailInput = $("#authEmail");
+  const passInput = $("#authPassword");
+  const toggleBtn = $("#authTogglePwd");
+  const errBox = $("#authErrorMsg");
+  const rememberCheckbox = $("#authRemember");
+  const lockBtn = $("#portalLockBtn");
+  const drawerLockBtn = $("#drawerPortalLockBtn");
+
+  if (toggleBtn && passInput) {
+    toggleBtn.onclick = () => {
+      const isPwd = passInput.type === "password";
+      passInput.type = isPwd ? "text" : "password";
+      toggleBtn.textContent = isPwd ? "🙈" : "👁️";
+    };
+  }
+
+  if (lockBtn) lockBtn.onclick = lockPortal;
+  if (drawerLockBtn) drawerLockBtn.onclick = lockPortal;
+
+  if (form) {
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      const enteredEmail = (emailInput?.value || "").trim().toLowerCase();
+      const enteredPass = (passInput?.value || "").trim();
+
+      const isEmailValid = PORTAL_AUTH_CONFIG.validEmails.includes(enteredEmail);
+      const isPassValid = enteredPass === PORTAL_AUTH_CONFIG.validPassword;
+
+      if (isEmailValid && isPassValid) {
+        if (errBox) errBox.classList.add("hidden");
+        try {
+          sessionStorage.setItem(K.portalAuth, "true");
+          sessionStorage.setItem(K.portalUser, enteredEmail);
+          if (rememberCheckbox?.checked) {
+            localStorage.setItem(K.portalAuth, "true");
+            localStorage.setItem(K.portalUser, enteredEmail);
+          }
+        } catch {}
+
+        hideAuthGate();
+        toast("✓ Portal unlocked! Welcome.");
+      } else {
+        if (errBox) {
+          errBox.textContent = "⚠️ Invalid Email or Password. Please enter authorized credentials.";
+          errBox.classList.remove("hidden");
+        }
+        const card = $("#authGateCard");
+        if (card) {
+          card.classList.remove("shake");
+          void card.offsetWidth;
+          card.classList.add("shake");
+        }
+        if (passInput) {
+          passInput.focus();
+          passInput.select();
+        }
+      }
+    };
+  }
+
+  // Check initial authentication state
+  if (!isPortalAuthenticated()) {
+    showAuthGate();
+  } else {
+    hideAuthGate();
+  }
+}
+
+initAuthGate();

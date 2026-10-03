@@ -4366,3 +4366,378 @@ footer span {
   border: 1px solid rgba(16, 185, 129, 0.25);
   color: var(--g);
 }
+
+/* ==========================================================================
+   Portal Entrance Security & App Notification Modal
+   ========================================================================== */
+body.portal-locked {
+  overflow: hidden !important;
+}
+
+body.portal-locked header,
+body.portal-locked main,
+body.portal-locked footer,
+body.portal-locked #modal {
+  filter: blur(8px) saturate(70%);
+  opacity: 0.35;
+  pointer-events: none !important;
+  user-select: none !important;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.authGateBg {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(16px, 3vh) max(14px, 2.5vw);
+  overflow-y: auto;
+  box-sizing: border-box;
+  animation: authFadeIn 0.25s ease-out;
+}
+
+.authGateBg.hidden {
+  display: none !important;
+}
+
+@keyframes authFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.authGateCard {
+  width: min(540px, 100%);
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(59, 130, 246, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: authPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: auto;
+}
+
+@keyframes authPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.authGateCard.shake {
+  animation: authShake 0.4s ease-in-out;
+}
+
+@keyframes authShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.authGateTop {
+  padding: 20px 22px 16px;
+  background: linear-gradient(180deg, var(--card-subtle) 0%, var(--card) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.authGateBrand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.authGateLogo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  padding: 4px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.authGateTitles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authSecurityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--p);
+  background: var(--p-subtle);
+  border: 1px solid var(--p-border);
+  padding: 2px 8px;
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 2px;
+}
+
+.authGateHeading {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--t);
+  line-height: 1.25;
+}
+
+.authGateSub {
+  font-size: 12px;
+  color: var(--m);
+  line-height: 1.4;
+}
+
+/* Announcement Banner */
+.authNoticeBanner {
+  margin: 16px 20px 0;
+  padding: 13px 15px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+[data-theme="dark"] .authNoticeBanner {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(139, 92, 246, 0.18) 100%);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.authNoticeHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.authNoticeIconWrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--p);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.authNoticeHeadText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authNoticeBadge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: var(--p);
+  text-transform: uppercase;
+}
+
+.authNoticeHeading {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--t);
+  line-height: 1.35;
+}
+
+.authNoticeBody {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--t-secondary);
+}
+
+.authNoticeUrdu {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--t);
+  background: rgba(0, 0, 0, 0.03);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border-right: 3px solid var(--p);
+}
+
+[data-theme="dark"] .authNoticeUrdu {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Authentication Form */
+.authFormWrap {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.authFormTitleRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authFormTitleRow h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--t);
+}
+
+.authFormHint {
+  font-size: 12px;
+  color: var(--m);
+}
+
+.authError {
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--r);
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.authError.hidden {
+  display: none !important;
+}
+
+.authField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.authField label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--t);
+}
+
+.authInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.authInputIcon {
+  position: absolute;
+  left: 12px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.authInputWrapper input {
+  width: 100%;
+  padding: 9.5px 38px 9.5px 36px;
+  font-size: 13.5px;
+  background: var(--card-subtle);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--t);
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  font-family: inherit;
+}
+
+.authInputWrapper input:focus {
+  border-color: var(--p);
+  box-shadow: 0 0 0 3px var(--p-subtle);
+  background: var(--card);
+}
+
+.authEyeBtn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.65;
+  transition: opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--t);
+}
+
+.authEyeBtn:hover {
+  opacity: 1;
+}
+
+.authFormFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -2px;
+  margin-bottom: 6px;
+}
+
+.authRememberLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--m);
+  cursor: pointer;
+  user-select: none;
+}
+
+.authSubmitBtn {
+  width: 100%;
+  padding: 11px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.authSubmitBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.authSubmitBtn:active {
+  transform: translateY(0);
+}
+
+.authPortalFooter {
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--m);
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
