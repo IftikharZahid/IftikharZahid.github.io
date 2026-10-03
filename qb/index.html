@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=22">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
@@ -535,6 +535,18 @@
           <p>Clear saved tests and bookmarks.</p>
           <button id="reset" class="danger">Reset Progress</button>
         </article>
+
+        <!-- Public Tool 3: Official Android App Download -->
+        <article id="toolAppDownloadCard" style="border-top:3px solid var(--p)!important;background:linear-gradient(180deg, var(--card) 0%, rgba(37,99,235,0.04) 100%)!important;">
+          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
+            <b>📱 Android Mobile App</b>
+            <span class="tag" style="background:rgba(37,99,235,0.12);color:var(--p);font-weight:700;font-size:10px;padding:3px 7px;">Official APK</span>
+          </div>
+          <p>Install on your smartphone for fast, offline continuous assessment practice.</p>
+          <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="primary" style="display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;padding:9px 12px;font-size:12.5px;font-weight:700;border-radius:var(--radius-sm);color:#fff;" download target="_blank" rel="noopener noreferrer">
+            <span>🤖</span> Download APK (Direct)
+          </a>
+        </article>
       </div>
     </section>
   </main>
@@ -551,52 +563,75 @@
   </footer>
 
   <!-- ==========================================================================
-       Home Screen Official Mobile Application Announcement Pop-up Modal
+       Home Screen Official Mobile Application Announcement Pop-up Modal (Compact)
        ========================================================================== -->
   <div id="appNoticeModal" class="modalBg hidden" role="dialog" aria-modal="true" aria-labelledby="appNoticeTitle">
-    <div class="modal appNoticeModalCard" id="appNoticeCard">
+    <div class="modal appNoticeModalCard compactModal" id="appNoticeCard">
       <button id="appNoticeCloseBtn" class="close" title="Close announcement" aria-label="Close announcement">×</button>
       
-      <div class="appNoticeTop">
+      <div class="appNoticeTop compactTop">
         <div class="appNoticeBrand">
-          <img src="logo.png" alt="MCQs Question Bank Logo" class="appNoticeLogo" width="52" height="52">
+          <img src="logo.png" alt="MCQs Question Bank Logo" class="appNoticeLogo" width="42" height="42">
           <div class="appNoticeTitles">
-            <span class="appNoticeBadge">📱 UPCOMING MOBILE APP</span>
-            <h2 id="appNoticeTitle" class="appNoticeHeading">خصوصی موبائل ایپلی کیشن زیرِ تیاری ہے</h2>
-            <small class="appNoticeSub">Official Mobile Application Coming Soon!</small>
+            <span class="appNoticeBadge">📱 OFFICIAL ANDROID APPLICATION</span>
+            <h2 id="appNoticeTitle" class="appNoticeHeading">MCQs Bank Mobile App</h2>
+            <small class="appNoticeSub">Official Mobile App Now Available for Direct Download</small>
           </div>
         </div>
       </div>
 
-      <div class="appNoticeContent">
-        <div class="appNoticeUrduBox" dir="rtl">
-          📢 <b>اہم اطلاع برائے طلبہ و طالبات:</b><br>
-          تمام طلبہ کو مطلع کیا جاتا ہے کہ اس پورٹل کے لیے ایک باقاعدہ اور خصوصی <b>موبائل ایپلی کیشن (Mobile App)</b> تیار کی جا رہی ہے۔ عنقریب آپ ایپ ڈاؤن لوڈ کر کے اپنے تمام آن لائن امتحانات، کوئز اور سمسٹر پریکٹس ٹیسٹس موبائل فون پر باآسانی، آف لائن سپورٹ اور بہترین رفتار کے ساتھ حل کر سکیں گے۔
-        </div>
-
-        <p class="appNoticeEngText">
-          We are pleased to announce that an official <strong>MCQs Question Bank Mobile Application</strong> is currently being developed for our students and faculty. Soon, you will be able to download the official mobile app to conveniently practice, attempt online continuous examinations, and track assessment progress with ease.
-        </p>
-
-        <div class="appNoticeHighlights">
-          <div class="noticeHighlightItem">
-            <span class="highlightIcon">⚡</span>
-            <div><b>Fast & Smooth</b><small>Optimized test taking on smartphones</small></div>
+      <div class="appNoticeContent compactContent">
+        <div class="appNoticeBodyGrid compactGrid">
+          <!-- Actual Mobile Mockup Preview Column -->
+          <div class="appNoticePreviewCol">
+            <div class="actualMockupWrap">
+              <img src="app-mockup.png" alt="MCQs Bank Android Mobile App Actual Screen Mockup" class="actualMockupImg" width="482" height="1024" fetchpriority="high">
+              <div class="mockupFloatingPill">
+                <span>📲 Official Mobile App</span>
+              </div>
+            </div>
           </div>
-          <div class="noticeHighlightItem">
-            <span class="highlightIcon">📡</span>
-            <div><b>Offline Practice</b><small>Access verified questions anytime</small></div>
-          </div>
-        </div>
 
-        <div class="appNoticeActions">
-          <button id="appNoticeDismissBtn" class="primary appNoticeProceedBtn">
-            <span>✓ سمجھ آ گئی، پورٹل جاری رکھیں / Continue to Question Bank →</span>
-          </button>
-          <label class="appNoticeRemember">
-            <input type="checkbox" id="dontShowNoticeAgain">
-            <span>Don't show this announcement again today</span>
-          </label>
+          <!-- Notice Details & Download Column -->
+          <div class="appNoticeDetailsCol compactDetails">
+            <div class="appNoticeUrduBox compactUrdu" dir="rtl">
+              📢 <b>موبائل ایپ دستیاب ہے:</b> تمام بکس، ٹیسٹس اور کوئز اپنے اسمارٹ فون پر تیز رفتار اور بغیر انٹرنیٹ آف لائن حل کریں۔
+            </div>
+
+            <!-- Prominent Direct APK Download CTA Button -->
+            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="appDownloadBtn" id="appNoticeDownloadLink" download target="_blank" rel="noopener noreferrer">
+              <div class="appDownloadIconBox">
+                <span class="androidIcon">🤖</span>
+                <span class="downloadArrowAnim">↓</span>
+              </div>
+              <div class="appDownloadText">
+                <span class="appDownloadMain">Download Android App (APK)</span>
+                <span class="appDownloadSub">براہِ راست ڈاؤن لوڈ کریں • Direct APK Release</span>
+              </div>
+              <span class="appDownloadBadge">Direct Link</span>
+            </a>
+
+            <!-- Compact Feature Chips -->
+            <div class="appNoticeMiniChips">
+              <span class="miniChip">⚡ Fast & Smooth</span>
+              <span class="miniChip">📡 100% Offline Mode</span>
+              <span class="miniChip">📊 Instant Evaluation</span>
+            </div>
+
+            <p class="appNoticeEngText compactEng">
+              Direct APK for Android smartphones. Practice lecture MCQs offline.
+            </p>
+
+            <div class="appNoticeActions compactActions">
+              <button id="appNoticeDismissBtn" class="appNoticeProceedBtn">
+                <span>🌐 ویب پورٹل جاری رکھیں / Continue to Web Portal →</span>
+              </button>
+              <label class="appNoticeRemember">
+                <input type="checkbox" id="dontShowNoticeAgain">
+                <span>Don't show this announcement again today</span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -610,6 +645,6 @@
   </div>
   <div id="toast"></div>
 
-  <script src="script.js?v=19"></script>
+  <script src="script.js?v=22"></script>
 </body>
 </html>
