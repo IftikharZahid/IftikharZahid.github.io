@@ -1,0 +1,339 @@
+{
+  "questionBank": {
+    "bankId": "OOP-BSCS-W04",
+    "title": "Object-Oriented Programming — Week 4 Question Bank",
+    "subject": "Object-Oriented Programming",
+    "courseCode": "OOP",
+    "program": "BS Computer Science",
+    "class": "BS Computer Science",
+    "section": "Week 4",
+    "weekNo": 4,
+    "semester": "BSCS",
+    "assessmentType": "MCQs",
+    "language": "English",
+    "totalQuestions": 20,
+    "marksPerQuestion": 1,
+    "totalMarks": 20,
+    "preparedBy": "Iftikhar Zahid",
+    "role": "Lecturer, Computer Science",
+    "version": "1.0",
+    "createdFor": "HTML/CSS/JavaScript Question Bank",
+    "syllabusCoverage": "Concept of Constructor; types of Constructors (default, parameterized and copy); Encapsulation and Information Hiding; public and private access specifiers; this and new keywords.",
+    "topics": [
+      "Constructors",
+      "Default Constructor",
+      "Parameterized Constructor",
+      "Copy Constructor",
+      "Constructor Initialization List",
+      "Constructor Overloading",
+      "Encapsulation",
+      "Information Hiding",
+      "Access Specifiers",
+      "this Pointer",
+      "new Keyword",
+      "Dynamic Memory"
+    ],
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the primary purpose of a constructor in C++?",
+        "options": {
+          "A": "To destroy an object",
+          "B": "To initialize an object when it is created",
+          "C": "To define a namespace",
+          "D": "To overload an operator"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Constructors",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 2,
+        "question": "Which statement about a C++ constructor is correct?",
+        "options": {
+          "A": "It must have a return type",
+          "B": "It has the same name as its class and no return type",
+          "C": "It must always be private",
+          "D": "It can only be called manually"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Constructors",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 3,
+        "question": "A constructor that can be called without arguments is commonly called a:",
+        "options": {
+          "A": "Copy constructor",
+          "B": "Parameterized constructor",
+          "C": "Default constructor",
+          "D": "Virtual constructor"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Default Constructor",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 4,
+        "question": "Which constructor receives values from the caller to initialize an object?",
+        "options": {
+          "A": "Default constructor",
+          "B": "Parameterized constructor",
+          "C": "Destructor",
+          "D": "Friend constructor"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Parameterized Constructor",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 5,
+        "question": "What is the main purpose of a copy constructor?",
+        "options": {
+          "A": "To delete an existing object",
+          "B": "To create a new object from an existing object of the same class",
+          "C": "To allocate a namespace",
+          "D": "To access private members from any function"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Copy Constructor",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 6,
+        "question": "Which is a conventional declaration for a copy constructor of class Student?",
+        "options": {
+          "A": "Student(Student other)",
+          "B": "Student(const Student& other)",
+          "C": "void Student(const Student& other)",
+          "D": "copy Student(Student& other)"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Copy Constructor",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 7,
+        "question": "Which syntax uses a constructor initialization list?",
+        "options": {
+          "A": "Student(string n) { name = n; }",
+          "B": "Student(string n) : name(n) { }",
+          "C": "Student : name(n) { }",
+          "D": "constructor Student(name)"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Constructor Initialization List",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 8,
+        "question": "Constructor overloading means:",
+        "options": {
+          "A": "A class has multiple constructors with different parameter lists",
+          "B": "A constructor has multiple return types",
+          "C": "A constructor is inherited from every class",
+          "D": "A constructor is converted into a namespace"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "topic": "Constructor Overloading",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 9,
+        "question": "Encapsulation primarily involves:",
+        "options": {
+          "A": "Combining data and related operations while controlling access",
+          "B": "Removing all methods from a class",
+          "C": "Making every field public",
+          "D": "Replacing classes with functions"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "topic": "Encapsulation",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 10,
+        "question": "Information hiding refers to:",
+        "options": {
+          "A": "Hiding all source code from the compiler",
+          "B": "Concealing implementation details behind a controlled interface",
+          "C": "Deleting private members",
+          "D": "Hiding the class name"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Information Hiding",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 11,
+        "question": "Which access specifier is generally used to expose a class's public interface?",
+        "options": {
+          "A": "private",
+          "B": "protected",
+          "C": "public",
+          "D": "hidden"
+        },
+        "correctAnswer": "C",
+        "correctOptionIndex": 2,
+        "topic": "Access Specifiers",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 12,
+        "question": "In a C++ class, members are private by default when no access specifier is written. Which keyword changes access to public?",
+        "options": {
+          "A": "public",
+          "B": "open",
+          "C": "export",
+          "D": "visible"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "topic": "Access Specifiers",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 13,
+        "question": "Which statement about private members is correct?",
+        "options": {
+          "A": "They can always be accessed directly from main()",
+          "B": "They are directly accessible only within the class and permitted friends",
+          "C": "They must be static",
+          "D": "They cannot store data"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Private Access",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 14,
+        "question": "In a non-static member function, this is:",
+        "options": {
+          "A": "A reference to the class definition",
+          "B": "A pointer to the current object",
+          "C": "A pointer to the compiler",
+          "D": "A namespace identifier"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "this Pointer",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 15,
+        "question": "Why is this->name useful in a constructor such as Student(string name)?",
+        "options": {
+          "A": "It creates a new class",
+          "B": "It distinguishes the data member name from the parameter name",
+          "C": "It deletes the parameter",
+          "D": "It changes the access specifier"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "this Pointer",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 16,
+        "question": "What does the new operator do in C++ when used as new Student()?",
+        "options": {
+          "A": "Only declares a pointer",
+          "B": "Dynamically allocates storage and constructs a Student object",
+          "C": "Deletes a Student object",
+          "D": "Creates a namespace"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "new Keyword",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 17,
+        "question": "What should normally be used to release one object allocated with new?",
+        "options": {
+          "A": "free[]",
+          "B": "delete",
+          "C": "remove",
+          "D": "clear"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Dynamic Memory",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 18,
+        "question": "What should be used to release an array allocated with new[]?",
+        "options": {
+          "A": "delete",
+          "B": "delete[]",
+          "C": "remove[]",
+          "D": "destroy"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Dynamic Memory",
+        "difficulty": "Easy",
+        "marks": 1
+      },
+      {
+        "id": 19,
+        "question": "Which expression dynamically creates a Student object using a parameterized constructor?",
+        "options": {
+          "A": "Student* s = new Student(\"Ali\", 101);",
+          "B": "Student s = new Student(\"Ali\", 101);",
+          "C": "new Student* s(\"Ali\", 101);",
+          "D": "Student::new(\"Ali\", 101);"
+        },
+        "correctAnswer": "A",
+        "correctOptionIndex": 0,
+        "topic": "new with Constructor",
+        "difficulty": "Medium",
+        "marks": 1
+      },
+      {
+        "id": 20,
+        "question": "Which design best demonstrates encapsulation?",
+        "options": {
+          "A": "Public fields with no validation",
+          "B": "Private data with public methods that control access",
+          "C": "All members declared outside the class",
+          "D": "No constructors and no methods"
+        },
+        "correctAnswer": "B",
+        "correctOptionIndex": 1,
+        "topic": "Encapsulation",
+        "difficulty": "Easy",
+        "marks": 1
+      }
+    ]
+  }
+}
