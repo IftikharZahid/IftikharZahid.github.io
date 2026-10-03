@@ -3145,6 +3145,8 @@ const K = {
   questions: "qcustom_questions",
   subjects: "qsubjects",
   activeSubject: "qactive_subject",
+  instructorAuth: "qb_instructor_auth_v1",
+  instructorUser: "qb_instructor_user_v1",
   portalAuth: "qb_portal_auth_v1",
   portalUser: "qb_portal_user_v1"
 };
@@ -5300,15 +5302,15 @@ function handleMongoFileSelect(e) {
 }
 
 // 10. Tools & Management Action Buttons
-if ($("#export")) $("#export").onclick = exportQuestionsJSON;
-if ($("#import")) $("#import").onclick = () => $("#file").click();
+if ($("#export")) $("#export").onclick = () => requireInstructorAuth(exportQuestionsJSON);
+if ($("#import")) $("#import").onclick = () => requireInstructorAuth(() => $("#file")?.click());
 if ($("#file")) $("#file").onchange = handleFileImport;
-if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = confirmRestoreDefaults;
-if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => $("#file").click();
-if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => $("#mongoFileInput")?.click();
+if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = () => requireInstructorAuth(confirmRestoreDefaults);
+if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => requireInstructorAuth(() => $("#file")?.click());
+if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => requireInstructorAuth(() => $("#mongoFileInput")?.click());
 if ($("#mongoFileInput")) $("#mongoFileInput").onchange = handleMongoFileSelect;
-if ($("#mongoSyncBtn")) $("#mongoSyncBtn").onclick = syncBooksFromMongo;
-if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = syncBooksFromMongo;
+if ($("#mongoSyncBtn")) $("#mongoSyncBtn").onclick = () => requireInstructorAuth(syncBooksFromMongo);
+if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = () => requireInstructorAuth(syncBooksFromMongo);
 
 // Check MongoDB status & auto-sync if connected
 checkMongoStatus(true).then(stat => {
@@ -5394,77 +5396,115 @@ updateHeroSubjectUI();
 updateTranscriptSubjectUI(s.activeSubject);
 updateQuestionCountUI();
 updateExamStatusUI();
+
 // ==========================================================================
-// 12. Portal Entrance Security & App Announcement Gatekeeper
+// 12. Instructor Authorization for Import & Export
 // ==========================================================================
-const PORTAL_AUTH_CONFIG = {
+const INSTRUCTOR_AUTH_CONFIG = {
   validEmails: [
     "iftkharxahid@gmail.com",
-    "iftikharzahid@gmail.com"
+    "iftikharxahid@gmail.com",
+    "iftikharzahid@gmail.com",
+    "iftkharzahid@gmail.com"
   ],
   validPassword: "110022"
 };
 
-function isPortalAuthenticated() {
+function isInstructorAuthenticated() {
   try {
-    const sAuth = sessionStorage.getItem(K.portalAuth);
-    const lAuth = localStorage.getItem(K.portalAuth);
+    const sAuth = sessionStorage.getItem(K.instructorAuth);
+    const lAuth = localStorage.getItem(K.instructorAuth);
     return sAuth === "true" || lAuth === "true";
   } catch {
     return false;
   }
 }
 
-function showAuthGate() {
-  const modal = $("#authGateModal");
-  if (!modal) return;
-  document.body.classList.add("portal-locked");
-  modal.classList.remove("hidden");
+function updateInstructorAuthUI() {
+  const isAuth = isInstructorAuthenticated();
+  const lockedView = $("#instructorLockedView");
+  const unlockedView = $("#instructorUnlockedView");
+  const emailDisp = $("#instructorActiveEmail");
+  const headerLock = $("#portalLockBtn");
+  const drawerLock = $("#drawerPortalLockBtn");
 
-  const savedUser = localStorage.getItem(K.portalUser) || sessionStorage.getItem(K.portalUser) || "";
-  const emailInput = $("#authEmail");
-  const passInput = $("#authPassword");
-  const errBox = $("#authErrorMsg");
-
-  if (errBox) errBox.classList.add("hidden");
-  if (passInput) passInput.value = "";
-
-  if (emailInput) {
-    if (savedUser) {
-      emailInput.value = savedUser;
-      if (passInput) passInput.focus();
+  // Toggle visibility of restricted management tools (Import, MongoDB Cloud, Export)
+  const restrictedTools = document.querySelectorAll(".facultyRestrictedTool");
+  restrictedTools.forEach((card) => {
+    if (isAuth) {
+      card.classList.remove("hidden");
     } else {
-      emailInput.focus();
+      card.classList.add("hidden");
     }
+  });
+
+  if (lockedView && unlockedView) {
+    if (isAuth) {
+      lockedView.classList.add("hidden");
+      unlockedView.classList.remove("hidden");
+      const userEmail = localStorage.getItem(K.instructorUser) || sessionStorage.getItem(K.instructorUser) || "IftkharXahid@gmail.com";
+      if (emailDisp) emailDisp.textContent = userEmail;
+    } else {
+      lockedView.classList.remove("hidden");
+      unlockedView.classList.add("hidden");
+    }
+  }
+
+  if (headerLock) {
+    headerLock.textContent = isAuth ? "🔓" : "🔒";
+    headerLock.title = isAuth ? "Instructor Mode Active (Click to Lock)" : "Instructor Authorization Required";
+  }
+  if (drawerLock) {
+    drawerLock.textContent = isAuth ? "🔓 Lock Instructor Mode" : "🔒 Instructor Login";
   }
 }
 
-function hideAuthGate() {
-  const modal = $("#authGateModal");
-  if (!modal) return;
-  modal.classList.add("hidden");
-  document.body.classList.remove("portal-locked");
-}
-
-function lockPortal() {
+function lockInstructorMode() {
   try {
-    sessionStorage.removeItem(K.portalAuth);
-    sessionStorage.removeItem(K.portalUser);
-    localStorage.removeItem(K.portalAuth);
+    sessionStorage.removeItem(K.instructorAuth);
+    sessionStorage.removeItem(K.instructorUser);
+    localStorage.removeItem(K.instructorAuth);
+    localStorage.removeItem(K.instructorUser);
   } catch {}
-  showAuthGate();
-  toast("Portal locked. Please sign in to resume.");
+  updateInstructorAuthUI();
+  toast("Instructor mode locked. Import/Export tools hidden.");
 }
 
-function initAuthGate() {
-  const form = $("#authGateForm");
-  const emailInput = $("#authEmail");
-  const passInput = $("#authPassword");
-  const toggleBtn = $("#authTogglePwd");
-  const errBox = $("#authErrorMsg");
-  const rememberCheckbox = $("#authRemember");
-  const lockBtn = $("#portalLockBtn");
-  const drawerLockBtn = $("#drawerPortalLockBtn");
+function requireInstructorAuth(actionFn) {
+  if (!isInstructorAuthenticated()) {
+    const card = $("#instructorAuthCard");
+    if (card) {
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+      card.classList.remove("shake");
+      void card.offsetWidth;
+      card.classList.add("shake");
+    }
+    const err = $("#instructorAuthError");
+    if (err) {
+      err.textContent = "⚠️ Please enter instructor credentials below to use Import & Export features.";
+      err.classList.remove("hidden");
+    }
+    const emailInput = $("#instructorEmail");
+    const passInput = $("#instructorPassword");
+    if (emailInput && !emailInput.value) emailInput.focus();
+    else if (passInput) passInput.focus();
+    toast("⚠️ Instructor authorization required for Import & Export", true);
+    return false;
+  }
+  if (typeof actionFn === "function") actionFn();
+  return true;
+}
+
+function initInstructorAuth() {
+  const form = $("#instructorAuthForm");
+  const emailInput = $("#instructorEmail");
+  const passInput = $("#instructorPassword");
+  const toggleBtn = $("#instructorTogglePwd");
+  const errBox = $("#instructorAuthError");
+  const rememberCb = $("#instructorRemember");
+  const lockBtn = $("#instructorLockBtn");
+  const headerLock = $("#portalLockBtn");
+  const drawerLock = $("#drawerPortalLockBtn");
 
   if (toggleBtn && passInput) {
     toggleBtn.onclick = () => {
@@ -5474,8 +5514,30 @@ function initAuthGate() {
     };
   }
 
-  if (lockBtn) lockBtn.onclick = lockPortal;
-  if (drawerLockBtn) drawerLockBtn.onclick = lockPortal;
+  if (lockBtn) lockBtn.onclick = lockInstructorMode;
+  if (headerLock) {
+    headerLock.onclick = () => {
+      if (isInstructorAuthenticated()) {
+        lockInstructorMode();
+      } else {
+        $("#tools")?.scrollIntoView({ behavior: "smooth" });
+        $("#instructorAuthCard")?.scrollIntoView({ behavior: "smooth", block: "center" });
+        $("#instructorEmail")?.focus();
+      }
+    };
+  }
+  if (drawerLock) {
+    drawerLock.onclick = () => {
+      $("#drawer").classList.remove("drawerOpen");
+      if (isInstructorAuthenticated()) {
+        lockInstructorMode();
+      } else {
+        $("#tools")?.scrollIntoView({ behavior: "smooth" });
+        $("#instructorAuthCard")?.scrollIntoView({ behavior: "smooth", block: "center" });
+        $("#instructorEmail")?.focus();
+      }
+    };
+  }
 
   if (form) {
     form.onsubmit = (e) => {
@@ -5483,28 +5545,28 @@ function initAuthGate() {
       const enteredEmail = (emailInput?.value || "").trim().toLowerCase();
       const enteredPass = (passInput?.value || "").trim();
 
-      const isEmailValid = PORTAL_AUTH_CONFIG.validEmails.includes(enteredEmail);
-      const isPassValid = enteredPass === PORTAL_AUTH_CONFIG.validPassword;
+      const isEmailValid = INSTRUCTOR_AUTH_CONFIG.validEmails.includes(enteredEmail);
+      const isPassValid = enteredPass === INSTRUCTOR_AUTH_CONFIG.validPassword;
 
       if (isEmailValid && isPassValid) {
         if (errBox) errBox.classList.add("hidden");
         try {
-          sessionStorage.setItem(K.portalAuth, "true");
-          sessionStorage.setItem(K.portalUser, enteredEmail);
-          if (rememberCheckbox?.checked) {
-            localStorage.setItem(K.portalAuth, "true");
-            localStorage.setItem(K.portalUser, enteredEmail);
+          sessionStorage.setItem(K.instructorAuth, "true");
+          sessionStorage.setItem(K.instructorUser, enteredEmail);
+          if (rememberCb?.checked) {
+            localStorage.setItem(K.instructorAuth, "true");
+            localStorage.setItem(K.instructorUser, enteredEmail);
           }
         } catch {}
 
-        hideAuthGate();
-        toast("✓ Portal unlocked! Welcome.");
+        updateInstructorAuthUI();
+        toast("✓ Instructor authorized! Import, Export & Cloud Database tools unlocked.");
       } else {
         if (errBox) {
-          errBox.textContent = "⚠️ Invalid Email or Password. Please enter authorized credentials.";
+          errBox.textContent = "⚠️ Invalid Email or Password. Please enter authorized instructor credentials.";
           errBox.classList.remove("hidden");
         }
-        const card = $("#authGateCard");
+        const card = $("#instructorAuthCard");
         if (card) {
           card.classList.remove("shake");
           void card.offsetWidth;
@@ -5518,12 +5580,58 @@ function initAuthGate() {
     };
   }
 
-  // Check initial authentication state
-  if (!isPortalAuthenticated()) {
-    showAuthGate();
-  } else {
-    hideAuthGate();
+  updateInstructorAuthUI();
+}
+
+// ==========================================================================
+// 13. Home Screen Official Mobile Application Announcement Pop-up Modal
+// ==========================================================================
+function showAppNoticeModal() {
+  const modal = $("#appNoticeModal");
+  if (!modal) return;
+  try {
+    const dismissed = localStorage.getItem("qb_mobile_notice_dismissed");
+    const today = new Date().toISOString().slice(0, 10);
+    if (dismissed === today) return;
+  } catch {}
+  modal.classList.remove("hidden");
+}
+
+function hideAppNoticeModal(remember = false) {
+  const modal = $("#appNoticeModal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  if (remember || $("#dontShowNoticeAgain")?.checked) {
+    try {
+      localStorage.setItem("qb_mobile_notice_dismissed", new Date().toISOString().slice(0, 10));
+    } catch {}
   }
 }
 
-initAuthGate();
+function initAppNoticeModal() {
+  const closeBtn = $("#appNoticeCloseBtn");
+  const dismissBtn = $("#appNoticeDismissBtn");
+  const modal = $("#appNoticeModal");
+
+  if (closeBtn) closeBtn.onclick = () => hideAppNoticeModal(false);
+  if (dismissBtn) dismissBtn.onclick = () => hideAppNoticeModal(true);
+
+  if (modal) {
+    modal.onclick = (e) => {
+      if (e.target === modal) hideAppNoticeModal(false);
+    };
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+      hideAppNoticeModal(false);
+    }
+  });
+
+  // Automatically display announcement on home screen / page load
+  setTimeout(showAppNoticeModal, 250);
+}
+
+// Initialize Feature Modules
+initInstructorAuth();
+initAppNoticeModal();

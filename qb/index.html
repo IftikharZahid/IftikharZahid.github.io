@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="style.css?v=19">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
@@ -415,12 +415,74 @@
       <div class="title">
         <div>
           <small class="eyebrow">QUESTION MANAGEMENT</small>
-          <h2>Import / Export</h2>
+          <h2>Management & Tools</h2>
         </div>
       </div>
+
+      <!-- Instructor Authorization for Import / Export -->
+      <div id="instructorAuthCard" class="instructorAuthCard">
+        <div id="instructorLockedView" class="instructorLockedView">
+          <div class="instructorAuthHead">
+            <div class="instructorShieldIcon">🔐</div>
+            <div class="instructorAuthTitles">
+              <span class="instructorBadge">Faculty Protected</span>
+              <h3>Instructor Authorization for Question Management</h3>
+              <p>Sign in with authorized faculty credentials to reveal and access Question Import, Export, and MongoDB Cloud Database tools. (Public access is limited to Bookmarks and Progress Reset).</p>
+            </div>
+          </div>
+          <form id="instructorAuthForm" class="instructorAuthForm" novalidate autocomplete="on">
+            <div id="instructorAuthError" class="authError hidden" role="alert"></div>
+            <div class="instructorFormRow">
+              <div class="authField" style="flex:1;margin-bottom:0;">
+                <label for="instructorEmail">Instructor Email</label>
+                <div class="authInputWrapper">
+                  <span class="authInputIcon">✉️</span>
+                  <input type="email" id="instructorEmail" placeholder="e.g. IftkharXahid@gmail.com" required autocomplete="username" spellcheck="false">
+                </div>
+              </div>
+              <div class="authField" style="flex:1;margin-bottom:0;">
+                <label for="instructorPassword">Password</label>
+                <div class="authInputWrapper">
+                  <span class="authInputIcon">🔑</span>
+                  <input type="password" id="instructorPassword" placeholder="Enter password" required autocomplete="current-password">
+                  <button type="button" id="instructorTogglePwd" class="authEyeBtn" title="Toggle password visibility" aria-label="Toggle password visibility">👁️</button>
+                </div>
+              </div>
+              <button type="submit" id="instructorAuthBtn" class="primary instructorSubmitBtn">
+                <span>Unlock Import & Export →</span>
+              </button>
+            </div>
+            <div class="instructorFormFoot">
+              <label class="authRememberLabel">
+                <input type="checkbox" id="instructorRemember" checked>
+                <span>Remember instructor session on this device</span>
+              </label>
+              <span style="font-size:11.5px;color:var(--m);">Authorized: <b>IftkharXahid@gmail.com</b></span>
+            </div>
+          </form>
+        </div>
+
+        <div id="instructorUnlockedView" class="instructorUnlockedView hidden">
+          <div class="instructorActiveBanner">
+            <div class="instructorActiveLeft">
+              <span class="instructorActiveIcon">✅</span>
+              <div>
+                <span class="instructorActiveBadge">Instructor Mode Active</span>
+                <div class="instructorActiveUser">Authenticated as <b id="instructorActiveEmail">IftkharXahid@gmail.com</b> • Full Import, Export & Cloud Database Access Granted</div>
+              </div>
+            </div>
+            <button id="instructorLockBtn" class="secondary" style="font-size:12px;padding:6px 12px;border-color:rgba(239,68,68,0.3);color:var(--r);font-weight:600;">🔒 Lock & Sign Out</button>
+          </div>
+        </div>
+      </div>
+
       <div class="toolGrid">
-        <article>
-          <div class="toolHeader"><b>↓ Import Book & Class Record</b></div>
+        <!-- Faculty Restricted Tool 1: Import Book & Class Record -->
+        <article id="toolImportCard" class="facultyRestrictedTool hidden">
+          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
+            <b>↓ Import Book & Class Record</b>
+            <span class="facultyMiniBadge">Faculty Only</span>
+          </div>
           <p id="importStatusText">Load JSON file or question bank. Prompts for book, week, and class details.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
             <button id="import" class="secondary">Choose JSON File</button>
@@ -428,10 +490,15 @@
           </div>
           <input id="file" type="file" accept=".json,application/json" hidden>
         </article>
-        <article class="mongoSyncCard">
+
+        <!-- Faculty Restricted Tool 2: MongoDB Atlas Cloud Database -->
+        <article id="toolMongoCard" class="mongoSyncCard facultyRestrictedTool hidden">
           <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
             <b>🍃 MongoDB Atlas Cloud Database</b>
-            <span id="mongoStatusBadge" class="tag" style="font-size:10px;padding:3px 7px;">Checking...</span>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span class="facultyMiniBadge">Faculty Only</span>
+              <span id="mongoStatusBadge" class="tag" style="font-size:10px;padding:3px 7px;">Checking...</span>
+            </div>
           </div>
           <p id="mongoSyncInfo">Cloud MongoDB connection (<code>cluster0.3kgnmwl.mongodb.net</code>). Upload JSON questions to cloud or sync remote books.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;">
@@ -444,17 +511,26 @@
           </div>
           <input id="mongoFileInput" type="file" accept=".json,application/json" hidden>
         </article>
-        <article>
-          <div class="toolHeader"><b>↑ Export Questions</b></div>
+
+        <!-- Faculty Restricted Tool 3: Export Questions -->
+        <article id="toolExportCard" class="facultyRestrictedTool hidden">
+          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
+            <b>↑ Export Questions</b>
+            <span class="facultyMiniBadge">Faculty Only</span>
+          </div>
           <p id="exportStatusText">Download the current question bank.</p>
           <button id="export" class="secondary">Export JSON</button>
         </article>
-        <article>
+
+        <!-- Public Tool 1: Bookmarks -->
+        <article id="toolBookmarksCard">
           <div class="toolHeader"><b>★ My Bookmarks</b></div>
           <p id="bmInfo">0 bookmarked questions</p>
           <button id="bookmarks" class="secondary">View Bookmarks</button>
         </article>
-        <article>
+
+        <!-- Public Tool 2: Reset Progress -->
+        <article id="toolResetProgressCard">
           <div class="toolHeader"><b>↺ Reset Progress</b></div>
           <p>Clear saved tests and bookmarks.</p>
           <button id="reset" class="danger">Reset Progress</button>
@@ -475,82 +551,52 @@
   </footer>
 
   <!-- ==========================================================================
-       Portal Entrance Authentication & App Announcement Modal
+       Home Screen Official Mobile Application Announcement Pop-up Modal
        ========================================================================== -->
-  <div id="authGateModal" class="authGateBg hidden" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
-    <div class="authGateCard" id="authGateCard">
-      <!-- Top Branding -->
-      <div class="authGateTop">
-        <div class="authGateBrand">
-          <img src="logo.png" alt="MCQs Question Bank Logo" class="authGateLogo" width="54" height="54">
-          <div class="authGateTitles">
-            <div class="authSecurityBadge">🔒 Protected Academic Portal</div>
-            <h2 id="authGateTitle" class="authGateHeading">MCQs Question Bank</h2>
-            <p class="authGateSub">Computer Science Continuous Assessment System</p>
+  <div id="appNoticeModal" class="modalBg hidden" role="dialog" aria-modal="true" aria-labelledby="appNoticeTitle">
+    <div class="modal appNoticeModalCard" id="appNoticeCard">
+      <button id="appNoticeCloseBtn" class="close" title="Close announcement" aria-label="Close announcement">×</button>
+      
+      <div class="appNoticeTop">
+        <div class="appNoticeBrand">
+          <img src="logo.png" alt="MCQs Question Bank Logo" class="appNoticeLogo" width="52" height="52">
+          <div class="appNoticeTitles">
+            <span class="appNoticeBadge">📱 UPCOMING MOBILE APP</span>
+            <h2 id="appNoticeTitle" class="appNoticeHeading">خصوصی موبائل ایپلی کیشن زیرِ تیاری ہے</h2>
+            <small class="appNoticeSub">Official Mobile Application Coming Soon!</small>
           </div>
         </div>
       </div>
 
-      <!-- App Development Notification Banner -->
-      <div class="authNoticeBanner">
-        <div class="authNoticeHeader">
-          <div class="authNoticeIconWrap">
-            <span class="authNoticeIcon">📱</span>
-          </div>
-          <div class="authNoticeHeadText">
-            <div class="authNoticeBadge">UPCOMING RELEASE</div>
-            <h3 class="authNoticeHeading">Dedicated Mobile & Desktop Application Coming Soon!</h3>
-          </div>
+      <div class="appNoticeContent">
+        <div class="appNoticeUrduBox" dir="rtl">
+          📢 <b>اہم اطلاع برائے طلبہ و طالبات:</b><br>
+          تمام طلبہ کو مطلع کیا جاتا ہے کہ اس پورٹل کے لیے ایک باقاعدہ اور خصوصی <b>موبائل ایپلی کیشن (Mobile App)</b> تیار کی جا رہی ہے۔ عنقریب آپ ایپ ڈاؤن لوڈ کر کے اپنے تمام آن لائن امتحانات، کوئز اور سمسٹر پریکٹس ٹیسٹس موبائل فون پر باآسانی، آف لائن سپورٹ اور بہترین رفتار کے ساتھ حل کر سکیں گے۔
         </div>
-        <p class="authNoticeBody">
-          We are developing a dedicated official <strong>MCQs Question Bank Application</strong>. Soon, students and faculty will be able to download the app to easily attempt, practice, and track continuous exams and quizzes online with offline support and enhanced responsiveness.
+
+        <p class="appNoticeEngText">
+          We are pleased to announce that an official <strong>MCQs Question Bank Mobile Application</strong> is currently being developed for our students and faculty. Soon, you will be able to download the official mobile app to conveniently practice, attempt online continuous examinations, and track assessment progress with ease.
         </p>
-        <div class="authNoticeUrdu" dir="rtl">
-          📢 <b>اہم اطلاع:</b> تمام طلبہ کو مطلع کیا جاتا ہے کہ اس پورٹل کے لیے خصوصی موبائل و ڈیسک ٹاپ ایپلی کیشن تیار کی جا رہی ہے۔ عنقریب آپ ایپ ڈاؤن لوڈ کر کے اپنے تمام آن لائن امتحانات باآسانی دے سکیں گے اور تیاری کر سکیں گے۔
+
+        <div class="appNoticeHighlights">
+          <div class="noticeHighlightItem">
+            <span class="highlightIcon">⚡</span>
+            <div><b>Fast & Smooth</b><small>Optimized test taking on smartphones</small></div>
+          </div>
+          <div class="noticeHighlightItem">
+            <span class="highlightIcon">📡</span>
+            <div><b>Offline Practice</b><small>Access verified questions anytime</small></div>
+          </div>
         </div>
-      </div>
 
-      <!-- Login Authentication Form -->
-      <div class="authFormWrap">
-        <div class="authFormTitleRow">
-          <h4>Portal Verification & Sign In</h4>
-          <span class="authFormHint">Please enter authorized credentials to access Question Banks</span>
-        </div>
-
-        <form id="authGateForm" novalidate autocomplete="on">
-          <div id="authErrorMsg" class="authError hidden" role="alert"></div>
-
-          <div class="authField">
-            <label for="authEmail">Email Address</label>
-            <div class="authInputWrapper">
-              <span class="authInputIcon">✉️</span>
-              <input type="email" id="authEmail" name="email" placeholder="e.g. IftkharXahid@gmail.com" required autocomplete="username" spellcheck="false">
-            </div>
-          </div>
-
-          <div class="authField">
-            <label for="authPassword">Password</label>
-            <div class="authInputWrapper">
-              <span class="authInputIcon">🔑</span>
-              <input type="password" id="authPassword" name="password" placeholder="Enter portal password" required autocomplete="current-password">
-              <button type="button" id="authTogglePwd" class="authEyeBtn" title="Toggle password visibility" aria-label="Toggle password visibility">👁️</button>
-            </div>
-          </div>
-
-          <div class="authFormFooter">
-            <label class="authRememberLabel">
-              <input type="checkbox" id="authRemember" checked>
-              <span>Keep portal unlocked on this device</span>
-            </label>
-          </div>
-
-          <button type="submit" id="authSubmitBtn" class="primary authSubmitBtn">
-            <span id="authBtnText">Unlock & Enter Portal →</span>
+        <div class="appNoticeActions">
+          <button id="appNoticeDismissBtn" class="primary appNoticeProceedBtn">
+            <span>✓ سمجھ آ گئی، پورٹل جاری رکھیں / Continue to Question Bank →</span>
           </button>
-        </form>
-
-        <div class="authPortalFooter">
-          <span>Prepared by <b>Lec. Iftikhar Zahid</b> • Department of Computer Science</span>
+          <label class="appNoticeRemember">
+            <input type="checkbox" id="dontShowNoticeAgain">
+            <span>Don't show this announcement again today</span>
+          </label>
         </div>
       </div>
     </div>
@@ -564,6 +610,6 @@
   </div>
   <div id="toast"></div>
 
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=19"></script>
 </body>
 </html>

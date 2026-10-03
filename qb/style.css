@@ -4368,50 +4368,10 @@ footer span {
 }
 
 /* ==========================================================================
-   Portal Entrance Security & App Notification Modal
+   Home Screen Official Mobile Application Announcement Pop-up Modal
    ========================================================================== */
-body.portal-locked {
-  overflow: hidden !important;
-}
-
-body.portal-locked header,
-body.portal-locked main,
-body.portal-locked footer,
-body.portal-locked #modal {
-  filter: blur(8px) saturate(70%);
-  opacity: 0.35;
-  pointer-events: none !important;
-  user-select: none !important;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-.authGateBg {
-  position: fixed;
-  inset: 0;
-  background: rgba(3, 7, 18, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: max(16px, 3vh) max(14px, 2.5vw);
-  overflow-y: auto;
-  box-sizing: border-box;
-  animation: authFadeIn 0.25s ease-out;
-}
-
-.authGateBg.hidden {
-  display: none !important;
-}
-
-@keyframes authFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.authGateCard {
-  width: min(540px, 100%);
+.appNoticeModalCard {
+  width: min(550px, 100%);
   background: var(--card);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
@@ -4419,69 +4379,47 @@ body.portal-locked #modal {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: authPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  margin: auto;
+  position: relative;
 }
 
-@keyframes authPopIn {
-  from {
-    opacity: 0;
-    transform: scale(0.94) translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.authGateCard.shake {
-  animation: authShake 0.4s ease-in-out;
-}
-
-@keyframes authShake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-8px); }
-  40%, 80% { transform: translateX(8px); }
-}
-
-.authGateTop {
-  padding: 20px 22px 16px;
+.appNoticeTop {
+  padding: 22px 24px 16px;
   background: linear-gradient(180deg, var(--card-subtle) 0%, var(--card) 100%);
   border-bottom: 1px solid var(--line);
 }
 
-.authGateBrand {
+.appNoticeBrand {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.authGateLogo {
-  width: 52px;
-  height: 52px;
+.appNoticeLogo {
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   object-fit: contain;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   background: #fff;
   padding: 4px;
   border: 1px solid var(--line);
   flex-shrink: 0;
 }
 
-.authGateTitles {
+.appNoticeTitles {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.authSecurityBadge {
+.appNoticeBadge {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 10.5px;
-  font-weight: 700;
+  font-size: 10px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   color: var(--p);
   background: var(--p-subtle);
   border: 1px solid var(--p-border);
@@ -4491,120 +4429,213 @@ body.portal-locked #modal {
   margin-bottom: 2px;
 }
 
-.authGateHeading {
-  font-size: 18px;
+.appNoticeHeading {
+  font-size: 17.5px;
   font-weight: 800;
   color: var(--t);
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
-.authGateSub {
+.appNoticeSub {
   font-size: 12px;
   color: var(--m);
-  line-height: 1.4;
 }
 
-/* Announcement Banner */
-.authNoticeBanner {
-  margin: 16px 20px 0;
-  padding: 13px 15px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: var(--radius);
+.appNoticeContent {
+  padding: 20px 22px 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
+  overflow-y: auto;
+  max-height: calc(85vh - 90px);
 }
 
-[data-theme="dark"] .authNoticeBanner {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(139, 92, 246, 0.18) 100%);
-  border-color: rgba(96, 165, 250, 0.35);
-}
-
-.authNoticeHeader {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.authNoticeIconWrap {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: var(--p);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-}
-
-.authNoticeHeadText {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.authNoticeBadge {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  color: var(--p);
-  text-transform: uppercase;
-}
-
-.authNoticeHeading {
+.appNoticeUrduBox {
   font-size: 13.5px;
-  font-weight: 700;
+  line-height: 1.7;
   color: var(--t);
-  line-height: 1.35;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.07) 0%, rgba(139, 92, 246, 0.07) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  border-right: 4px solid var(--p);
+  padding: 12px 16px;
+  border-radius: var(--radius);
 }
 
-.authNoticeBody {
+[data-theme="dark"] .appNoticeUrduBox {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.16) 0%, rgba(139, 92, 246, 0.16) 100%);
+  border-color: rgba(96, 165, 250, 0.35);
+  border-right-color: var(--p);
+}
+
+.appNoticeEngText {
   font-size: 12.5px;
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--t-secondary);
 }
 
-.authNoticeUrdu {
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: var(--t);
-  background: rgba(0, 0, 0, 0.03);
-  padding: 8px 12px;
+.appNoticeHighlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.noticeHighlightItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  border-right: 3px solid var(--p);
 }
 
-[data-theme="dark"] .authNoticeUrdu {
-  background: rgba(255, 255, 255, 0.04);
+.noticeHighlightItem .highlightIcon {
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--p-subtle);
+  color: var(--p);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-/* Authentication Form */
-.authFormWrap {
-  padding: 18px 20px 20px;
+.noticeHighlightItem div {
+  display: flex;
+  flex-direction: column;
+}
+
+.noticeHighlightItem b {
+  font-size: 12px;
+  color: var(--t);
+}
+
+.noticeHighlightItem small {
+  font-size: 10.5px;
+  color: var(--m);
+  line-height: 1.3;
+}
+
+.appNoticeActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.appNoticeProceedBtn {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.appNoticeProceedBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.appNoticeRemember {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--m);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Instructor Authorization Card (Import / Export Section)
+   ========================================================================== */
+.instructorAuthCard {
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.instructorAuthCard.shake {
+  animation: authShake 0.4s ease-in-out;
+  border-color: var(--r) !important;
+}
+
+@keyframes authShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.instructorLockedView {
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.authFormTitleRow {
+.instructorAuthHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.instructorShieldIcon {
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--p-subtle);
+  border: 1px solid var(--p-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.instructorAuthTitles {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
-.authFormTitleRow h4 {
-  font-size: 14.5px;
+.instructorBadge {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--p);
+  background: var(--p-subtle);
+  border: 1px solid var(--p-border);
+  padding: 1px 7px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.instructorAuthTitles h3 {
+  font-size: 15px;
   font-weight: 700;
   color: var(--t);
+  line-height: 1.3;
 }
 
-.authFormHint {
-  font-size: 12px;
+.instructorAuthTitles p {
+  font-size: 12.5px;
   color: var(--m);
+  line-height: 1.45;
 }
 
 .authError {
@@ -4629,7 +4660,6 @@ body.portal-locked #modal {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 12px;
 }
 
 .authField label {
@@ -4691,12 +4721,35 @@ body.portal-locked #modal {
   opacity: 1;
 }
 
-.authFormFooter {
+.instructorFormRow {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.instructorSubmitBtn {
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructorFormFoot {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: -2px;
-  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--m);
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .authRememberLabel {
@@ -4709,35 +4762,60 @@ body.portal-locked #modal {
   user-select: none;
 }
 
-.authSubmitBtn {
-  width: 100%;
-  padding: 11px 18px;
-  font-size: 13.5px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
+/* Unlocked Banner */
+.instructorUnlockedView {
+  padding: 14px 18px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius);
+}
+
+.instructorActiveBanner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.authSubmitBtn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+.instructorActiveLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.authSubmitBtn:active {
-  transform: translateY(0);
+.instructorActiveIcon {
+  font-size: 20px;
 }
 
-.authPortalFooter {
-  text-align: center;
-  font-size: 11.5px;
-  color: var(--m);
-  padding-top: 8px;
-  border-top: 1px solid var(--line);
+.instructorActiveBadge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--g);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.instructorActiveUser {
+  font-size: 12.5px;
+  color: var(--t);
+}
+
+/* Faculty Only Tools in ToolGrid */
+.facultyRestrictedTool {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.facultyMiniBadge {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--p);
+  background: var(--p-subtle);
+  border: 1px solid var(--p-border);
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
