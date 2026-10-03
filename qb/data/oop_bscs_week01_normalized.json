@@ -1,0 +1,342 @@
+[
+  {
+    "id": 1,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Structured Programming",
+    "difficulty": "Easy",
+    "question": "What is the main idea of structured programming?",
+    "options": [
+      "Organizing a program into clear control structures and procedures",
+      "Representing every program element as an object",
+      "Avoiding functions completely",
+      "Using only graphical user interfaces"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Control Structures",
+    "difficulty": "Easy",
+    "question": "Which set contains the fundamental control structures commonly associated with structured programming?",
+    "options": [
+      "Sequence, selection, and iteration",
+      "Class, object, and inheritance",
+      "Encapsulation, polymorphism, and abstraction",
+      "Compiler, linker, and loader"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Procedural Decomposition",
+    "difficulty": "Easy",
+    "question": "In structured programming, a large problem is commonly divided into:",
+    "options": [
+      "Smaller procedures or functions",
+      "Only database tables",
+      "Hardware circuits",
+      "Namespaces only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Program Organization",
+    "difficulty": "Easy",
+    "question": "What is a major focus of structured programming?",
+    "options": [
+      "The sequence of operations and procedures used to solve a problem",
+      "The identity of every real-world object",
+      "Automatic object construction",
+      "Dynamic memory allocation only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Complex Problem Management",
+    "difficulty": "Medium",
+    "question": "Why can structured programs become difficult to manage as a system grows in size and complexity?",
+    "options": [
+      "Large numbers of procedures and shared data can create complex dependencies",
+      "Functions cannot accept parameters",
+      "Structured programs cannot use variables",
+      "Compilers cannot process large programs"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Limitations of Structured Programming",
+    "difficulty": "Medium",
+    "question": "Which issue can arise when data is widely shared among many procedures?",
+    "options": [
+      "Changes to data can affect multiple parts of the program",
+      "The program automatically becomes object-oriented",
+      "All functions become constructors",
+      "The compiler removes all dependencies"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Real-World Complexity",
+    "difficulty": "Medium",
+    "question": "A major challenge in modeling complex real-world systems is:",
+    "options": [
+      "Managing many entities, their states, behaviors, and relationships",
+      "Writing a single print statement",
+      "Avoiding all data structures",
+      "Using only integer variables"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Object-Oriented Programming",
+    "difficulty": "Easy",
+    "question": "What is the central idea of the object-oriented programming paradigm?",
+    "options": [
+      "Modeling a system using interacting objects that combine data and behavior",
+      "Using only sequential statements",
+      "Replacing all variables with constants",
+      "Writing programs without functions"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Objects",
+    "difficulty": "Easy",
+    "question": "In object-oriented programming, an object generally represents:",
+    "options": [
+      "An entity with state and behavior",
+      "Only a function",
+      "Only a data type keyword",
+      "A compiler instruction"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Classes",
+    "difficulty": "Easy",
+    "question": "What is a class in object-oriented programming?",
+    "options": [
+      "A blueprint or user-defined type for creating objects",
+      "A single object stored in memory",
+      "A compiler error",
+      "A database record only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Objects and Classes",
+    "difficulty": "Easy",
+    "question": "If Student is a class, which is an example of an object?",
+    "options": [
+      "student1",
+      "Student",
+      "class",
+      "object"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Class vs Object",
+    "difficulty": "Easy",
+    "question": "Which statement best distinguishes a class from an object?",
+    "options": [
+      "A class is a definition or blueprint; an object is an instance of that class",
+      "A class is always an object in memory",
+      "An object defines the class structure",
+      "There is no difference between them"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "State and Data Members",
+    "difficulty": "Easy",
+    "question": "In an OOP class, data members primarily represent:",
+    "options": [
+      "The state or characteristics of an object",
+      "Only control structures",
+      "Compiler commands",
+      "Namespaces"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Methods and Behavior",
+    "difficulty": "Easy",
+    "question": "In an OOP class, methods primarily represent:",
+    "options": [
+      "Behavior or operations performed by an object",
+      "Only constants",
+      "The physical computer",
+      "The compiler"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Real-World Modeling",
+    "difficulty": "Medium",
+    "question": "In a banking system, which is the most appropriate candidate for a class?",
+    "options": [
+      "BankAccount",
+      "deposit()",
+      "balance = 5000",
+      "print"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Real-World Modeling",
+    "difficulty": "Medium",
+    "question": "For a Student class, which combination correctly represents state and behavior?",
+    "options": [
+      "name and rollNo as state; display() as behavior",
+      "display() as state; name as behavior",
+      "Student as state; class as behavior",
+      "compiler as state; memory as behavior"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly represents the state and behavior of an object in OOP.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "OOP Problem Solving",
+    "difficulty": "Medium",
+    "question": "Why can object-oriented modeling be useful for complex real-world systems?",
+    "options": [
+      "It can represent entities, their responsibilities, and relationships in a structured way",
+      "It eliminates the need for algorithms",
+      "It prevents all software bugs",
+      "It removes the need for data"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Paradigm Comparison",
+    "difficulty": "Medium",
+    "question": "Which statement best describes a key difference between structured programming and OOP?",
+    "options": [
+      "Structured programming emphasizes procedures and control flow, while OOP emphasizes objects combining state and behavior",
+      "Structured programming uses code, while OOP does not",
+      "OOP cannot use functions",
+      "Structured programming cannot use variables"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Class and Object Concept",
+    "difficulty": "Easy",
+    "question": "Which statement about objects created from the same class is correct?",
+    "options": [
+      "They can have different values for their non-static data members",
+      "They must always contain identical data",
+      "Only one object can ever be created from a class",
+      "They cannot have methods"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Object-Oriented Programming",
+    "chapter": "Week 1",
+    "topic": "Week 1 Review",
+    "difficulty": "Medium",
+    "question": "Which sequence best represents the basic transition from a real-world problem to an object-oriented model?",
+    "options": [
+      "Identify relevant entities → represent them as classes/objects → define state and behavior",
+      "Compile code → identify entities → write requirements",
+      "Create database tables → remove classes → define objects",
+      "Write random functions → deploy → identify the problem"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — This option correctly explains the Week 1 concept covered in the course syllabus.",
+    "type": "single"
+  }
+]

@@ -5245,6 +5245,9 @@ async function syncBooksFromMongo(silent = false) {
       }
     }
 
+    // Purge any broken 0-question subject entries from local catalog
+    s.subjects = s.subjects.filter(sub => !(sub.id === "custom-question-bank-week-01" || (!sub.isBuiltIn && sub.totalQuestions === 0 && (!sub.questions || sub.questions.length === 0))));
+
     saveSubjects();
     renderSubjects();
     updateHeroSubjectUI();

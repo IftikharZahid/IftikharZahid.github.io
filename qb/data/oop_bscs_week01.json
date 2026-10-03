@@ -1,0 +1,319 @@
+{
+  "questionBank": {
+    "bankId": "OOP-BSCS-W01",
+    "title": "Object-Oriented Programming — Week 1 Question Bank",
+    "subject": "Object-Oriented Programming",
+    "courseCode": "OOP",
+    "program": "BS Computer Science",
+    "class": "BS Computer Science",
+    "section": "Week 1",
+    "weekNo": 1,
+    "semester": "BSCS",
+    "assessmentType": "MCQs",
+    "language": "English",
+    "totalQuestions": 20,
+    "marksPerQuestion": 1,
+    "totalMarks": 20,
+    "preparedBy": "Iftikhar Zahid",
+    "role": "Lecturer, Computer Science",
+    "version": "1.0",
+    "createdFor": "HTML/CSS/JavaScript Question Bank",
+    "syllabusCoverage": "Structured Programming vs Object-Oriented Programming; Procedures, Control Structures, and Shared Data; Objects, Classes, State, and Behavior.",
+    "topics": [
+      "Structured Programming",
+      "Control Structures",
+      "Procedural Decomposition",
+      "Program Organization",
+      "Complex Problem Management",
+      "Limitations of Structured Programming",
+      "Real-World Complexity",
+      "Object-Oriented Programming",
+      "Objects",
+      "Classes",
+      "State and Data Members",
+      "Methods and Behavior"
+    ],
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the main idea of structured programming?",
+        "options": {
+          "A": "Organizing a program into clear control structures and procedures",
+          "B": "Representing every program element as an object",
+          "C": "Avoiding functions completely",
+          "D": "Using only graphical user interfaces"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Structured programming organizes code into top-down procedures and fundamental control structures.",
+        "difficulty": "Easy",
+        "topic": "Structured Programming"
+      },
+      {
+        "id": 2,
+        "question": "Which set contains the fundamental control structures commonly associated with structured programming?",
+        "options": {
+          "A": "Sequence, selection, and iteration",
+          "B": "Class, object, and inheritance",
+          "C": "Encapsulation, polymorphism, and abstraction",
+          "D": "Compiler, linker, and loader"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Sequence, selection (decision/if-else), and iteration (loops) are the three pillars of structured programming.",
+        "difficulty": "Easy",
+        "topic": "Control Structures"
+      },
+      {
+        "id": 3,
+        "question": "In structured programming, a large problem is commonly divided into:",
+        "options": {
+          "A": "Smaller procedures or functions",
+          "B": "Only database tables",
+          "C": "Hardware circuits",
+          "D": "Namespaces only"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Procedural decomposition breaks a large program down into manageable functions.",
+        "difficulty": "Easy",
+        "topic": "Procedural Decomposition"
+      },
+      {
+        "id": 4,
+        "question": "What is a major focus of structured programming?",
+        "options": {
+          "A": "The sequence of operations and procedures used to solve a problem",
+          "B": "The identity of every real-world object",
+          "C": "Automatic object construction",
+          "D": "Dynamic memory allocation only"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Focus is placed on algorithm step sequences and procedure calls.",
+        "difficulty": "Easy",
+        "topic": "Program Organization"
+      },
+      {
+        "id": 5,
+        "question": "Why can structured programs become difficult to manage as a system grows in size and complexity?",
+        "options": {
+          "A": "Large numbers of procedures and shared data can create complex dependencies",
+          "B": "Functions cannot accept parameters",
+          "C": "Structured programs cannot use variables",
+          "D": "Compilers cannot process large programs"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Global state and procedural cross-dependencies lead to high coupling as system size grows.",
+        "difficulty": "Medium",
+        "topic": "Complex Problem Management"
+      },
+      {
+        "id": 6,
+        "question": "Which issue can arise when data is widely shared among many procedures?",
+        "options": {
+          "A": "Changes to data can affect multiple parts of the program",
+          "B": "The program automatically becomes object-oriented",
+          "C": "All functions become constructors",
+          "D": "The compiler removes all dependencies"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Unprotected shared data means a change in one place can inadvertently break unrelated procedures.",
+        "difficulty": "Medium",
+        "topic": "Limitations of Structured Programming"
+      },
+      {
+        "id": 7,
+        "question": "A major challenge in modeling complex real-world systems is:",
+        "options": {
+          "A": "Managing many entities, their states, behaviors, and relationships",
+          "B": "Writing a single print statement",
+          "C": "Avoiding all data structures",
+          "D": "Using only integer variables"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Real-world systems comprise numerous entities whose states and behaviors continuously interact.",
+        "difficulty": "Medium",
+        "topic": "Real-World Complexity"
+      },
+      {
+        "id": 8,
+        "question": "What is the central idea of the object-oriented programming paradigm?",
+        "options": {
+          "A": "Modeling a system using interacting objects that combine data and behavior",
+          "B": "Using only sequential statements",
+          "C": "Replacing all variables with constants",
+          "D": "Writing programs without functions"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — OOP encapsulates data (attributes) and code (methods) together into objects.",
+        "difficulty": "Easy",
+        "topic": "Object-Oriented Programming"
+      },
+      {
+        "id": 9,
+        "question": "In object-oriented programming, an object generally represents:",
+        "options": {
+          "A": "An entity with state and behavior",
+          "B": "Only a function",
+          "C": "Only a data type keyword",
+          "D": "A compiler instruction"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — An object has identity, state (data), and behavior (methods).",
+        "difficulty": "Easy",
+        "topic": "Objects"
+      },
+      {
+        "id": 10,
+        "question": "What is a class in object-oriented programming?",
+        "options": {
+          "A": "A blueprint or user-defined type for creating objects",
+          "B": "A single object stored in memory",
+          "C": "A compiler error",
+          "D": "A database record only"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — A class defines the structure and behavior pattern that its instances (objects) possess.",
+        "difficulty": "Easy",
+        "topic": "Classes"
+      },
+      {
+        "id": 11,
+        "question": "If Student is a class, which is an example of an object?",
+        "options": {
+          "A": "student1",
+          "B": "Student",
+          "C": "class",
+          "D": "object"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — student1 is an individual instantiated object of class Student.",
+        "difficulty": "Easy",
+        "topic": "Objects and Classes"
+      },
+      {
+        "id": 12,
+        "question": "Which statement best distinguishes a class from an object?",
+        "options": {
+          "A": "A class is a definition or blueprint; an object is an instance of that class",
+          "B": "A class is always an object in memory",
+          "C": "An object defines the class structure",
+          "D": "There is no difference between them"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Class = blueprint / type; Object = concrete instance in memory.",
+        "difficulty": "Easy",
+        "topic": "Class vs Object"
+      },
+      {
+        "id": 13,
+        "question": "In an OOP class, data members primarily represent:",
+        "options": {
+          "A": "The state or characteristics of an object",
+          "B": "Only control structures",
+          "C": "Compiler commands",
+          "D": "Namespaces"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Data members / fields represent attributes and internal state.",
+        "difficulty": "Easy",
+        "topic": "State and Data Members"
+      },
+      {
+        "id": 14,
+        "question": "In an OOP class, methods primarily represent:",
+        "options": {
+          "A": "Behavior or operations performed by an object",
+          "B": "Only constants",
+          "C": "The physical computer",
+          "D": "The compiler"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Methods represent actions, behaviors, and operations on an object's state.",
+        "difficulty": "Easy",
+        "topic": "Methods and Behavior"
+      },
+      {
+        "id": 15,
+        "question": "In a banking system, which is the most appropriate candidate for a class?",
+        "options": {
+          "A": "BankAccount",
+          "B": "deposit()",
+          "C": "balance = 5000",
+          "D": "print"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — BankAccount is a domain entity, while deposit() is a method and balance is an attribute.",
+        "difficulty": "Medium",
+        "topic": "Real-World Modeling"
+      },
+      {
+        "id": 16,
+        "question": "For a Student class, which combination correctly represents state and behavior?",
+        "options": {
+          "A": "name and rollNo as state; display() as behavior",
+          "B": "display() as state; name as behavior",
+          "C": "Student as state; class as behavior",
+          "D": "compiler as state; memory as behavior"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Attributes name and rollNo define state, while display() is an action (behavior).",
+        "difficulty": "Medium",
+        "topic": "Real-World Modeling"
+      },
+      {
+        "id": 17,
+        "question": "Why can object-oriented modeling be useful for complex real-world systems?",
+        "options": {
+          "A": "It can represent entities, their responsibilities, and relationships in a structured way",
+          "B": "It eliminates the need for algorithms",
+          "C": "It prevents all software bugs",
+          "D": "It removes the need for data"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — OOP aligns programmatic design closely with real-world entities and responsibilities.",
+        "difficulty": "Medium",
+        "topic": "OOP Problem Solving"
+      },
+      {
+        "id": 18,
+        "question": "Which statement best describes a key difference between structured programming and OOP?",
+        "options": {
+          "A": "Structured programming emphasizes procedures and control flow, while OOP emphasizes objects combining state and behavior",
+          "B": "Structured programming uses code, while OOP does not",
+          "C": "OOP cannot use functions",
+          "D": "Structured programming cannot use variables"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Procedural paradigm focuses on algorithmic steps, whereas OOP centers on interacting objects.",
+        "difficulty": "Medium",
+        "topic": "Paradigm Comparison"
+      },
+      {
+        "id": 19,
+        "question": "Which statement about objects created from the same class is correct?",
+        "options": {
+          "A": "They can have different values for their non-static data members",
+          "B": "They must always contain identical data",
+          "C": "Only one object can ever be created from a class",
+          "D": "They cannot have methods"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Each object instance holds its own distinct member values (state).",
+        "difficulty": "Easy",
+        "topic": "Class and Object Concept"
+      },
+      {
+        "id": 20,
+        "question": "Which sequence best represents the basic transition from a real-world problem to an object-oriented model?",
+        "options": {
+          "A": "Identify relevant entities → represent them as classes/objects → define state and behavior",
+          "B": "Compile code → identify entities → write requirements",
+          "C": "Create database tables → remove classes → define objects",
+          "D": "Write random functions → deploy → identify the problem"
+        },
+        "answer": "A",
+        "explanation": "Correct Answer: Option A — Analysis identifies entities; design maps them into classes with attributes and methods.",
+        "difficulty": "Medium",
+        "topic": "Week 1 Review"
+      }
+    ]
+  }
+}

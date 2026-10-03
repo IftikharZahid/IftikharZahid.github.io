@@ -100,7 +100,7 @@ function sendJSON(res, statusCode, data) {
   res.writeHead(statusCode, {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization'
   });
   res.end(JSON.stringify(data));
@@ -111,7 +111,7 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization'
     });
     return res.end();
@@ -176,6 +176,19 @@ const server = http.createServer(async (req, res) => {
       return sendJSON(res, 200, { success: true, subject });
     }
 
+    // 3b. Delete Single Subject and its MCQs
+    if (pathname.startsWith('/api/subjects/') && req.method === 'DELETE') {
+      const subjectId = pathname.replace('/api/subjects/', '').trim();
+      const delSub = await database.collection(COLLECTION_NAME).deleteOne({ id: subjectId });
+      const delQ = await database.collection("questions").deleteMany({ subjectId });
+      return sendJSON(res, 200, {
+        success: true,
+        message: `Deleted subject '${subjectId}' (${delQ.deletedCount} MCQs removed).`,
+        deletedSubject: delSub.deletedCount > 0,
+        deletedQuestionsCount: delQ.deletedCount
+      });
+    }
+
     // 4. Upload / Import JSON Document into MongoDB
     if (pathname === '/api/upload' && req.method === 'POST') {
       let body = '';
@@ -190,53 +203,114 @@ const server = http.createServer(async (req, res) => {
           // Normalize payload
           let record = null;
           if (payload.id && Array.isArray(payload.questions)) {
-            // Already normalized
+            // Already normalized subject object
             record = {
               ...payload,
+              totalQuestions: payload.questions.length,
+              uploadedAt: new Date()
+            };
+          } else if (Array.isArray(payload)) {
+            // Direct JSON array of MCQs: [ { id: 1, question: ..., options: [...], ... }, ... ]
+            const rawList = payload;
+            const q0 = rawList[0] || {};
+            const bookTitle = q0.subject || q0.book || q0.course || "Object-Oriented Programming";
+            const chapter = q0.chapter || q0.topic || "Week 1";
+            const weekNum = parseInt(String(chapter).replace(/\D/g, '')) || 1;
+            const weekTitle = String(chapter).toLowerCase().startsWith("week")
+              ? chapter
+              : `Week ${weekNum}`;
+            const slug = (bookTitle + "-" + (chapter.toLowerCase().includes("week") ? chapter : `week-${weekNum}`)).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+            const topic = q0.topic || q0.chapter || bookTitle;
+
+            record = {
+              id: slug,
+              book: bookTitle,
+              course: q0.course || bookTitle,
+              week: weekNum,
+              weekTitle: weekTitle,
+              topic: topic,
+              level: q0.level || "BS Computer Science",
+              createdBy: q0.createdBy || "Course Instructor",
+              icon: "📚",
+              isBuiltIn: false,
+              totalQuestions: rawList.length,
+              questions: rawList.map((q, idx) => ({
+                id: q.id || (idx + 1),
+                questionIndex: q.questionIndex || q.id || (idx + 1),
+                subject: q.subject || bookTitle,
+                chapter: q.chapter || chapter,
+                topic: q.topic || topic,
+                difficulty: q.difficulty || "Medium",
+                question: (q.question || q.prompt || "").trim(),
+                options: Array.isArray(q.options) ? q.options : (typeof q.options === 'object' && q.options ? Object.values(q.options) : []),
+                answer: typeof q.answer === 'number' ? q.answer : 0,
+                explanation: (q.explanation || "").trim(),
+                type: q.type || "single"
+              })),
               uploadedAt: new Date()
             };
           } else {
-            // Raw question bank format
-            const root = payload.questionBank || payload;
-            const bookTitle = root.book || root.subject || root.title || "Custom Question Bank";
-            const weekTitle = root.weekTitle || (root.week ? `Week ${root.week}` : "Week 01");
-            const slug = (bookTitle + "-" + weekTitle).toLowerCase().replace(/[^a-z0-9]+/g, "-");
-            const rawList = root.mcqs || root.questions || [];
+            // Raw question bank format: { questionBank: { ... }, questions: [...] }
+            const root = payload.questionBank || payload.metadata || payload;
+            const bookTitle = root.book || root.subject || root.title || root.courseCode || "Custom Question Bank";
+            const weekNum = Number(root.week || root.weekNo) || 1;
+            const weekTitle = root.weekTitle || root.section || (root.week ? `Week ${root.week}` : `Week ${weekNum}`);
+            const slug = (bookTitle + "-" + (root.weekTitle || root.section || `week-${weekNum}`)).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+            const rawList = Array.isArray(payload.mcqs) ? payload.mcqs :
+                           (Array.isArray(payload.questions) ? payload.questions :
+                           (Array.isArray(root.mcqs) ? root.mcqs :
+                           (Array.isArray(root.questions) ? root.questions :
+                           (Array.isArray(root.data) ? root.data : []))));
 
             record = {
               id: slug,
               book: bookTitle,
               course: root.course || bookTitle,
-              week: Number(root.week || root.weekNo) || 1,
+              week: weekNum,
               weekTitle: weekTitle,
               topic: root.topic || root.syllabusCoverage || bookTitle,
-              level: root.level || "BS Computer Science",
-              createdBy: root.createdBy || "Course Instructor",
+              level: root.level || root.class || root.program || "BS Computer Science",
+              createdBy: root.createdBy || root.preparedBy || root.author || "Course Instructor",
               icon: "📚",
               isBuiltIn: false,
               totalQuestions: rawList.length,
-              questions: rawList,
+              questions: rawList.map((q, idx) => ({
+                id: q.id || (idx + 1),
+                questionIndex: q.questionIndex || q.id || (idx + 1),
+                subject: q.subject || bookTitle,
+                chapter: q.chapter || root.topic || root.syllabusCoverage || bookTitle,
+                topic: q.topic || root.topic || bookTitle,
+                difficulty: q.difficulty || "Medium",
+                question: (q.question || q.prompt || "").trim(),
+                options: Array.isArray(q.options) ? q.options : (typeof q.options === 'object' && q.options ? Object.values(q.options) : []),
+                answer: typeof q.answer === 'number' ? q.answer : 0,
+                explanation: (q.explanation || "").trim(),
+                type: q.type || "single"
+              })),
               uploadedAt: new Date()
             };
           }
 
-          // Save to MongoDB
+          // Save to MongoDB subjects collection
           const result = await database.collection(COLLECTION_NAME).updateOne(
             { id: record.id },
             { $set: record },
             { upsert: true }
           );
 
-          // Sync individual questions
+          // Sync individual questions into questions collection
           if (Array.isArray(record.questions) && record.questions.length) {
             const bulk = record.questions.map((q, idx) => ({
               updateOne: {
-                filter: { subjectId: record.id, questionIndex: q.id || (idx + 1) },
+                filter: { subjectId: record.id, questionIndex: q.questionIndex || q.id || (idx + 1) },
                 update: {
                   $set: {
                     ...q,
+                    id: q.id || (idx + 1),
+                    questionIndex: q.questionIndex || q.id || (idx + 1),
                     subjectId: record.id,
                     book: record.book,
+                    course: record.course,
                     weekTitle: record.weekTitle,
                     updatedAt: new Date()
                   }
@@ -272,6 +346,22 @@ const server = http.createServer(async (req, res) => {
       if (difficulty) query.difficulty = difficulty;
       const questionsList = await database.collection("questions").find(query).limit(limit).toArray();
       return sendJSON(res, 200, { success: true, count: questionsList.length, questions: questionsList });
+    }
+
+    // 5b. Query Single Question by ID
+    if (pathname.startsWith('/api/questions/') && req.method === 'GET') {
+      const qId = pathname.replace('/api/questions/', '').trim();
+      const question = await database.collection("questions").findOne({
+        $or: [
+          { _id: qId },
+          { id: parseInt(qId, 10) || -1 },
+          { questionIndex: parseInt(qId, 10) || -1 }
+        ]
+      });
+      if (!question) {
+        return sendJSON(res, 404, { success: false, error: "Question not found" });
+      }
+      return sendJSON(res, 200, { success: true, question });
     }
 
     // Default 404

@@ -53,13 +53,27 @@ function normalizeMCQFile(filePath) {
 
   if (Array.isArray(parsed)) {
     rawList = parsed;
+    const first = rawList[0] || {};
+    const chapterStr = String(first.chapter || first.topic || "Week 1");
+    const weekNum = parseInt(chapterStr.replace(/\D/g, '')) || 1;
+    const weekTitle = chapterStr.toLowerCase().startsWith('week') ? chapterStr : `Week ${weekNum}`;
+    meta = {
+      book: first.subject || first.course || path.basename(filePath, '.json'),
+      course: first.course || first.subject || "Computer Science",
+      week: weekNum,
+      weekTitle: weekTitle,
+      topic: first.topic || first.chapter || "Course Syllabus Review",
+      level: first.level || "BS Computer Science",
+      createdBy: first.createdBy || first.author || "Course Instructor"
+    };
   } else if (parsed && typeof parsed === "object") {
     const root = parsed.questionBank || parsed.metadata || parsed;
+    const weekNum = Number(root.week || root.weekNo) || 1;
     meta = {
       book: root.book || root.subject || root.title || root.courseCode || path.basename(filePath, '.json'),
       course: root.course || root.subject || root.courseCode || "Computer Science",
-      week: root.week || root.weekNo || 1,
-      weekTitle: root.weekTitle || root.section || (root.weekNo ? `Week ${String(root.weekNo).padStart(2, '0')}` : (root.week ? `Week ${String(root.week).padStart(2, '0')}` : "Week 01")),
+      week: weekNum,
+      weekTitle: root.weekTitle || root.section || (root.week ? `Week ${root.week}` : `Week ${weekNum}`),
       topic: root.topic || root.syllabusCoverage || root.title || "Course Syllabus Review",
       level: root.level || root.class || root.program || "BS Computer Science",
       createdBy: root.createdBy || root.preparedBy || root.author || root.instructor || root.lecturer || "Course Instructor"
