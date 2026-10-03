@@ -3401,22 +3401,6 @@ const DEFAULT_SUBJECTS = [
     questions: oopWeek01Questions
   },
   {
-    id: "object-oriented-programming-week-4",
-    legacyIds: ["oop-bscs-w04", "oop-week-04", "oop-week-4"],
-    book: "Object-Oriented Programming",
-    course: "Object-Oriented Programming (OOP)",
-    week: 4,
-    weekTitle: "Week 04",
-    topic: "Concept of Constructor; types of Constructors (default, parameterized and copy); Encapsulation and Information Hiding; public and private access specifiers; this and new keywords.",
-    level: "BS Computer Science",
-    createdBy: "Lec. Iftikhar Zahid",
-    icon: "🏗️",
-    isBuiltIn: true,
-    totalQuestions: oopWeek04Questions.length,
-    questions: oopWeek04Questions
-  },
-
-  {
     id: "object-oriented-programming-week-2",
     legacyIds: ["oop-bscs-w02", "oop-week-02", "oop-week-2"],
     book: "Object-Oriented Programming",
@@ -3430,6 +3414,36 @@ const DEFAULT_SUBJECTS = [
     isBuiltIn: true,
     totalQuestions: oopWeek02Questions.length,
     questions: oopWeek02Questions
+  },
+  {
+    id: "object-oriented-programming-week-3",
+    legacyIds: ["oop-adp-sem2-w03"],
+    book: "Object-Oriented Programming",
+    course: "Object-Oriented Programming (OOP)",
+    week: 3,
+    weekTitle: "Week 03",
+    topic: "Introduction to classes and objects; fields/data members; methods; parameterized and non-parameterized methods; returning and non-returning methods; namespaces",
+    level: "ADP Semester 2",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "☕",
+    isBuiltIn: true,
+    totalQuestions: oopQuestions.length,
+    questions: oopQuestions
+  },
+  {
+    id: "object-oriented-programming-week-4",
+    legacyIds: ["oop-bscs-w04", "oop-week-04", "oop-week-4"],
+    book: "Object-Oriented Programming",
+    course: "Object-Oriented Programming (OOP)",
+    week: 4,
+    weekTitle: "Week 04",
+    topic: "Concept of Constructor; types of Constructors (default, parameterized and copy); Encapsulation and Information Hiding; public and private access specifiers; this and new keywords.",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "🏗️",
+    isBuiltIn: true,
+    totalQuestions: oopWeek04Questions.length,
+    questions: oopWeek04Questions
   },
   {
     id: "theory-of-automata-week-02",
@@ -3462,23 +3476,8 @@ const DEFAULT_SUBJECTS = [
     questions: computerArchitectureQuestions
   },
   {
-    id: "object-oriented-programming-week-3",
-    legacyIds: ["oop-adp-sem2-w03"],
-    book: "Object-Oriented Programming",
-    course: "Object-Oriented Programming (OOP)",
-    week: 3,
-    weekTitle: "Week 03",
-    topic: "Introduction to classes and objects; fields/data members; methods; parameterized and non-parameterized methods; returning and non-returning methods; namespaces",
-    level: "ADP Semester 2",
-    createdBy: "Lec. Iftikhar Zahid",
-    icon: "☕",
-    isBuiltIn: true,
-    totalQuestions: oopQuestions.length,
-    questions: oopQuestions
-  },
-  {
     id: "database-systems-week-02",
-    legacyIds: ["database-systems-w02", "dbs-w02"],
+    legacyIds: ["database-systems-w02", "dbs-w02", "database-systems-week-2"],
     book: "Database Systems",
     course: "Database Systems",
     week: 2,
@@ -3528,6 +3527,10 @@ function loadStoredSubjects() {
       if (Array.isArray(parsed) && parsed.length > 0) list = parsed;
     } catch {}
   }
+
+  // Purge any corrupted 0-question subject records (e.g. from previous broken uploads)
+  list = list.filter(sub => !(sub.id === "custom-question-bank-week-01" || (!sub.isBuiltIn && (!sub.questions || sub.questions.length === 0))));
+
   DEFAULT_SUBJECTS.forEach(defSub => {
     const existing = list.find(s => 
       s.id === defSub.id || 
@@ -3558,9 +3561,10 @@ function getStoredActiveSubjectId(subList) {
   if (savedId === "theory-of-automata-w02") savedId = "theory-of-automata-week-02";
   if (savedId === "computer-architecture-w01") savedId = "computer-architecture-and-organization-week-01";
   if (savedId === "oop-adp-sem2-w03") savedId = "object-oriented-programming-week-3";
-  if (savedId === "database-systems-w02" || savedId === "dbs-w02") savedId = "database-systems-week-02";
+  if (savedId === "database-systems-w02" || savedId === "dbs-w02" || savedId === "database-systems-week-2") savedId = "database-systems-week-02";
   if (savedId === "oop-bscs-w01" || savedId === "oop-week-01" || savedId === "oop-week-1") savedId = "object-oriented-programming-week-1";
-  if (savedId && subList.some(s => s.id === savedId)) return savedId;
+  if (savedId === "custom-question-bank-week-01") savedId = "object-oriented-programming-week-1";
+  if (savedId && subList.some(s => s.id === savedId && s.questions && s.questions.length > 0)) return savedId;
   return subList[0]?.id || DEFAULT_SUBJECTS[0].id;
 }
 
@@ -5506,43 +5510,181 @@ document.addEventListener("keydown", e => {
 });
 
 // ==========================================================================
-// 9.5 MongoDB Atlas Cloud Sync & Upload Integration
+// 9.5 MongoDB Atlas Cloud Sync, Direct JSON Link & Upload Integration
 // ==========================================================================
+const IS_LOCAL_HOST = typeof window !== "undefined" && window.location && (
+  window.location.hostname === "localhost" || 
+  window.location.hostname === "127.0.0.1" || 
+  window.location.hostname.startsWith("192.168.") || 
+  window.location.hostname.startsWith("10.")
+);
+
 const MONGO_API_URL = (typeof window !== "undefined" && window.location && (window.location.port === "3000" || window.location.port === 3000))
   ? `${window.location.origin}/api`
-  : "http://localhost:3000/api";
+  : (IS_LOCAL_HOST ? "http://localhost:3000/api" : "");
+
+function resolveDataUrl(url) {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  if (typeof window === "undefined" || !window.location) return url;
+
+  const origin = window.location.origin;
+  let pathname = window.location.pathname;
+
+  if (pathname.endsWith(".html") || pathname.endsWith(".htm")) {
+    pathname = pathname.substring(0, pathname.lastIndexOf("/") + 1);
+  } else if (!pathname.endsWith("/")) {
+    pathname = pathname + "/";
+  }
+
+  const cleanRelative = url.startsWith("./") ? url.substring(2) : (url.startsWith("/") ? url.substring(1) : url);
+  return `${origin}${pathname}${cleanRelative}`;
+}
+
+const STATIC_CATALOG_URLS = [
+  "data/oop_bscs_week01.json",
+  "data/oop_bscs_week02.json",
+  "data/oop_adp_sem2_week03.json",
+  "data/oop_bscs_week04.json",
+  "data/theory_of_automata_week02.json",
+  "data/computer_architecture_week01.json",
+  "data/database_systems_week02.json"
+];
+
+function parseAndNormalizeJSON(parsed, fallbackName = "") {
+  let rawList = [];
+  let meta = {};
+
+  if (Array.isArray(parsed)) {
+    rawList = parsed;
+    const first = rawList[0] || {};
+    const chapterStr = String(first.chapter || first.topic || "Week 1");
+    const weekNum = parseInt(chapterStr.replace(/\D/g, "")) || 1;
+    const weekTitle = chapterStr.toLowerCase().startsWith("week") ? chapterStr : `Week ${weekNum}`;
+    meta = {
+      book: first.subject || first.course || "Object-Oriented Programming",
+      course: first.course || first.subject || "Object-Oriented Programming",
+      week: weekNum,
+      weekTitle: weekTitle,
+      topic: first.topic || first.chapter || "Course Review",
+      level: first.level || "BS Computer Science",
+      createdBy: first.createdBy || "Course Instructor"
+    };
+  } else if (parsed && typeof parsed === "object") {
+    const root = parsed.questionBank || parsed.metadata || parsed;
+    const weekNum = Number(root.week || root.weekNo) || 1;
+    meta = {
+      book: root.book || root.subject || root.title || root.courseCode || "Course Book",
+      course: root.course || root.subject || root.courseCode || "Computer Science",
+      week: weekNum,
+      weekTitle: root.weekTitle || root.section || (root.week ? `Week ${root.week}` : `Week ${weekNum}`),
+      topic: root.topic || root.syllabusCoverage || root.title || "Course Review",
+      level: root.level || root.class || root.program || "BS Computer Science",
+      createdBy: root.createdBy || root.preparedBy || root.author || "Course Instructor"
+    };
+    if (Array.isArray(parsed.mcqs)) rawList = parsed.mcqs;
+    else if (Array.isArray(parsed.questions)) rawList = parsed.questions;
+    else if (Array.isArray(root.mcqs)) rawList = root.mcqs;
+    else if (Array.isArray(root.questions)) rawList = root.questions;
+    else if (Array.isArray(root.data)) rawList = root.data;
+    else if (Array.isArray(root.items)) rawList = root.items;
+  }
+
+  const validQuestions = [];
+  rawList.forEach((q, idx) => {
+    if (!q || typeof q !== "object") return;
+    const prompt = (q.question || q.prompt || q.text || q.title || "").trim();
+    if (!prompt) return;
+
+    let rawOpts = q.options || q.choices || q.answers;
+    let options = [];
+    if (Array.isArray(rawOpts)) {
+      options = rawOpts.map(o => typeof o === "object" && o ? (o.text || o.option || JSON.stringify(o)) : String(o)).filter(Boolean);
+    } else if (rawOpts && typeof rawOpts === "object") {
+      options = Object.values(rawOpts).map(o => typeof o === "object" && o ? (o.text || o.option || JSON.stringify(o)) : String(o)).filter(Boolean);
+    }
+    if (options.length < 2) return;
+
+    let rawAns = q.answer !== undefined ? q.answer : (q.correctOptionIndex !== undefined ? q.correctOptionIndex : (q.correctIndex !== undefined ? q.correctIndex : 0));
+    let answerIdx = 0;
+    if (typeof rawAns === "number" && rawAns >= 0 && rawAns < options.length) {
+      answerIdx = rawAns;
+    } else if (typeof rawAns === "string") {
+      const letterIdx = ["A", "B", "C", "D", "E"].indexOf(rawAns.trim().toUpperCase());
+      if (letterIdx >= 0 && letterIdx < options.length) {
+        answerIdx = letterIdx;
+      } else {
+        const found = options.findIndex(o => o.toLowerCase() === rawAns.trim().toLowerCase());
+        if (found >= 0) answerIdx = found;
+      }
+    }
+
+    validQuestions.push({
+      id: idx + 1,
+      subject: meta.book,
+      chapter: meta.topic,
+      topic: meta.topic,
+      difficulty: q.difficulty || "Easy",
+      question: prompt,
+      options: options,
+      answer: answerIdx,
+      explanation: (q.explanation || q.explain || "").trim(),
+      type: "single"
+    });
+  });
+
+  const slug = (meta.book + "-" + (meta.weekTitle || `week-${meta.week}`)).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return {
+    id: slug,
+    book: meta.book,
+    course: meta.course,
+    week: meta.week,
+    weekTitle: meta.weekTitle,
+    topic: meta.topic,
+    level: meta.level,
+    createdBy: meta.createdBy,
+    icon: "📚",
+    isBuiltIn: false,
+    totalQuestions: validQuestions.length,
+    questions: validQuestions
+  };
+}
 
 async function checkMongoStatus(quiet = false) {
   const badge = $("#mongoStatusBadge");
   const info = $("#mongoSyncInfo");
   if (!badge) return;
 
-  try {
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 3000);
-    const res = await fetch(`${MONGO_API_URL}/status`, { signal: ctrl.signal });
-    clearTimeout(timer);
+  if (MONGO_API_URL) {
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 2500);
+      const res = await fetch(`${MONGO_API_URL}/status`, { signal: ctrl.signal });
+      clearTimeout(timer);
 
-    if (res.ok) {
-      const data = await res.json();
-      badge.textContent = `✓ Connected (${data.subjectsCount} Books)`;
-      badge.className = "tag success";
-      if (info) {
-        info.innerHTML = `Connected to MongoDB Atlas (<code>${data.cluster}</code>). Database: <b>${data.database}</b> (${data.subjectsCount} books, ${data.questionsCount} MCQs).`;
+      if (res.ok) {
+        const data = await res.json();
+        badge.textContent = `✓ Connected (${data.subjectsCount} Books)`;
+        badge.className = "tag success";
+        if (info) {
+          info.innerHTML = `Connected to MongoDB Atlas (<code>${data.cluster}</code>). Database: <b>${data.database}</b> (${data.subjectsCount} books, ${data.questionsCount} MCQs).`;
+        }
+        return data;
       }
-      return data;
-    }
-  } catch (err) {
-    badge.textContent = "API Offline";
-    badge.className = "tag";
-    if (info) {
-      info.innerHTML = `MongoDB Atlas ready. Start server with <code>node server.js</code> or use <code>node scripts/upload_to_mongodb.js</code>.`;
-    }
+    } catch {}
+  }
+
+  // Fallback for static website hosting (GitHub Pages) or when local server is off
+  badge.textContent = `✓ Cloud Catalog Ready`;
+  badge.className = "tag success";
+  if (info) {
+    info.innerHTML = `Website running with verified static JSON course catalog (7 Books ready). Local MongoDB Atlas API server can be started with <code>node server.js</code>.`;
   }
   return null;
 }
 
 async function uploadRecordToMongo(subjectRecord) {
+  if (!MONGO_API_URL) return;
   try {
     const res = await fetch(`${MONGO_API_URL}/upload`, {
       method: "POST",
@@ -5559,76 +5701,115 @@ async function uploadRecordToMongo(subjectRecord) {
   }
 }
 
-async function syncBooksFromMongo(silent = false) {
-  if (!silent) toast("Connecting to MongoDB Atlas...");
-  try {
-    const res = await fetch(`${MONGO_API_URL}/subjects`);
-    if (!res.ok) throw new Error("Could not reach MongoDB server.");
-    const data = await res.json();
-    if (!data.success || !data.subjects || !data.subjects.length) {
-      if (!silent) toast("No books found in MongoDB Atlas.");
-      return;
-    }
-
-    let addedCount = 0;
-    let updatedCount = 0;
-    for (const sub of data.subjects) {
-      const fullRes = await fetch(`${MONGO_API_URL}/subjects/${sub.id}`);
-      if (fullRes.ok) {
-        const fullData = await fullRes.json();
-        if (fullData.success && fullData.subject) {
-          const freshSub = fullData.subject;
-          const idx = s.subjects.findIndex(existing => 
-            existing.id === freshSub.id || 
-            (existing.book && existing.book.trim().toLowerCase() === freshSub.book.trim().toLowerCase() && Number(existing.week) === Number(freshSub.week))
+async function syncBooksFromWebsiteData(silent = false) {
+  let loaded = 0;
+  for (const rawUrl of STATIC_CATALOG_URLS) {
+    try {
+      const url = resolveDataUrl(rawUrl);
+      const res = await fetch(url);
+      if (res.ok) {
+        const raw = await res.json();
+        const norm = parseAndNormalizeJSON(raw, url);
+        if (norm && norm.questions && norm.questions.length) {
+          const idx = s.subjects.findIndex(x => 
+            x.id === norm.id || 
+            (x.book && x.book.trim().toLowerCase() === norm.book.trim().toLowerCase() && Number(x.week) === Number(norm.week))
           );
-
           if (idx !== -1) {
             const prevIcon = s.subjects[idx].icon;
-            s.subjects[idx] = {
-              ...s.subjects[idx],
-              ...freshSub,
-              icon: prevIcon || freshSub.icon || "📚"
-            };
-            if (s.activeSubjectId === s.subjects[idx].id || (s.activeSubject && s.activeSubject.book.trim().toLowerCase() === freshSub.book.trim().toLowerCase() && Number(s.activeSubject.week) === Number(freshSub.week))) {
-              s.activeSubject = s.subjects[idx];
-              s.activeSubjectId = s.subjects[idx].id;
-              s.questions = s.subjects[idx].questions || [];
-            }
-            updatedCount++;
+            s.subjects[idx] = { ...s.subjects[idx], ...norm, icon: prevIcon || norm.icon || "📚", isBuiltIn: true };
           } else {
-            s.subjects.push(freshSub);
-            addedCount++;
+            s.subjects.push({ ...norm, isBuiltIn: true });
           }
+          loaded++;
         }
       }
-    }
+    } catch {}
+  }
 
-    // Purge any broken 0-question subject entries from local catalog
+  if (loaded > 0) {
     s.subjects = s.subjects.filter(sub => !(sub.id === "custom-question-bank-week-01" || (!sub.isBuiltIn && sub.totalQuestions === 0 && (!sub.questions || sub.questions.length === 0))));
-
     saveSubjects();
     renderSubjects();
     updateHeroSubjectUI();
     updateTranscriptSubjectUI(s.activeSubject);
     updateQuestionCountUI();
     render();
-    checkMongoStatus(true);
+    if (!silent) toast(`✓ Synced ${loaded} course books from website data catalog!`);
+    go("subjects");
+  } else if (!silent) {
+    toast("All course books are already up to date.");
+  }
+  return loaded;
+}
 
-    if (!silent) {
-      if (addedCount > 0 || updatedCount > 0) {
-        toast(`✓ Synced with MongoDB Atlas! (${addedCount} added, ${updatedCount} updated, ${data.subjects.length} books total)`);
-        go("subjects");
-      } else {
-        toast(`✓ All ${data.subjects.length} books in MongoDB Atlas are up to date.`);
+async function syncBooksFromMongo(silent = false) {
+  if (MONGO_API_URL) {
+    if (!silent) toast("Connecting to MongoDB Atlas...");
+    try {
+      const res = await fetch(`${MONGO_API_URL}/subjects`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && data.subjects && data.subjects.length) {
+          let addedCount = 0;
+          let updatedCount = 0;
+          for (const sub of data.subjects) {
+            const fullRes = await fetch(`${MONGO_API_URL}/subjects/${sub.id}`);
+            if (fullRes.ok) {
+              const fullData = await fullRes.json();
+              if (fullData.success && fullData.subject) {
+                const freshSub = fullData.subject;
+                const idx = s.subjects.findIndex(existing => 
+                  existing.id === freshSub.id || 
+                  (existing.book && existing.book.trim().toLowerCase() === freshSub.book.trim().toLowerCase() && Number(existing.week) === Number(freshSub.week))
+                );
+
+                if (idx !== -1) {
+                  const prevIcon = s.subjects[idx].icon;
+                  s.subjects[idx] = {
+                    ...s.subjects[idx],
+                    ...freshSub,
+                    icon: prevIcon || freshSub.icon || "📚"
+                  };
+                  if (s.activeSubjectId === s.subjects[idx].id || (s.activeSubject && s.activeSubject.book.trim().toLowerCase() === freshSub.book.trim().toLowerCase() && Number(s.activeSubject.week) === Number(freshSub.week))) {
+                    s.activeSubject = s.subjects[idx];
+                    s.activeSubjectId = s.subjects[idx].id;
+                    s.questions = s.subjects[idx].questions || [];
+                  }
+                  updatedCount++;
+                } else {
+                  s.subjects.push(freshSub);
+                  addedCount++;
+                }
+              }
+            }
+          }
+
+          s.subjects = s.subjects.filter(sub => !(sub.id === "custom-question-bank-week-01" || (!sub.isBuiltIn && sub.totalQuestions === 0 && (!sub.questions || sub.questions.length === 0))));
+
+          saveSubjects();
+          renderSubjects();
+          updateHeroSubjectUI();
+          updateTranscriptSubjectUI(s.activeSubject);
+          updateQuestionCountUI();
+          render();
+          checkMongoStatus(true);
+
+          if (!silent) {
+            toast(`✓ Synced with MongoDB Atlas! (${data.subjects.length} books total)`);
+            go("subjects");
+          }
+          return;
+        }
       }
-    }
-
-  } catch (err) {
-    if (!silent) {
-      toast(`MongoDB API offline. Start server with "node server.js" (or run "node scripts/upload_to_mongodb.js")`, true);
+    } catch (err) {
+      console.log("MongoDB API not reachable on this host, falling back to website static data:", err.message);
     }
   }
+
+  // Fallback to website static data files (GitHub Pages mode or when server is off)
+  if (!silent) toast("Loading verified books from website data catalog...");
+  await syncBooksFromWebsiteData(silent);
 }
 
 function handleMongoFileSelect(e) {
@@ -5639,28 +5820,170 @@ function handleMongoFileSelect(e) {
   reader.onload = async () => {
     try {
       const parsed = JSON.parse(reader.result);
-      toast("Uploading JSON to MongoDB Atlas...");
 
-      const res = await fetch(`${MONGO_API_URL}/upload`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed)
-      });
-      const data = await res.json();
-      if (data.success) {
-        toast(data.message || `✓ Successfully uploaded to MongoDB Atlas!`);
-        checkMongoStatus(true);
-        syncBooksFromMongo();
-      } else {
-        throw new Error(data.error || "Upload failed");
+      // 1. Immediately normalize and load into local website catalog
+      const norm = parseAndNormalizeJSON(parsed, file.name);
+      if (norm && norm.questions && norm.questions.length) {
+        const idx = s.subjects.findIndex(x => 
+          x.id === norm.id || 
+          (x.book && x.book.trim().toLowerCase() === norm.book.trim().toLowerCase() && Number(x.week) === Number(norm.week))
+        );
+        if (idx !== -1) {
+          const prevIcon = s.subjects[idx].icon;
+          s.subjects[idx] = { ...s.subjects[idx], ...norm, icon: prevIcon || norm.icon || "📚" };
+          s.activeSubject = s.subjects[idx];
+          s.activeSubjectId = s.subjects[idx].id;
+          s.questions = s.subjects[idx].questions;
+        } else {
+          s.subjects.push(norm);
+          s.activeSubject = norm;
+          s.activeSubjectId = norm.id;
+          s.questions = norm.questions;
+        }
+
+        saveSubjects();
+        renderSubjects();
+        updateHeroSubjectUI();
+        updateTranscriptSubjectUI(s.activeSubject);
+        updateQuestionCountUI();
+        render();
+        go("subjects");
+      }
+
+      // 2. If MongoDB API is accessible, sync to cloud database as well
+      if (MONGO_API_URL) {
+        toast("Uploading JSON to MongoDB Atlas...");
+        try {
+          const res = await fetch(`${MONGO_API_URL}/upload`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(parsed)
+          });
+          const data = await res.json();
+          if (data.success) {
+            toast(data.message || `✓ Successfully uploaded to MongoDB Atlas!`);
+            checkMongoStatus(true);
+            return;
+          }
+        } catch (apiErr) {
+          console.log("MongoDB API upload skipped (server offline):", apiErr.message);
+        }
+      }
+
+      if (norm && norm.questions && norm.questions.length) {
+        toast(`✓ Loaded "${norm.book}" (${norm.weekTitle}) with ${norm.questions.length} MCQs!`);
       }
     } catch (err) {
-      toast("MongoDB Upload Error: " + err.message, true);
+      toast("Error reading JSON file: " + err.message, true);
     } finally {
       if ($("#mongoFileInput")) $("#mongoFileInput").value = "";
     }
   };
   reader.readAsText(file);
+}
+
+function openDirectLinkModal() {
+  const verifiedLinks = [
+    { name: "Object-Oriented Programming (Week 01)", url: "data/oop_bscs_week01.json", desc: "20 MCQs • Structured vs OOP, Objects, Classes, State & Behavior" },
+    { name: "Object-Oriented Programming (Week 02)", url: "data/oop_bscs_week02.json", desc: "20 MCQs • UML Class Diagrams, Noun/Verb Analysis, CRC Cards" },
+    { name: "Object-Oriented Programming (Week 03 — ADP)", url: "data/oop_adp_sem2_week03.json", desc: "20 MCQs • Classes, Methods, Namespaces, Parameters" },
+    { name: "Object-Oriented Programming (Week 04)", url: "data/oop_bscs_week04.json", desc: "20 MCQs • Constructors, Encapsulation, Access Specifiers" },
+    { name: "Theory of Automata (Week 02)", url: "data/theory_of_automata_week02.json", desc: "40 MCQs • Regular Expressions & Recursive Definitions" },
+    { name: "Computer Architecture and Organization (Week 01)", url: "data/computer_architecture_week01.json", desc: "39 MCQs • Digital Logic & Hardware Overview" },
+    { name: "Database Systems (Week 02)", url: "data/database_systems_week02.json", desc: "39 MCQs • Three-Level Schema Architecture & Data Independence" }
+  ];
+
+  modal(`<h2>Load Questions via Direct JSON Link</h2>
+<p style="font-size:13px;line-height:1.5;color:var(--m);margin-bottom:12px;">Enter the direct web URL of any question bank JSON file, or select from verified course modules below:</p>
+
+<div style="display:flex;flex-direction:column;gap:12px;">
+  <label style="display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:600;">
+    JSON File Direct URL or Relative Path:
+    <div style="display:flex;gap:8px;">
+      <input id="directJsonUrlInput" type="text" placeholder="e.g. data/oop_bscs_week01.json or https://..." style="flex:1;padding:8px 12px;font-size:13px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--card);color:var(--t);">
+      <button id="fetchDirectUrlBtn" class="primary" style="padding:8px 16px;white-space:nowrap;">Load &amp; Display</button>
+    </div>
+  </label>
+
+  <div style="border-top:1px solid var(--line);padding-top:12px;margin-top:4px;">
+    <b style="font-size:12.5px;color:var(--t);display:block;margin-bottom:8px;">Verified Course Modules (Click to load):</b>
+    <div style="display:flex;flex-direction:column;gap:6px;max-height:220px;overflow-y:auto;padding-right:4px;">
+      ${verifiedLinks.map(link => `
+        <div class="directLinkItem" data-url="${link.url}" style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);cursor:pointer;">
+          <div>
+            <div style="font-weight:600;font-size:12.5px;color:var(--t);">${link.name}</div>
+            <div style="font-size:11px;color:var(--m);">${link.desc}</div>
+          </div>
+          <button type="button" class="secondary" style="font-size:11px;padding:4px 10px;pointer-events:none;">Load ➔</button>
+        </div>
+      `).join("")}
+    </div>
+  </div>
+</div>
+<div class="modalActions" style="margin-top:16px;">
+  <button class="secondary" onclick="closeModal()">Close</button>
+</div>`);
+
+  const input = $("#directJsonUrlInput");
+  const fetchBtn = $("#fetchDirectUrlBtn");
+
+  const doLoad = async (url) => {
+    const targetUrl = (url || input?.value || "").trim();
+    if (!targetUrl) {
+      toast("Please enter or select a JSON URL", true);
+      return;
+    }
+    toast(`Fetching: ${targetUrl}...`);
+    try {
+      const resolved = resolveDataUrl(targetUrl);
+      const res = await fetch(resolved);
+      if (!res.ok) throw new Error(`HTTP ${res.status}: Failed to fetch file`);
+      const parsed = await res.json();
+      const norm = parseAndNormalizeJSON(parsed, targetUrl);
+      if (!norm || !norm.questions || !norm.questions.length) {
+        throw new Error("No valid MCQs found in the fetched JSON document.");
+      }
+
+      const idx = s.subjects.findIndex(x => 
+        x.id === norm.id || 
+        (x.book && x.book.trim().toLowerCase() === norm.book.trim().toLowerCase() && Number(x.week) === Number(norm.week))
+      );
+      if (idx !== -1) {
+        const prevIcon = s.subjects[idx].icon;
+        s.subjects[idx] = { ...s.subjects[idx], ...norm, icon: prevIcon || norm.icon || "📚" };
+        s.activeSubject = s.subjects[idx];
+        s.activeSubjectId = s.subjects[idx].id;
+        s.questions = s.subjects[idx].questions;
+      } else {
+        s.subjects.push(norm);
+        s.activeSubject = norm;
+        s.activeSubjectId = norm.id;
+        s.questions = norm.questions;
+      }
+
+      saveSubjects();
+      renderSubjects();
+      updateHeroSubjectUI();
+      updateTranscriptSubjectUI(s.activeSubject);
+      updateQuestionCountUI();
+      render();
+      closeModal();
+      toast(`✓ Successfully loaded "${norm.book}" (${norm.weekTitle}) with ${norm.questions.length} MCQs!`);
+      go("subjects");
+
+      // Background cloud sync if local MongoDB server is running
+      if (MONGO_API_URL) {
+        uploadRecordToMongo(norm);
+      }
+    } catch (err) {
+      toast("Failed to load JSON link: " + err.message, true);
+    }
+  };
+
+  if (fetchBtn) fetchBtn.onclick = () => doLoad();
+  $$(".directLinkItem").forEach(el => {
+    el.onclick = () => doLoad(el.dataset.url);
+  });
 }
 
 // 10. Tools & Management Action Buttons
@@ -5672,12 +5995,17 @@ if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => requireInstructorAu
 if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => requireInstructorAuth(() => $("#mongoFileInput")?.click());
 if ($("#mongoFileInput")) $("#mongoFileInput").onchange = handleMongoFileSelect;
 if ($("#mongoSyncBtn")) $("#mongoSyncBtn").onclick = () => requireInstructorAuth(syncBooksFromMongo);
-if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = () => requireInstructorAuth(syncBooksFromMongo);
+if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = () => syncBooksFromMongo(false);
+if ($("#loadDirectUrlBtn")) $("#loadDirectUrlBtn").onclick = openDirectLinkModal;
+if ($("#mongoDirectUrlBtn")) $("#mongoDirectUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
+if ($("#importUrlBtn")) $("#importUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
 
-// Check MongoDB status & auto-sync if connected
+// Check MongoDB status & auto-sync if connected; otherwise quiet website sync
 checkMongoStatus(true).then(stat => {
   if (stat && stat.connected) {
     syncBooksFromMongo(true);
+  } else {
+    syncBooksFromWebsiteData(true);
   }
 });
 if ($("#bookmarks")) $("#bookmarks").onclick = () => {
