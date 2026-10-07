@@ -3514,8 +3514,19 @@ const esc = x => String(x).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 function store(k, v) { try { localStorage.setItem(k, v); } catch {} }
 function read(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }
 function toast(m, e = false) { const x = document.createElement("div"); x.className = "toast" + (e ? " err" : ""); x.textContent = m; $("#toast").append(x); setTimeout(() => x.remove(), 2500); }
-function go(id) { $("#"+id)?.scrollIntoView({ behavior: "smooth" }); $("#drawer").classList.remove("drawerOpen"); }
-function main() { ["home", "subjects", "tools"].forEach(x => $("#"+x)?.classList.remove("hidden")); $("#live").classList.add("hidden"); if (typeof updateExamStatusUI === "function") updateExamStatusUI(); }
+function go(id) { 
+  if (id === "qbank") id = "subjects";
+  $("#"+id)?.scrollIntoView({ behavior: "smooth" }); 
+  $("#drawer")?.classList.remove("drawerOpen");
+  $$("nav button, .navLink").forEach(b => {
+    b.classList.toggle("active", b.dataset.go === id);
+  });
+}
+function main() { 
+  ["home", "subjects", "tools"].forEach(x => $("#"+x)?.classList.remove("hidden")); 
+  $("#live")?.classList.add("hidden"); 
+  if (typeof updateExamStatusUI === "function") updateExamStatusUI(); 
+}
 function optText(o) { if (!o && o !== 0) return ""; if (typeof o === "string") return o; if (typeof o.text === "string") return o.text; if (typeof o.option === "string") return o.option; return String(o); }
 
 function loadStoredSubjects() {
@@ -3589,7 +3600,20 @@ const s = {
   sec: 3600,
   timer: null,
   result: null,
-  student: {}
+  student: {},
+  qbank: {
+    search: "",
+    course: "all",
+    week: "all",
+    topic: "all",
+    diff: "all",
+    sort: "default",
+    page: 1,
+    pageSize: 10,
+    mode: "study",
+    userAns: {},
+    expandedAll: false
+  }
 };
 
 function saveSubjects() {
@@ -3803,10 +3827,10 @@ function renderBookDetailView(bookKey) {
         <div class="weekCardActions">
           ${isThisActive 
             ? `<button class="primary takeExamBtn" type="button" onclick="start();">▶ Start / Resume Exam</button>` 
-            : `<button class="secondary selectModuleBtn" type="button" onclick="switchSubject('${esc(w.id)}', false);">Select for Practice</button>
+            : `<button class="secondary selectModuleBtn" type="button" onclick="switchSubject('${esc(w.id)}', false);">Select Module</button>
                <button class="primary takeExamBtn" type="button" onclick="switchSubject('${esc(w.id)}', true);">▶ Take Examination →</button>`
           }
-          ${!isBuiltIn ? `<button class="danger selectModuleBtn" type="button" onclick="deleteCustomSubject('${esc(w.id)}');" title="Delete custom week">🗑 Delete</button>` : ""}
+          ${!isBuiltIn && isInstructorAuthenticated() ? `<button class="danger selectModuleBtn facultyRestrictedTool" type="button" onclick="deleteCustomSubject('${esc(w.id)}');" title="Delete custom week">🗑 Delete</button>` : ""}
         </div>
       </article>`;
     }).join("");
@@ -3903,6 +3927,11 @@ function updateHeroSubjectUI() {
   const sub = s.activeSubject;
   if (!sub) return;
 
+  if ($("#contextActiveCourse")) $("#contextActiveCourse").textContent = sub.course || sub.book;
+  if ($("#contextActiveWeek")) $("#contextActiveWeek").textContent = sub.weekTitle || ("Week " + sub.week);
+  if ($("#contextLevel")) $("#contextLevel").textContent = sub.level || "BS Computer Science";
+  if ($("#contextTotalMCQs")) $("#contextTotalMCQs").textContent = `${sub.questions ? sub.questions.length : 40} MCQs Active`;
+
   if ($("#heroBadgeText")) {
     $("#heroBadgeText").textContent = `${sub.level || "BS Computer Science"} • ${sub.course || sub.book} • ${sub.weekTitle || "Week " + sub.week}`;
   }
@@ -3992,11 +4021,515 @@ function updateStudentUI(st){
   }
 }
 
-function render(){let sEl=$("#search");if(!sEl)return;let t=sEl.value.toLowerCase(),tp=$("#topic")?.value||"",d=$("#difficulty")?.value||"",so=$("#sort")?.value||"newest";
-s.filtered=s.questions.filter(q=>(!t||[q.question,q.chapter,q.topic,q.subject].join(" ").toLowerCase().includes(t))&&(!tp||q.topic===tp)&&(!d||q.difficulty===d));
-if(so==="oldest")s.filtered.sort((a,b)=>a.id-b.id);if(so==="newest")s.filtered.sort((a,b)=>b.id-a.id);if(so==="difficulty"){let r={Easy:1,Medium:2,Hard:3};s.filtered.sort((a,b)=>r[a.difficulty]-r[b.difficulty])}if(so==="random")s.filtered.sort(()=>Math.random()-.5);
-if($("#count"))$("#count").textContent=s.filtered.length+" question"+(s.filtered.length===1?"":"s");if($("#list"))$("#list").innerHTML=s.filtered.length?s.filtered.map(q=>card(q)).join(""):`<div class="card" style="padding:30px;text-align:center"><h3>No Questions Found</h3><p>Try clearing the filters.</p></div>`}
-function card(q){return `<article class="question-card"><div class="tags"><span class="tag">Q${q.id}</span><span class="tag">${esc(q.chapter||"General")}</span><span class="tag">${esc(q.topic||"General")}</span><span class="tag diff">${q.difficulty||"Medium"}</span></div><div class="qtext">${esc(q.question)}</div><div class="options">${q.options.map((o,i)=>`<button class="option ${s.bankAns[q.id]===i?"selected":""}" data-b="${q.id}" data-o="${i}"><b class="letter">${L[i]||String.fromCharCode(65+i)}</b>${esc(optText(o))}</button>`).join("")}</div><div class="qfoot"><span class="tag">Single Correct Answer</span><button class="bookmark ${s.bm.has(q.id)?"active":""}" data-bm="${q.id}">${s.bm.has(q.id)?"★ Bookmarked":"☆ Bookmark"}</button></div></article>`}
+function getAllAvailableQuestions() {
+  const all = [];
+  const seen = new Set();
+  (s.subjects || []).forEach(sub => {
+    (sub.questions || []).forEach(q => {
+      const qNum = q.id || q.questionIndex || 1;
+      const uniqueKey = `${sub.book || sub.course || ''}-${sub.week || ''}-${qNum}`;
+      if (!seen.has(uniqueKey)) {
+        seen.add(uniqueKey);
+        all.push({
+          ...q,
+          id: qNum,
+          subject: q.subject || sub.book || sub.course || "General",
+          course: sub.course || sub.book || q.subject || "General",
+          week: sub.week || 1,
+          weekTitle: sub.weekTitle || (sub.week ? `Week ${String(sub.week).padStart(2, "0")}` : "Week 01"),
+          chapter: q.chapter || sub.topic || "Lecture Topics",
+          topic: q.topic || q.chapter || sub.topic || "Lecture Topics",
+          difficulty: q.difficulty || "Medium"
+        });
+      }
+    });
+  });
+  return all;
+}
+
+function updateQBankFilterOptions() {
+  const cSel = $("#qbankCourseSelect");
+  const wSel = $("#qbankWeekSelect");
+  const tSel = $("#qbankTopicSelect");
+  if (!cSel || !wSel || !tSel) return;
+
+  const allQ = getAllAvailableQuestions();
+  
+  // Courses
+  const currentCourse = s.qbank ? s.qbank.course : "all";
+  const courses = [...new Set(allQ.map(q => q.course || q.subject).filter(Boolean))].sort();
+  cSel.innerHTML = `<option value="all">All Academic Courses (${courses.length})</option>` +
+    courses.map(c => `<option value="${esc(c)}" ${c === currentCourse ? 'selected' : ''}>${esc(c)}</option>`).join("");
+
+  // Weeks (filtered by course if selected)
+  const currentWeek = s.qbank ? s.qbank.week : "all";
+  const filteredForWeeks = currentCourse === "all" ? allQ : allQ.filter(q => (q.course || q.subject) === currentCourse);
+  const weeks = [...new Set(filteredForWeeks.map(q => q.weekTitle).filter(Boolean))].sort((a, b) => {
+    const nA = parseInt(String(a).replace(/\D/g, "")) || 0;
+    const nB = parseInt(String(b).replace(/\D/g, "")) || 0;
+    return nA - nB;
+  });
+  wSel.innerHTML = `<option value="all">All Weekly Modules (${weeks.length})</option>` +
+    weeks.map(w => `<option value="${esc(w)}" ${w === currentWeek ? 'selected' : ''}>${esc(w)}</option>`).join("");
+
+  // Topics (filtered by course & week if selected)
+  const currentTopic = s.qbank ? s.qbank.topic : "all";
+  let filteredForTopics = filteredForWeeks;
+  if (currentWeek !== "all") {
+    filteredForTopics = filteredForTopics.filter(q => q.weekTitle === currentWeek);
+  }
+  const topics = [...new Set(filteredForTopics.map(q => q.topic).filter(Boolean))].sort();
+  tSel.innerHTML = `<option value="all">All Topics (${topics.length})</option>` +
+    topics.map(t => `<option value="${esc(t)}" ${t === currentTopic ? 'selected' : ''}>${esc(t.length > 55 ? t.slice(0, 52) + "..." : t)}</option>`).join("");
+}
+
+function renderQuestionBank() {
+  const listEl = $("#qbankList");
+  if (!listEl) return;
+
+  if (!s.qbank) {
+    s.qbank = { search: "", course: "all", week: "all", topic: "all", diff: "all", sort: "default", page: 1, pageSize: 10, mode: "study", userAns: {}, expandedAll: false };
+  }
+
+  updateQBankFilterOptions();
+
+  const allQ = getAllAvailableQuestions();
+  const qb = s.qbank;
+  const term = (qb.search || "").trim().toLowerCase();
+
+  // Filter
+  let filtered = allQ.filter(q => {
+    if (term) {
+      const searchHaystack = [
+        q.question,
+        q.topic,
+        q.chapter,
+        q.subject,
+        q.course,
+        q.weekTitle,
+        q.explanation,
+        ...(Array.isArray(q.options) ? q.options.map(optText) : [])
+      ].join(" ").toLowerCase();
+      if (!searchHaystack.includes(term)) return false;
+    }
+    if (qb.course !== "all" && (q.course || q.subject) !== qb.course) return false;
+    if (qb.week !== "all" && q.weekTitle !== qb.week) return false;
+    if (qb.topic !== "all" && q.topic !== qb.topic) return false;
+    if (qb.diff !== "all" && q.difficulty !== qb.diff) return false;
+    return true;
+  });
+
+  // Sort
+  if (qb.sort === "diff-asc") {
+    const diffRank = { Easy: 1, Medium: 2, Hard: 3 };
+    filtered.sort((a, b) => (diffRank[a.difficulty] || 2) - (diffRank[b.difficulty] || 2));
+  } else if (qb.sort === "diff-desc") {
+    const diffRank = { Easy: 1, Medium: 2, Hard: 3 };
+    filtered.sort((a, b) => (diffRank[b.difficulty] || 2) - (diffRank[a.difficulty] || 2));
+  } else if (qb.sort === "random") {
+    filtered.sort(() => Math.random() - 0.5);
+  }
+
+  // Active filter chips
+  const activeChips = [];
+  if (term) activeChips.push({ label: `"${term}"`, key: "search" });
+  if (qb.course !== "all") activeChips.push({ label: qb.course, key: "course" });
+  if (qb.week !== "all") activeChips.push({ label: qb.week, key: "week" });
+  if (qb.topic !== "all") activeChips.push({ label: qb.topic.length > 30 ? qb.topic.slice(0, 28) + "..." : qb.topic, key: "topic" });
+  if (qb.diff !== "all") activeChips.push({ label: qb.diff, key: "diff" });
+
+  const chipsEl = $("#qbankActiveChips");
+  if (chipsEl) {
+    chipsEl.innerHTML = activeChips.map(c => 
+      `<span class="filterChip">${esc(c.label)} <span class="chipClose" onclick="clearQBankFilter('${c.key}')" title="Remove filter">✕</span></span>`
+    ).join("");
+  }
+
+  const badgeEl = $("#filterBadgeCount");
+  if (badgeEl) {
+    if (activeChips.length > 0) {
+      badgeEl.textContent = activeChips.length;
+      badgeEl.classList.remove("hidden");
+    } else {
+      badgeEl.classList.add("hidden");
+    }
+  }
+
+  // Results count
+  const countEl = $("#qbankResultsCount");
+  if (countEl) {
+    if (filtered.length === 0) {
+      countEl.innerHTML = `No questions match the current criteria`;
+    } else {
+      const startIdx = (qb.page - 1) * qb.pageSize + 1;
+      const endIdx = Math.min(qb.page * qb.pageSize, filtered.length);
+      countEl.innerHTML = `Showing <b>${startIdx}–${endIdx}</b> of <b>${filtered.length}</b> questions`;
+    }
+  }
+
+  const contextEl = $("#qbankActiveContext");
+  if (contextEl) {
+    contextEl.textContent = qb.course !== "all" ? (qb.week !== "all" ? `${qb.course} • ${qb.week}` : qb.course) : "All Academic Courses";
+  }
+
+  // Empty state
+  if (filtered.length === 0) {
+    listEl.innerHTML = `
+      <div class="card qbankEmptyState">
+        <div class="emptyIcon">🔍</div>
+        <h3>No Matching Questions Found</h3>
+        <p>There are no questions matching your current search query or filter combination. Try clearing your filters to explore all available continuous assessment questions.</p>
+        <button class="primary" type="button" onclick="resetQBankFilters()">Reset All Filters</button>
+      </div>`;
+    const pagEl = $("#qbankPagination");
+    if (pagEl) pagEl.innerHTML = "";
+    return;
+  }
+
+  // Pagination calculation
+  const totalPages = Math.ceil(filtered.length / qb.pageSize);
+  if (qb.page > totalPages) qb.page = totalPages;
+  if (qb.page < 1) qb.page = 1;
+
+  const pageQuestions = filtered.slice((qb.page - 1) * qb.pageSize, qb.page * qb.pageSize);
+
+  // Render question cards
+  listEl.innerHTML = pageQuestions.map((q, idx) => {
+    const globalIdx = (qb.page - 1) * qb.pageSize + idx + 1;
+    const isBookmarked = s.bm.has(q.id);
+    const correctIdx = typeof q.answer === "number" ? q.answer : 0;
+    const userSelected = qb.userAns[q.id];
+    const isStudy = qb.mode === "study";
+    const isExpanded = qb.expandedAll;
+
+    const diffClass = (q.difficulty || "Medium").toLowerCase().startsWith("e") ? "Easy" :
+                      (q.difficulty || "Medium").toLowerCase().startsWith("h") ? "Hard" : "Medium";
+
+    return `
+      <article class="card qbankCard" data-qid="${q.id}">
+        <div class="qbankCardTop">
+          <div class="qbankMetaTags">
+            <span class="qbankIndexBadge">Question ${globalIdx}</span>
+            <span class="tag courseTag">${esc(q.course || q.subject)}</span>
+            <span class="tag weekTag">${esc(q.weekTitle || "Week " + q.week)}</span>
+            <span class="tag topicTag">${esc(q.topic)}</span>
+            <span class="tag diffTag diff-${diffClass}">${esc(q.difficulty)}</span>
+          </div>
+          <button class="bookmarkBtn ${isBookmarked ? 'active' : ''}" data-bm="${q.id}" type="button" title="Bookmark question for revision" aria-label="Bookmark Question ${q.id}">
+            <span>${isBookmarked ? '★ Bookmarked' : '☆ Bookmark'}</span>
+          </button>
+        </div>
+
+        <div class="qbankPrompt">
+          <p class="promptText">${esc(q.question)}</p>
+        </div>
+
+        <div class="qbankOptionsGrid" role="group" aria-label="Answer options">
+          ${(q.options || []).map((opt, i) => {
+            const letter = L[i] || String.fromCharCode(65 + i);
+            const isThisCorrect = i === correctIdx;
+            const isThisSelected = userSelected === i;
+
+            let optStateClass = "";
+            let markText = "";
+
+            if (isStudy) {
+              if (isThisCorrect) {
+                optStateClass = "isCorrect";
+                markText = " ✓ (Correct Answer)";
+              }
+            } else {
+              // Practice mode
+              if (userSelected !== undefined) {
+                if (isThisCorrect) {
+                  optStateClass = "isCorrect";
+                  markText = " ✓";
+                } else if (isThisSelected) {
+                  optStateClass = "isIncorrect";
+                  markText = " ✕";
+                }
+              }
+            }
+
+            return `
+              <button class="qbankOptionBtn ${optStateClass}" data-qbank-opt="${q.id}" data-opt-idx="${i}" type="button">
+                <span class="optionLetter">${letter}</span>
+                <span class="optionText">${esc(optText(opt))}${markText}</span>
+              </button>`;
+          }).join("")}
+        </div>
+
+        <div class="qbankExplanationBox ${isExpanded || (userSelected !== undefined && !isStudy) ? '' : 'collapsed'}" id="explain-${q.id}">
+          <div class="explainHead">
+            <span class="explainIcon">💡</span>
+            <span class="explainTitle">Academic Explanation &amp; Rationale</span>
+            <span class="explainCorrectRef">Correct: <b>Option ${L[correctIdx] || String.fromCharCode(65 + correctIdx)}</b></span>
+          </div>
+          <div class="explainBody">
+            <p>${esc(q.explanation || "No additional explanation recorded for this curriculum item.")}</p>
+          </div>
+        </div>
+
+        <div class="qbankCardFooter">
+          <button class="toggleExplainBtn" data-toggle-explain="${q.id}" type="button">
+            <span>${isExpanded ? 'Hide Explanation' : 'View Explanation & Rationale'}</span>
+          </button>
+          <span class="qbankSingleChoiceBadge">1 Mark • Single Choice Standard</span>
+        </div>
+      </article>`;
+  }).join("");
+
+  // Render pagination
+  const pagEl = $("#qbankPagination");
+  if (pagEl) {
+    if (totalPages <= 1) {
+      pagEl.innerHTML = "";
+    } else {
+      let pageHtml = `
+        <button class="pageBtn" ${qb.page === 1 ? 'disabled' : ''} onclick="setQBankPage(${qb.page - 1})" aria-label="Previous Page">← Prev</button>
+      `;
+
+      let startP = Math.max(1, qb.page - 2);
+      let endP = Math.min(totalPages, startP + 4);
+      if (endP - startP < 4) startP = Math.max(1, endP - 4);
+
+      if (startP > 1) {
+        pageHtml += `<button class="pageBtn" onclick="setQBankPage(1)">1</button>`;
+        if (startP > 2) pageHtml += `<span style="color:var(--m);padding:0 4px;">…</span>`;
+      }
+
+      for (let p = startP; p <= endP; p++) {
+        pageHtml += `<button class="pageBtn ${p === qb.page ? 'active' : ''}" onclick="setQBankPage(${p})">${p}</button>`;
+      }
+
+      if (endP < totalPages) {
+        if (endP < totalPages - 1) pageHtml += `<span style="color:var(--m);padding:0 4px;">…</span>`;
+        pageHtml += `<button class="pageBtn" onclick="setQBankPage(${totalPages})">${totalPages}</button>`;
+      }
+
+      pageHtml += `
+        <button class="pageBtn" ${qb.page === totalPages ? 'disabled' : ''} onclick="setQBankPage(${qb.page + 1})" aria-label="Next Page">Next →</button>
+      `;
+
+      pagEl.innerHTML = pageHtml;
+    }
+  }
+}
+
+function clearQBankFilter(key) {
+  if (!s.qbank) return;
+  if (key === "search") {
+    s.qbank.search = "";
+    if ($("#qbankSearchInput")) $("#qbankSearchInput").value = "";
+    if ($("#qbankClearSearch")) $("#qbankClearSearch").classList.add("hidden");
+  } else if (key === "course") {
+    s.qbank.course = "all";
+    s.qbank.week = "all";
+    s.qbank.topic = "all";
+    if ($("#qbankCourseSelect")) $("#qbankCourseSelect").value = "all";
+  } else if (key === "week") {
+    s.qbank.week = "all";
+    s.qbank.topic = "all";
+    if ($("#qbankWeekSelect")) $("#qbankWeekSelect").value = "all";
+  } else if (key === "topic") {
+    s.qbank.topic = "all";
+    if ($("#qbankTopicSelect")) $("#qbankTopicSelect").value = "all";
+  } else if (key === "diff") {
+    s.qbank.diff = "all";
+    if ($("#qbankDiffSelect")) $("#qbankDiffSelect").value = "all";
+  }
+  s.qbank.page = 1;
+  renderQuestionBank();
+}
+
+function resetQBankFilters() {
+  if (!s.qbank) return;
+  s.qbank.search = "";
+  s.qbank.course = "all";
+  s.qbank.week = "all";
+  s.qbank.topic = "all";
+  s.qbank.diff = "all";
+  s.qbank.sort = "default";
+  s.qbank.page = 1;
+
+  if ($("#qbankSearchInput")) $("#qbankSearchInput").value = "";
+  if ($("#qbankClearSearch")) $("#qbankClearSearch").classList.add("hidden");
+  if ($("#qbankCourseSelect")) $("#qbankCourseSelect").value = "all";
+  if ($("#qbankWeekSelect")) $("#qbankWeekSelect").value = "all";
+  if ($("#qbankTopicSelect")) $("#qbankTopicSelect").value = "all";
+  if ($("#qbankDiffSelect")) $("#qbankDiffSelect").value = "all";
+  if ($("#qbankSortSelect")) $("#qbankSortSelect").value = "default";
+
+  renderQuestionBank();
+  toast("✓ Question Bank filters reset.");
+}
+
+function setQBankPage(p) {
+  if (!s.qbank) return;
+  s.qbank.page = p;
+  renderQuestionBank();
+  const qbSec = $("#qbank");
+  if (qbSec) qbSec.scrollIntoView({ behavior: "smooth" });
+}
+
+function studyWeekInQBank(subId) {
+  const target = s.subjects.find(sub => sub.id === subId);
+  if (!target) return;
+  s.activeSubjectId = target.id;
+  s.activeSubject = target;
+  s.questions = target.questions || [];
+  store(K.activeSubject, target.id);
+  
+  if (!s.qbank) s.qbank = {};
+  s.qbank.course = target.course || target.book;
+  s.qbank.week = target.weekTitle || ("Week " + target.week);
+  s.qbank.topic = "all";
+  s.qbank.search = "";
+  s.qbank.page = 1;
+
+  main();
+  renderQuestionBank();
+  go("qbank");
+  toast(`✓ Viewing ${target.book} (${target.weekTitle || "Week " + target.week}) in Question Bank`);
+}
+
+function render() {
+  renderQuestionBank();
+}
+
+function card(q) {
+  return `<article class="question-card"><div class="tags"><span class="tag">Q${q.id}</span><span class="tag">${esc(q.chapter||"General")}</span><span class="tag">${esc(q.topic||"General")}</span><span class="tag diff">${q.difficulty||"Medium"}</span></div><div class="qtext">${esc(q.question)}</div><div class="options">${q.options.map((o,i)=>`<button class="option ${s.bankAns[q.id]===i?"selected":""}" data-b="${q.id}" data-o="${i}"><b class="letter">${L[i]||String.fromCharCode(65+i)}</b><span class="optionText">${esc(optText(o))}</span></button>`).join("")}</div><div class="qfoot"><span class="tag">Single Correct Answer</span><button class="bookmark ${s.bm.has(q.id)?"active":""}" data-bm="${q.id}">${s.bm.has(q.id)?"★ Bookmarked":"☆ Bookmark"}</button></div></article>`;
+}
+
+function initQuestionBankEvents() {
+  const searchInput = $("#qbankSearchInput");
+  const clearBtn = $("#qbankClearSearch");
+  const cSel = $("#qbankCourseSelect");
+  const wSel = $("#qbankWeekSelect");
+  const tSel = $("#qbankTopicSelect");
+  const dSel = $("#qbankDiffSelect");
+  const sSel = $("#qbankSortSelect");
+  const resetBtn = $("#qbankResetFiltersBtn");
+  const studyBtn = $("#modeStudyBtn");
+  const practiceBtn = $("#modePracticeBtn");
+  const filterToggleBtn = $("#toggleFilterBtn");
+  const expandAllBtn = $("#qbankExpandAllBtn");
+
+  if (searchInput) {
+    searchInput.oninput = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.search = searchInput.value;
+      s.qbank.page = 1;
+      if (clearBtn) {
+        clearBtn.classList.toggle("hidden", !searchInput.value);
+      }
+      renderQuestionBank();
+    };
+  }
+
+  if (clearBtn) {
+    clearBtn.onclick = () => {
+      if (searchInput) searchInput.value = "";
+      clearBtn.classList.add("hidden");
+      if (!s.qbank) s.qbank = {};
+      s.qbank.search = "";
+      s.qbank.page = 1;
+      renderQuestionBank();
+    };
+  }
+
+  if (cSel) {
+    cSel.onchange = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.course = cSel.value;
+      s.qbank.week = "all";
+      s.qbank.topic = "all";
+      s.qbank.page = 1;
+      renderQuestionBank();
+    };
+  }
+
+  if (wSel) {
+    wSel.onchange = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.week = wSel.value;
+      s.qbank.topic = "all";
+      s.qbank.page = 1;
+      renderQuestionBank();
+    };
+  }
+
+  if (tSel) {
+    tSel.onchange = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.topic = tSel.value;
+      s.qbank.page = 1;
+      renderQuestionBank();
+    };
+  }
+
+  if (dSel) {
+    dSel.onchange = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.diff = dSel.value;
+      s.qbank.page = 1;
+      renderQuestionBank();
+    };
+  }
+
+  if (sSel) {
+    sSel.onchange = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.sort = sSel.value;
+      s.qbank.page = 1;
+      renderQuestionBank();
+    };
+  }
+
+  if (resetBtn) resetBtn.onclick = resetQBankFilters;
+
+  if (studyBtn) {
+    studyBtn.onclick = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.mode = "study";
+      studyBtn.classList.add("active");
+      if (practiceBtn) practiceBtn.classList.remove("active");
+      renderQuestionBank();
+    };
+  }
+
+  if (practiceBtn) {
+    practiceBtn.onclick = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.mode = "practice";
+      practiceBtn.classList.add("active");
+      if (studyBtn) studyBtn.classList.remove("active");
+      renderQuestionBank();
+    };
+  }
+
+  if (filterToggleBtn) {
+    filterToggleBtn.onclick = () => {
+      const panel = $("#qbankFilterPanel");
+      if (panel) {
+        panel.classList.toggle("mobileCollapsed");
+        const isClosed = panel.classList.contains("mobileCollapsed");
+        filterToggleBtn.setAttribute("aria-expanded", String(!isClosed));
+      }
+    };
+  }
+
+  if (expandAllBtn) {
+    expandAllBtn.onclick = () => {
+      if (!s.qbank) s.qbank = {};
+      s.qbank.expandedAll = !s.qbank.expandedAll;
+      expandAllBtn.innerHTML = s.qbank.expandedAll 
+        ? `<span>▲</span> Collapse All Explanations` 
+        : `<span>▼</span> Expand All Explanations`;
+      renderQuestionBank();
+    };
+  }
+}
 function modal(h){$("#modalContent").innerHTML=h;$("#modal").classList.remove("hidden")}
 function closeModal(){ $("#modal")?.classList.add("hidden"); }
 const close = closeModal;
@@ -4261,15 +4794,15 @@ function openBriefingModal(student){
 
   modal(`<div class="briefingModal">
   <div class="briefingHeader">
-    <div class="briefingBadgeIcon">📋</div>
-    <div>
+    <div class="briefingBadgeIcon" aria-hidden="true">📋</div>
+    <div class="briefingHeaderTexts">
       <h2 class="briefingTitle">Examination Briefing &amp; Ready Check</h2>
       <p class="briefingSubtitle">Candidate credentials verified • Review test guidelines before beginning</p>
     </div>
   </div>
 
   <div class="briefingCandidateCard">
-    <div class="briefingAvatar">👤</div>
+    <div class="briefingAvatar" aria-hidden="true">👤</div>
     <div class="briefingCandidateInfo">
       <div class="briefingCandidateName">${esc(st.name || "Student")}</div>
       <div class="briefingCandidateMeta">
@@ -4292,23 +4825,23 @@ function openBriefingModal(student){
     </div>
     <div class="briefingMetricsBar">
       <div class="briefingMetric">
-        <span class="metricIcon">📝</span>
+        <span class="metricIcon" aria-hidden="true">📝</span>
         <div class="metricText">
           <small>QUESTIONS</small>
           <b>${qCount} MCQs</b>
         </div>
       </div>
       <div class="briefingMetric">
-        <span class="metricIcon">⏱️</span>
+        <span class="metricIcon" aria-hidden="true">⏱️</span>
         <div class="metricText">
-          <small>TIME ALLOWED</small>
+          <small>DURATION</small>
           <b>60 Mins</b>
         </div>
       </div>
       <div class="briefingMetric">
-        <span class="metricIcon">🎯</span>
+        <span class="metricIcon" aria-hidden="true">🎯</span>
         <div class="metricText">
-          <small>PASS BENCHMARK</small>
+          <small>BENCHMARK</small>
           <b>50% Mark</b>
         </div>
       </div>
@@ -4317,22 +4850,22 @@ function openBriefingModal(student){
 
   <div class="briefingRules">
     <div class="briefingRuleItem">
-      <span class="ruleIcon">🔒</span>
-      <span><b>Sequential Mode:</b> Forward-only exam. Answers are locked as you proceed.</span>
+      <span class="ruleIcon" aria-hidden="true">🔒</span>
+      <span class="ruleText"><b>Sequential Mode:</b> Forward-only exam. Answers are locked as you proceed.</span>
     </div>
     <div class="briefingRuleItem">
-      <span class="ruleIcon">↷</span>
-      <span><b>Skipped Questions:</b> Unanswered questions can be revisited before final submit.</span>
+      <span class="ruleIcon" aria-hidden="true">↷</span>
+      <span class="ruleText"><b>Skipped Questions:</b> Unanswered questions can be revisited before final submit.</span>
     </div>
     <div class="briefingRuleItem">
-      <span class="ruleIcon">⏱️</span>
-      <span><b>Live Timer:</b> 60-minute countdown starts automatically when you continue.</span>
+      <span class="ruleIcon" aria-hidden="true">⏱️</span>
+      <span class="ruleText"><b>Live Timer:</b> 60-minute countdown starts automatically when you continue.</span>
     </div>
   </div>
 
   <div class="briefingActions modalActions">
-    <button class="secondary" id="closeBriefing" type="button">Prepare / Review Syllabus</button>
     <button class="primary continueExamBtn" id="continueToExam" type="button">▶ Continue to Examination →</button>
+    <button class="secondary cancelBriefingBtn" id="closeBriefing" type="button">Prepare / Review Syllabus</button>
   </div>
 </div>`);
 
@@ -4376,11 +4909,13 @@ function drawExam(){
 
   $("#navCount").textContent=`${s.i+1}/${s.exam.length}`;
   let tagElements=[
-    `<span class="tag">QUESTION ${s.i+1}</span>`,
-    `<span class="tag">${esc(q.chapter)}</span>`,
-    `<span class="tag">${esc(q.topic)}</span>`,
-    `<span class="tag diff">${q.difficulty}</span>`
+    `<span class="tag qNumTag">Question ${s.i+1} of ${s.exam.length}</span>`
   ];
+  const topicLabel = (q.topic || q.chapter || "").trim();
+  if(topicLabel && topicLabel.toLowerCase() !== "general") {
+    tagElements.push(`<span class="tag">${esc(topicLabel)}</span>`);
+  }
+  tagElements.push(`<span class="tag diff">${q.difficulty||"Medium"}</span>`);
   if(isLocked) tagElements.push('<span class="tag lockedBadge">🔒 Answer Locked</span>');
   else if(isSkipped) tagElements.push('<span class="tag skippedBadge">↷ Skipped — Answer to Complete</span>');
 
@@ -4399,7 +4934,7 @@ function drawExam(){
     <div class="tags">${tagElements.join("")}</div>
     <div class="qtext">${esc(q.question)}</div>
     <div class="options">
-      ${q.options.map((o,i)=>`<button class="option ${s.ans[q.id]===o.index?"selected":""} ${isLocked?"disabledOption":""}" data-e="${i}" ${isLocked?"disabled":""}><b class="letter">${L[i]}</b>${esc(o.text)}</button>`).join("")}
+      ${q.options.map((o,i)=>`<button class="option ${s.ans[q.id]===o.index?"selected":""} ${isLocked?"disabledOption":""}" data-e="${i}" ${isLocked?"disabled":""}><b class="letter">${L[i]}</b><span class="optionText">${esc(optText(o))}</span></button>`).join("")}
     </div>
     <div class="examControls">
       <div class="lockHint ${hintClass}">
@@ -5384,6 +5919,11 @@ window.openBriefingModal = openBriefingModal;
 window.beginExamNow = beginExamNow;
 window.openBookDetail = openBookDetail;
 window.closeBookDetail = closeBookDetail;
+window.studyWeekInQBank = studyWeekInQBank;
+window.clearQBankFilter = clearQBankFilter;
+window.resetQBankFilters = resetQBankFilters;
+window.setQBankPage = setQBankPage;
+window.renderQuestionBank = renderQuestionBank;
 
 // 1. Navigation & Click Delegation
 document.addEventListener("click", e => {
@@ -5398,6 +5938,9 @@ document.addEventListener("click", e => {
       } else {
         toast("No examination result found. Please start an exam first.");
       }
+    } else if (target === "qbank") {
+      main();
+      go("subjects");
     } else if (target === "subjects") {
       main();
       if (g.textContent.includes("View Subject")) {
@@ -5994,9 +6537,8 @@ if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = () =>
 if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => requireInstructorAuth(() => $("#file")?.click());
 if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => requireInstructorAuth(() => $("#mongoFileInput")?.click());
 if ($("#mongoFileInput")) $("#mongoFileInput").onchange = handleMongoFileSelect;
-if ($("#mongoSyncBtn")) $("#mongoSyncBtn").onclick = () => requireInstructorAuth(syncBooksFromMongo);
-if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = () => syncBooksFromMongo(false);
-if ($("#loadDirectUrlBtn")) $("#loadDirectUrlBtn").onclick = openDirectLinkModal;
+if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = () => requireInstructorAuth(() => syncBooksFromMongo(false));
+if ($("#loadDirectUrlBtn")) $("#loadDirectUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
 if ($("#mongoDirectUrlBtn")) $("#mongoDirectUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
 if ($("#importUrlBtn")) $("#importUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
 
@@ -6323,5 +6865,6 @@ function initAppNoticeModal() {
 }
 
 // Initialize Feature Modules
+initQuestionBankEvents();
 initInstructorAuth();
 initAppNoticeModal();

@@ -3,127 +3,177 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MCQs Question Bank | Theory of Automata</title>
+  <title>MCQs Question Bank | Academic Examination &amp; Knowledge Portal</title>
+  <meta name="description" content="Production-grade academic continuous assessment question bank, syllabus revision, and timed examination system for computer science courses.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=22">
+  <link rel="stylesheet" href="style.css?v=25">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
+  <!-- ==========================================================================
+       Primary Academic Header & Navigation
+       ========================================================================== -->
   <header>
     <div class="head">
       <button class="brand" data-go="home" aria-label="Go to MCQs Question Bank Home">
-        <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg" width="52" height="52" fetchpriority="high">
+        <img src="logo.png" alt="University Department Logo" class="brandImg" width="48" height="48" fetchpriority="high">
         <span class="brandText">
           <strong class="brandTitle">MCQs Question Bank</strong>
-          <small class="brandSubtitle">Practice • Learn • Test • Improve</small>
+          <small class="brandSubtitle">Academic Examination &amp; Assessment System</small>
         </span>
       </button>
+
       <nav aria-label="Primary Navigation">
-        <button data-go="home">Home</button>
-        <button data-go="subjects">Subjects</button>
-        <button data-go="tools">Management</button>
-        <button data-go="results">Results</button>
+        <button data-go="home" class="navLink active">Home</button>
+        <button data-go="subjects" class="navLink">Courses</button>
+        <button data-go="tools" class="navLink">Management</button>
+        <button data-go="results" class="navLink">Results</button>
       </nav>
+
       <div class="headActions">
-        <div id="userBadge" class="userBadge hidden" title="Student Session Active">
-          <span class="userAvatar">👤</span>
+        <div id="userBadge" class="userBadge hidden" title="Candidate Session Active">
+          <span class="userAvatar" aria-hidden="true">👤</span>
           <span id="headerUserName" class="userName"></span>
-          <button id="logoutBtn" class="logoutBtn" title="Logout from saved credentials">Logout</button>
+          <button id="logoutBtn" class="logoutBtn" title="Logout candidate session">Sign Out</button>
         </div>
-        <button id="portalLockBtn" class="icon" title="Lock Portal" aria-label="Lock Question Bank Portal">🔒</button>
-        <button id="theme" class="icon" title="Toggle theme" aria-label="Toggle dark/light theme">☾</button>
-        <button id="startTop" class="primary" aria-label="Start Examination">▶ Start Test</button>
-        <button id="menu" class="icon mobile" aria-label="Open mobile menu">☰</button>
+        <button id="portalLockBtn" class="icon" title="Faculty Portal Lock" aria-label="Lock Question Bank Portal">🔒</button>
+        <button id="theme" class="icon" title="Toggle color theme" aria-label="Toggle dark/light theme">☾</button>
+        <button id="startTop" class="primary startTopBtn" aria-label="Start Continuous Assessment Test">▶ Launch Exam</button>
+        <button id="menu" class="icon mobile" aria-label="Open navigation menu">☰</button>
       </div>
     </div>
-    <div id="drawer">
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
       <div id="drawerUserBadge" class="drawerUser hidden">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <div class="drawerUserProfile">
           <span>👤</span>
-          <b id="drawerUserName" style="font-size:13px;color:var(--t)"></b>
+          <b id="drawerUserName"></b>
         </div>
-        <button id="drawerLogoutBtn" class="secondary" style="width:100%;font-size:12px;color:var(--r);border-color:rgba(239,68,68,0.3)">Logout</button>
+        <button id="drawerLogoutBtn" class="secondary" type="button">Sign Out Candidate</button>
       </div>
-      <button data-go="home">Home</button>
-      <button data-go="subjects">Subjects</button>
-      <button data-go="tools">Management</button>
-      <button data-go="results">Results</button>
-      <button id="drawerPortalLockBtn" class="secondary" style="margin-top:6px;width:100%;font-size:12.5px;justify-content:center;">🔒 Lock Portal</button>
-      <button id="drawerStartBtn" class="primary" style="margin-top:4px;width:100%;font-size:13.5px;font-weight:700;justify-content:center;background:var(--p);color:#fff;">▶ Start Practice Examination</button>
+      <button data-go="home"><span>🏛️</span> Home</button>
+      <button data-go="subjects"><span>📚</span> Courses &amp; Modules</button>
+      <button data-go="tools"><span>⚙️</span> Management &amp; Tools</button>
+      <button data-go="results"><span>📊</span> Examination Results</button>
+      <div class="drawerActions">
+        <button id="drawerPortalLockBtn" class="secondary" type="button">🔒 Faculty Portal Access</button>
+        <button id="drawerStartBtn" class="primary" type="button">▶ Launch Examination</button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <div id="examInProgressBanner" class="examBanner wrap hidden no-print">
-      <div class="examBannerContent">
-        <span class="examBannerPulse"></span>
-        <span id="bannerInfo"><b>Exam in Progress:</b> Question 1 • 60:00 remaining</span>
+  <!-- ==========================================================================
+       Academic Breadcrumb / Context Ribbon
+       ========================================================================== -->
+  <div id="academicContextBar" class="academicContextBar no-print">
+    <div class="wrap contextWrap">
+      <div class="contextLeft">
+        <span class="contextCrest" aria-hidden="true">🏛️</span>
+        <nav aria-label="Breadcrumb" class="contextBreadcrumb">
+          <span class="contextUniv">Department of Computer Science</span>
+          <span class="contextSep">/</span>
+          <span class="contextLevel" id="contextLevel">BS Computer Science</span>
+          <span class="contextSep">/</span>
+          <b id="contextActiveCourse">Theory of Automata</b>
+          <span class="contextSep">/</span>
+          <span id="contextActiveWeek">Week 02</span>
+        </nav>
       </div>
-      <button id="bannerResumeBtn" class="primary" type="button">▶ Resume Exam →</button>
+      <div class="contextRight">
+        <span id="contextTotalMCQs" class="contextTag">40 MCQs Active</span>
+        <span class="contextTag benchmark">50% Passing Benchmark</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         Persistent Exam In-Progress Alert Banner
+         ========================================================================== -->
+    <div id="examInProgressBanner" class="examBanner wrap hidden no-print" role="alert">
+      <div class="examBannerContent">
+        <span class="examBannerPulse" aria-hidden="true"></span>
+        <span id="bannerInfo"><b>Examination In Progress:</b> Question 1 • 60:00 remaining</span>
+      </div>
+      <button id="bannerResumeBtn" class="primary" type="button">▶ Resume Examination →</button>
     </div>
 
+    <!-- ==========================================================================
+         SECTION 1: Home / Hero Overview & Portal Entry
+         ========================================================================== -->
     <section id="home" class="hero wrap">
-      <div>
-        <div class="badge" id="heroBadge"><span class="badgeDot"></span><span id="heroBadgeText">BS Computer Science • Theory of Automata • Week 02</span></div>
-        <h1>Master Your Exams with <span>Smart MCQs</span></h1>
-        <p id="heroDesc">Practice verified lecture content on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination, progress tracking, and comprehensive post-exam evaluation.</p>
-        <div class="actions">
-          <button id="startHero" class="primary big">Start Practice Exam →</button>
-          <button data-go="subjects" class="secondary big">View Subject</button>
+      <div class="heroInfo">
+        <div class="badge" id="heroBadge">
+          <span class="badgeDot" aria-hidden="true"></span>
+          <span id="heroBadgeText">BS Computer Science • Theory of Automata • Week 02</span>
         </div>
-        <div class="stats">
-          <div><b id="total">40</b><small>Total MCQs</small></div>
-          <div><b>60</b><small>Minutes</small></div>
-          <div><b>50%</b><small>Pass Mark</small></div>
-          <div><b>Instant</b><small>Review</small></div>
+        <h1>Continuous Assessment &amp; <span>MCQ Question Bank</span></h1>
+        <p id="heroDesc">Practice verified lecture curriculum on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination simulation, immediate evaluation, and academic performance transcript generation.</p>
+        
+        <div class="actions heroActions">
+          <button id="startHero" class="primary big">Launch Timed Examination →</button>
+          <button data-go="subjects" class="secondary big">Course Catalog &amp; Modules</button>
+          <button data-go="results" class="subtle big">Past Results</button>
+        </div>
+
+        <div class="stats heroStats">
+          <div class="statBox"><b id="total">40</b><small>Module MCQs</small></div>
+          <div class="statBox"><b>60</b><small>Minutes</small></div>
+          <div class="statBox"><b>50%</b><small>Pass Standard</small></div>
+          <div class="statBox"><b>Instant</b><small>Feedback</small></div>
         </div>
       </div>
-      <div class="visual">
-        <div class="preview">
-          <div class="previewLogo">
-            <img src="logo.png" alt="MCQs Question Bank Logo" class="previewLogoImg">
-            <div>
+
+      <div class="visual heroVisual">
+        <div class="preview heroCardPreview">
+          <div class="previewHeader">
+            <span class="previewCrest" aria-hidden="true">📝</span>
+            <div class="previewHeaderText">
               <small id="previewSubTag">THEORY OF AUTOMATA • WEEK 02</small>
-              <h3 id="previewQuestionPrompt" style="margin:0;">Sample Practice MCQ</h3>
+              <h3 id="previewQuestionPrompt">Sample Examination MCQ</h3>
             </div>
           </div>
-          <div id="previewOptions">
+          <div id="previewOptions" class="previewOptionsList">
             <p>A. Union</p>
             <p>B. Concatenation</p>
             <p class="ok">C. Kleene Star ✓</p>
             <p>D. Addition</p>
           </div>
           <div class="previewFoot">
-            <span>Score: 82%</span>
-            <span>00:24:18 remaining</span>
+            <span class="previewScoreBadge">Assessment Benchmark: 50%</span>
+            <span class="previewTimer">⏱️ 00:60:00 Allowed</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 2: Academic Course Catalog & Syllabus Modules
+         ========================================================================== -->
     <section id="subjects" class="wrap section">
       <!-- VIEW 1: All Course Books Grid -->
       <div id="allBooksView">
-        <div class="title">
+        <div class="title sectionHeader">
           <div>
-            <small class="eyebrow">ACADEMIC COURSE CATALOG &amp; BOOKS</small>
-            <h2>Subject &amp; Book Records</h2>
+            <small class="eyebrow">ACADEMIC COURSE CATALOG &amp; CURRICULUM</small>
+            <h2>Undergraduate Course Books</h2>
           </div>
-          <div class="subjectCatalogActions" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <button id="mongoSyncCatalogBtn" class="secondary" style="font-size:12.5px;padding:8px 14px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;" title="Load books stored in MongoDB Atlas or Website Catalog">
-              <span>🍃</span> Sync Catalog
+          <div class="subjectCatalogActions facultyRestrictedTool hidden">
+            <button id="mongoSyncCatalogBtn" class="secondary facultyRestrictedTool hidden" type="button" title="Synchronize with MongoDB Atlas cloud database or verified repository catalog">
+              <span>🍃</span> Sync Cloud Catalog
             </button>
-            <button id="loadDirectUrlBtn" class="secondary" style="font-size:12.5px;padding:8px 14px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;" title="Load MCQs from direct JSON file link or URL">
-              <span>🔗</span> Load from Direct Link
+            <button id="loadDirectUrlBtn" class="secondary facultyRestrictedTool hidden" type="button" title="Load MCQs from direct JSON file link or URL">
+              <span>🔗</span> Load from Link
             </button>
-            <button id="addSubjectBtn" class="primary" style="font-size:12.5px;padding:8px 16px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:6px;">
-              <span>➕</span> Add / Import Book Record
+            <button id="addSubjectBtn" class="primary facultyRestrictedTool hidden" type="button" title="Import new course book and lecture examination record">
+              <span>➕</span> Import Book Record
             </button>
           </div>
         </div>
-        <p style="color:var(--m);font-size:13px;margin:-10px 0 16px 0;">Select an academic course book below to explore its weekly examination modules and begin timed tests.</p>
+        <p class="sectionIntro">Select an academic subject below to view its weekly curriculum modules, study individual question sets, or launch a timed assessment test.</p>
         <div id="subjectGrid" class="subjectGrid">
           <!-- Rendered dynamically -->
         </div>
@@ -133,7 +183,7 @@
       <div id="bookDetailView" class="hidden">
         <div class="bookDetailTopBar">
           <button id="backToBooksBtn" class="backToBooksBtn" type="button">
-            <span>←</span> Back to All Course Books
+            <span>←</span> Back to Course Catalog
           </button>
         </div>
 
@@ -143,11 +193,11 @@
 
         <div class="bookModulesSectionTitle">
           <div>
-            <small class="eyebrow">COURSE MODULES &amp; SYLLABUS</small>
+            <small class="eyebrow">COURSE MODULES &amp; SYLLABUS BREAKDOWN</small>
             <h2 id="bookModulesHeading">Weekly Examination Modules</h2>
           </div>
         </div>
-        <p style="color:var(--m);font-size:13px;margin:-10px 0 16px 0;">Choose a weekly syllabus module below to review topics and launch the timed continuous assessment examination.</p>
+        <p class="sectionIntro">Select a weekly syllabus unit below to review learning objectives and launch continuous assessment examinations.</p>
 
         <div id="bookWeeksGrid" class="bookWeeksGrid">
           <!-- Rendered dynamically -->
@@ -155,24 +205,30 @@
       </div>
     </section>
 
+
+
+    <!-- ==========================================================================
+         SECTION 4: Timed Continuous Assessment Examination (Forward-Only)
+         ========================================================================== -->
     <section id="live" class="wrap section hidden">
       <div class="liveTitle">
         <div>
-          <small class="eyebrow">EXAM IN PROGRESS • SEQUENTIAL MODE</small>
-          <h2 id="liveExamTitle">Week 02 Examination <span class="tag" style="margin-left:6px;font-size:10px;vertical-align:middle;">🔒 Forward-Only</span></h2>
+          <small class="eyebrow">CONTINUOUS ASSESSMENT EXAMINATION • SEQUENTIAL MODE</small>
+          <h2 id="liveExamTitle">Week 02 Examination <span class="tag examModeTag">🔒 Forward-Only</span></h2>
         </div>
-        <div id="timer" class="timer">
+        <div id="timer" class="timer" role="timer" aria-live="polite">
           <small>TIME REMAINING</small>
           <b>60:00</b>
         </div>
       </div>
+
       <div class="score examProgressTracker" id="examProgressTracker" role="region" aria-label="Exam Progress Tracker">
         <span class="trackerItem" title="Total Questions">
           <span class="trackerLabel"><span class="lblFull">Total Questions:</span><span class="lblShort">Total:</span></span>
           <b id="liveTotalQ" class="trackerVal">40</b>
         </span>
-        <span class="trackerItem" title="Answered & Locked Questions">
-          <span class="trackerLabel"><span class="lblFull">Answered & Locked:</span><span class="lblShort">Locked:</span></span>
+        <span class="trackerItem" title="Answered &amp; Locked Questions">
+          <span class="trackerLabel"><span class="lblFull">Answered &amp; Locked:</span><span class="lblShort">Locked:</span></span>
           <b id="liveAnsweredQ" class="trackerVal">0/40</b>
         </span>
         <span class="trackerItem" title="Skipped Questions">
@@ -192,39 +248,46 @@
           <b id="liveProgressPct" class="trackerVal">0%</b>
         </span>
       </div>
+
       <div class="examLayout">
-        <article id="examQ" class="card examQ"></article>
-        <aside class="card side">
-          <b>Question Navigator</b>
-          <small id="navCount">1/40</small>
+        <article id="examQ" class="card examQ" aria-label="Current Examination Question"></article>
+        
+        <aside class="card side examNavigatorAside" aria-label="Question Navigator">
+          <div class="sideNavHead">
+            <b>Question Navigator</b>
+            <small id="navCount">1/40</small>
+          </div>
           <div class="navLegend">
             <span class="navLegendItem"><i class="legendDot current"></i> Current</span>
             <span class="navLegendItem"><i class="legendDot locked"></i> Locked</span>
             <span class="navLegendItem"><i class="legendDot skipped"></i> Skipped</span>
             <span class="navLegendItem"><i class="legendDot upcoming"></i> Remaining</span>
           </div>
-          <div id="nav" class="nav"></div>
-          <button id="submit" class="secondary full">Submit Examination</button>
+          <div id="nav" class="nav" role="navigation" aria-label="Question Numbers"></div>
+          <button id="submit" class="secondary full submitExamBtn" type="button">Submit Examination</button>
         </aside>
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 5: Examination Results & Official Academic Transcript
+         ========================================================================== -->
     <section id="results" class="wrap section hidden">
-      <!-- Top Action Bar with Prominent Print Button -->
+      <!-- Top Action Bar -->
       <div class="resultTopBar no-print">
         <div>
-          <small class="eyebrow">EXAMINATION RESULT</small>
-          <h2>Academic Transcript & Performance Overview</h2>
+          <small class="eyebrow">ACADEMIC EVALUATION &amp; TRANSCRIPT</small>
+          <h2>Official Examination Result Sheet</h2>
         </div>
         <div class="resultTopActions">
-          <button id="printTop" class="primary big printCtaBtn">
-            <span style="font-size:16px;">🖨️</span> Print Official Result Sheet
+          <button id="printTop" class="primary big printCtaBtn" type="button">
+            <span>🖨️</span> Print Official Result Sheet
           </button>
-          <button id="againTop" class="secondary big">↻ Retake Examination</button>
+          <button id="againTop" class="secondary big" type="button">↻ Retake Examination</button>
         </div>
       </div>
 
-      <!-- Prominent Post-Exam True/False & Score Summary Grid (Screen Only) -->
+      <!-- Post-Exam True/False & Score Summary Grid (Screen Only) -->
       <div class="postExamSummaryGrid no-print">
         <div class="summaryStatCard statTotal">
           <small class="statLabel">TOTAL QUESTIONS</small>
@@ -258,16 +321,16 @@
         </div>
       </div>
 
-      <!-- Formal Academic Standard Transcript Card (Rendered On-Screen and Formatted for A4 Print) -->
+      <!-- Formal Academic Standard Transcript Card (Formatted for A4 Print and Screen) -->
       <div id="academicTranscript" class="academicTranscript card">
-        <!-- Institution / University Header -->
+        <!-- Institution Header -->
         <div class="academicHeader">
           <div class="academicLogoWrap">
-            <img src="logo.png" alt="University Logo" class="academicLogo">
+            <img src="logo.png" alt="Department Crest" class="academicLogo" width="60" height="60">
           </div>
           <div class="academicTitleBlock">
             <h1 class="institutionName">DEPARTMENT OF COMPUTER SCIENCE</h1>
-            <h2 class="documentTitle">OFFICIAL EXAMINATION TRANSCRIPT & MARKS SHEET</h2>
+            <h2 class="documentTitle">OFFICIAL EXAMINATION TRANSCRIPT &amp; MARKS SHEET</h2>
             <p class="transcriptMeta">Course: <b id="dispTranscriptCourse">Theory of Automata</b> • <span id="dispTranscriptLevel">BS Computer Science</span> • Continuous Assessment Examination</p>
           </div>
           <div class="transcriptStamp">
@@ -277,9 +340,9 @@
 
         <!-- Section 1: Candidate & Examination Credentials -->
         <div class="academicSectionHeader">
-          <span>I. CANDIDATE & EXAMINATION CREDENTIALS</span>
+          <span>I. CANDIDATE &amp; EXAMINATION CREDENTIALS</span>
         </div>
-        <div class="tableResponsive">
+        <div class="tableResponsive candidateTableWrap">
           <table class="academicTable candidateTable">
             <tbody>
               <tr>
@@ -306,9 +369,9 @@
 
         <!-- Section 2: Marks Evaluation & Academic Summary Table -->
         <div class="academicSectionHeader">
-          <span>II. MARKS EVALUATION & ASSESSMENT SUMMARY</span>
+          <span>II. MARKS EVALUATION &amp; ASSESSMENT SUMMARY</span>
         </div>
-        <div class="tableResponsive">
+        <div class="tableResponsive marksTableWrap">
           <table class="academicTable marksTable">
             <thead>
               <tr>
@@ -324,7 +387,7 @@
               <tr>
                 <td style="text-align:left;">
                   <b id="dispAssessmentComponent">Theory of Automata — MCQs Examination</b><br>
-                  <small style="color:var(--m);" id="dispAssessmentTopic">Week 02: Regular Expressions & Recursive Definitions of Languages</small>
+                  <small style="color:var(--m);" id="dispAssessmentTopic">Week 02: Regular Expressions &amp; Recursive Definitions of Languages</small>
                 </td>
                 <td style="text-align:center;font-weight:600;" id="tMaxMarks">40</td>
                 <td style="text-align:center;font-weight:700;color:var(--p);" id="tObtMarks">0</td>
@@ -355,7 +418,7 @@
             <b>Academic Remarks: </b>
             <span id="academicRemarks">Minimum passing criteria is 50%.</span>
           </div>
-          <div style="font-size:11px;color:var(--m);margin-top:4px;">
+          <div class="gradingScaleNote">
             <b>Grading Scale Reference: </b>
             <span>A+ (≥85%), A (80-84%), B (70-79%), C (60-69%), D (50-59%), F (&lt;50%)</span>
           </div>
@@ -391,22 +454,22 @@
           <div class="bar"><span>Unanswered / Skipped</span><i id="bu"></i><b id="pu">0%</b></div>
         </article>
         <article class="card panel">
-          <h3>Examination Operations</h3>
+          <h3>Assessment Thresholds</h3>
           <div id="status" class="status">NOT PASSED</div>
           <p>Minimum passing threshold: <b>50% (20/40 Marks)</b></p>
-          <div style="display:flex;gap:8px;margin-top:14px;">
-            <button id="print" class="secondary" style="font-weight:600;">🖨️ Print Result Sheet</button>
-            <button id="again" class="primary" style="font-weight:600;">↻ Try Again</button>
+          <div class="resultsPanelActions">
+            <button id="print" class="secondary" type="button">🖨️ Print Result Sheet</button>
+            <button id="again" class="primary" type="button">↻ Try Again</button>
           </div>
         </article>
       </div>
 
       <!-- Question Answer Review (Screen Only) -->
       <article class="card review no-print">
-        <div class="title">
+        <div class="title reviewTitle">
           <div>
-            <small class="eyebrow">POST-EXAM ANALYSIS</small>
-            <h3>Detailed Answer Review & Explanations</h3>
+            <small class="eyebrow">POST-EXAM ANALYSIS &amp; SOLUTIONS</small>
+            <h3>Detailed Solution Review &amp; Explanations</h3>
           </div>
           <small id="reviewCount"></small>
         </div>
@@ -414,53 +477,56 @@
       </article>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 6: Faculty Management & Tools
+         ========================================================================== -->
     <section id="tools" class="wrap section tools">
       <div class="title">
         <div>
-          <small class="eyebrow">QUESTION MANAGEMENT</small>
-          <h2>Management & Tools</h2>
+          <small class="eyebrow">FACULTY &amp; COURSE MANAGEMENT</small>
+          <h2>Question Management &amp; Tools</h2>
         </div>
       </div>
 
       <!-- Instructor Authorization for Import / Export -->
-      <div id="instructorAuthCard" class="instructorAuthCard">
+      <div id="instructorAuthCard" class="instructorAuthCard card">
         <div id="instructorLockedView" class="instructorLockedView">
           <div class="instructorAuthHead">
-            <div class="instructorShieldIcon">🔐</div>
+            <div class="instructorShieldIcon" aria-hidden="true">🔐</div>
             <div class="instructorAuthTitles">
-              <span class="instructorBadge">Faculty Protected</span>
+              <span class="instructorBadge">Faculty Access Protected</span>
               <h3>Instructor Authorization for Question Management</h3>
-              <p>Sign in with authorized faculty credentials to reveal and access Question Import, Export, and MongoDB Cloud Database tools. (Public access is limited to Bookmarks and Progress Reset).</p>
+              <p>Sign in with verified instructor credentials to access Question Import wizards, Export utilities, and MongoDB Atlas database synchronization. (Public access is limited to Bookmarks and candidate progress reset).</p>
             </div>
           </div>
           <form id="instructorAuthForm" class="instructorAuthForm" novalidate autocomplete="on">
             <div id="instructorAuthError" class="authError hidden" role="alert"></div>
             <div class="instructorFormRow">
-              <div class="authField" style="flex:1;margin-bottom:0;">
-                <label for="instructorEmail">Instructor Email</label>
+              <div class="authField">
+                <label for="instructorEmail">Instructor Institutional Email</label>
                 <div class="authInputWrapper">
-                  <span class="authInputIcon">✉️</span>
+                  <span class="authInputIcon" aria-hidden="true">✉️</span>
                   <input type="email" id="instructorEmail" placeholder="e.g. IftkharXahid@gmail.com" required autocomplete="username" spellcheck="false">
                 </div>
               </div>
-              <div class="authField" style="flex:1;margin-bottom:0;">
-                <label for="instructorPassword">Password</label>
+              <div class="authField">
+                <label for="instructorPassword">Security Password</label>
                 <div class="authInputWrapper">
-                  <span class="authInputIcon">🔑</span>
+                  <span class="authInputIcon" aria-hidden="true">🔑</span>
                   <input type="password" id="instructorPassword" placeholder="Enter password" required autocomplete="current-password">
                   <button type="button" id="instructorTogglePwd" class="authEyeBtn" title="Toggle password visibility" aria-label="Toggle password visibility">👁️</button>
                 </div>
               </div>
               <button type="submit" id="instructorAuthBtn" class="primary instructorSubmitBtn">
-                <span>Unlock Import & Export →</span>
+                <span>Unlock Management Tools →</span>
               </button>
             </div>
             <div class="instructorFormFoot">
               <label class="authRememberLabel">
                 <input type="checkbox" id="instructorRemember" checked>
-                <span>Remember instructor session on this device</span>
+                <span>Remember instructor credentials on this device</span>
               </label>
-              <span style="font-size:11.5px;color:var(--m);">Authorized: <b>IftkharXahid@gmail.com</b></span>
+              <span class="authorizedEmailHint">Authorized Faculty: <b>IftkharXahid@gmail.com</b></span>
             </div>
           </form>
         </div>
@@ -468,109 +534,125 @@
         <div id="instructorUnlockedView" class="instructorUnlockedView hidden">
           <div class="instructorActiveBanner">
             <div class="instructorActiveLeft">
-              <span class="instructorActiveIcon">✅</span>
+              <span class="instructorActiveIcon" aria-hidden="true">✅</span>
               <div>
-                <span class="instructorActiveBadge">Instructor Mode Active</span>
-                <div class="instructorActiveUser">Authenticated as <b id="instructorActiveEmail">IftkharXahid@gmail.com</b> • Full Import, Export & Cloud Database Access Granted</div>
+                <span class="instructorActiveBadge">Instructor Session Active</span>
+                <div class="instructorActiveUser">Authenticated as <b id="instructorActiveEmail">IftkharXahid@gmail.com</b> • Full Question Import, Export, &amp; Cloud Database Access Granted</div>
               </div>
             </div>
-            <button id="instructorLockBtn" class="secondary" style="font-size:12px;padding:6px 12px;border-color:rgba(239,68,68,0.3);color:var(--r);font-weight:600;">🔒 Lock & Sign Out</button>
+            <button id="instructorLockBtn" class="secondary" type="button">🔒 Lock Faculty Session</button>
           </div>
         </div>
       </div>
 
       <div class="toolGrid">
         <!-- Faculty Restricted Tool 1: Import Book & Class Record -->
-        <article id="toolImportCard" class="facultyRestrictedTool hidden">
-          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
-            <b>↓ Import Book & Class Record</b>
+        <article id="toolImportCard" class="card facultyRestrictedTool hidden">
+          <div class="toolHeader">
+            <b>↓ Import Question Bank JSON</b>
             <span class="facultyMiniBadge">Faculty Only</span>
           </div>
-          <p id="importStatusText">Load JSON file or question bank. Prompts for book, week, and class details.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <button id="import" class="secondary">Choose JSON File</button>
-            <button id="importUrlBtn" class="secondary" style="font-size:11.5px;padding:6px 10px;">🌐 Load from Direct Link / URL</button>
-            <button id="restoreDefaultQuestions" class="secondary" style="font-size:11.5px;padding:6px 10px;">↺ Reset Built-in Books</button>
+          <p id="importStatusText">Load JSON file or continuous assessment question bank. Features schema validation, multi-step review, and MongoDB synchronization.</p>
+          <div class="toolButtonsRow">
+            <button id="import" class="primary" type="button">Choose JSON File</button>
+            <button id="importUrlBtn" class="secondary" type="button">🌐 Load from URL</button>
+            <button id="restoreDefaultQuestions" class="secondary" type="button">↺ Reset Catalog</button>
           </div>
           <input id="file" type="file" accept=".json,application/json" hidden>
         </article>
 
         <!-- Faculty Restricted Tool 2: MongoDB Atlas Cloud Database -->
-        <article id="toolMongoCard" class="mongoSyncCard facultyRestrictedTool hidden">
-          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
-            <b>🍃 MongoDB Atlas Cloud Database</b>
-            <div style="display:flex;align-items:center;gap:6px;">
+        <article id="toolMongoCard" class="card mongoSyncCard facultyRestrictedTool hidden">
+          <div class="toolHeader">
+            <b>🍃 MongoDB Atlas Cloud Integration</b>
+            <div class="toolHeaderBadges">
               <span class="facultyMiniBadge">Faculty Only</span>
-              <span id="mongoStatusBadge" class="tag" style="font-size:10px;padding:3px 7px;">Checking...</span>
+              <span id="mongoStatusBadge" class="tag">Checking...</span>
             </div>
           </div>
-          <p id="mongoSyncInfo">Cloud MongoDB connection (<code>cluster0.3kgnmwl.mongodb.net</code>). Upload JSON questions to cloud or sync remote books.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;">
-            <button id="mongoUploadBtn" class="primary" style="font-size:12px;padding:7px 12px;display:inline-flex;align-items:center;gap:6px;">
-              <span>⬆</span> Upload JSON File
+          <p id="mongoSyncInfo">Cloud MongoDB connection (<code>cluster0.3kgnmwl.mongodb.net</code>). Synchronize remote course banks or upload verified MCQs to cloud database.</p>
+          <div class="toolButtonsRow">
+            <button id="mongoUploadBtn" class="primary" type="button">
+              <span>⬆</span> Upload to Cloud
             </button>
-            <button id="mongoSyncBtn" class="secondary" style="font-size:12px;padding:7px 12px;display:inline-flex;align-items:center;gap:6px;">
-              <span>↺</span> Sync Books from MongoDB / Catalog
+            <button id="mongoSyncBtn" class="secondary" type="button">
+              <span>↺</span> Sync Remote Books
             </button>
-            <button id="mongoDirectUrlBtn" class="secondary" style="font-size:12px;padding:7px 12px;display:inline-flex;align-items:center;gap:6px;">
-              <span>🔗</span> Load from Direct JSON Link
+            <button id="mongoDirectUrlBtn" class="secondary" type="button">
+              <span>🔗</span> Load from Link
             </button>
           </div>
           <input id="mongoFileInput" type="file" accept=".json,application/json" hidden>
         </article>
 
         <!-- Faculty Restricted Tool 3: Export Questions -->
-        <article id="toolExportCard" class="facultyRestrictedTool hidden">
-          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
+        <article id="toolExportCard" class="card facultyRestrictedTool hidden">
+          <div class="toolHeader">
             <b>↑ Export Questions</b>
             <span class="facultyMiniBadge">Faculty Only</span>
           </div>
-          <p id="exportStatusText">Download the current question bank.</p>
-          <button id="export" class="secondary">Export JSON</button>
+          <p id="exportStatusText">Download the active course question bank in standardized academic JSON format.</p>
+          <div class="toolButtonsRow">
+            <button id="export" class="secondary" type="button">Export JSON</button>
+          </div>
         </article>
 
         <!-- Public Tool 1: Bookmarks -->
-        <article id="toolBookmarksCard">
-          <div class="toolHeader"><b>★ My Bookmarks</b></div>
-          <p id="bmInfo">0 bookmarked questions</p>
-          <button id="bookmarks" class="secondary">View Bookmarks</button>
+        <article id="toolBookmarksCard" class="card">
+          <div class="toolHeader"><b>★ Question Bookmarks</b></div>
+          <p id="bmInfo">0 bookmarked questions saved for revision.</p>
+          <div class="toolButtonsRow">
+            <button id="bookmarks" class="secondary" type="button">View Bookmarked Questions</button>
+          </div>
         </article>
 
         <!-- Public Tool 2: Reset Progress -->
-        <article id="toolResetProgressCard">
-          <div class="toolHeader"><b>↺ Reset Progress</b></div>
-          <p>Clear saved tests and bookmarks.</p>
-          <button id="reset" class="danger">Reset Progress</button>
+        <article id="toolResetProgressCard" class="card">
+          <div class="toolHeader"><b>↺ Clear Local Candidate Progress</b></div>
+          <p>Reset locally saved practice answers, active test drafts, and question bookmarks.</p>
+          <div class="toolButtonsRow">
+            <button id="reset" class="danger" type="button">Reset Progress</button>
+          </div>
         </article>
 
         <!-- Public Tool 3: Official Android App Download -->
-        <article id="toolAppDownloadCard" style="border-top:3px solid var(--p)!important;background:linear-gradient(180deg, var(--card) 0%, rgba(37,99,235,0.04) 100%)!important;">
-          <div class="toolHeader" style="display:flex;justify-content:space-between;align-items:center;">
-            <b>📱 Android Mobile App</b>
-            <span class="tag" style="background:rgba(37,99,235,0.12);color:var(--p);font-weight:700;font-size:10px;padding:3px 7px;">Official APK</span>
+        <article id="toolAppDownloadCard" class="card appDownloadPromoCard">
+          <div class="toolHeader">
+            <b>📱 Mobile Examination App</b>
+            <span class="tag officialApkTag">Official APK</span>
           </div>
-          <p>Install on your smartphone for fast, offline continuous assessment practice.</p>
-          <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="primary" style="display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;padding:9px 12px;font-size:12.5px;font-weight:700;border-radius:var(--radius-sm);color:#fff;" download target="_blank" rel="noopener noreferrer">
-            <span>🤖</span> Download APK (Direct)
-          </a>
+          <p>Install on Android smartphones for offline continuous assessment and instant evaluations.</p>
+          <div class="toolButtonsRow">
+            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="primary appDownloadAnchor" download target="_blank" rel="noopener noreferrer">
+              <span>🤖</span> Download Official APK
+            </a>
+          </div>
         </article>
       </div>
     </section>
   </main>
 
-  <footer class="siteFooter">
-    <button class="brand" data-go="home" aria-label="Go to MCQs Question Bank Home">
-      <img src="logo.png" alt="MCQs Question Bank Logo" class="brandImg" width="44" height="44" loading="lazy">
-      <span class="brandText">
-        <strong class="brandTitle">MCQs Question Bank</strong>
-        <small class="brandSubtitle">Practice • Learn • Test • Improve</small>
-      </span>
-    </button>
-    <span>© 2026 MCQs Question Bank</span>
+  <!-- ==========================================================================
+       Academic Footer
+       ========================================================================== -->
+  <footer class="siteFooter no-print">
+    <div class="wrap footerWrap">
+      <button class="brand footerBrand" data-go="home" aria-label="Go to MCQs Question Bank Home">
+        <img src="logo.png" alt="University Logo" class="brandImg" width="40" height="40" loading="lazy">
+        <span class="brandText">
+          <strong class="brandTitle">MCQs Question Bank</strong>
+          <small class="brandSubtitle">Continuous Assessment &amp; Examination System</small>
+        </span>
+      </button>
+      <div class="footerMeta">
+        <span>Department of Computer Science • Higher Education</span>
+        <span>© 2026 MCQs Question Bank System. All rights reserved.</span>
+      </div>
+    </div>
   </footer>
 
   <!-- ==========================================================================
-       Home Screen Official Mobile Application Announcement Pop-up Modal (Compact)
+       Home Screen Official Mobile Application Announcement Pop-up Modal
        ========================================================================== -->
   <div id="appNoticeModal" class="modalBg hidden" role="dialog" aria-modal="true" aria-labelledby="appNoticeTitle">
     <div class="modal appNoticeModalCard compactModal" id="appNoticeCard">
@@ -589,23 +671,20 @@
 
       <div class="appNoticeContent compactContent">
         <div class="appNoticeBodyGrid compactGrid">
-          <!-- Actual Mobile Mockup Preview Column -->
           <div class="appNoticePreviewCol">
             <div class="actualMockupWrap">
-              <img src="app-mockup.png" alt="MCQs Bank Android Mobile App Actual Screen Mockup" class="actualMockupImg" width="482" height="1024" fetchpriority="high">
+              <img src="app-mockup.png" alt="MCQs Bank Android Mobile App Screen Preview" class="actualMockupImg" width="482" height="1024" fetchpriority="high">
               <div class="mockupFloatingPill">
                 <span>📲 Official Mobile App</span>
               </div>
             </div>
           </div>
 
-          <!-- Notice Details & Download Column -->
           <div class="appNoticeDetailsCol compactDetails">
             <div class="appNoticeUrduBox compactUrdu" dir="rtl">
               📢 <b>موبائل ایپ دستیاب ہے:</b> تمام بکس، ٹیسٹس اور کوئز اپنے اسمارٹ فون پر تیز رفتار اور بغیر انٹرنیٹ آف لائن حل کریں۔
             </div>
 
-            <!-- Prominent Direct APK Download CTA Button -->
             <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="appDownloadBtn" id="appNoticeDownloadLink" download target="_blank" rel="noopener noreferrer">
               <div class="appDownloadIconBox">
                 <span class="androidIcon">🤖</span>
@@ -618,9 +697,8 @@
               <span class="appDownloadBadge">Direct Link</span>
             </a>
 
-            <!-- Compact Feature Chips -->
             <div class="appNoticeMiniChips">
-              <span class="miniChip">⚡ Fast & Smooth</span>
+              <span class="miniChip">⚡ Fast &amp; Smooth</span>
               <span class="miniChip">📡 100% Offline Mode</span>
               <span class="miniChip">📊 Instant Evaluation</span>
             </div>
@@ -630,7 +708,7 @@
             </p>
 
             <div class="appNoticeActions compactActions">
-              <button id="appNoticeDismissBtn" class="appNoticeProceedBtn">
+              <button id="appNoticeDismissBtn" class="appNoticeProceedBtn" type="button">
                 <span>🌐 ویب پورٹل جاری رکھیں / Continue to Web Portal →</span>
               </button>
               <label class="appNoticeRemember">
@@ -644,14 +722,17 @@
     </div>
   </div>
 
-  <div id="modal" class="modalBg hidden">
+  <!-- Reusable Academic Modal Window -->
+  <div id="modal" class="modalBg hidden" role="dialog" aria-modal="true">
     <div class="modal">
-      <button id="close" class="close">×</button>
+      <button id="close" class="close" aria-label="Close modal window">×</button>
       <div id="modalContent"></div>
     </div>
   </div>
-  <div id="toast"></div>
 
-  <script src="script.js?v=22"></script>
+  <!-- Toast Notification Container -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js?v=25"></script>
 </body>
 </html>
