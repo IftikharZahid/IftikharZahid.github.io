@@ -3621,8 +3621,28 @@ const s = {
 };
 window.s = s;
 
-function saveSubjects() {
+function saveSubjects(subjectsToSync = []) {
   store(K.subjects, JSON.stringify(s.subjects));
+  // Auto-push changed subjects to MongoDB if server is reachable
+  if (MONGO_API_URL && subjectsToSync.length > 0) {
+    subjectsToSync.forEach(sub => uploadRecordToMongo(sub));
+  }
+}
+
+async function deleteFromMongo(subjectId) {
+  if (!MONGO_API_URL || !subjectId) return;
+  try {
+    const res = await fetch(`${MONGO_API_URL}/subjects/${encodeURIComponent(subjectId)}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success) console.log(`Deleted subject ${subjectId} from MongoDB`);
+    }
+  } catch (err) {
+    console.log("MongoDB delete failed (server may be offline):", err.message);
+  }
 }
 
 function getBookGroupKey(sub) {
@@ -3679,6 +3699,10 @@ function getGroupedBooks() {
   return books;
 }
 
+// ── Faculty auth state (session-only, no cookie) ──────────────────────────
+let isFacultyLoggedIn = false;
+function isFaculty() { return isFacultyLoggedIn; }
+
 function renderSubjects() {
   const grid = $("#subjectGrid");
   if (!grid) return;
@@ -3727,6 +3751,12 @@ function renderSubjects() {
           View Weekly Modules (${weekCount}) →
         </button>
       </div>
+      ${isFaculty() ? `
+      <div class="adminBookToolbar" onclick="event.stopPropagation()">
+        <span class="adminToolbarBadge">🔐 Admin</span>
+        <button class="adminToolBtn editToolBtn" type="button" onclick="editBook('${esc(book.book)}')" title="Edit book details">✏️ Edit Info</button>
+        <button class="adminToolBtn deleteToolBtn" type="button" onclick="deleteBook('${esc(book.book)}')" title="Delete entire book">🗑️ Delete Book</button>
+      </div>` : ""}
     </article>`;
   }).join("");
 }
@@ -3835,7 +3865,7 @@ function renderBookDetailView(bookKey) {
             : `<button class="secondary selectModuleBtn" type="button" onclick="switchSubject('${esc(w.id)}', false);">Select Module</button>
                <button class="primary takeExamBtn" type="button" onclick="switchSubject('${esc(w.id)}', true);">▶ Take Examination →</button>`
           }
-          ${!isBuiltIn && isInstructorAuthenticated() ? `<button class="danger selectModuleBtn facultyRestrictedTool" type="button" onclick="deleteCustomSubject('${esc(w.id)}');" title="Delete custom week">🗑 Delete</button>` : ""}
+          ${isFaculty() ? `<button class="adminToolBtn deleteToolBtn" style="margin-top:4px;" type="button" onclick="deleteCustomSubject('${esc(w.id)}')">🗑️ Delete Week</button>` : ""}
         </div>
       </article>`;
     }).join("");
@@ -3907,10 +3937,11 @@ function applySubjectSwitch(target, startExamAfter = false) {
 
 function deleteCustomSubject(id) {
   const target = s.subjects.find(sub => sub.id === id);
-  if (!target || target.isBuiltIn) return;
+  if (!target) return;
 
-  modal(`<h2>Remove Course Book?</h2>
+  modal(`<h2>Remove Week Module?</h2>
 <p style="font-size:13px;line-height:1.5;">Are you sure you want to remove <b>${esc(target.book)} (${esc(target.weekTitle)})</b> from your catalog?</p>
+${target.isBuiltIn ? `<p style="font-size:12px;color:var(--accent);margin:8px 0;">⚠️ This is a built-in module. It can be removed but will return after a catalog reset.</p>` : ""}
 <div class="modalActions">
   <button class="secondary" onclick="closeModal()">Cancel</button>
   <button class="danger" id="confirmDelSub">Yes, Remove</button>
@@ -3919,12 +3950,110 @@ function deleteCustomSubject(id) {
     closeModal();
     s.subjects = s.subjects.filter(sub => sub.id !== id);
     saveSubjects();
+    // Instant MongoDB sync — delete this week
+    if (MONGO_API_URL) deleteFromMongo(id);
     if (s.activeSubjectId === id) {
-      applySubjectSwitch(s.subjects[0], false);
+      if (s.subjects.length) applySubjectSwitch(s.subjects[0], false);
     } else {
       renderSubjects();
+      if (s.currentBookView) renderBookDetailView(s.currentBookView);
     }
-    toast(`Removed ${target.book} from catalog.`);
+    toast(`Removed week module from catalog.`);
+  };
+}
+
+function deleteBook(bookKey) {
+  const books = getGroupedBooks();
+  const book = books.find(b => b.book === bookKey);
+  if (!book) return;
+
+  const weekIds = book.weeks.map(w => w.id);
+  modal(`<h2>Delete Entire Book?</h2>
+<p style="font-size:13px;line-height:1.5;">You are about to permanently remove <b>${esc(book.book)}</b> and all <b>${book.weeks.length} weekly module(s)</b> (${book.totalQuestions} MCQs) from your catalog.</p>
+<p style="font-size:12px;color:var(--r);margin:8px 0;">⚠️ This action cannot be undone.</p>
+<div class="modalActions">
+  <button class="secondary" onclick="closeModal()">Cancel</button>
+  <button class="danger" id="confirmDelBook">Yes, Delete Book</button>
+</div>`);
+  $("#confirmDelBook").onclick = () => {
+    closeModal();
+    s.subjects = s.subjects.filter(sub => !weekIds.includes(sub.id));
+    saveSubjects();
+    const activeGone = weekIds.includes(s.activeSubjectId);
+    closeBookDetail();
+    if (activeGone && s.subjects.length) applySubjectSwitch(s.subjects[0], false);
+    else renderSubjects();
+    // Instant MongoDB sync — delete all weeks of this book
+    if (MONGO_API_URL) weekIds.forEach(id => deleteFromMongo(id));
+    toast(`Deleted book "${bookKey}" and all its modules.`);
+  };
+}
+
+function editBook(bookKey) {
+  const books = getGroupedBooks();
+  const book = books.find(b => b.book === bookKey);
+  if (!book) return;
+
+  modal(`<h2>✏️ Edit Book Info</h2>
+<p style="font-size:12.5px;color:var(--t-secondary);margin-bottom:14px;">Changes will apply to all ${book.weeks.length} weekly module(s) in this book.</p>
+<div style="display:flex;flex-direction:column;gap:12px;">
+  <label style="font-size:12.5px;font-weight:600;">Book / Course Title <span style="color:var(--r);">*</span>
+    <input id="editBookTitle" value="${esc(book.book)}" style="margin-top:4px;" required>
+  </label>
+  <label style="font-size:12.5px;font-weight:600;">Course Code / Name
+    <input id="editBookCourse" value="${esc(book.course || book.book)}" style="margin-top:4px;">
+  </label>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <label style="font-size:12.5px;font-weight:600;">Class / Level
+      <input id="editBookLevel" value="${esc(book.level || 'BS Computer Science')}" style="margin-top:4px;">
+    </label>
+    <label style="font-size:12.5px;font-weight:600;">Instructor
+      <input id="editBookInstructor" value="${esc(book.createdBy || 'Lec. Iftikhar Zahid')}" style="margin-top:4px;">
+    </label>
+  </div>
+</div>
+<div class="modalActions" style="margin-top:16px;">
+  <button class="secondary" onclick="closeModal()">Cancel</button>
+  <button class="primary" id="saveBookEdit">✓ Save Changes</button>
+</div>`);
+
+  $("#saveBookEdit").onclick = () => {
+    const newTitle = $("#editBookTitle")?.value.trim();
+    const newCourse = $("#editBookCourse")?.value.trim();
+    const newLevel = $("#editBookLevel")?.value.trim();
+    const newInstructor = $("#editBookInstructor")?.value.trim();
+    if (!newTitle) { toast("Book title is required.", true); return; }
+
+    // Update all weeks belonging to this book
+    const weekIds = book.weeks.map(w => w.id);
+    s.subjects = s.subjects.map(sub => {
+      if (!weekIds.includes(sub.id)) return sub;
+      return {
+        ...sub,
+        book: newTitle,
+        course: newCourse || newTitle,
+        level: newLevel || sub.level,
+        createdBy: newInstructor || sub.createdBy,
+        questions: (sub.questions || []).map(q => ({ ...q, subject: newTitle }))
+      };
+    });
+
+    // If active subject is one of them, update s.activeSubject too
+    if (weekIds.includes(s.activeSubjectId)) {
+      s.activeSubject = s.subjects.find(sub => sub.id === s.activeSubjectId);
+    }
+
+    saveSubjects();
+    closeModal();
+    renderSubjects();
+    if (s.currentBookView === bookKey) {
+      s.currentBookView = newTitle;
+      renderBookDetailView(newTitle);
+    }
+    // Instant MongoDB sync — push ALL updated weeks
+    const updatedWeeks = s.subjects.filter(sub => sub.book === newTitle && weekIds.includes(sub.id));
+    if (MONGO_API_URL) updatedWeeks.forEach(sub => uploadRecordToMongo(sub));
+    toast(`✓ Book renamed to "${newTitle}"`);
   };
 }
 
@@ -5703,12 +5832,9 @@ function promptAddBookRecord(detectedMeta, validQuestions, fileName){
       };
 
       s.subjects.push(newSub);
-      saveSubjects();
+      saveSubjects([newSub]);
       applySubjectSwitch(newSub,false);
-      toast(`✓ Added new book: "${bookVal}" (${weekTitle}) with ${validQuestions.length} MCQs!`);
-      if ($("#recUploadMongo")?.checked) {
-        uploadRecordToMongo(newSub);
-      }
+      toast(`✓ Added "${bookVal}" (${weekTitle}) with ${validQuestions.length} MCQs — syncing to cloud...`);
       go("subjects");
     }else{
       s.activeSubject.book=bookVal;
@@ -5721,12 +5847,9 @@ function promptAddBookRecord(detectedMeta, validQuestions, fileName){
       s.activeSubject.questions=validQuestions;
       s.questions=validQuestions;
       
-      saveSubjects();
+      saveSubjects([s.activeSubject]);
       applySubjectSwitch(s.activeSubject,false);
-      toast(`✓ Updated active book "${bookVal}" with ${validQuestions.length} MCQs!`);
-      if ($("#recUploadMongo")?.checked) {
-        uploadRecordToMongo(s.activeSubject);
-      }
+      toast(`✓ Updated "${bookVal}" with ${validQuestions.length} MCQs — syncing to cloud...`);
     }
   };
 }
@@ -5927,6 +6050,9 @@ window.clearQBankFilter = clearQBankFilter;
 window.resetQBankFilters = resetQBankFilters;
 window.setQBankPage = setQBankPage;
 window.renderQuestionBank = renderQuestionBank;
+window.editBook = editBook;
+window.deleteBook = deleteBook;
+window.deleteFromMongo = deleteFromMongo;
 
 // 1. Navigation & Click Delegation
 document.addEventListener("click", e => {
@@ -6515,20 +6641,16 @@ function openDirectLinkModal() {
         s.questions = norm.questions;
       }
 
-      saveSubjects();
+      saveSubjects([s.activeSubject]);
       renderSubjects();
       updateHeroSubjectUI();
       updateTranscriptSubjectUI(s.activeSubject);
       updateQuestionCountUI();
       render();
       closeModal();
-      toast(`✓ Successfully loaded "${norm.book}" (${norm.weekTitle}) with ${norm.questions.length} MCQs!`);
+      toast(`✓ Loaded "${norm.book}" (${norm.weekTitle}) — ${norm.questions.length} MCQs — syncing to cloud...`);
       go("subjects");
-
-      // Background cloud sync if local MongoDB server is running
-      if (MONGO_API_URL) {
-        uploadRecordToMongo(norm);
-      }
+      uploadRecordToMongo(norm);
     } catch (err) {
       toast("Failed to load JSON link: " + err.message, true);
     }
@@ -6559,16 +6681,24 @@ if ($("#facultyLoginBtn")) {
     const pin = prompt("Enter Faculty PIN to access instructor tools:");
     if (pin === null) return;
     if (pin.trim() === "1234" || pin.trim() === "admin") {
+      isFacultyLoggedIn = true;
       const container = $("#facultyToolsContainer");
       if (container) {
         container.classList.remove("hidden");
         container.style.display = "flex";
       }
-      $("#facultyLoginBtn").textContent = "✓ Faculty Logged In";
-      $("#facultyLoginBtn").style.background = "rgba(16,185,129,0.1)";
-      $("#facultyLoginBtn").style.color = "#059669";
-      $("#facultyLoginBtn").style.borderColor = "rgba(16,185,129,0.3)";
-      toast("Faculty tools unlocked");
+      const btn = $("#facultyLoginBtn");
+      if (btn) {
+        btn.innerHTML = `<span class="facultyIcon">✅</span><span>Faculty Logged In</span>`;
+        btn.style.background = "rgba(16,185,129,0.1)";
+        btn.style.color = "#059669";
+        btn.style.borderColor = "rgba(16,185,129,0.3)";
+        btn.style.pointerEvents = "none";
+      }
+      toast("Faculty tools unlocked — admin controls now visible on each book card.");
+      // Re-render subjects so admin toolbars appear on book cards
+      renderSubjects();
+      if (s.currentBookView) renderBookDetailView(s.currentBookView);
     } else {
       toast("Incorrect PIN. Access denied.", true);
     }
