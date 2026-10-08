@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=30">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
@@ -38,7 +38,6 @@
           <span id="headerUserName" class="userName"></span>
           <button id="logoutBtn" class="logoutBtn" title="Logout candidate session">Sign Out</button>
         </div>
-        <button id="portalLockBtn" class="icon" title="Faculty Portal Lock" aria-label="Lock Question Bank Portal">🔒</button>
         <button id="theme" class="icon" title="Toggle color theme" aria-label="Toggle dark/light theme">☾</button>
         <button id="startTop" class="primary startTopBtn" aria-label="Start Continuous Assessment Test">▶ Launch Exam</button>
         <button id="menu" class="icon mobile" aria-label="Open navigation menu">☰</button>
@@ -59,8 +58,7 @@
       <button data-go="tools"><span>⚙️</span> Management &amp; Tools</button>
       <button data-go="results"><span>📊</span> Examination Results</button>
       <div class="drawerActions">
-        <button id="drawerPortalLockBtn" class="secondary" type="button">🔒 Faculty Portal Access</button>
-        <button id="drawerStartBtn" class="primary" type="button">▶ Launch Examination</button>
+        <button id="drawerStartBtn" class="primary drawerLaunchBtn" type="button">▶ Launch Examination</button>
       </div>
     </div>
   </header>
@@ -121,7 +119,7 @@
 
         <div class="stats heroStats">
           <div class="statBox"><b id="total">40</b><small>Module MCQs</small></div>
-          <div class="statBox"><b>60</b><small>Minutes</small></div>
+          <div class="statBox"><b id="heroMinutes">40</b><small>Minutes (1m/MCQ)</small></div>
           <div class="statBox"><b>50%</b><small>Pass Standard</small></div>
           <div class="statBox"><b>Instant</b><small>Feedback</small></div>
         </div>
@@ -144,7 +142,7 @@
           </div>
           <div class="previewFoot">
             <span class="previewScoreBadge">Assessment Benchmark: 50%</span>
-            <span class="previewTimer">⏱️ 00:60:00 Allowed</span>
+            <span class="previewTimer" id="previewTimer">⏱️ 40:00 Allowed</span>
           </div>
         </div>
       </div>
@@ -218,7 +216,7 @@
         </div>
         <div id="timer" class="timer" role="timer" aria-live="polite">
           <small>TIME REMAINING</small>
-          <b>60:00</b>
+          <b>--:--</b>
         </div>
       </div>
 
@@ -481,121 +479,7 @@
          SECTION 6: Faculty Management & Tools
          ========================================================================== -->
     <section id="tools" class="wrap section tools">
-      <div class="title">
-        <div>
-          <small class="eyebrow">FACULTY &amp; COURSE MANAGEMENT</small>
-          <h2>Question Management &amp; Tools</h2>
-        </div>
-      </div>
-
-      <!-- Instructor Authorization for Import / Export -->
-      <div id="instructorAuthCard" class="instructorAuthCard card">
-        <div id="instructorLockedView" class="instructorLockedView">
-          <div class="instructorAuthHead">
-            <div class="instructorShieldIcon" aria-hidden="true">🔐</div>
-            <div class="instructorAuthTitles">
-              <span class="instructorBadge">Faculty Access Protected</span>
-              <h3>Instructor Authorization for Question Management</h3>
-              <p>Sign in with verified instructor credentials to access Question Import wizards, Export utilities, and MongoDB Atlas database synchronization. (Public access is limited to Bookmarks and candidate progress reset).</p>
-            </div>
-          </div>
-          <form id="instructorAuthForm" class="instructorAuthForm" novalidate autocomplete="on">
-            <div id="instructorAuthError" class="authError hidden" role="alert"></div>
-            <div class="instructorFormRow">
-              <div class="authField">
-                <label for="instructorEmail">Instructor Institutional Email</label>
-                <div class="authInputWrapper">
-                  <span class="authInputIcon" aria-hidden="true">✉️</span>
-                  <input type="email" id="instructorEmail" placeholder="e.g. IftkharXahid@gmail.com" required autocomplete="username" spellcheck="false">
-                </div>
-              </div>
-              <div class="authField">
-                <label for="instructorPassword">Security Password</label>
-                <div class="authInputWrapper">
-                  <span class="authInputIcon" aria-hidden="true">🔑</span>
-                  <input type="password" id="instructorPassword" placeholder="Enter password" required autocomplete="current-password">
-                  <button type="button" id="instructorTogglePwd" class="authEyeBtn" title="Toggle password visibility" aria-label="Toggle password visibility">👁️</button>
-                </div>
-              </div>
-              <button type="submit" id="instructorAuthBtn" class="primary instructorSubmitBtn">
-                <span>Unlock Management Tools →</span>
-              </button>
-            </div>
-            <div class="instructorFormFoot">
-              <label class="authRememberLabel">
-                <input type="checkbox" id="instructorRemember" checked>
-                <span>Remember instructor credentials on this device</span>
-              </label>
-              <span class="authorizedEmailHint">Authorized Faculty: <b>IftkharXahid@gmail.com</b></span>
-            </div>
-          </form>
-        </div>
-
-        <div id="instructorUnlockedView" class="instructorUnlockedView hidden">
-          <div class="instructorActiveBanner">
-            <div class="instructorActiveLeft">
-              <span class="instructorActiveIcon" aria-hidden="true">✅</span>
-              <div>
-                <span class="instructorActiveBadge">Instructor Session Active</span>
-                <div class="instructorActiveUser">Authenticated as <b id="instructorActiveEmail">IftkharXahid@gmail.com</b> • Full Question Import, Export, &amp; Cloud Database Access Granted</div>
-              </div>
-            </div>
-            <button id="instructorLockBtn" class="secondary" type="button">🔒 Lock Faculty Session</button>
-          </div>
-        </div>
-      </div>
-
       <div class="toolGrid">
-        <!-- Faculty Restricted Tool 1: Import Book & Class Record -->
-        <article id="toolImportCard" class="card facultyRestrictedTool hidden">
-          <div class="toolHeader">
-            <b>↓ Import Question Bank JSON</b>
-            <span class="facultyMiniBadge">Faculty Only</span>
-          </div>
-          <p id="importStatusText">Load JSON file or continuous assessment question bank. Features schema validation, multi-step review, and MongoDB synchronization.</p>
-          <div class="toolButtonsRow">
-            <button id="import" class="primary" type="button">Choose JSON File</button>
-            <button id="importUrlBtn" class="secondary" type="button">🌐 Load from URL</button>
-            <button id="restoreDefaultQuestions" class="secondary" type="button">↺ Reset Catalog</button>
-          </div>
-          <input id="file" type="file" accept=".json,application/json" hidden>
-        </article>
-
-        <!-- Faculty Restricted Tool 2: MongoDB Atlas Cloud Database -->
-        <article id="toolMongoCard" class="card mongoSyncCard facultyRestrictedTool hidden">
-          <div class="toolHeader">
-            <b>🍃 MongoDB Atlas Cloud Integration</b>
-            <div class="toolHeaderBadges">
-              <span class="facultyMiniBadge">Faculty Only</span>
-              <span id="mongoStatusBadge" class="tag">Checking...</span>
-            </div>
-          </div>
-          <p id="mongoSyncInfo">Cloud MongoDB connection (<code>cluster0.3kgnmwl.mongodb.net</code>). Synchronize remote course banks or upload verified MCQs to cloud database.</p>
-          <div class="toolButtonsRow">
-            <button id="mongoUploadBtn" class="primary" type="button">
-              <span>⬆</span> Upload to Cloud
-            </button>
-            <button id="mongoSyncBtn" class="secondary" type="button">
-              <span>↺</span> Sync Remote Books
-            </button>
-            <button id="mongoDirectUrlBtn" class="secondary" type="button">
-              <span>🔗</span> Load from Link
-            </button>
-          </div>
-          <input id="mongoFileInput" type="file" accept=".json,application/json" hidden>
-        </article>
-
-        <!-- Faculty Restricted Tool 3: Export Questions -->
-        <article id="toolExportCard" class="card facultyRestrictedTool hidden">
-          <div class="toolHeader">
-            <b>↑ Export Questions</b>
-            <span class="facultyMiniBadge">Faculty Only</span>
-          </div>
-          <p id="exportStatusText">Download the active course question bank in standardized academic JSON format.</p>
-          <div class="toolButtonsRow">
-            <button id="export" class="secondary" type="button">Export JSON</button>
-          </div>
-        </article>
 
         <!-- Public Tool 1: Bookmarks -->
         <article id="toolBookmarksCard" class="card">
@@ -637,16 +521,78 @@
        ========================================================================== -->
   <footer class="siteFooter no-print">
     <div class="wrap footerWrap">
-      <button class="brand footerBrand" data-go="home" aria-label="Go to MCQs Question Bank Home">
-        <img src="logo.png" alt="University Logo" class="brandImg" width="40" height="40" loading="lazy">
-        <span class="brandText">
-          <strong class="brandTitle">MCQs Question Bank</strong>
-          <small class="brandSubtitle">Continuous Assessment &amp; Examination System</small>
-        </span>
-      </button>
+      <div class="footerBrandBlock">
+        <button class="brand footerBrand" data-go="home" aria-label="Go to MCQs Question Bank Home">
+          <img src="logo.png" alt="University Logo" class="brandImg" width="40" height="40" loading="lazy">
+          <span class="brandText">
+            <strong class="brandTitle">MCQs Question Bank</strong>
+            <small class="brandSubtitle">Continuous Assessment &amp; Examination System</small>
+          </span>
+        </button>
+        <p class="footerDesc">Official continuous assessment question bank and computer science examination portal for undergraduate curriculum review.</p>
+      </div>
+
+      <div class="footerLinksBlock">
+        <div class="footerCol">
+          <span class="footerColTitle">Candidate Tools</span>
+          <div class="candidateToolsGrid">
+            <button id="footerBookmarksBtn" class="candidateToolBtn" title="View Bookmarks">
+              <span class="toolIcon">⭐</span>
+              <div class="toolText">
+                <span class="toolTitle">Bookmarks</span>
+                <span class="toolDesc">Review saved MCQs</span>
+              </div>
+            </button>
+            <button id="footerResetBtn" class="candidateToolBtn" title="Reset all progress">
+              <span class="toolIcon">🔄</span>
+              <div class="toolText">
+                <span class="toolTitle">Reset Progress</span>
+                <span class="toolDesc">Clear local data</span>
+              </div>
+            </button>
+            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="candidateToolBtn" target="_blank" rel="noopener noreferrer">
+              <span class="toolIcon">📱</span>
+              <div class="toolText">
+                <span class="toolTitle">Android App</span>
+                <span class="toolDesc">Download direct APK</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="footerCol facultyFooterCol">
+          <span class="footerColTitle">Faculty Access</span>
+          
+          <button id="facultyLoginBtn" class="footerFacultyBtn" type="button" title="Instructor login">
+            <span class="facultyIcon">🔐</span>
+            <span>Faculty Login</span>
+          </button>
+
+          <div id="facultyToolsContainer" class="hidden" style="display: flex; flex-direction: column; gap: 8px;">
+            <button id="import" class="footerFacultyBtn" type="button" title="Upload question bank JSON file">
+              <span class="facultyIcon">📁</span>
+              <span>Upload JSON</span>
+            </button>
+            <input id="file" type="file" accept=".json,application/json" hidden>
+            <button id="export" class="footerFacultyBtn" type="button" title="Export to JSON">
+              <span class="facultyIcon">📤</span>
+              <span>Export Bank</span>
+            </button>
+            <button id="restoreDefaultQuestions" class="footerFacultyBtn" type="button" style="background: rgba(220,38,38,0.1); color: #b91c1c;">
+              <span class="facultyIcon">⚠️</span>
+              <span>Reset Catalog</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap footerBottomBar">
       <div class="footerMeta">
         <span>Department of Computer Science • Higher Education</span>
         <span>© 2026 MCQs Question Bank System. All rights reserved.</span>
+      </div>
+      <div class="footerMetaRight">
+        <span class="footerStatusDot"></span> Operational • v2.7
       </div>
     </div>
   </footer>
@@ -685,22 +631,13 @@
               📢 <b>موبائل ایپ دستیاب ہے:</b> تمام بکس، ٹیسٹس اور کوئز اپنے اسمارٹ فون پر تیز رفتار اور بغیر انٹرنیٹ آف لائن حل کریں۔
             </div>
 
-            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="appDownloadBtn" id="appNoticeDownloadLink" download target="_blank" rel="noopener noreferrer">
-              <div class="appDownloadIconBox">
-                <span class="androidIcon">🤖</span>
-                <span class="downloadArrowAnim">↓</span>
-              </div>
-              <div class="appDownloadText">
-                <span class="appDownloadMain">Download Android App (APK)</span>
-                <span class="appDownloadSub">براہِ راست ڈاؤن لوڈ کریں • Direct APK Release</span>
-              </div>
-              <span class="appDownloadBadge">Direct Link</span>
+            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="appDownloadBtn" id="appNoticeDownloadLink" download target="_blank" rel="noopener noreferrer" style="justify-content: center; padding: 10px 16px;">
+              <span class="androidIcon">🤖</span>
+              <span class="appDownloadMain">Download Android App</span>
             </a>
 
-            <div class="appNoticeMiniChips">
-              <span class="miniChip">⚡ Fast &amp; Smooth</span>
-              <span class="miniChip">📡 100% Offline Mode</span>
-              <span class="miniChip">📊 Instant Evaluation</span>
+            <div class="appNoticeSingleLineText" style="font-size: 9.5px; color: var(--t-secondary); text-align: center; margin-top: 6px; font-weight: 600; white-space: nowrap; letter-spacing: -0.1px;">
+              ⚡ Fast &amp; Smooth &nbsp;•&nbsp; 📡 100% Offline Mode &nbsp;•&nbsp; 📊 Instant Evaluation
             </div>
 
             <p class="appNoticeEngText compactEng">
@@ -733,6 +670,6 @@
   <!-- Toast Notification Container -->
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js?v=25"></script>
+  <script src="script.js?v=30"></script>
 </body>
 </html>

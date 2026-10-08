@@ -151,7 +151,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -628,15 +628,18 @@ nav[aria-label="Primary Navigation"] button.active {
   border-radius: var(--radius-sm);
   color: var(--t-secondary);
   background-color: var(--card-subtle);
+  border: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
   min-height: 44px; /* Touch target */
+  transition: all 0.15s ease;
 }
 
 #drawer button:hover {
   background-color: var(--p-subtle);
+  border-color: var(--p-border);
   color: var(--p);
 }
 
@@ -654,15 +657,95 @@ nav[aria-label="Primary Navigation"] button.active {
   gap: 8px;
   margin-bottom: 8px;
   font-size: 13.5px;
+  color: var(--t);
+}
+
+#drawer #drawerLogoutBtn {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: var(--radius-xs);
+  color: var(--r) !important;
+  background-color: var(--card) !important;
+  border: 1px solid var(--r-border) !important;
+  justify-content: center;
+  text-align: center;
+  min-height: 36px;
+  box-shadow: var(--shadow-xs);
+}
+
+#drawer #drawerLogoutBtn:hover {
+  background-color: var(--r-subtle) !important;
+  color: var(--r-hover) !important;
+  border-color: var(--r) !important;
 }
 
 .drawerActions {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 10px;
   border-top: 1px solid var(--line);
   padding-top: 12px;
+}
+
+/* Professional Native Primary Launch / Continue to Examination Button */
+#drawer button.primary,
+#drawer #drawerStartBtn,
+.drawerLaunchBtn {
+  width: 100% !important;
+  background-color: #1e40af !important;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #1d4ed8 !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2px;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 13px 18px !important;
+  min-height: 48px !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.15s ease-in-out !important;
+}
+
+#drawer button.primary:hover,
+#drawer #drawerStartBtn:hover,
+.drawerLaunchBtn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.38) !important;
+  transform: translateY(-1px);
+}
+
+#drawer button.primary:active,
+#drawer #drawerStartBtn:active,
+.drawerLaunchBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2) !important;
+}
+
+#drawer button.primary.resumeActive,
+#drawer #drawerStartBtn.resumeActive {
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%) !important;
+  border-color: #14b8a6 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3) !important;
+}
+
+[data-theme="dark"] #drawer button.primary,
+[data-theme="dark"] #drawer #drawerStartBtn,
+[data-theme="dark"] .drawerLaunchBtn {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+  border-color: #60a5fa !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3) !important;
 }
 
 /* ==========================================================================
@@ -965,7 +1048,7 @@ nav[aria-label="Primary Navigation"] button.active {
 .subjectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  gap: 12px;
 }
 
 /* Course Book Card */
@@ -2104,46 +2187,10 @@ nav[aria-label="Primary Navigation"] button.active {
   cursor: default;
 }
 
-/* Exam Controls & Hints */
+/* Exam Controls */
 .examControls {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
   border-top: 1px solid var(--line);
-  padding-top: 16px;
-}
-
-.lockHint {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: var(--radius-xs);
-  font-size: 12.5px;
-}
-
-.hintDefault {
-  background-color: var(--card-subtle);
-  color: var(--m);
-  border: 1px solid var(--line);
-}
-
-.hintAnswered {
-  background-color: var(--p-subtle);
-  color: var(--p);
-  border: 1px solid var(--p-border);
-}
-
-.hintLocked {
-  background-color: var(--g-subtle);
-  color: var(--g);
-  border: 1px solid var(--g-border);
-}
-
-.hintSkipped {
-  background-color: var(--accent-subtle);
-  color: var(--accent);
-  border: 1px solid var(--accent-border);
+  padding-top: 14px;
 }
 
 .examControlBtns {
@@ -3038,6 +3085,51 @@ nav[aria-label="Primary Navigation"] button.active {
   outline: none;
 }
 
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--t-secondary);
+  width: 100%;
+}
+
+.fields input, .fields select {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--t);
+  box-sizing: border-box;
+}
+
+.fields input:focus, .fields select:focus {
+  border-color: var(--p);
+  background-color: var(--card);
+  outline: none;
+}
+
+.fieldsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .fieldsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ==========================================================================
    Exam Briefing & Ready Check Modal
    ========================================================================== */
@@ -3332,24 +3424,36 @@ nav[aria-label="Primary Navigation"] button.active {
 
 /* App Notice Announcement Modal */
 .appNoticeModalCard.compactModal {
-  max-width: 580px;
+  max-width: 560px;
+  width: 95%;
+  max-height: min(90vh, 700px);
+  max-height: min(90dvh, 700px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--card);
 }
 
 .appNoticeTop {
-  padding: 14px 20px;
+  padding: 14px 18px;
   border-bottom: 1px solid var(--line);
   background-color: var(--card-subtle);
+  flex-shrink: 0;
+  position: relative;
 }
 
 .appNoticeBrand {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding-right: 36px;
 }
 
 .appNoticeLogo {
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
+  flex-shrink: 0;
 }
 
 .appNoticeBadge {
@@ -3357,27 +3461,48 @@ nav[aria-label="Primary Navigation"] button.active {
   font-weight: 800;
   color: var(--sec);
   letter-spacing: 0.05em;
+  display: block;
 }
 
 .appNoticeHeading {
   font-size: 16px;
   font-weight: 800;
   color: var(--t);
+  margin: 1px 0;
 }
 
 .appNoticeSub {
   font-size: 11px;
   color: var(--m);
+  display: block;
 }
 
 .appNoticeContent {
-  padding: 16px 20px;
+  padding: 16px 18px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.appNoticeContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.appNoticeContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.appNoticeContent::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: var(--radius-pill);
 }
 
 .appNoticeBodyGrid {
   display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 18px;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
   align-items: center;
 }
 
@@ -3386,9 +3511,9 @@ nav[aria-label="Primary Navigation"] button.active {
 }
 
 .actualMockupImg {
-  max-width: 120px;
+  max-width: 115px;
   height: auto;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--line);
 }
@@ -3417,14 +3542,19 @@ nav[aria-label="Primary Navigation"] button.active {
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
 .appDownloadBtn:hover {
   background-color: var(--g-hover);
+  transform: translateY(-1px);
 }
 
 .appDownloadIconBox {
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .appDownloadMain {
@@ -3468,6 +3598,7 @@ nav[aria-label="Primary Navigation"] button.active {
   font-size: 12px;
   color: var(--m);
   margin: 0;
+  line-height: 1.4;
 }
 
 .appNoticeActions {
@@ -3480,10 +3611,12 @@ nav[aria-label="Primary Navigation"] button.active {
 .appNoticeProceedBtn {
   background-color: var(--p);
   color: #ffffff;
-  padding: 8px 14px;
+  padding: 9px 14px;
   border-radius: var(--radius-sm);
   font-size: 12.5px;
   font-weight: 600;
+  text-align: center;
+  cursor: pointer;
 }
 
 .appNoticeProceedBtn:hover {
@@ -3497,6 +3630,7 @@ nav[aria-label="Primary Navigation"] button.active {
   font-size: 11px;
   color: var(--m);
   cursor: pointer;
+  margin-top: 2px;
 }
 
 /* ==========================================================================
@@ -3542,29 +3676,212 @@ nav[aria-label="Primary Navigation"] button.active {
 .siteFooter {
   border-top: 1px solid var(--line);
   background-color: var(--card);
-  padding: 24px 0;
-  margin-top: 40px;
+  padding: 38px 0 24px;
+  margin-top: 48px;
 }
 
 .footerWrap {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
+  gap: 36px;
   flex-wrap: wrap;
 }
 
+.footerBrandBlock {
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .footerBrand {
-  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.footerBrand:hover {
+  opacity: 0.85;
+}
+
+.footerDesc {
+  font-size: 13px;
+  color: var(--m);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.footerLinksBlock {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 140px;
+}
+
+.footerColTitle {
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--t-secondary);
+  margin-bottom: 4px;
+}
+
+.footerLink {
+  background: transparent;
+  border: none;
+  padding: 3px 0;
+  font-size: 13px;
+  color: var(--m);
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.footerLink:hover {
+  color: var(--p);
+  transform: translateX(2px);
+}
+
+/* Dedicated Faculty Management Footer Tile & Button */
+.facultyFooterCol {
+  min-width: 170px;
+}
+
+.footerFacultyBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  min-height: 40px;
+  background-color: var(--card-subtle);
+  border: 1.5px solid var(--p-border);
+  border-radius: var(--radius-sm);
+  color: var(--p);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-xs);
+  width: 100%;
+}
+
+.footerFacultyBtn:hover {
+  background-color: var(--p-subtle);
+  border-color: var(--p);
+  color: var(--p-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.12);
+}
+
+.footerFacultyBtn.activeFaculty {
+  background-color: var(--g-subtle);
+  border-color: var(--g-border);
+  color: var(--g);
+}
+
+.footerFacultyBtn.activeFaculty:hover {
+  background-color: #d1fae5;
+  border-color: var(--g);
+  color: #065f46;
+}
+
+.footerFacultyBtn .facultyIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.footerFacultyHint {
+  font-size: 11px;
+  color: var(--m-light);
+  margin-top: 4px;
+  display: block;
+}
+
+/* Footer Bottom Bar */
+.footerBottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-top: 32px;
+  flex-wrap: wrap;
 }
 
 .footerMeta {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   font-size: 11.5px;
   color: var(--m);
-  line-height: 1.4;
+  line-height: 1.45;
+  gap: 2px;
+}
+
+.footerMetaRight {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--m);
+  font-weight: 500;
+}
+
+.footerStatusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--g);
+  box-shadow: 0 0 0 2px var(--g-subtle);
+  display: inline-block;
+}
+
+/* Additional Faculty UI Elements */
+
+.instructorAuthCtaRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.instructorLaunchBtn {
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.instructorSecureNotice {
+  font-size: 12px;
+  color: var(--m);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 /* ==========================================================================
@@ -3621,6 +3938,13 @@ nav[aria-label="Primary Navigation"] button.active {
 /* ==========================================================================
    16. MOBILE-FIRST RESPONSIVE BREAKPOINTS (320px to 1280px+)
    ========================================================================== */
+
+/* Laptops / Small Desktops (<= 1024px) */
+@media (max-width: 1024px) {
+  .brandSubtitle {
+    display: none;
+  }
+}
 
 /* Tablets and below (<= 992px) */
 @media (max-width: 992px) {
@@ -3877,6 +4201,7 @@ nav[aria-label="Primary Navigation"] button.active {
   }
 
   .examSubmitCta {
+    order: 2;
     width: 100%;
     min-height: 38px;
     font-size: 12.5px;
@@ -3918,11 +4243,29 @@ nav[aria-label="Primary Navigation"] button.active {
   .footerWrap {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 28px;
   }
 
-  .footerMeta {
+  .footerBrandBlock {
+    max-width: 100%;
+  }
+
+  .footerLinksBlock {
+    width: 100%;
+    gap: 24px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .facultyFooterCol {
+    grid-column: 1 / -1;
+    max-width: 280px;
+  }
+
+  .footerBottomBar {
+    flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
   }
 }
 
@@ -3946,8 +4289,9 @@ nav[aria-label="Primary Navigation"] button.active {
     font-size: 19px;
   }
 
+  /* Compact Header on Mobile */
   .brandTitle {
-    font-size: 15px;
+    font-size: 14.5px;
   }
 
   .brandSubtitle {
@@ -3955,8 +4299,130 @@ nav[aria-label="Primary Navigation"] button.active {
   }
 
   .brandImg {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .headActions {
+    gap: 6px;
+  }
+
+  /* Compact Candidate Avatar Badge in Mobile Header */
+  .userBadge {
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--p-subtle);
+    border: 1.5px solid var(--p-border);
+    cursor: pointer;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .userBadge:hover,
+  .userBadge:active {
+    background: var(--card);
+    transform: scale(1.05);
+  }
+
+  .userBadge .userName,
+  .userBadge .logoutBtn {
+    display: none;
+  }
+
+  .userBadge .userAvatar {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+    margin: 0;
+    background: transparent;
+  }
+
+  /* Homescreen (#home) Mobile Responsiveness */
+  #home.hero {
+    padding-top: 20px;
+    padding-bottom: 24px;
+    gap: 20px;
+  }
+
+  #home h1 {
+    font-size: clamp(21px, 5.5vw, 26px);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  #home p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  #heroBadge {
+    font-size: 11px;
+    white-space: normal;
+    line-height: 1.35;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+    display: inline-flex;
+  }
+
+  .heroActions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .heroActions button {
+    width: 100%;
+    min-height: 44px;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heroStats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .statBox {
+    padding: 8px 10px;
+  }
+
+  .statBox b {
+    font-size: 18px;
+  }
+
+  .statBox small {
+    font-size: 10px;
+  }
+
+  .heroCardPreview {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  /* Mobile Footer Layout */
+  .footerLinksBlock {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .facultyFooterCol {
+    max-width: 100%;
   }
 
   .filterGridRow {
@@ -4166,13 +4632,100 @@ nav[aria-label="Primary Navigation"] button.active {
     color: var(--t) !important;
   }
 
-  .appNoticeBodyGrid {
-    grid-template-columns: 1fr;
-    text-align: center;
+  /* Mobile App Notice Popup - Compact, Userfriendly & Scrollable */
+  .appNoticeModalCard.compactModal {
+    width: calc(100% - 20px);
+    max-height: calc(100dvh - 24px);
+    margin: 10px auto;
   }
 
-  .actualMockupImg {
+  .appNoticeTop {
+    padding: 10px 14px;
+  }
+
+  .appNoticeBrand {
+    gap: 10px;
+    padding-right: 32px;
+  }
+
+  .appNoticeLogo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .appNoticeHeading {
+    font-size: 14.5px;
+  }
+
+  .appNoticeSub {
+    font-size: 10.5px;
+  }
+
+  .appNoticeContent {
+    padding: 12px 14px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .appNoticePreviewCol {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  
+  .appNoticePreviewCol .actualMockupImg {
     max-width: 90px;
+  }
+
+  .appNoticeBodyGrid {
+    display: block;
+  }
+
+  .appNoticeDetailsCol {
+    gap: 8px;
+  }
+
+  .appNoticeUrduBox {
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .appDownloadBtn {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .appDownloadMain {
+    font-size: 13px;
+  }
+
+  .appDownloadSub {
+    font-size: 10px;
+  }
+
+  .appNoticeMiniChips {
+    gap: 4px;
+  }
+
+  .miniChip {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .appNoticeEngText {
+    font-size: 11.5px;
+  }
+
+  .appNoticeProceedBtn {
+    padding: 9px 12px;
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .appNoticeRemember {
+    font-size: 10.5px;
+    justify-content: center;
   }
 
   .resultTopBar {
@@ -4248,7 +4801,20 @@ nav[aria-label="Primary Navigation"] button.active {
 
   .heroStats {
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 6px;
+  }
+
+  .statBox {
+    padding: 6px 8px;
+  }
+
+  .statBox b {
+    font-size: 16px;
+  }
+
+  .footerFacultyBtn {
+    font-size: 12px;
+    padding: 8px 10px;
   }
 
   .examProgressTracker {
@@ -4305,5 +4871,195 @@ nav[aria-label="Primary Navigation"] button.active {
 
   .modeBtn {
     flex: 1;
+  }
+}
+
+/* ===== FOOTER STYLES ===== */
+.footerWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 32px 0 20px;
+}
+
+.footerBrandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 320px;
+}
+
+.footerBrand {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.footerDesc {
+  font-size: 12px;
+  color: var(--m);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footerLinksBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.footerColTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--m);
+}
+
+.footerLink {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--t-secondary);
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footerLink:hover {
+  color: var(--p);
+}
+
+/* Candidate tool cards in footer */
+.candidateToolsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.candidateToolBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--t);
+  text-align: left;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.candidateToolBtn:hover {
+  background: var(--card);
+  border-color: var(--p-border);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolIcon {
+  font-size: 18px;
+  background: var(--p-subtle);
+  padding: 7px;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.toolText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toolTitle {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--p);
+  line-height: 1.2;
+}
+
+.toolDesc {
+  font-size: 10.5px;
+  color: var(--m);
+  line-height: 1.3;
+}
+
+/* Faculty access block */
+.facultyFooterCol {
+  min-width: 160px;
+}
+
+.footerFacultyBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--t);
+  width: 100%;
+  text-align: left;
+  transition: all 0.18s ease;
+}
+
+.footerFacultyBtn:hover {
+  background: var(--card);
+  border-color: var(--p-border);
+  color: var(--p);
+}
+
+.facultyIcon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+#facultyToolsContainer.hidden {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .footerWrap {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0 16px;
+  }
+
+  .footerBrandBlock {
+    max-width: 100%;
+  }
+
+  .footerLinksBlock {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footerCol {
+    min-width: unset;
   }
 }

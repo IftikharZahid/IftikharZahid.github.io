@@ -3516,7 +3516,11 @@ function read(k, d) { try { return localStorage.getItem(k) ?? d; } catch { retur
 function toast(m, e = false) { const x = document.createElement("div"); x.className = "toast" + (e ? " err" : ""); x.textContent = m; $("#toast").append(x); setTimeout(() => x.remove(), 2500); }
 function go(id) { 
   if (id === "qbank") id = "subjects";
-  $("#"+id)?.scrollIntoView({ behavior: "smooth" }); 
+  if (id === "home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    $("#"+id)?.scrollIntoView({ behavior: "smooth" }); 
+  }
   $("#drawer")?.classList.remove("drawerOpen");
   $$("nav button, .navLink").forEach(b => {
     b.classList.toggle("active", b.dataset.go === id);
@@ -3615,6 +3619,7 @@ const s = {
     expandedAll: false
   }
 };
+window.s = s;
 
 function saveSubjects() {
   store(K.subjects, JSON.stringify(s.subjects));
@@ -3809,7 +3814,7 @@ function renderBookDetailView(bookKey) {
           <div class="weekCardPillRow">
             <span class="weekTitlePill">${esc(w.weekTitle || "Week " + w.week)}</span>
             <span class="weekQBadge">${qCount} Questions</span>
-            <span class="tag" style="font-size:10px;background:var(--card-subtle);">⏱️ 60 Mins</span>
+            <span class="tag" style="font-size:10px;background:var(--card-subtle);">⏱️ ${qCount} Mins</span>
             ${isThisActive ? `<span class="activeIndicator" style="font-size:10.5px;padding:3px 8px;"><i class="activeDot"></i> Currently Active</span>` : ""}
           </div>
         </div>
@@ -4596,7 +4601,8 @@ function resumeActiveExam(){
         s.marked=new Set(p.marked||[]);
         s.locked=new Set(p.locked||[]);
         s.skipped=new Set(p.skipped||[]);
-        s.sec=typeof p.sec==="number"?p.sec:3600;
+        s.sec=typeof p.sec==="number"?p.sec:(s.exam.length*60);
+        s.totalSec=typeof p.totalSec==="number"?p.totalSec:(s.exam.length*60);
         s.student=p.student||student||{};
         s.result=null;
         ["home","subjects","tools","results"].forEach(id=>$("#"+id)?.classList.add("hidden"));
@@ -4622,7 +4628,8 @@ function discardSession(){
   s.locked=new Set();
   s.skipped=new Set();
   s.i=0;
-  s.sec=3600;
+  s.sec=0;
+  s.totalSec=0;
   s.result=null;
   store(K.progress,"");
   updateExamStatusUI();
@@ -4835,7 +4842,7 @@ function openBriefingModal(student){
         <span class="metricIcon" aria-hidden="true">⏱️</span>
         <div class="metricText">
           <small>DURATION</small>
-          <b>60 Mins</b>
+          <b>${qCount} Mins</b>
         </div>
       </div>
       <div class="briefingMetric">
@@ -4859,7 +4866,7 @@ function openBriefingModal(student){
     </div>
     <div class="briefingRuleItem">
       <span class="ruleIcon" aria-hidden="true">⏱️</span>
-      <span class="ruleText"><b>Live Timer:</b> 60-minute countdown starts automatically when you continue.</span>
+      <span class="ruleText"><b>Live Timer:</b> ${qCount}-minute countdown (${qCount} MCQs • 1 min/MCQ) starts automatically when you continue.</span>
     </div>
   </div>
 
@@ -4887,7 +4894,10 @@ function beginExamNow(){
   s.exam=s.questions.map(q=>({...q,options:q.options.map((text,index)=>({text,index}))}));
   if(s.randomizeQ) s.exam.sort(()=>Math.random()-.5);
   if(s.randomizeO) s.exam.forEach(q=>q.options.sort(()=>Math.random()-.5));
-  s.ans={};s.marked=new Set();s.locked=new Set();s.skipped=new Set();s.i=0;s.sec=3600;s.result=null;close();
+  const totalQ = s.exam.length;
+  s.totalSec = Math.max(60, totalQ * 60);
+  s.sec = s.totalSec;
+  s.ans={};s.marked=new Set();s.locked=new Set();s.skipped=new Set();s.i=0;s.result=null;close();
   ["home","subjects","tools","results"].forEach(x=>$("#"+x)?.classList.add("hidden"));
   $("#live").classList.remove("hidden");
   save();
@@ -4919,15 +4929,6 @@ function drawExam(){
   if(isLocked) tagElements.push('<span class="tag lockedBadge">🔒 Answer Locked</span>');
   else if(isSkipped) tagElements.push('<span class="tag skippedBadge">↷ Skipped — Answer to Complete</span>');
 
-  let lockHintText="";
-  let hintIcon = isLocked ? "🔒" : (isSkipped ? "↷" : (isAnswered ? "✓" : "ℹ️"));
-  let hintClass = isLocked ? "hintLocked" : (isSkipped ? "hintSkipped" : (isAnswered ? "hintAnswered" : "hintDefault"));
-
-  if(isLocked) lockHintText="Question locked. Click 'Next Question →' to continue.";
-  else if(isSkipped) lockHintText=isAnswered?"Answer selected. Click 'Lock & Continue' to advance.":"This question was skipped. Select your answer, or skip to revisit later.";
-  else if(isAnswered) lockHintText="Answer selected. Click Next to lock & advance.";
-  else lockHintText="Select an answer, or click 'Skip Question' to resume it later.";
-
   let buttonText = isFinalAction ? "Finish & Submit Exam ✓" : (isSkipped ? "Lock & Continue →" : "Next Question →");
 
   $("#examQ").innerHTML=`
@@ -4937,10 +4938,6 @@ function drawExam(){
       ${q.options.map((o,i)=>`<button class="option ${s.ans[q.id]===o.index?"selected":""} ${isLocked?"disabledOption":""}" data-e="${i}" ${isLocked?"disabled":""}><b class="letter">${L[i]}</b><span class="optionText">${esc(optText(o))}</span></button>`).join("")}
     </div>
     <div class="examControls">
-      <div class="lockHint ${hintClass}">
-        <span class="lockIcon">${hintIcon}</span>
-        <span class="lockHintText">${lockHintText}</span>
-      </div>
       <div class="examControlBtns">
         <button class="secondary examSubmitCta" id="examSubmitBtn" type="button" title="Finish and submit examination">Submit Exam</button>
         <div class="examNavBtns">
@@ -5213,6 +5210,8 @@ function finish(auto){
     }
   });
   let total=s.exam.length,p=c/total*100;
+  let totalTime = s.totalSec || (s.exam.length * 60);
+  let elapsed = Math.max(0, totalTime - Math.max(0, s.sec));
   s.result={
     total,
     correct:c,
@@ -5220,7 +5219,7 @@ function finish(auto){
     wrong:a-c,
     unanswered:total-a,
     percentage:p,
-    time:3600-s.sec,
+    time:elapsed,
     answers:{...s.ans},
     exam:s.exam,
     student:s.student,
@@ -5288,7 +5287,8 @@ function results(){
   if($("#dispStudentRoll")) $("#dispStudentRoll").innerHTML=r.student?.roll?`<b>${esc(r.student.roll)}</b>`:"<b>—</b>";
   if($("#dispStudentClass")) $("#dispStudentClass").textContent=r.student?.className||"—";
   if($("#dispExamDate")) $("#dispExamDate").textContent=new Date().toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
-  if($("#dispExamTime")) $("#dispExamTime").textContent=`${fmt(r.time)} (Allowed: 60:00 mins)`;
+  const allowedTotalMins = r.total || 40;
+  if($("#dispExamTime")) $("#dispExamTime").textContent=`${fmt(r.time)} (Allowed: ${String(allowedTotalMins).padStart(2,"0")}:00 mins)`;
 
   // Assessment Marks Table
   if($("#tMaxMarks")) $("#tMaxMarks").textContent=r.total;
@@ -5375,6 +5375,7 @@ function save(){
       locked:[...s.locked],
       skipped:[...s.skipped],
       sec:s.sec,
+      totalSec:s.totalSec || (s.exam.length * 60),
       student:s.student
     }));
     updateExamStatusUI();
@@ -5477,6 +5478,8 @@ function updateExamStatusUI(){
 function updateQuestionCountUI(){
   const totalCount=s.questions?s.questions.length:0;
   if($("#total")) $("#total").textContent=totalCount;
+  if($("#heroMinutes")) $("#heroMinutes").textContent=totalCount;
+  if($("#previewTimer")) $("#previewTimer").textContent=`⏱️ ${String(totalCount).padStart(2,"0")}:00 Allowed`;
   if($("#subjectTagCount")) $("#subjectTagCount").textContent=`${totalCount} MCQs Ready`;
   if($("#count")) $("#count").textContent=(s.filtered?s.filtered.length:totalCount)+" question"+((s.filtered?s.filtered.length:totalCount)===1?"":"s");
   
@@ -5994,9 +5997,17 @@ function initTheme() {
 }
 initTheme();
 
-// 3. Mobile Navigation Drawer Toggle
+// 3. Mobile Navigation Drawer Toggle & Candidate Profile Trigger
 if ($("#menu")) {
   $("#menu").onclick = () => $("#drawer")?.classList.toggle("drawerOpen");
+}
+if ($("#userBadge")) {
+  $("#userBadge").onclick = (e) => {
+    if (e.target && e.target.id === "logoutBtn") return;
+    if (window.innerWidth <= 768) {
+      $("#drawer")?.classList.toggle("drawerOpen");
+    }
+  };
 }
 
 // 4. Examination Start & Resume Buttons
@@ -6530,17 +6541,51 @@ function openDirectLinkModal() {
 }
 
 // 10. Tools & Management Action Buttons
-if ($("#export")) $("#export").onclick = () => requireInstructorAuth(exportQuestionsJSON);
-if ($("#import")) $("#import").onclick = () => requireInstructorAuth(() => $("#file")?.click());
+if ($("#import")) $("#import").onclick = () => $("#file")?.click();
 if ($("#file")) $("#file").onchange = handleFileImport;
-if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = () => requireInstructorAuth(confirmRestoreDefaults);
-if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => requireInstructorAuth(() => $("#file")?.click());
-if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => requireInstructorAuth(() => $("#mongoFileInput")?.click());
+if ($("#export")) $("#export").onclick = () => exportQuestionsJSON();
+if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = () => confirmRestoreDefaults();
+if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => $("#file")?.click();
+if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => $("#mongoFileInput")?.click();
 if ($("#mongoFileInput")) $("#mongoFileInput").onchange = handleMongoFileSelect;
-if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = () => requireInstructorAuth(() => syncBooksFromMongo(false));
-if ($("#loadDirectUrlBtn")) $("#loadDirectUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
-if ($("#mongoDirectUrlBtn")) $("#mongoDirectUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
-if ($("#importUrlBtn")) $("#importUrlBtn").onclick = () => requireInstructorAuth(openDirectLinkModal);
+if ($("#mongoSyncCatalogBtn")) $("#mongoSyncCatalogBtn").onclick = () => syncBooksFromMongo(false);
+if ($("#loadDirectUrlBtn")) $("#loadDirectUrlBtn").onclick = () => openDirectLinkModal();
+if ($("#mongoDirectUrlBtn")) $("#mongoDirectUrlBtn").onclick = () => openDirectLinkModal();
+if ($("#importUrlBtn")) $("#importUrlBtn").onclick = () => openDirectLinkModal();
+
+// Faculty Login Button — shows/hides the faculty tools panel
+if ($("#facultyLoginBtn")) {
+  $("#facultyLoginBtn").onclick = () => {
+    const pin = prompt("Enter Faculty PIN to access instructor tools:");
+    if (pin === null) return;
+    if (pin.trim() === "1234" || pin.trim() === "admin") {
+      const container = $("#facultyToolsContainer");
+      if (container) {
+        container.classList.remove("hidden");
+        container.style.display = "flex";
+      }
+      $("#facultyLoginBtn").textContent = "✓ Faculty Logged In";
+      $("#facultyLoginBtn").style.background = "rgba(16,185,129,0.1)";
+      $("#facultyLoginBtn").style.color = "#059669";
+      $("#facultyLoginBtn").style.borderColor = "rgba(16,185,129,0.3)";
+      toast("Faculty tools unlocked");
+    } else {
+      toast("Incorrect PIN. Access denied.", true);
+    }
+  };
+}
+
+// Footer Candidate Buttons
+if ($("#footerBookmarksBtn")) {
+  $("#footerBookmarksBtn").onclick = () => {
+    if (!s.bm.size) { toast("No bookmarked questions", true); return; }
+    const bms = s.questions.filter(q => s.bm.has(q.id));
+    modal(`<h2>Bookmarked Questions (${bms.length})</h2><div style="max-height:60vh;overflow-y:auto;display:flex;flex-direction:column;gap:12px;margin-top:16px;">${bms.map(q => card(q)).join("")}</div>`);
+  };
+}
+if ($("#footerResetBtn")) {
+  $("#footerResetBtn").onclick = () => $("#reset")?.click();
+}
 
 // Check MongoDB status & auto-sync if connected; otherwise quiet website sync
 checkMongoStatus(true).then(stat => {
@@ -6652,13 +6697,135 @@ function isInstructorAuthenticated() {
   }
 }
 
+function openFacultyAuthModal() {
+  modal(`<h2>Faculty &amp; Instructor Authorization</h2>
+<p style="font-size:12.5px;color:var(--m);margin-bottom:14px;line-height:1.45;">Enter authorized institutional instructor credentials to manage course question banks, import JSON units, and synchronize with MongoDB Atlas.</p>
+
+<div id="modalFacultyErr" class="authError hidden" role="alert"></div>
+
+<div style="display:flex;flex-direction:column;gap:12px;">
+  <div class="authField">
+    <label for="modalFacultyEmail">Instructor Institutional Email <span style="color:var(--r);font-weight:700;">*</span></label>
+    <div class="authInputWrapper">
+      <span class="authInputIcon">✉️</span>
+      <input type="email" id="modalFacultyEmail" placeholder="e.g. IftkharXahid@gmail.com" autocomplete="username" spellcheck="false">
+    </div>
+  </div>
+
+  <div class="authField">
+    <label for="modalFacultyPassword">Security Password <span style="color:var(--r);font-weight:700;">*</span></label>
+    <div class="authInputWrapper">
+      <span class="authInputIcon">🔒</span>
+      <input type="password" id="modalFacultyPassword" placeholder="Enter password" autocomplete="current-password">
+      <button type="button" id="modalFacultyTogglePwd" class="authEyeBtn" title="Toggle password visibility">👁️</button>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:2px;">
+    <label style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--m);cursor:pointer;">
+      <input type="checkbox" id="modalFacultyRemember" checked>
+      <span>Remember credentials on this device</span>
+    </label>
+    <span style="font-size:11px;color:var(--m);">Authorized: <b>IftkharXahid@gmail.com</b></span>
+  </div>
+</div>
+
+<div class="modalActions" style="margin-top:16px;">
+  <button class="secondary" id="modalFacultyCancel" type="button">Cancel</button>
+  <button class="primary" id="modalFacultySubmit" type="button">Unlock Management Tools →</button>
+</div>`);
+
+  const passInput = $("#modalFacultyPassword");
+  const toggleBtn = $("#modalFacultyTogglePwd");
+  const emailInput = $("#modalFacultyEmail");
+  const errBox = $("#modalFacultyErr");
+
+  if (toggleBtn && passInput) {
+    toggleBtn.onclick = () => {
+      const isPwd = passInput.type === "password";
+      passInput.type = isPwd ? "text" : "password";
+      toggleBtn.textContent = isPwd ? "🙈" : "👁️";
+    };
+  }
+
+  if ($("#modalFacultyCancel")) $("#modalFacultyCancel").onclick = close;
+
+  if ($("#modalFacultySubmit")) {
+    $("#modalFacultySubmit").onclick = () => {
+      const email = (emailInput?.value || "").trim().toLowerCase();
+      const pwd = (passInput?.value || "").trim();
+
+      const isEmailValid = INSTRUCTOR_AUTH_CONFIG.validEmails.some(e => e.toLowerCase() === email);
+      const isPassValid = pwd === INSTRUCTOR_AUTH_CONFIG.validPassword;
+
+      if (isEmailValid && isPassValid) {
+        try {
+          sessionStorage.setItem(K.instructorAuth, "true");
+          sessionStorage.setItem(K.instructorUser, email);
+          if ($("#modalFacultyRemember")?.checked) {
+            localStorage.setItem(K.instructorAuth, "true");
+            localStorage.setItem(K.instructorUser, email);
+          }
+        } catch {}
+
+        close();
+        updateInstructorAuthUI();
+        toast("✓ Faculty authorization verified. Management tools unlocked.");
+        go("tools");
+      } else {
+        if (errBox) {
+          errBox.textContent = "⚠️ Invalid Email or Password. Please enter authorized instructor credentials.";
+          errBox.classList.remove("hidden");
+        }
+        toast("⚠️ Invalid instructor credentials", true);
+        if (!isEmailValid && emailInput) emailInput.focus();
+        else if (passInput) passInput.focus();
+      }
+    };
+  }
+
+  if (emailInput) setTimeout(() => emailInput.focus(), 150);
+}
+
+function openFacultyActiveModal() {
+  const userEmail = localStorage.getItem(K.instructorUser) || sessionStorage.getItem(K.instructorUser) || "IftkharXahid@gmail.com";
+  modal(`<h2>Faculty Session Active</h2>
+<div style="background:var(--g-subtle);border:1px solid var(--g-border);border-radius:var(--radius-sm);padding:12px 14px;margin:12px 0;font-size:12.5px;color:var(--g);line-height:1.5;">
+  <div style="font-weight:700;display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+    <span>✅</span> <span>Authenticated as ${esc(userEmail)}</span>
+  </div>
+  <div>Full access to Question Bank Import, Syllabus Catalog Export, and MongoDB Atlas database synchronization.</div>
+</div>
+<div class="modalActions" style="gap:10px;flex-wrap:wrap;">
+  <button class="secondary" id="facultyCloseActiveModal" type="button">Close</button>
+  <button class="primary" id="facultyGoToolsBtn" type="button">⚙️ Open Management Tools</button>
+  <button class="danger" id="facultyLockNowBtn" type="button">🔒 Lock Faculty Session</button>
+</div>`);
+
+  if ($("#facultyCloseActiveModal")) $("#facultyCloseActiveModal").onclick = close;
+  if ($("#facultyGoToolsBtn")) {
+    $("#facultyGoToolsBtn").onclick = () => {
+      close();
+      go("tools");
+    };
+  }
+  if ($("#facultyLockNowBtn")) {
+    $("#facultyLockNowBtn").onclick = () => {
+      close();
+      lockInstructorMode();
+    };
+  }
+}
+
 function updateInstructorAuthUI() {
   const isAuth = isInstructorAuthenticated();
   const lockedView = $("#instructorLockedView");
   const unlockedView = $("#instructorUnlockedView");
   const emailDisp = $("#instructorActiveEmail");
-  const headerLock = $("#portalLockBtn");
-  const drawerLock = $("#drawerPortalLockBtn");
+  const footerBtn = $("#footerFacultyAccessBtn");
+  const footerIcon = $("#footerFacultyIcon");
+  const footerText = $("#footerFacultyText");
+  const drawerBtn = $("#drawerFacultyBtn");
 
   // Toggle visibility of restricted management tools (Import, MongoDB Cloud, Export)
   const restrictedTools = document.querySelectorAll(".facultyRestrictedTool");
@@ -6682,12 +6849,18 @@ function updateInstructorAuthUI() {
     }
   }
 
-  if (headerLock) {
-    headerLock.textContent = isAuth ? "🔓" : "🔒";
-    headerLock.title = isAuth ? "Instructor Mode Active (Click to Lock)" : "Instructor Authorization Required";
-  }
-  if (drawerLock) {
-    drawerLock.textContent = isAuth ? "🔓 Lock Instructor Mode" : "🔒 Instructor Login";
+  if (footerBtn) {
+    if (isAuth) {
+      if (footerIcon) footerIcon.textContent = "✅";
+      if (footerText) footerText.textContent = "Faculty Mode Active";
+      footerBtn.classList.add("activeFaculty");
+      footerBtn.title = "Faculty session active (Click to manage or lock)";
+    } else {
+      if (footerIcon) footerIcon.textContent = "🔐";
+      if (footerText) footerText.textContent = "Faculty Access";
+      footerBtn.classList.remove("activeFaculty");
+      footerBtn.title = "Sign in with instructor credentials to access curriculum management";
+    }
   }
 }
 
@@ -6699,28 +6872,13 @@ function lockInstructorMode() {
     localStorage.removeItem(K.instructorUser);
   } catch {}
   updateInstructorAuthUI();
-  toast("Instructor mode locked. Import/Export tools hidden.");
+  toast("Instructor mode locked. Management tools secured.");
 }
 
 function requireInstructorAuth(actionFn) {
   if (!isInstructorAuthenticated()) {
-    const card = $("#instructorAuthCard");
-    if (card) {
-      card.scrollIntoView({ behavior: "smooth", block: "center" });
-      card.classList.remove("shake");
-      void card.offsetWidth;
-      card.classList.add("shake");
-    }
-    const err = $("#instructorAuthError");
-    if (err) {
-      err.textContent = "⚠️ Please enter instructor credentials below to use Import & Export features.";
-      err.classList.remove("hidden");
-    }
-    const emailInput = $("#instructorEmail");
-    const passInput = $("#instructorPassword");
-    if (emailInput && !emailInput.value) emailInput.focus();
-    else if (passInput) passInput.focus();
-    toast("⚠️ Instructor authorization required for Import & Export", true);
+    openFacultyAuthModal();
+    toast("⚠️ Instructor authorization required", true);
     return false;
   }
   if (typeof actionFn === "function") actionFn();
@@ -6728,88 +6886,34 @@ function requireInstructorAuth(actionFn) {
 }
 
 function initInstructorAuth() {
-  const form = $("#instructorAuthForm");
-  const emailInput = $("#instructorEmail");
-  const passInput = $("#instructorPassword");
-  const toggleBtn = $("#instructorTogglePwd");
-  const errBox = $("#instructorAuthError");
-  const rememberCb = $("#instructorRemember");
+  const footerBtn = $("#footerFacultyAccessBtn");
+  const toolsLoginBtn = $("#openFacultyLoginFromToolsBtn");
   const lockBtn = $("#instructorLockBtn");
-  const headerLock = $("#portalLockBtn");
-  const drawerLock = $("#drawerPortalLockBtn");
+  const bookmarksFooterBtn = $("#footerBookmarksBtn");
+  const resetFooterBtn = $("#footerResetBtn");
 
-  if (toggleBtn && passInput) {
-    toggleBtn.onclick = () => {
-      const isPwd = passInput.type === "password";
-      passInput.type = isPwd ? "text" : "password";
-      toggleBtn.textContent = isPwd ? "🙈" : "👁️";
+  if (footerBtn) {
+    footerBtn.onclick = () => {
+      if (isInstructorAuthenticated()) {
+        openFacultyActiveModal();
+      } else {
+        openFacultyAuthModal();
+      }
     };
+  }
+
+  if (toolsLoginBtn) {
+    toolsLoginBtn.onclick = openFacultyAuthModal;
   }
 
   if (lockBtn) lockBtn.onclick = lockInstructorMode;
-  if (headerLock) {
-    headerLock.onclick = () => {
-      if (isInstructorAuthenticated()) {
-        lockInstructorMode();
-      } else {
-        $("#tools")?.scrollIntoView({ behavior: "smooth" });
-        $("#instructorAuthCard")?.scrollIntoView({ behavior: "smooth", block: "center" });
-        $("#instructorEmail")?.focus();
-      }
-    };
-  }
-  if (drawerLock) {
-    drawerLock.onclick = () => {
-      $("#drawer").classList.remove("drawerOpen");
-      if (isInstructorAuthenticated()) {
-        lockInstructorMode();
-      } else {
-        $("#tools")?.scrollIntoView({ behavior: "smooth" });
-        $("#instructorAuthCard")?.scrollIntoView({ behavior: "smooth", block: "center" });
-        $("#instructorEmail")?.focus();
-      }
-    };
+
+  if (bookmarksFooterBtn) {
+    bookmarksFooterBtn.onclick = () => $("#bookmarks")?.click();
   }
 
-  if (form) {
-    form.onsubmit = (e) => {
-      e.preventDefault();
-      const enteredEmail = (emailInput?.value || "").trim().toLowerCase();
-      const enteredPass = (passInput?.value || "").trim();
-
-      const isEmailValid = INSTRUCTOR_AUTH_CONFIG.validEmails.includes(enteredEmail);
-      const isPassValid = enteredPass === INSTRUCTOR_AUTH_CONFIG.validPassword;
-
-      if (isEmailValid && isPassValid) {
-        if (errBox) errBox.classList.add("hidden");
-        try {
-          sessionStorage.setItem(K.instructorAuth, "true");
-          sessionStorage.setItem(K.instructorUser, enteredEmail);
-          if (rememberCb?.checked) {
-            localStorage.setItem(K.instructorAuth, "true");
-            localStorage.setItem(K.instructorUser, enteredEmail);
-          }
-        } catch {}
-
-        updateInstructorAuthUI();
-        toast("✓ Instructor authorized! Import, Export & Cloud Database tools unlocked.");
-      } else {
-        if (errBox) {
-          errBox.textContent = "⚠️ Invalid Email or Password. Please enter authorized instructor credentials.";
-          errBox.classList.remove("hidden");
-        }
-        const card = $("#instructorAuthCard");
-        if (card) {
-          card.classList.remove("shake");
-          void card.offsetWidth;
-          card.classList.add("shake");
-        }
-        if (passInput) {
-          passInput.focus();
-          passInput.select();
-        }
-      }
-    };
+  if (resetFooterBtn) {
+    resetFooterBtn.onclick = () => $("#reset")?.click();
   }
 
   updateInstructorAuthUI();
