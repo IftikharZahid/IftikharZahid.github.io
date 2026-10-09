@@ -6301,13 +6301,13 @@ function resolveDataUrl(url) {
 }
 
 const STATIC_CATALOG_URLS = [
-  "data/oop_bscs_week01.json",
-  "data/oop_bscs_week02.json",
-  "data/oop_adp_sem2_week03.json",
-  "data/oop_bscs_week04.json",
-  "data/theory_of_automata_week02.json",
-  "data/computer_architecture_week01.json",
-  "data/database_systems_week02.json"
+  "data/bscs_oop_week01.json",
+  "data/bscs_oop_week02.json",
+  "data/adp_cs_sem2_oop_week03.json",
+  "data/bscs_oop_week04.json",
+  "data/bscs_theory_of_automata_week02.json",
+  "data/bscs_computer_architecture_week01.json",
+  "data/bscs_database_systems_week02.json"
 ];
 
 function parseAndNormalizeJSON(parsed, fallbackName = "") {
@@ -6462,7 +6462,22 @@ async function uploadRecordToMongo(subjectRecord) {
 
 async function syncBooksFromWebsiteData(silent = false) {
   let loaded = 0;
-  for (const rawUrl of STATIC_CATALOG_URLS) {
+  
+  // Dynamically load the catalog list if available
+  let dynamicCatalog = [];
+  try {
+    const catalogRes = await fetch(resolveDataUrl("data/catalog.json"));
+    if (catalogRes.ok) {
+      dynamicCatalog = await catalogRes.json();
+    }
+  } catch (e) {
+    console.log("No dynamic catalog found, using static defaults.");
+  }
+
+  // Merge dynamic catalog with static defaults, removing duplicates
+  const allUrls = [...new Set([...STATIC_CATALOG_URLS, ...dynamicCatalog])];
+
+  for (const rawUrl of allUrls) {
     try {
       const url = resolveDataUrl(rawUrl);
       const res = await fetch(url);
@@ -6643,13 +6658,13 @@ function handleMongoFileSelect(e) {
 
 function openDirectLinkModal() {
   const verifiedLinks = [
-    { name: "Object-Oriented Programming (Week 01)", url: "data/oop_bscs_week01.json", desc: "20 MCQs • Structured vs OOP, Objects, Classes, State & Behavior" },
-    { name: "Object-Oriented Programming (Week 02)", url: "data/oop_bscs_week02.json", desc: "20 MCQs • UML Class Diagrams, Noun/Verb Analysis, CRC Cards" },
-    { name: "Object-Oriented Programming (Week 03 — ADP)", url: "data/oop_adp_sem2_week03.json", desc: "20 MCQs • Classes, Methods, Namespaces, Parameters" },
-    { name: "Object-Oriented Programming (Week 04)", url: "data/oop_bscs_week04.json", desc: "20 MCQs • Constructors, Encapsulation, Access Specifiers" },
-    { name: "Theory of Automata (Week 02)", url: "data/theory_of_automata_week02.json", desc: "40 MCQs • Regular Expressions & Recursive Definitions" },
-    { name: "Computer Architecture and Organization (Week 01)", url: "data/computer_architecture_week01.json", desc: "39 MCQs • Digital Logic & Hardware Overview" },
-    { name: "Database Systems (Week 02)", url: "data/database_systems_week02.json", desc: "39 MCQs • Three-Level Schema Architecture & Data Independence" }
+    { name: "Object-Oriented Programming (Week 01)", url: "data/bscs_oop_week01.json", desc: "20 MCQs • Structured vs OOP, Objects, Classes, State & Behavior" },
+    { name: "Object-Oriented Programming (Week 02)", url: "data/bscs_oop_week02.json", desc: "20 MCQs • UML Class Diagrams, Noun/Verb Analysis, CRC Cards" },
+    { name: "Object-Oriented Programming (Week 03 — ADP)", url: "data/adp_cs_sem2_oop_week03.json", desc: "20 MCQs • Classes, Methods, Namespaces, Parameters" },
+    { name: "Object-Oriented Programming (Week 04)", url: "data/bscs_oop_week04.json", desc: "20 MCQs • Constructors, Encapsulation, Access Specifiers" },
+    { name: "Theory of Automata (Week 02)", url: "data/bscs_theory_of_automata_week02.json", desc: "40 MCQs • Regular Expressions & Recursive Definitions" },
+    { name: "Computer Architecture and Organization (Week 01)", url: "data/bscs_computer_architecture_week01.json", desc: "39 MCQs • Digital Logic & Hardware Overview" },
+    { name: "Database Systems (Week 02)", url: "data/bscs_database_systems_week02.json", desc: "39 MCQs • Three-Level Schema Architecture & Data Independence" }
   ];
 
   modal(`<h2>Load Questions via Direct JSON Link</h2>

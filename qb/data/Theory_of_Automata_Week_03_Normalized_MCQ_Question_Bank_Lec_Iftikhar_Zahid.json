@@ -1,0 +1,798 @@
+{
+  "metadata": {
+    "course": "Theory of Automata",
+    "level": "BS Computer Science",
+    "week": 3,
+    "topic": "Kleene's Theorem; Transition Graphs to Regular Expressions; Regular Expressions to Finite Automata",
+    "questionType": "MCQ",
+    "language": "English",
+    "createdBy": "Lec. Iftikhar Zahid",
+    "source": "Theory of Automata Week 03 Professional Lecture",
+    "totalQuestions": 34,
+    "schemaVersion": "1.0"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Kleene's Theorem primarily establishes the equivalence between:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regular expressions and finite automata"
+        },
+        {
+          "id": "B",
+          "text": "Context-free grammars and pushdown automata"
+        },
+        {
+          "id": "C",
+          "text": "Databases and schemas"
+        },
+        {
+          "id": "D",
+          "text": "Programming languages and compilers"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 2,
+      "question": "Which topic is explicitly listed for Week 03?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cache mapping"
+        },
+        {
+          "id": "B",
+          "text": "Kleene's Theorem"
+        },
+        {
+          "id": "C",
+          "text": "CPU registers"
+        },
+        {
+          "id": "D",
+          "text": "Relational algebra"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 3,
+      "question": "A transition graph is primarily a graphical representation of:",
+      "options": [
+        {
+          "id": "A",
+          "text": "An automaton"
+        },
+        {
+          "id": "B",
+          "text": "A database"
+        },
+        {
+          "id": "C",
+          "text": "A compiler"
+        },
+        {
+          "id": "D",
+          "text": "A programming language"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 4,
+      "question": "A Regular Expression is primarily used to describe:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regular languages"
+        },
+        {
+          "id": "B",
+          "text": "Hardware circuits"
+        },
+        {
+          "id": "C",
+          "text": "Operating systems"
+        },
+        {
+          "id": "D",
+          "text": "Database tables"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 5,
+      "question": "Which operation represents alternatives in a Regular Expression?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Concatenation"
+        },
+        {
+          "id": "B",
+          "text": "Union"
+        },
+        {
+          "id": "C",
+          "text": "Kleene Star"
+        },
+        {
+          "id": "D",
+          "text": "Assignment"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 6,
+      "question": "Which operation represents a sequence of two expressions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Union"
+        },
+        {
+          "id": "B",
+          "text": "Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Complement"
+        },
+        {
+          "id": "D",
+          "text": "Intersection"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 7,
+      "question": "What does R* represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exactly one R"
+        },
+        {
+          "id": "B",
+          "text": "Zero or more repetitions of R"
+        },
+        {
+          "id": "C",
+          "text": "Only two repetitions of R"
+        },
+        {
+          "id": "D",
+          "text": "One or more repetitions of R"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 8,
+      "question": "In graph-to-expression conversion, state elimination is used to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove intermediate states while preserving the language"
+        },
+        {
+          "id": "B",
+          "text": "Remove the alphabet"
+        },
+        {
+          "id": "C",
+          "text": "Delete all accepting states"
+        },
+        {
+          "id": "D",
+          "text": "Convert a DFA into source code"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 9,
+      "question": "If two alternative paths are available between states, the corresponding expression commonly uses:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Union"
+        },
+        {
+          "id": "B",
+          "text": "Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Kleene Star"
+        },
+        {
+          "id": "D",
+          "text": "Exponentiation"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 10,
+      "question": "If a path must be followed by another path, the corresponding operation is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Union"
+        },
+        {
+          "id": "B",
+          "text": "Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Kleene Star"
+        },
+        {
+          "id": "D",
+          "text": "Complement"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 11,
+      "question": "A loop that can be repeated zero or more times is naturally represented using:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Union"
+        },
+        {
+          "id": "B",
+          "text": "Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Kleene Star"
+        },
+        {
+          "id": "D",
+          "text": "Intersection"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 12,
+      "question": "Which conversion is part of Kleene's Theorem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transition Graph to Regular Expression"
+        },
+        {
+          "id": "B",
+          "text": "Database to SQL"
+        },
+        {
+          "id": "C",
+          "text": "CPU to memory"
+        },
+        {
+          "id": "D",
+          "text": "Program to binary only"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 13,
+      "question": "Which reverse conversion is part of Week 03?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regular Expression to Finite Automaton"
+        },
+        {
+          "id": "B",
+          "text": "CPU to ALU"
+        },
+        {
+          "id": "C",
+          "text": "Memory to cache"
+        },
+        {
+          "id": "D",
+          "text": "Database to ER diagram"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 14,
+      "question": "Which expression describes zero or more b's?",
+      "options": [
+        {
+          "id": "A",
+          "text": "b+"
+        },
+        {
+          "id": "B",
+          "text": "b*"
+        },
+        {
+          "id": "C",
+          "text": "bb"
+        },
+        {
+          "id": "D",
+          "text": "b+b"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 15,
+      "question": "Which expression describes strings beginning with a followed by zero or more b's?",
+      "options": [
+        {
+          "id": "A",
+          "text": "a*b"
+        },
+        {
+          "id": "B",
+          "text": "ab*"
+        },
+        {
+          "id": "C",
+          "text": "(a+b)*"
+        },
+        {
+          "id": "D",
+          "text": "a+b"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 16,
+      "question": "Which language is represented by (a+b)*?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All strings over {a,b}, including ε"
+        },
+        {
+          "id": "B",
+          "text": "Only a and b separately"
+        },
+        {
+          "id": "C",
+          "text": "Only strings ending in b"
+        },
+        {
+          "id": "D",
+          "text": "Only strings beginning with a"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 17,
+      "question": "In ab*c, what does b* mean?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exactly one b"
+        },
+        {
+          "id": "B",
+          "text": "Zero or more b's"
+        },
+        {
+          "id": "C",
+          "text": "One or more b's"
+        },
+        {
+          "id": "D",
+          "text": "No b's"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 18,
+      "question": "The expression ab*c conceptually corresponds to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Read a, then zero or more b's, then c"
+        },
+        {
+          "id": "B",
+          "text": "Read b only"
+        },
+        {
+          "id": "C",
+          "text": "Read a or c"
+        },
+        {
+          "id": "D",
+          "text": "Read c before a"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 19,
+      "question": "If an automaton has a path labeled a or b between the same states, the expression can be:",
+      "options": [
+        {
+          "id": "A",
+          "text": "ab"
+        },
+        {
+          "id": "B",
+          "text": "a+b"
+        },
+        {
+          "id": "C",
+          "text": "a*"
+        },
+        {
+          "id": "D",
+          "text": "ab*"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 20,
+      "question": "Which operation is associated with sequential composition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Union"
+        },
+        {
+          "id": "B",
+          "text": "Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Kleene Star"
+        },
+        {
+          "id": "D",
+          "text": "Negation"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 21,
+      "question": "Which operation is associated with repeated looping?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Union"
+        },
+        {
+          "id": "B",
+          "text": "Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Kleene Star"
+        },
+        {
+          "id": "D",
+          "text": "Intersection"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 22,
+      "question": "In Rij = Rij + Rik(Rkk)*Rkj, Rkk represents:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A loop/path from k back to k"
+        },
+        {
+          "id": "B",
+          "text": "A path from i to j"
+        },
+        {
+          "id": "C",
+          "text": "The start state"
+        },
+        {
+          "id": "D",
+          "text": "The alphabet"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 23,
+      "question": "In the same pattern, Rik represents:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A path from i to k"
+        },
+        {
+          "id": "B",
+          "text": "A loop at k"
+        },
+        {
+          "id": "C",
+          "text": "A path from j to i"
+        },
+        {
+          "id": "D",
+          "text": "The accepting state"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 24,
+      "question": "In the same pattern, Rkj represents:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A path from k to j"
+        },
+        {
+          "id": "B",
+          "text": "A loop at i"
+        },
+        {
+          "id": "C",
+          "text": "A path from j to k"
+        },
+        {
+          "id": "D",
+          "text": "The input alphabet"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 25,
+      "question": "Why is Kleene Star important in graph-to-expression conversion?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It represents zero or more repetitions of a path"
+        },
+        {
+          "id": "B",
+          "text": "It represents only one path"
+        },
+        {
+          "id": "C",
+          "text": "It removes the alphabet"
+        },
+        {
+          "id": "D",
+          "text": "It identifies the start state"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 26,
+      "question": "Which statement is correct about Regular Expressions and finite automata?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They can describe the same regular language"
+        },
+        {
+          "id": "B",
+          "text": "They always describe different language classes"
+        },
+        {
+          "id": "C",
+          "text": "Finite automata are not related to regular languages"
+        },
+        {
+          "id": "D",
+          "text": "Regular expressions describe only non-regular languages"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 27,
+      "question": "What is a major advantage of a Regular Expression as a representation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Compact symbolic description"
+        },
+        {
+          "id": "B",
+          "text": "It physically executes the input"
+        },
+        {
+          "id": "C",
+          "text": "It stores data permanently"
+        },
+        {
+          "id": "D",
+          "text": "It replaces all automata"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 28,
+      "question": "What is the main characteristic of a finite automaton representation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "State-based recognition of strings"
+        },
+        {
+          "id": "B",
+          "text": "Algebraic notation only"
+        },
+        {
+          "id": "C",
+          "text": "Database-based storage"
+        },
+        {
+          "id": "D",
+          "text": "Recursive arithmetic only"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 29,
+      "question": "For R + S, an equivalent automaton should allow:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Either the R behavior or the S behavior"
+        },
+        {
+          "id": "B",
+          "text": "Only R behavior"
+        },
+        {
+          "id": "C",
+          "text": "Only S behavior"
+        },
+        {
+          "id": "D",
+          "text": "Neither behavior"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 30,
+      "question": "For RS, an equivalent automaton should recognize:",
+      "options": [
+        {
+          "id": "A",
+          "text": "R followed by S"
+        },
+        {
+          "id": "B",
+          "text": "R or S independently"
+        },
+        {
+          "id": "C",
+          "text": "Only R"
+        },
+        {
+          "id": "D",
+          "text": "Only S"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 31,
+      "question": "For R*, an equivalent automaton must permit:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero or more repetitions of R"
+        },
+        {
+          "id": "B",
+          "text": "Exactly two repetitions"
+        },
+        {
+          "id": "C",
+          "text": "Only one repetition"
+        },
+        {
+          "id": "D",
+          "text": "No repetition"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 32,
+      "question": "Why does R* include ε?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because zero repetitions are allowed"
+        },
+        {
+          "id": "B",
+          "text": "Because R must be empty"
+        },
+        {
+          "id": "C",
+          "text": "Because every automaton rejects ε"
+        },
+        {
+          "id": "D",
+          "text": "Because union removes ε"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 33,
+      "question": "Which Week 02 concept supports the recursive construction viewpoint in Week 03?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recursive definitions"
+        },
+        {
+          "id": "B",
+          "text": "CPU registers"
+        },
+        {
+          "id": "C",
+          "text": "Cache memory"
+        },
+        {
+          "id": "D",
+          "text": "Addressing modes"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 34,
+      "question": "What is the central takeaway of Week 03?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regular expressions and finite automata are equivalent representations of regular languages"
+        },
+        {
+          "id": "B",
+          "text": "Finite automata can recognize only non-regular languages"
+        },
+        {
+          "id": "C",
+          "text": "Regular expressions are computer hardware"
+        },
+        {
+          "id": "D",
+          "text": "Transition graphs are database diagrams"
+        }
+      ],
+      "correctAnswer": "A"
+    }
+  ]
+}

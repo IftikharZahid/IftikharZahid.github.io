@@ -1,0 +1,1120 @@
+{
+  "metadata": {
+    "course": "Theory of Automata",
+    "level": "BS Computer Science",
+    "week": 1,
+    "topic": "Languages, Alphabet, Strings & Recursive Definitions",
+    "questionType": "MCQ",
+    "language": "English",
+    "createdBy": "Lec. Iftikhar Zahid",
+    "source": "Theory of Automata Week 01 Lecture Notes",
+    "totalQuestions": 48,
+    "schemaVersion": "1.0"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Theory of Automata primarily studies:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Database systems and SQL queries"
+        },
+        {
+          "id": "B",
+          "text": "Abstract mathematical machines and formal languages"
+        },
+        {
+          "id": "C",
+          "text": "Computer hardware manufacturing"
+        },
+        {
+          "id": "D",
+          "text": "Operating-system scheduling"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 2,
+      "question": "Which sequence correctly represents the basic relationship introduced in the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Language → Alphabet → String → Automaton"
+        },
+        {
+          "id": "B",
+          "text": "Alphabet → Strings → Language → Automaton"
+        },
+        {
+          "id": "C",
+          "text": "String → Alphabet → Automaton → Language"
+        },
+        {
+          "id": "D",
+          "text": "Automaton → Language → Alphabet → String"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 3,
+      "question": "In Theory of Automata, a language is defined as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A sequence of symbols"
+        },
+        {
+          "id": "B",
+          "text": "A finite alphabet"
+        },
+        {
+          "id": "C",
+          "text": "A set of strings formed from an alphabet"
+        },
+        {
+          "id": "D",
+          "text": "A single symbol"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 4,
+      "question": "A formal language is characterized by:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ambiguous natural-language rules"
+        },
+        {
+          "id": "B",
+          "text": "Precisely defined mathematical rules"
+        },
+        {
+          "id": "C",
+          "text": "Context-dependent meanings"
+        },
+        {
+          "id": "D",
+          "text": "Irregular structures"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is an example of a formal language context mentioned in the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "English"
+        },
+        {
+          "id": "B",
+          "text": "Urdu"
+        },
+        {
+          "id": "C",
+          "text": "SQL"
+        },
+        {
+          "id": "D",
+          "text": "Punjabi"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 6,
+      "question": "Natural languages may contain:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only formally defined structures"
+        },
+        {
+          "id": "B",
+          "text": "Ambiguity and context-dependent meanings"
+        },
+        {
+          "id": "C",
+          "text": "Only binary symbols"
+        },
+        {
+          "id": "D",
+          "text": "No irregular structures"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 7,
+      "question": "An alphabet is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Finite, non-empty set of symbols"
+        },
+        {
+          "id": "B",
+          "text": "Set of all languages"
+        },
+        {
+          "id": "C",
+          "text": "Sequence of strings"
+        },
+        {
+          "id": "D",
+          "text": "Single string"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 8,
+      "question": "Which condition is required for a valid alphabet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It must be infinite"
+        },
+        {
+          "id": "B",
+          "text": "It must be empty"
+        },
+        {
+          "id": "C",
+          "text": "It must be finite and non-empty"
+        },
+        {
+          "id": "D",
+          "text": "It must contain only letters"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 9,
+      "question": "Which of the following is NOT a valid alphabet under the standard definition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{0,1}"
+        },
+        {
+          "id": "B",
+          "text": "{a,b,c}"
+        },
+        {
+          "id": "C",
+          "text": "The empty set"
+        },
+        {
+          "id": "D",
+          "text": "{A,B}"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 10,
+      "question": "A symbol is best described as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A collection of strings"
+        },
+        {
+          "id": "B",
+          "text": "A single element of an alphabet"
+        },
+        {
+          "id": "C",
+          "text": "A language"
+        },
+        {
+          "id": "D",
+          "text": "A recursive rule"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 11,
+      "question": "A string is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A finite sequence of symbols from an alphabet"
+        },
+        {
+          "id": "B",
+          "text": "A set of alphabets"
+        },
+        {
+          "id": "C",
+          "text": "An infinite collection of languages"
+        },
+        {
+          "id": "D",
+          "text": "A recursive definition"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 12,
+      "question": "The string containing no symbols is called the:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Null alphabet"
+        },
+        {
+          "id": "B",
+          "text": "Empty string"
+        },
+        {
+          "id": "C",
+          "text": "Empty language"
+        },
+        {
+          "id": "D",
+          "text": "Zero language"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 13,
+      "question": "The empty string is represented by:",
+      "options": [
+        {
+          "id": "A",
+          "text": "ε"
+        },
+        {
+          "id": "B",
+          "text": "Σ"
+        },
+        {
+          "id": "C",
+          "text": "L"
+        },
+        {
+          "id": "D",
+          "text": "R"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 14,
+      "question": "The length of a string is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of alphabets it contains"
+        },
+        {
+          "id": "B",
+          "text": "The number of symbols it contains"
+        },
+        {
+          "id": "C",
+          "text": "The number of languages it contains"
+        },
+        {
+          "id": "D",
+          "text": "The number of recursive rules"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 15,
+      "question": "Concatenation of strings means:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reversing a string"
+        },
+        {
+          "id": "B",
+          "text": "Joining two strings together"
+        },
+        {
+          "id": "C",
+          "text": "Removing symbols"
+        },
+        {
+          "id": "D",
+          "text": "Counting symbols"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 16,
+      "question": "String concatenation is generally:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Commutative"
+        },
+        {
+          "id": "B",
+          "text": "Not commutative"
+        },
+        {
+          "id": "C",
+          "text": "Always recursive"
+        },
+        {
+          "id": "D",
+          "text": "Undefined"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 17,
+      "question": "The reverse of a string is obtained by:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deleting its first symbol"
+        },
+        {
+          "id": "B",
+          "text": "Writing its symbols in the opposite order"
+        },
+        {
+          "id": "C",
+          "text": "Duplicating every symbol"
+        },
+        {
+          "id": "D",
+          "text": "Sorting its symbols alphabetically"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 18,
+      "question": "A palindrome is a string that:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Contains only one symbol"
+        },
+        {
+          "id": "B",
+          "text": "Has even length"
+        },
+        {
+          "id": "C",
+          "text": "Reads the same from left to right and right to left"
+        },
+        {
+          "id": "D",
+          "text": "Must contain ε"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 19,
+      "question": "Which of the following is a palindrome?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ab"
+        },
+        {
+          "id": "B",
+          "text": "abc"
+        },
+        {
+          "id": "C",
+          "text": "abba"
+        },
+        {
+          "id": "D",
+          "text": "aab"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 20,
+      "question": "Which of the following is NOT a palindrome?",
+      "options": [
+        {
+          "id": "A",
+          "text": "aba"
+        },
+        {
+          "id": "B",
+          "text": "abba"
+        },
+        {
+          "id": "C",
+          "text": "abcba"
+        },
+        {
+          "id": "D",
+          "text": "abab"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": 21,
+      "question": "A recursive definition defines an object in terms of:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Unrelated objects"
+        },
+        {
+          "id": "B",
+          "text": "Simpler instances of the same object"
+        },
+        {
+          "id": "C",
+          "text": "Only natural languages"
+        },
+        {
+          "id": "D",
+          "text": "Hardware components"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 22,
+      "question": "Which is NOT one of the three major components of a recursive definition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Base case"
+        },
+        {
+          "id": "B",
+          "text": "Recursive rule"
+        },
+        {
+          "id": "C",
+          "text": "Closure condition"
+        },
+        {
+          "id": "D",
+          "text": "Compilation phase"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": 23,
+      "question": "The base case of a recursive definition:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Specifies the simplest element(s)"
+        },
+        {
+          "id": "B",
+          "text": "Removes all elements"
+        },
+        {
+          "id": "C",
+          "text": "Defines the programming language"
+        },
+        {
+          "id": "D",
+          "text": "Creates ambiguity"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 24,
+      "question": "The recursive rule:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defines how new elements are constructed from existing elements"
+        },
+        {
+          "id": "B",
+          "text": "Specifies only invalid elements"
+        },
+        {
+          "id": "C",
+          "text": "Terminates every language"
+        },
+        {
+          "id": "D",
+          "text": "Defines the alphabet only"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 25,
+      "question": "The closure condition states that:",
+      "options": [
+        {
+          "id": "A",
+          "text": "All possible objects belong to the set"
+        },
+        {
+          "id": "B",
+          "text": "Only elements obtained through the specified rules belong to the set"
+        },
+        {
+          "id": "C",
+          "text": "Only the base case belongs to the set"
+        },
+        {
+          "id": "D",
+          "text": "The alphabet must be infinite"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 26,
+      "question": "In the recursive definition of non-negative even integers, the construction begins with:",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "−1"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 27,
+      "question": "The even-even language requires:",
+      "options": [
+        {
+          "id": "A",
+          "text": "An odd number of a's and b's"
+        },
+        {
+          "id": "B",
+          "text": "An even number of a's and an even number of b's"
+        },
+        {
+          "id": "C",
+          "text": "Only a's"
+        },
+        {
+          "id": "D",
+          "text": "Equal numbers of all symbols"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 28,
+      "question": "In the recursive definition of the language aⁿbⁿ, the recursive rule adds:",
+      "options": [
+        {
+          "id": "A",
+          "text": "One a at the beginning and one b at the end"
+        },
+        {
+          "id": "B",
+          "text": "One a and two b's"
+        },
+        {
+          "id": "C",
+          "text": "Two a's at the end"
+        },
+        {
+          "id": "D",
+          "text": "A symbol at random"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 29,
+      "question": "Which sequence correctly illustrates the derivation of aⁿbⁿ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ε → ab → aabb → aaabbb"
+        },
+        {
+          "id": "B",
+          "text": "ε → ba → bbaa → bbbaaa"
+        },
+        {
+          "id": "C",
+          "text": "a → aa → aaa"
+        },
+        {
+          "id": "D",
+          "text": "ε → a → ab → abb"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 30,
+      "question": "The factorial recursive definition uses a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Base case and recursive rule"
+        },
+        {
+          "id": "B",
+          "text": "Palindrome rule only"
+        },
+        {
+          "id": "C",
+          "text": "Reverse operation only"
+        },
+        {
+          "id": "D",
+          "text": "Language recognition rule"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 31,
+      "question": "Double factorial differs from factorial because it:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Skips one integer at each step"
+        },
+        {
+          "id": "B",
+          "text": "Uses only prime numbers"
+        },
+        {
+          "id": "C",
+          "text": "Always produces strings"
+        },
+        {
+          "id": "D",
+          "text": "Contains no base case"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 32,
+      "question": "A square number has the form:",
+      "options": [
+        {
+          "id": "A",
+          "text": "n²"
+        },
+        {
+          "id": "B",
+          "text": "2n"
+        },
+        {
+          "id": "C",
+          "text": "n!"
+        },
+        {
+          "id": "D",
+          "text": "n+1"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 33,
+      "question": "The first few square numbers listed in the lecture are:",
+      "options": [
+        {
+          "id": "A",
+          "text": "0, 1, 4, 9, 16, 25"
+        },
+        {
+          "id": "B",
+          "text": "1, 2, 3, 4, 5, 6"
+        },
+        {
+          "id": "C",
+          "text": "0, 2, 4, 6, 8, 10"
+        },
+        {
+          "id": "D",
+          "text": "1, 3, 5, 7, 9, 11"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 34,
+      "question": "According to the lecture, a prime number is an integer greater than 1 having:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exactly one positive divisor"
+        },
+        {
+          "id": "B",
+          "text": "Exactly two positive divisors"
+        },
+        {
+          "id": "C",
+          "text": "Three positive divisors"
+        },
+        {
+          "id": "D",
+          "text": "No positive divisors"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 35,
+      "question": "The recursive-style construction of prime candidates retains numbers having:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A divisor among all composite numbers"
+        },
+        {
+          "id": "B",
+          "text": "No divisor among previously established primes"
+        },
+        {
+          "id": "C",
+          "text": "Only even divisors"
+        },
+        {
+          "id": "D",
+          "text": "Exactly four divisors"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 36,
+      "question": "In the recursive definition of palindromes, the recursive rule:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adds the same symbol at both ends"
+        },
+        {
+          "id": "B",
+          "text": "Deletes the first symbol"
+        },
+        {
+          "id": "C",
+          "text": "Adds different symbols at both ends"
+        },
+        {
+          "id": "D",
+          "text": "Reverses the entire string"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 37,
+      "question": "Which string is generated in the lecture as a palindrome by adding the same symbols at both ends?",
+      "options": [
+        {
+          "id": "A",
+          "text": "baab"
+        },
+        {
+          "id": "B",
+          "text": "ab"
+        },
+        {
+          "id": "C",
+          "text": "aab"
+        },
+        {
+          "id": "D",
+          "text": "abb"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 38,
+      "question": "A language of strings starting with a contains only strings that:",
+      "options": [
+        {
+          "id": "A",
+          "text": "End with a"
+        },
+        {
+          "id": "B",
+          "text": "Begin with a"
+        },
+        {
+          "id": "C",
+          "text": "Contain no a"
+        },
+        {
+          "id": "D",
+          "text": "Have equal a's and b's"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 39,
+      "question": "A language of strings ending with b contains only strings that:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Begin with b"
+        },
+        {
+          "id": "B",
+          "text": "End with b"
+        },
+        {
+          "id": "C",
+          "text": "Contain exactly one b"
+        },
+        {
+          "id": "D",
+          "text": "Are palindromes"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 40,
+      "question": "A language containing a particular pattern includes strings that:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Contain at least one occurrence of that pattern"
+        },
+        {
+          "id": "B",
+          "text": "Contain no symbols"
+        },
+        {
+          "id": "C",
+          "text": "Must be palindromes"
+        },
+        {
+          "id": "D",
+          "text": "Must have equal length"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 41,
+      "question": "The language not containing the pattern ab excludes strings that:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Contain ab"
+        },
+        {
+          "id": "B",
+          "text": "Contain only b's"
+        },
+        {
+          "id": "C",
+          "text": "Are empty"
+        },
+        {
+          "id": "D",
+          "text": "Start with b"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 42,
+      "question": "The notation Σ* represents:",
+      "options": [
+        {
+          "id": "A",
+          "text": "All non-empty finite strings over Σ"
+        },
+        {
+          "id": "B",
+          "text": "All finite strings over Σ including the empty string"
+        },
+        {
+          "id": "C",
+          "text": "Only single symbols"
+        },
+        {
+          "id": "D",
+          "text": "Only palindromes"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 43,
+      "question": "The notation Σ+ represents:",
+      "options": [
+        {
+          "id": "A",
+          "text": "All non-empty finite strings over Σ"
+        },
+        {
+          "id": "B",
+          "text": "Only the empty string"
+        },
+        {
+          "id": "C",
+          "text": "All alphabets"
+        },
+        {
+          "id": "D",
+          "text": "All languages"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 44,
+      "question": "Which statement correctly distinguishes an alphabet, string, and language?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Alphabet is a set of symbols; string is a sequence of symbols; language is a set of strings"
+        },
+        {
+          "id": "B",
+          "text": "Alphabet is a set of strings; string is a set of languages; language is one symbol"
+        },
+        {
+          "id": "C",
+          "text": "All three mean the same thing"
+        },
+        {
+          "id": "D",
+          "text": "String is always an infinite set"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": 45,
+      "question": "For the alphabet {0,1}, which is a string?",
+      "options": [
+        {
+          "id": "A",
+          "text": "{0,1}"
+        },
+        {
+          "id": "B",
+          "text": "10101"
+        },
+        {
+          "id": "C",
+          "text": "{0,11,101}"
+        },
+        {
+          "id": "D",
+          "text": "Language"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 46,
+      "question": "Which concept means a string written backward?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Concatenation"
+        },
+        {
+          "id": "B",
+          "text": "Reverse"
+        },
+        {
+          "id": "C",
+          "text": "Closure"
+        },
+        {
+          "id": "D",
+          "text": "Alphabet"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 47,
+      "question": "Which concept is a set of strings?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Symbol"
+        },
+        {
+          "id": "B",
+          "text": "Alphabet"
+        },
+        {
+          "id": "C",
+          "text": "Language"
+        },
+        {
+          "id": "D",
+          "text": "String length"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 48,
+      "question": "Which topic is identified in the lecture as important for later work in Regular Expressions, Finite Automata, Grammars, PDA, and Turing Machines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only SQL"
+        },
+        {
+          "id": "B",
+          "text": "Recursive definitions and basic string concepts"
+        },
+        {
+          "id": "C",
+          "text": "Computer networking"
+        },
+        {
+          "id": "D",
+          "text": "Operating-system kernels"
+        }
+      ],
+      "correctAnswer": "B"
+    }
+  ]
+}

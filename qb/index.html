@@ -1,679 +1,1048 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MCQs Question Bank | Academic Examination &amp; Knowledge Portal</title>
-  <meta name="description" content="Production-grade academic continuous assessment question bank, syllabus revision, and timed examination system for computer science courses.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=30">
-  <link rel="icon" type="image/png" href="logo.png">
-</head>
-<body>
-  <!-- ==========================================================================
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      MCQs Question Bank | Academic Examination &amp; Knowledge Portal
+    </title>
+    <meta
+      name="description"
+      content="Production-grade academic continuous assessment question bank, syllabus revision, and timed examination system for computer science courses."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=30" />
+    <link rel="icon" type="image/png" href="logo.png" />
+  </head>
+  <body>
+    <!-- ==========================================================================
        Primary Academic Header & Navigation
        ========================================================================== -->
-  <header>
-    <div class="head">
-      <button class="brand" data-go="home" aria-label="Go to MCQs Question Bank Home">
-        <img src="logo.png" alt="University Department Logo" class="brandImg" width="48" height="48" fetchpriority="high">
-        <span class="brandText">
-          <strong class="brandTitle">MCQs Question Bank</strong>
-          <small class="brandSubtitle">Academic Examination &amp; Assessment System</small>
-        </span>
-      </button>
-
-      <nav aria-label="Primary Navigation">
-        <button data-go="home" class="navLink active">Home</button>
-        <button data-go="subjects" class="navLink">Courses</button>
-        <button data-go="tools" class="navLink">Management</button>
-        <button data-go="results" class="navLink">Results</button>
-      </nav>
-
-      <div class="headActions">
-        <div id="userBadge" class="userBadge hidden" title="Candidate Session Active">
-          <span class="userAvatar" aria-hidden="true">👤</span>
-          <span id="headerUserName" class="userName"></span>
-          <button id="logoutBtn" class="logoutBtn" title="Logout candidate session">Sign Out</button>
-        </div>
-        <button id="theme" class="icon" title="Toggle color theme" aria-label="Toggle dark/light theme">☾</button>
-        <button id="startTop" class="primary startTopBtn" aria-label="Start Continuous Assessment Test">▶ Launch Exam</button>
-        <button id="menu" class="icon mobile" aria-label="Open navigation menu">☰</button>
-      </div>
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div id="drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-      <div id="drawerUserBadge" class="drawerUser hidden">
-        <div class="drawerUserProfile">
-          <span>👤</span>
-          <b id="drawerUserName"></b>
-        </div>
-        <button id="drawerLogoutBtn" class="secondary" type="button">Sign Out Candidate</button>
-      </div>
-      <button data-go="home"><span>🏛️</span> Home</button>
-      <button data-go="subjects"><span>📚</span> Courses &amp; Modules</button>
-      <button data-go="tools"><span>⚙️</span> Management &amp; Tools</button>
-      <button data-go="results"><span>📊</span> Examination Results</button>
-      <div class="drawerActions">
-        <button id="drawerStartBtn" class="primary drawerLaunchBtn" type="button">▶ Launch Examination</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ==========================================================================
-       Academic Breadcrumb / Context Ribbon
-       ========================================================================== -->
-  <div id="academicContextBar" class="academicContextBar no-print">
-    <div class="wrap contextWrap">
-      <div class="contextLeft">
-        <span class="contextCrest" aria-hidden="true">🏛️</span>
-        <nav aria-label="Breadcrumb" class="contextBreadcrumb">
-          <span class="contextUniv">Home</span>
-          <span class="contextSep">/</span>
-          <span class="contextLevel" id="contextLevel">BS Computer Science</span>
-          <span class="contextSep">/</span>
-          <b id="contextActiveCourse">Theory of Automata</b>
-          <span class="contextSep">/</span>
-          <span id="contextActiveWeek">Week 02</span>
-        </nav>
-      </div>
-      <div class="contextRight">
-        <span id="contextTotalMCQs" class="contextTag">40 MCQs Active</span>
-        <span class="contextTag benchmark">50% Passing Benchmark</span>
-      </div>
-    </div>
-  </div>
-
-  <main>
-    <!-- ==========================================================================
-         Persistent Exam In-Progress Alert Banner
-         ========================================================================== -->
-    <div id="examInProgressBanner" class="examBanner wrap hidden no-print" role="alert">
-      <div class="examBannerContent">
-        <span class="examBannerPulse" aria-hidden="true"></span>
-        <span id="bannerInfo"><b>Examination In Progress:</b> Question 1 • 60:00 remaining</span>
-      </div>
-      <button id="bannerResumeBtn" class="primary" type="button">▶ Resume Examination →</button>
-    </div>
-
-    <!-- ==========================================================================
-         SECTION 1: Home / Hero Overview & Portal Entry
-         ========================================================================== -->
-    <section id="home" class="hero wrap">
-      <div class="heroInfo">
-        <div class="badge" id="heroBadge">
-          <span class="badgeDot" aria-hidden="true"></span>
-          <span id="heroBadgeText">BS Computer Science • Theory of Automata • Week 02</span>
-        </div>
-        <h1>Continuous Assessment<br><span>MCQ Question Bank</span></h1>
-        <p id="heroDesc">Practice verified lecture curriculum on <b>Regular Expressions and Recursive Definitions of Languages</b> with timed examination simulation, immediate evaluation, and academic performance transcript generation.</p>
-        
-        <div class="actions heroActions">
-          <button id="startHero" class="primary big">Launch Timed Examination →</button>
-          <button data-go="subjects" class="secondary big">Course Catalog &amp; Modules</button>
-          <button data-go="results" class="subtle big">Past Results</button>
-        </div>
-
-        <div class="stats heroStats">
-          <div class="statBox"><b id="total">40</b><small>Module MCQs</small></div>
-          <div class="statBox"><b id="heroMinutes">40</b><small>Minutes (1m/MCQ)</small></div>
-          <div class="statBox"><b>50%</b><small>Pass Standard</small></div>
-          <div class="statBox"><b>Instant</b><small>Feedback</small></div>
-        </div>
-      </div>
-
-      <div class="visual heroVisual">
-        <div class="preview heroCardPreview">
-          <div class="previewHeader">
-            <span class="previewCrest" aria-hidden="true">📝</span>
-            <div class="previewHeaderText">
-              <small id="previewSubTag">THEORY OF AUTOMATA • WEEK 02</small>
-              <h3 id="previewQuestionPrompt">Sample Examination MCQ</h3>
-            </div>
-          </div>
-          <div id="previewOptions" class="previewOptionsList">
-            <p>A. Union</p>
-            <p>B. Concatenation</p>
-            <p class="ok">C. Kleene Star ✓</p>
-            <p>D. Addition</p>
-          </div>
-          <div class="previewFoot">
-            <span class="previewScoreBadge">Assessment Benchmark: 50%</span>
-            <span class="previewTimer" id="previewTimer">⏱️ 40:00 Allowed</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 2: Academic Course Catalog & Syllabus Modules
-         ========================================================================== -->
-    <section id="subjects" class="wrap section">
-      <!-- VIEW 1: All Course Books Grid -->
-      <div id="allBooksView">
-        <div class="title sectionHeader">
-          <div>
-            <small class="eyebrow">ACADEMIC COURSE CATALOG &amp; CURRICULUM</small>
-            <h2>Undergraduate Course Books</h2>
-          </div>
-          <div class="subjectCatalogActions facultyRestrictedTool hidden">
-            <button id="mongoSyncCatalogBtn" class="secondary facultyRestrictedTool hidden" type="button" title="Synchronize with MongoDB Atlas cloud database or verified repository catalog">
-              <span>🍃</span> Sync Cloud Catalog
-            </button>
-            <button id="loadDirectUrlBtn" class="secondary facultyRestrictedTool hidden" type="button" title="Load MCQs from direct JSON file link or URL">
-              <span>🔗</span> Load from Link
-            </button>
-            <button id="addSubjectBtn" class="primary facultyRestrictedTool hidden" type="button" title="Import new course book and lecture examination record">
-              <span>➕</span> Import Book Record
-            </button>
-          </div>
-        </div>
-        <p class="sectionIntro">Select an academic subject below to view its weekly curriculum modules, study individual question sets, or launch a timed assessment test.</p>
-        <div id="subjectGrid" class="subjectGrid">
-          <!-- Rendered dynamically -->
-        </div>
-      </div>
-
-      <!-- VIEW 2: Dedicated Weekly Examination Modules Screen -->
-      <div id="bookDetailView" class="hidden">
-        <div class="bookDetailTopBar">
-          <button id="backToBooksBtn" class="backToBooksBtn" type="button">
-            <span>←</span> Back to Course Catalog
-          </button>
-        </div>
-
-        <div id="bookDetailHero" class="bookDetailHero card">
-          <!-- Rendered dynamically -->
-        </div>
-
-        <div class="bookModulesSectionTitle">
-          <div>
-            <small class="eyebrow">COURSE MODULES &amp; SYLLABUS BREAKDOWN</small>
-            <h2 id="bookModulesHeading">Weekly Examination Modules</h2>
-          </div>
-        </div>
-        <p class="sectionIntro">Select a weekly syllabus unit below to review learning objectives and launch continuous assessment examinations.</p>
-
-        <div id="bookWeeksGrid" class="bookWeeksGrid">
-          <!-- Rendered dynamically -->
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ==========================================================================
-         SECTION 4: Timed Continuous Assessment Examination (Forward-Only)
-         ========================================================================== -->
-    <section id="live" class="wrap section hidden">
-      <div class="liveTitle">
-        <div>
-          <small class="eyebrow">CONTINUOUS ASSESSMENT EXAMINATION • SEQUENTIAL MODE</small>
-          <h2 id="liveExamTitle">Week 02 Examination <span class="tag examModeTag">🔒 Forward-Only</span></h2>
-        </div>
-        <div id="timer" class="timer" role="timer" aria-live="polite">
-          <small>TIME REMAINING</small>
-          <b>--:--</b>
-        </div>
-      </div>
-
-      <div class="score examProgressTracker" id="examProgressTracker" role="region" aria-label="Exam Progress Tracker">
-        <span class="trackerItem" title="Total Questions">
-          <span class="trackerLabel"><span class="lblFull">Total Questions:</span><span class="lblShort">Total:</span></span>
-          <b id="liveTotalQ" class="trackerVal">40</b>
-        </span>
-        <span class="trackerItem" title="Answered &amp; Locked Questions">
-          <span class="trackerLabel"><span class="lblFull">Answered &amp; Locked:</span><span class="lblShort">Locked:</span></span>
-          <b id="liveAnsweredQ" class="trackerVal">0/40</b>
-        </span>
-        <span class="trackerItem" title="Skipped Questions">
-          <span class="trackerLabel"><span class="lblFull">Skipped:</span><span class="lblShort">Skipped:</span></span>
-          <b id="liveSkippedQ" class="trackerVal">0</b>
-        </span>
-        <span class="trackerItem" title="Remaining Questions">
-          <span class="trackerLabel"><span class="lblFull">Remaining:</span><span class="lblShort">Remaining:</span></span>
-          <b id="liveRemainingQ" class="trackerVal">40</b>
-        </span>
-        <span class="trackerItem" title="Current Question Number">
-          <span class="trackerLabel"><span class="lblFull">Current:</span><span class="lblShort">Question:</span></span>
-          <b id="liveCurrentQ" class="trackerVal"><span class="qWord">Question </span>1</b>
-        </span>
-        <span class="trackerItem" title="Overall Progress">
-          <span class="trackerLabel"><span class="lblFull">Progress:</span><span class="lblShort">Progress:</span></span>
-          <b id="liveProgressPct" class="trackerVal">0%</b>
-        </span>
-      </div>
-
-      <div class="examLayout">
-        <article id="examQ" class="card examQ" aria-label="Current Examination Question"></article>
-        
-        <aside class="card side examNavigatorAside" aria-label="Question Navigator">
-          <div class="sideNavHead">
-            <b>Question Navigator</b>
-            <small id="navCount">1/40</small>
-          </div>
-          <div class="navLegend">
-            <span class="navLegendItem"><i class="legendDot current"></i> Current</span>
-            <span class="navLegendItem"><i class="legendDot locked"></i> Locked</span>
-            <span class="navLegendItem"><i class="legendDot skipped"></i> Skipped</span>
-            <span class="navLegendItem"><i class="legendDot upcoming"></i> Remaining</span>
-          </div>
-          <div id="nav" class="nav" role="navigation" aria-label="Question Numbers"></div>
-          <button id="submit" class="secondary full submitExamBtn" type="button">Submit Examination</button>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 5: Examination Results & Official Academic Transcript
-         ========================================================================== -->
-    <section id="results" class="wrap section hidden">
-      <!-- Top Action Bar -->
-      <div class="resultTopBar no-print">
-        <div>
-          <small class="eyebrow">ACADEMIC EVALUATION &amp; TRANSCRIPT</small>
-          <h2>Official Examination Result Sheet</h2>
-        </div>
-        <div class="resultTopActions">
-          <button id="printTop" class="primary big printCtaBtn" type="button">
-            <span>🖨️</span> Print Official Result Sheet
-          </button>
-          <button id="againTop" class="secondary big" type="button">↻ Retake Examination</button>
-        </div>
-      </div>
-
-      <!-- Post-Exam True/False & Score Summary Grid (Screen Only) -->
-      <div class="postExamSummaryGrid no-print">
-        <div class="summaryStatCard statTotal">
-          <small class="statLabel">TOTAL QUESTIONS</small>
-          <div class="statVal" id="sumTotal">40</div>
-          <span class="statSub">Full Examination Bank</span>
-        </div>
-        <div class="summaryStatCard statTrue">
-          <small class="statLabel">✓ TRUE / CORRECT</small>
-          <div class="statVal" id="sumTrue">0</div>
-          <span class="statSub" id="sumTrueMarks">0 Marks Awarded</span>
-        </div>
-        <div class="summaryStatCard statFalse">
-          <small class="statLabel">✕ FALSE / INCORRECT</small>
-          <div class="statVal" id="sumFalse">0</div>
-          <span class="statSub">0 Marks (Incorrect)</span>
-        </div>
-        <div class="summaryStatCard statSkipped">
-          <small class="statLabel">↷ SKIPPED / UNANSWERED</small>
-          <div class="statVal" id="sumSkipped">0</div>
-          <span class="statSub">0 Marks (Unattempted)</span>
-        </div>
-        <div class="summaryStatCard statScore">
-          <small class="statLabel">OBTAINED SCORE</small>
-          <div class="statVal" id="sumPct">0%</div>
-          <span class="statSub" id="sumScoreRatio">0 / 40 Marks</span>
-        </div>
-        <div class="summaryStatCard statResult" id="sumStatusCard">
-          <small class="statLabel">FINAL RESULT</small>
-          <div class="statVal" id="sumStatus">NOT PASSED</div>
-          <span class="statSub" id="sumGrade">Grade: F</span>
-        </div>
-      </div>
-
-      <!-- Formal Academic Standard Transcript Card (Formatted for A4 Print and Screen) -->
-      <div id="academicTranscript" class="academicTranscript card">
-        <!-- Institution Header -->
-        <div class="academicHeader">
-          <div class="academicLogoWrap">
-            <img src="logo.png" alt="Department Crest" class="academicLogo" width="60" height="60">
-          </div>
-          <div class="academicTitleBlock">
-            <h1 class="institutionName">DEPARTMENT OF COMPUTER SCIENCE</h1>
-            <h2 class="documentTitle">OFFICIAL EXAMINATION TRANSCRIPT &amp; MARKS SHEET</h2>
-            <p class="transcriptMeta">Course: <b id="dispTranscriptCourse">Theory of Automata</b> • <span id="dispTranscriptLevel">BS Computer Science</span> • Continuous Assessment Examination</p>
-          </div>
-          <div class="transcriptStamp">
-            <span class="stampTag" id="transcriptStamp">VERIFIED</span>
-          </div>
-        </div>
-
-        <!-- Section 1: Candidate & Examination Credentials -->
-        <div class="academicSectionHeader">
-          <span>I. CANDIDATE &amp; EXAMINATION CREDENTIALS</span>
-        </div>
-        <div class="tableResponsive candidateTableWrap">
-          <table class="academicTable candidateTable">
-            <tbody>
-              <tr>
-                <th style="width:18%;">Student Name:</th>
-                <td style="width:32%;" id="dispStudentName"><b>—</b></td>
-                <th style="width:18%;">Roll / Reg No:</th>
-                <td style="width:32%;" id="dispStudentRoll"><b>—</b></td>
-              </tr>
-              <tr>
-                <th>Class / Section:</th>
-                <td id="dispStudentClass">—</td>
-                <th>Subject / Course:</th>
-                <td id="dispStudentCourse">Theory of Automata (Week 02)</td>
-              </tr>
-              <tr>
-                <th>Examination Date:</th>
-                <td id="dispExamDate">—</td>
-                <th>Time / Duration:</th>
-                <td id="dispExamTime">—</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Section 2: Marks Evaluation & Academic Summary Table -->
-        <div class="academicSectionHeader">
-          <span>II. MARKS EVALUATION &amp; ASSESSMENT SUMMARY</span>
-        </div>
-        <div class="tableResponsive marksTableWrap">
-          <table class="academicTable marksTable">
-            <thead>
-              <tr>
-                <th style="text-align:left;">Assessment Component</th>
-                <th style="text-align:center;">Total Marks</th>
-                <th style="text-align:center;">Marks Obtained</th>
-                <th style="text-align:center;">Percentage</th>
-                <th style="text-align:center;">Grade</th>
-                <th style="text-align:center;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="text-align:left;">
-                  <b id="dispAssessmentComponent">Theory of Automata — MCQs Examination</b><br>
-                  <small style="color:var(--m);" id="dispAssessmentTopic">Week 02: Regular Expressions &amp; Recursive Definitions of Languages</small>
-                </td>
-                <td style="text-align:center;font-weight:600;" id="tMaxMarks">40</td>
-                <td style="text-align:center;font-weight:700;color:var(--p);" id="tObtMarks">0</td>
-                <td style="text-align:center;font-weight:700;" id="tPct">0%</td>
-                <td style="text-align:center;"><span class="gradeBadge" id="tGrade">F</span></td>
-                <td style="text-align:center;"><span class="statusBadge" id="tStatus">NOT PASSED</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Section 3: Detailed Response Metrics -->
-        <div class="academicSectionHeader">
-          <span>III. DETAILED BREAKDOWN OF RESPONSES</span>
-        </div>
-        <div class="metrics transcriptMetrics">
-          <div>Total Questions<b id="rTotal">40</b></div>
-          <div>Questions Attempted<b id="rAttempted">0</b></div>
-          <div class="good">✓ True / Correct Answers<b id="rCorrect">0</b></div>
-          <div class="bad">✕ False / Incorrect Answers<b id="rWrong">0</b></div>
-          <div>Skipped / Unanswered<b id="rUnanswered">0</b></div>
-          <div>Accuracy Rate<b id="rAccuracy">0%</b></div>
-        </div>
-
-        <!-- Section 4: Academic Remarks -->
-        <div class="academicRemarksBox">
-          <div>
-            <b>Academic Remarks: </b>
-            <span id="academicRemarks">Minimum passing criteria is 50%.</span>
-          </div>
-          <div class="gradingScaleNote">
-            <b>Grading Scale Reference: </b>
-            <span>A+ (≥85%), A (80-84%), B (70-79%), C (60-69%), D (50-59%), F (&lt;50%)</span>
-          </div>
-        </div>
-
-        <!-- Section 5: Official Institutional Signatures -->
-        <div class="academicSignatures">
-          <div class="sigBlock">
-            <div class="sigLine"></div>
-            <span>Course Instructor / Examiner</span>
-          </div>
-          <div class="sigBlock">
-            <div class="sigLine"></div>
-            <span>Head of Department (CS)</span>
-          </div>
-          <div class="sigBlock">
-            <div class="sigLine"></div>
-            <span>Controller of Examinations</span>
-          </div>
-        </div>
-
-        <div class="academicCertFooter">
-          <small id="dispCertFooter">Official System-Generated Academic Document • Theory of Automata Examination Bank • Verified Record</small>
-        </div>
-      </div>
-
-      <!-- Performance Visual Analytics (Screen Only) -->
-      <div class="analytics no-print">
-        <article class="card panel">
-          <h3>Visual Performance Analytics</h3>
-          <div class="bar"><span>Correct Answers</span><i id="bc"></i><b id="pc">0%</b></div>
-          <div class="bar"><span>Wrong Answers</span><i id="bw"></i><b id="pw">0%</b></div>
-          <div class="bar"><span>Unanswered / Skipped</span><i id="bu"></i><b id="pu">0%</b></div>
-        </article>
-        <article class="card panel">
-          <h3>Assessment Thresholds</h3>
-          <div id="status" class="status">NOT PASSED</div>
-          <p>Minimum passing threshold: <b>50% (20/40 Marks)</b></p>
-          <div class="resultsPanelActions">
-            <button id="print" class="secondary" type="button">🖨️ Print Result Sheet</button>
-            <button id="again" class="primary" type="button">↻ Try Again</button>
-          </div>
-        </article>
-      </div>
-
-      <!-- Question Answer Review (Screen Only) -->
-      <article class="card review no-print">
-        <div class="title reviewTitle">
-          <div>
-            <small class="eyebrow">POST-EXAM ANALYSIS &amp; SOLUTIONS</small>
-            <h3>Detailed Solution Review &amp; Explanations</h3>
-          </div>
-          <small id="reviewCount"></small>
-        </div>
-        <div id="review"></div>
-      </article>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 6: Faculty Management & Tools
-         ========================================================================== -->
-    <section id="tools" class="wrap section tools">
-      <div class="toolGrid">
-
-        <!-- Public Tool 1: Bookmarks -->
-        <article id="toolBookmarksCard" class="card">
-          <div class="toolHeader"><b>★ Question Bookmarks</b></div>
-          <p id="bmInfo">0 bookmarked questions saved for revision.</p>
-          <div class="toolButtonsRow">
-            <button id="bookmarks" class="secondary" type="button">View Bookmarked Questions</button>
-          </div>
-        </article>
-
-        <!-- Public Tool 2: Reset Progress -->
-        <article id="toolResetProgressCard" class="card">
-          <div class="toolHeader"><b>↺ Clear Local Candidate Progress</b></div>
-          <p>Reset locally saved practice answers, active test drafts, and question bookmarks.</p>
-          <div class="toolButtonsRow">
-            <button id="reset" class="danger" type="button">Reset Progress</button>
-          </div>
-        </article>
-
-        <!-- Public Tool 3: Official Android App Download -->
-        <article id="toolAppDownloadCard" class="card appDownloadPromoCard">
-          <div class="toolHeader">
-            <b>📱 Mobile Examination App</b>
-            <span class="tag officialApkTag">Official APK</span>
-          </div>
-          <p>Install on Android smartphones for offline continuous assessment and instant evaluations.</p>
-          <div class="toolButtonsRow">
-            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="primary appDownloadAnchor" download target="_blank" rel="noopener noreferrer">
-              <span>🤖</span> Download Official APK
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <!-- ==========================================================================
-       Academic Footer
-       ========================================================================== -->
-  <footer class="siteFooter no-print">
-    <div class="wrap footerWrap">
-      <div class="footerBrandBlock">
-        <button class="brand footerBrand" data-go="home" aria-label="Go to MCQs Question Bank Home">
-          <img src="logo.png" alt="University Logo" class="brandImg" width="40" height="40" loading="lazy">
+    <header>
+      <div class="head">
+        <button
+          class="brand"
+          data-go="home"
+          aria-label="Go to MCQs Question Bank Home"
+        >
+          <img
+            src="logo.png"
+            alt="University Department Logo"
+            class="brandImg"
+            width="48"
+            height="48"
+            fetchpriority="high"
+          />
           <span class="brandText">
             <strong class="brandTitle">MCQs Question Bank</strong>
-            <small class="brandSubtitle">Continuous Assessment &amp; Examination System</small>
+            <small class="brandSubtitle"
+              >Academic Examination &amp; Assessment System</small
+            >
           </span>
         </button>
-        <p class="footerDesc">Official continuous assessment question bank and computer science examination portal for undergraduate curriculum review.</p>
-      </div>
 
-      <div class="footerLinksBlock">
-        <div class="footerCol">
-          <span class="footerColTitle">Candidate Tools</span>
-          <div class="candidateToolsGrid">
-            <button id="footerBookmarksBtn" class="candidateToolBtn" title="View Bookmarks">
-              <span class="toolIcon">⭐</span>
-              <div class="toolText">
-                <span class="toolTitle">Bookmarks</span>
-                <span class="toolDesc">Review saved MCQs</span>
-              </div>
+        <nav aria-label="Primary Navigation">
+          <button data-go="home" class="navLink active">Home</button>
+          <button data-go="subjects" class="navLink">Courses</button>
+          <button data-go="tools" class="navLink">Management</button>
+          <button data-go="results" class="navLink">Results</button>
+        </nav>
+
+        <div class="headActions">
+          <div
+            id="userBadge"
+            class="userBadge hidden"
+            title="Candidate Session Active"
+          >
+            <span class="userAvatar" aria-hidden="true">👤</span>
+            <span id="headerUserName" class="userName"></span>
+            <button
+              id="logoutBtn"
+              class="logoutBtn"
+              title="Logout candidate session"
+            >
+              Sign Out
             </button>
-            <button id="footerResetBtn" class="candidateToolBtn" title="Reset all progress">
-              <span class="toolIcon">🔄</span>
-              <div class="toolText">
-                <span class="toolTitle">Reset Progress</span>
-                <span class="toolDesc">Clear local data</span>
-              </div>
-            </button>
-            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="candidateToolBtn" target="_blank" rel="noopener noreferrer">
-              <span class="toolIcon">📱</span>
-              <div class="toolText">
-                <span class="toolTitle">Android App</span>
-                <span class="toolDesc">Download direct APK</span>
-              </div>
-            </a>
           </div>
-        </div>
-        <div class="footerCol facultyFooterCol">
-          <span class="footerColTitle">Faculty Access</span>
-          
-          <button id="facultyLoginBtn" class="footerFacultyBtn" type="button" title="Instructor login">
-            <span class="facultyIcon">🔐</span>
-            <span>Faculty Login</span>
+          <button
+            id="theme"
+            class="icon"
+            title="Toggle color theme"
+            aria-label="Toggle dark/light theme"
+          >
+            ☾
           </button>
+          <button
+            id="startTop"
+            class="primary startTopBtn"
+            aria-label="Start Continuous Assessment Test"
+          >
+            ▶ Launch Exam
+          </button>
+          <button
+            id="menu"
+            class="icon mobile"
+            aria-label="Open navigation menu"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
 
-          <div id="facultyToolsContainer" class="hidden" style="display: flex; flex-direction: column; gap: 8px;">
-            <button id="import" class="footerFacultyBtn" type="button" title="Upload question bank JSON file">
-              <span class="facultyIcon">📁</span>
-              <span>Upload JSON</span>
-            </button>
-            <input id="file" type="file" accept=".json,application/json" hidden>
-            <button id="export" class="footerFacultyBtn" type="button" title="Export to JSON">
-              <span class="facultyIcon">📤</span>
-              <span>Export Bank</span>
-            </button>
-            <button id="restoreDefaultQuestions" class="footerFacultyBtn" type="button" style="background: rgba(220,38,38,0.1); color: #b91c1c;">
-              <span class="facultyIcon">⚠️</span>
-              <span>Reset Catalog</span>
-            </button>
-            <button id="configureApiBtn" class="footerFacultyBtn" type="button" title="Configure Backend API URL">
-              <span class="facultyIcon">⚙️</span>
-              <span>Backend API</span>
-            </button>
+      <!-- Mobile Navigation Drawer -->
+      <div
+        id="drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile Navigation"
+      >
+        <div id="drawerUserBadge" class="drawerUser hidden">
+          <div class="drawerUserProfile">
+            <span>👤</span>
+            <b id="drawerUserName"></b>
           </div>
+          <button id="drawerLogoutBtn" class="secondary" type="button">
+            Sign Out Candidate
+          </button>
+        </div>
+        <button data-go="home"><span>🏛️</span> Home</button>
+        <button data-go="subjects">
+          <span>📚</span> Courses &amp; Modules
+        </button>
+        <button data-go="tools"><span>⚙️</span> Management &amp; Tools</button>
+        <button data-go="results"><span>📊</span> Examination Results</button>
+        <div class="drawerActions">
+          <button
+            id="drawerStartBtn"
+            class="primary drawerLaunchBtn"
+            type="button"
+          >
+            ▶ Launch Examination
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+       Academic Breadcrumb / Context Ribbon
+       ========================================================================== -->
+    <div id="academicContextBar" class="academicContextBar no-print">
+      <div class="wrap contextWrap">
+        <div class="contextLeft">
+          <span class="contextCrest" aria-hidden="true">🏛️</span>
+          <nav aria-label="Breadcrumb" class="contextBreadcrumb">
+            <span class="contextUniv">Home</span>
+            <span class="contextSep">/</span>
+            <b id="contextActiveCourse">Theory of Automata</b>
+            <span class="contextSep">/</span>
+            <span id="contextActiveWeek">Week 02</span>
+          </nav>
+        </div>
+        <div class="contextRight">
+          <span id="contextTotalMCQs" class="contextTag">40 MCQs Active</span>
+          <span class="contextTag benchmark">50% Passing Benchmark</span>
         </div>
       </div>
     </div>
 
-    <div class="wrap footerBottomBar">
-      <div class="footerMeta">
-        <span>Department of Computer Science • Higher Education</span>
-        <span>© 2026 MCQs Question Bank System. All rights reserved.</span>
+    <main>
+      <!-- ==========================================================================
+         Persistent Exam In-Progress Alert Banner
+         ========================================================================== -->
+      <div
+        id="examInProgressBanner"
+        class="examBanner wrap hidden no-print"
+        role="alert"
+      >
+        <div class="examBannerContent">
+          <span class="examBannerPulse" aria-hidden="true"></span>
+          <span id="bannerInfo"
+            ><b>Examination In Progress:</b> Question 1 • 60:00 remaining</span
+          >
+        </div>
+        <button id="bannerResumeBtn" class="primary" type="button">
+          ▶ Resume Examination →
+        </button>
       </div>
-      <div class="footerMetaRight">
-        <span class="footerStatusDot"></span> Operational • v2.7
-      </div>
-    </div>
-  </footer>
 
-  <!-- ==========================================================================
+      <!-- ==========================================================================
+         SECTION 1: Home / Hero Overview & Portal Entry
+         ========================================================================== -->
+      <section id="home" class="hero wrap">
+        <div class="heroInfo">
+          <div class="badge" id="heroBadge">
+            <span class="badgeDot" aria-hidden="true"></span>
+            <span id="heroBadgeText"
+              >BS Computer Science • Theory of Automata • Week 02</span
+            >
+          </div>
+          <h1>Continuous Assessment<br /><span>MCQ Question Bank</span></h1>
+          <p id="heroDesc">
+            Practice verified lecture curriculum on
+            <b>Regular Expressions and Recursive Definitions of Languages</b>
+            with timed examination simulation, immediate evaluation, and
+            academic performance transcript generation.
+          </p>
+
+          <div class="actions heroActions">
+            <button id="startHero" class="primary big">
+              Launch Timed Examination →
+            </button>
+            <button data-go="subjects" class="secondary big">
+              Course Catalog &amp; Modules
+            </button>
+            <button data-go="results" class="subtle big">Past Results</button>
+          </div>
+
+          <div class="stats heroStats">
+            <div class="statBox">
+              <b id="total">40</b><small>Module MCQs</small>
+            </div>
+            <div class="statBox">
+              <b id="heroMinutes">40</b><small>Minutes (1m/MCQ)</small>
+            </div>
+            <div class="statBox"><b>50%</b><small>Pass Standard</small></div>
+            <div class="statBox"><b>Instant</b><small>Feedback</small></div>
+          </div>
+        </div>
+
+        <div class="visual heroVisual">
+          <div class="preview heroCardPreview">
+            <div class="previewHeader">
+              <span class="previewCrest" aria-hidden="true">📝</span>
+              <div class="previewHeaderText">
+                <small id="previewSubTag">THEORY OF AUTOMATA • WEEK 02</small>
+                <h3 id="previewQuestionPrompt">Sample Examination MCQ</h3>
+              </div>
+            </div>
+            <div id="previewOptions" class="previewOptionsList">
+              <p>A. Union</p>
+              <p>B. Concatenation</p>
+              <p class="ok">C. Kleene Star ✓</p>
+              <p>D. Addition</p>
+            </div>
+            <div class="previewFoot">
+              <span class="previewScoreBadge">Assessment Benchmark: 50%</span>
+              <span class="previewTimer" id="previewTimer"
+                >⏱️ 40:00 Allowed</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+         SECTION 2: Academic Course Catalog & Syllabus Modules
+         ========================================================================== -->
+      <section id="subjects" class="wrap section">
+        <!-- VIEW 1: All Course Books Grid -->
+        <div id="allBooksView">
+          <div class="title sectionHeader">
+            <div>
+              <small class="eyebrow"
+                >ACADEMIC COURSE CATALOG &amp; CURRICULUM</small
+              >
+              <h2>Undergraduate Course Books</h2>
+            </div>
+            <div class="subjectCatalogActions facultyRestrictedTool hidden">
+              <button
+                id="mongoSyncCatalogBtn"
+                class="secondary facultyRestrictedTool hidden"
+                type="button"
+                title="Synchronize with MongoDB Atlas cloud database or verified repository catalog"
+              >
+                <span>🍃</span> Sync Cloud Catalog
+              </button>
+              <button
+                id="loadDirectUrlBtn"
+                class="secondary facultyRestrictedTool hidden"
+                type="button"
+                title="Load MCQs from direct JSON file link or URL"
+              >
+                <span>🔗</span> Load from Link
+              </button>
+              <button
+                id="addSubjectBtn"
+                class="primary facultyRestrictedTool hidden"
+                type="button"
+                title="Import new course book and lecture examination record"
+              >
+                <span>➕</span> Import Book Record
+              </button>
+            </div>
+          </div>
+          <p class="sectionIntro">
+            Select an academic subject below to view its weekly curriculum
+            modules, study individual question sets, or launch a timed
+            assessment test.
+          </p>
+          <div id="subjectGrid" class="subjectGrid">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- VIEW 2: Dedicated Weekly Examination Modules Screen -->
+        <div id="bookDetailView" class="hidden">
+          <div class="bookDetailTopBar">
+            <button id="backToBooksBtn" class="backToBooksBtn" type="button">
+              <span>←</span> Back to Course Catalog
+            </button>
+          </div>
+
+          <div id="bookDetailHero" class="bookDetailHero card">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <div class="bookModulesSectionTitle">
+            <div>
+              <small class="eyebrow"
+                >COURSE MODULES &amp; SYLLABUS BREAKDOWN</small
+              >
+              <h2 id="bookModulesHeading">Weekly Examination Modules</h2>
+            </div>
+          </div>
+          <p class="sectionIntro">
+            Select a weekly syllabus unit below to review learning objectives
+            and launch continuous assessment examinations.
+          </p>
+
+          <div id="bookWeeksGrid" class="bookWeeksGrid">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+         SECTION 4: Timed Continuous Assessment Examination (Forward-Only)
+         ========================================================================== -->
+      <section id="live" class="wrap section hidden">
+        <div class="liveTitle">
+          <div>
+            <small class="eyebrow"
+              >CONTINUOUS ASSESSMENT EXAMINATION • SEQUENTIAL MODE</small
+            >
+            <h2 id="liveExamTitle">
+              Week 02 Examination
+              <span class="tag examModeTag">🔒 Forward-Only</span>
+            </h2>
+          </div>
+          <div id="timer" class="timer" role="timer" aria-live="polite">
+            <small>TIME REMAINING</small>
+            <b>--:--</b>
+          </div>
+        </div>
+
+        <div
+          class="score examProgressTracker"
+          id="examProgressTracker"
+          role="region"
+          aria-label="Exam Progress Tracker"
+        >
+          <span class="trackerItem" title="Total Questions">
+            <span class="trackerLabel"
+              ><span class="lblFull">Total Questions:</span
+              ><span class="lblShort">Total:</span></span
+            >
+            <b id="liveTotalQ" class="trackerVal">40</b>
+          </span>
+          <span class="trackerItem" title="Answered &amp; Locked Questions">
+            <span class="trackerLabel"
+              ><span class="lblFull">Answered &amp; Locked:</span
+              ><span class="lblShort">Locked:</span></span
+            >
+            <b id="liveAnsweredQ" class="trackerVal">0/40</b>
+          </span>
+          <span class="trackerItem" title="Skipped Questions">
+            <span class="trackerLabel"
+              ><span class="lblFull">Skipped:</span
+              ><span class="lblShort">Skipped:</span></span
+            >
+            <b id="liveSkippedQ" class="trackerVal">0</b>
+          </span>
+          <span class="trackerItem" title="Remaining Questions">
+            <span class="trackerLabel"
+              ><span class="lblFull">Remaining:</span
+              ><span class="lblShort">Remaining:</span></span
+            >
+            <b id="liveRemainingQ" class="trackerVal">40</b>
+          </span>
+          <span class="trackerItem" title="Current Question Number">
+            <span class="trackerLabel"
+              ><span class="lblFull">Current:</span
+              ><span class="lblShort">Question:</span></span
+            >
+            <b id="liveCurrentQ" class="trackerVal"
+              ><span class="qWord">Question </span>1</b
+            >
+          </span>
+          <span class="trackerItem" title="Overall Progress">
+            <span class="trackerLabel"
+              ><span class="lblFull">Progress:</span
+              ><span class="lblShort">Progress:</span></span
+            >
+            <b id="liveProgressPct" class="trackerVal">0%</b>
+          </span>
+        </div>
+
+        <div class="examLayout">
+          <article
+            id="examQ"
+            class="card examQ"
+            aria-label="Current Examination Question"
+          ></article>
+
+          <aside
+            class="card side examNavigatorAside"
+            aria-label="Question Navigator"
+          >
+            <div class="sideNavHead">
+              <b>Question Navigator</b>
+              <small id="navCount">1/40</small>
+            </div>
+            <div class="navLegend">
+              <span class="navLegendItem"
+                ><i class="legendDot current"></i> Current</span
+              >
+              <span class="navLegendItem"
+                ><i class="legendDot locked"></i> Locked</span
+              >
+              <span class="navLegendItem"
+                ><i class="legendDot skipped"></i> Skipped</span
+              >
+              <span class="navLegendItem"
+                ><i class="legendDot upcoming"></i> Remaining</span
+              >
+            </div>
+            <div
+              id="nav"
+              class="nav"
+              role="navigation"
+              aria-label="Question Numbers"
+            ></div>
+            <button
+              id="submit"
+              class="secondary full submitExamBtn"
+              type="button"
+            >
+              Submit Examination
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+         SECTION 5: Examination Results & Official Academic Transcript
+         ========================================================================== -->
+      <section id="results" class="wrap section hidden">
+        <!-- Top Action Bar -->
+        <div class="resultTopBar no-print">
+          <div>
+            <small class="eyebrow">ACADEMIC EVALUATION &amp; TRANSCRIPT</small>
+            <h2>Official Examination Result Sheet</h2>
+          </div>
+          <div class="resultTopActions">
+            <button id="printTop" class="primary big printCtaBtn" type="button">
+              <span>🖨️</span> Print Official Result Sheet
+            </button>
+            <button id="againTop" class="secondary big" type="button">
+              ↻ Retake Examination
+            </button>
+          </div>
+        </div>
+
+        <!-- Post-Exam True/False & Score Summary Grid (Screen Only) -->
+        <div class="postExamSummaryGrid no-print">
+          <div class="summaryStatCard statTotal">
+            <small class="statLabel">TOTAL QUESTIONS</small>
+            <div class="statVal" id="sumTotal">40</div>
+            <span class="statSub">Full Examination Bank</span>
+          </div>
+          <div class="summaryStatCard statTrue">
+            <small class="statLabel">✓ TRUE / CORRECT</small>
+            <div class="statVal" id="sumTrue">0</div>
+            <span class="statSub" id="sumTrueMarks">0 Marks Awarded</span>
+          </div>
+          <div class="summaryStatCard statFalse">
+            <small class="statLabel">✕ FALSE / INCORRECT</small>
+            <div class="statVal" id="sumFalse">0</div>
+            <span class="statSub">0 Marks (Incorrect)</span>
+          </div>
+          <div class="summaryStatCard statSkipped">
+            <small class="statLabel">↷ SKIPPED / UNANSWERED</small>
+            <div class="statVal" id="sumSkipped">0</div>
+            <span class="statSub">0 Marks (Unattempted)</span>
+          </div>
+          <div class="summaryStatCard statScore">
+            <small class="statLabel">OBTAINED SCORE</small>
+            <div class="statVal" id="sumPct">0%</div>
+            <span class="statSub" id="sumScoreRatio">0 / 40 Marks</span>
+          </div>
+          <div class="summaryStatCard statResult" id="sumStatusCard">
+            <small class="statLabel">FINAL RESULT</small>
+            <div class="statVal" id="sumStatus">NOT PASSED</div>
+            <span class="statSub" id="sumGrade">Grade: F</span>
+          </div>
+        </div>
+
+        <!-- Formal Academic Standard Transcript Card (Formatted for A4 Print and Screen) -->
+        <div id="academicTranscript" class="academicTranscript card">
+          <!-- Institution Header -->
+          <div class="academicHeader">
+            <div class="academicLogoWrap">
+              <img
+                src="logo.png"
+                alt="Department Crest"
+                class="academicLogo"
+                width="60"
+                height="60"
+              />
+            </div>
+            <div class="academicTitleBlock">
+              <h1 class="institutionName">DEPARTMENT OF COMPUTER SCIENCE</h1>
+              <h2 class="documentTitle">
+                OFFICIAL EXAMINATION TRANSCRIPT &amp; MARKS SHEET
+              </h2>
+              <p class="transcriptMeta">
+                Course: <b id="dispTranscriptCourse">Theory of Automata</b> •
+                <span id="dispTranscriptLevel">BS Computer Science</span> •
+                Continuous Assessment Examination
+              </p>
+            </div>
+            <div class="transcriptStamp">
+              <span class="stampTag" id="transcriptStamp">VERIFIED</span>
+            </div>
+          </div>
+
+          <!-- Section 1: Candidate & Examination Credentials -->
+          <div class="academicSectionHeader">
+            <span>I. CANDIDATE &amp; EXAMINATION CREDENTIALS</span>
+          </div>
+          <div class="tableResponsive candidateTableWrap">
+            <table class="academicTable candidateTable">
+              <tbody>
+                <tr>
+                  <th style="width: 18%">Student Name:</th>
+                  <td style="width: 32%" id="dispStudentName"><b>—</b></td>
+                  <th style="width: 18%">Roll / Reg No:</th>
+                  <td style="width: 32%" id="dispStudentRoll"><b>—</b></td>
+                </tr>
+                <tr>
+                  <th>Class / Section:</th>
+                  <td id="dispStudentClass">—</td>
+                  <th>Subject / Course:</th>
+                  <td id="dispStudentCourse">Theory of Automata (Week 02)</td>
+                </tr>
+                <tr>
+                  <th>Examination Date:</th>
+                  <td id="dispExamDate">—</td>
+                  <th>Time / Duration:</th>
+                  <td id="dispExamTime">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 2: Marks Evaluation & Academic Summary Table -->
+          <div class="academicSectionHeader">
+            <span>II. MARKS EVALUATION &amp; ASSESSMENT SUMMARY</span>
+          </div>
+          <div class="tableResponsive marksTableWrap">
+            <table class="academicTable marksTable">
+              <thead>
+                <tr>
+                  <th style="text-align: left">Assessment Component</th>
+                  <th style="text-align: center">Total Marks</th>
+                  <th style="text-align: center">Marks Obtained</th>
+                  <th style="text-align: center">Percentage</th>
+                  <th style="text-align: center">Grade</th>
+                  <th style="text-align: center">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left">
+                    <b id="dispAssessmentComponent"
+                      >Theory of Automata — MCQs Examination</b
+                    ><br />
+                    <small style="color: var(--m)" id="dispAssessmentTopic"
+                      >Week 02: Regular Expressions &amp; Recursive Definitions
+                      of Languages</small
+                    >
+                  </td>
+                  <td
+                    style="text-align: center; font-weight: 600"
+                    id="tMaxMarks"
+                  >
+                    40
+                  </td>
+                  <td
+                    style="
+                      text-align: center;
+                      font-weight: 700;
+                      color: var(--p);
+                    "
+                    id="tObtMarks"
+                  >
+                    0
+                  </td>
+                  <td style="text-align: center; font-weight: 700" id="tPct">
+                    0%
+                  </td>
+                  <td style="text-align: center">
+                    <span class="gradeBadge" id="tGrade">F</span>
+                  </td>
+                  <td style="text-align: center">
+                    <span class="statusBadge" id="tStatus">NOT PASSED</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 3: Detailed Response Metrics -->
+          <div class="academicSectionHeader">
+            <span>III. DETAILED BREAKDOWN OF RESPONSES</span>
+          </div>
+          <div class="metrics transcriptMetrics">
+            <div>Total Questions<b id="rTotal">40</b></div>
+            <div>Questions Attempted<b id="rAttempted">0</b></div>
+            <div class="good">
+              ✓ True / Correct Answers<b id="rCorrect">0</b>
+            </div>
+            <div class="bad">
+              ✕ False / Incorrect Answers<b id="rWrong">0</b>
+            </div>
+            <div>Skipped / Unanswered<b id="rUnanswered">0</b></div>
+            <div>Accuracy Rate<b id="rAccuracy">0%</b></div>
+          </div>
+
+          <!-- Section 4: Academic Remarks -->
+          <div class="academicRemarksBox">
+            <div>
+              <b>Academic Remarks: </b>
+              <span id="academicRemarks">Minimum passing criteria is 50%.</span>
+            </div>
+            <div class="gradingScaleNote">
+              <b>Grading Scale Reference: </b>
+              <span
+                >A+ (≥85%), A (80-84%), B (70-79%), C (60-69%), D (50-59%), F
+                (&lt;50%)</span
+              >
+            </div>
+          </div>
+
+          <!-- Section 5: Official Institutional Signatures -->
+          <div class="academicSignatures">
+            <div class="sigBlock">
+              <div class="sigLine"></div>
+              <span>Course Instructor / Examiner</span>
+            </div>
+            <div class="sigBlock">
+              <div class="sigLine"></div>
+              <span>Head of Department (CS)</span>
+            </div>
+            <div class="sigBlock">
+              <div class="sigLine"></div>
+              <span>Controller of Examinations</span>
+            </div>
+          </div>
+
+          <div class="academicCertFooter">
+            <small id="dispCertFooter"
+              >Official System-Generated Academic Document • Theory of Automata
+              Examination Bank • Verified Record</small
+            >
+          </div>
+        </div>
+
+        <!-- Performance Visual Analytics (Screen Only) -->
+        <div class="analytics no-print">
+          <article class="card panel">
+            <h3>Visual Performance Analytics</h3>
+            <div class="bar">
+              <span>Correct Answers</span><i id="bc"></i><b id="pc">0%</b>
+            </div>
+            <div class="bar">
+              <span>Wrong Answers</span><i id="bw"></i><b id="pw">0%</b>
+            </div>
+            <div class="bar">
+              <span>Unanswered / Skipped</span><i id="bu"></i><b id="pu">0%</b>
+            </div>
+          </article>
+          <article class="card panel">
+            <h3>Assessment Thresholds</h3>
+            <div id="status" class="status">NOT PASSED</div>
+            <p>Minimum passing threshold: <b>50% (20/40 Marks)</b></p>
+            <div class="resultsPanelActions">
+              <button id="print" class="secondary" type="button">
+                🖨️ Print Result Sheet
+              </button>
+              <button id="again" class="primary" type="button">
+                ↻ Try Again
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Question Answer Review (Screen Only) -->
+        <article class="card review no-print">
+          <div class="title reviewTitle">
+            <div>
+              <small class="eyebrow">POST-EXAM ANALYSIS &amp; SOLUTIONS</small>
+              <h3>Detailed Solution Review &amp; Explanations</h3>
+            </div>
+            <small id="reviewCount"></small>
+          </div>
+          <div id="review"></div>
+        </article>
+      </section>
+
+      <!-- ==========================================================================
+         SECTION 6: Faculty Management & Tools
+         ========================================================================== -->
+      <section id="tools" class="wrap section tools">
+        <div class="toolGrid">
+          <!-- Public Tool 1: Bookmarks -->
+          <article id="toolBookmarksCard" class="card">
+            <div class="toolHeader"><b>★ Question Bookmarks</b></div>
+            <p id="bmInfo">0 bookmarked questions saved for revision.</p>
+            <div class="toolButtonsRow">
+              <button id="bookmarks" class="secondary" type="button">
+                View Bookmarked Questions
+              </button>
+            </div>
+          </article>
+
+          <!-- Public Tool 2: Reset Progress -->
+          <article id="toolResetProgressCard" class="card">
+            <div class="toolHeader">
+              <b>↺ Clear Local Candidate Progress</b>
+            </div>
+            <p>
+              Reset locally saved practice answers, active test drafts, and
+              question bookmarks.
+            </p>
+            <div class="toolButtonsRow">
+              <button id="reset" class="danger" type="button">
+                Reset Progress
+              </button>
+            </div>
+          </article>
+
+          <!-- Public Tool 3: Official Android App Download -->
+          <article id="toolAppDownloadCard" class="card appDownloadPromoCard">
+            <div class="toolHeader">
+              <b>📱 Mobile Examination App</b>
+              <span class="tag officialApkTag">Official APK</span>
+            </div>
+            <p>
+              Install on Android smartphones for offline continuous assessment
+              and instant evaluations.
+            </p>
+            <div class="toolButtonsRow">
+              <a
+                href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk"
+                class="primary appDownloadAnchor"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>🤖</span> Download Official APK
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================================================
+       Academic Footer
+       ========================================================================== -->
+    <footer class="siteFooter no-print">
+      <div class="wrap footerWrap">
+        <div class="footerBrandBlock">
+          <button
+            class="brand footerBrand"
+            data-go="home"
+            aria-label="Go to MCQs Question Bank Home"
+          >
+            <img
+              src="logo.png"
+              alt="University Logo"
+              class="brandImg"
+              width="40"
+              height="40"
+              loading="lazy"
+            />
+            <span class="brandText">
+              <strong class="brandTitle">MCQs Question Bank</strong>
+              <small class="brandSubtitle"
+                >Continuous Assessment &amp; Examination System</small
+              >
+            </span>
+          </button>
+          <p class="footerDesc">
+            Official continuous assessment question bank and computer science
+            examination portal for undergraduate curriculum review.
+          </p>
+        </div>
+
+        <div class="footerLinksBlock">
+          <div class="footerCol">
+            <span class="footerColTitle">Candidate Tools</span>
+            <div class="candidateToolsGrid">
+              <button
+                id="footerBookmarksBtn"
+                class="candidateToolBtn"
+                title="View Bookmarks"
+              >
+                <span class="toolIcon">⭐</span>
+                <div class="toolText">
+                  <span class="toolTitle">Bookmarks</span>
+                  <span class="toolDesc">Review saved MCQs</span>
+                </div>
+              </button>
+              <button
+                id="footerResetBtn"
+                class="candidateToolBtn"
+                title="Reset all progress"
+              >
+                <span class="toolIcon">🔄</span>
+                <div class="toolText">
+                  <span class="toolTitle">Reset Progress</span>
+                  <span class="toolDesc">Clear local data</span>
+                </div>
+              </button>
+              <a
+                href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk"
+                class="candidateToolBtn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="toolIcon">📱</span>
+                <div class="toolText">
+                  <span class="toolTitle">Android App</span>
+                  <span class="toolDesc">Download direct APK</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footerCol facultyFooterCol">
+            <span class="footerColTitle">Faculty Access</span>
+
+            <button
+              id="facultyLoginBtn"
+              class="footerFacultyBtn"
+              type="button"
+              title="Instructor login"
+            >
+              <span class="facultyIcon">🔐</span>
+              <span>Faculty Login</span>
+            </button>
+
+            <div
+              id="facultyToolsContainer"
+              class="hidden"
+              style="display: flex; flex-direction: column; gap: 8px"
+            >
+              <button
+                id="import"
+                class="footerFacultyBtn"
+                type="button"
+                title="Upload question bank JSON file"
+              >
+                <span class="facultyIcon">📁</span>
+                <span>Upload JSON</span>
+              </button>
+              <input
+                id="file"
+                type="file"
+                accept=".json,application/json"
+                hidden
+              />
+              <button
+                id="export"
+                class="footerFacultyBtn"
+                type="button"
+                title="Export to JSON"
+              >
+                <span class="facultyIcon">📤</span>
+                <span>Export Bank</span>
+              </button>
+              <button
+                id="restoreDefaultQuestions"
+                class="footerFacultyBtn"
+                type="button"
+                style="background: rgba(220, 38, 38, 0.1); color: #b91c1c"
+              >
+                <span class="facultyIcon">⚠️</span>
+                <span>Reset Catalog</span>
+              </button>
+              <button
+                id="configureApiBtn"
+                class="footerFacultyBtn"
+                type="button"
+                title="Configure Backend API URL"
+              >
+                <span class="facultyIcon">⚙️</span>
+                <span>Backend API</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap footerBottomBar">
+        <div class="footerMeta">
+          <span>Department of Computer Science • Higher Education</span>
+          <span>© 2026 MCQs Question Bank System. All rights reserved.</span>
+        </div>
+        <div class="footerMetaRight">
+          <span class="footerStatusDot"></span> Operational • v2.7
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==========================================================================
        Home Screen Official Mobile Application Announcement Pop-up Modal
        ========================================================================== -->
-  <div id="appNoticeModal" class="modalBg hidden" role="dialog" aria-modal="true" aria-labelledby="appNoticeTitle">
-    <div class="modal appNoticeModalCard compactModal" id="appNoticeCard">
-      <button id="appNoticeCloseBtn" class="close" title="Close announcement" aria-label="Close announcement">×</button>
-      
-      <div class="appNoticeTop compactTop">
-        <div class="appNoticeBrand">
-          <img src="logo.png" alt="MCQs Question Bank Logo" class="appNoticeLogo" width="42" height="42">
-          <div class="appNoticeTitles">
-            <span class="appNoticeBadge">📱 OFFICIAL ANDROID APPLICATION</span>
-            <h2 id="appNoticeTitle" class="appNoticeHeading">MCQs Bank Mobile App</h2>
-            <small class="appNoticeSub">Official Mobile App Now Available for Direct Download</small>
+    <div
+      id="appNoticeModal"
+      class="modalBg hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="appNoticeTitle"
+    >
+      <div class="modal appNoticeModalCard compactModal" id="appNoticeCard">
+        <button
+          id="appNoticeCloseBtn"
+          class="close"
+          title="Close announcement"
+          aria-label="Close announcement"
+        >
+          ×
+        </button>
+
+        <div class="appNoticeTop compactTop">
+          <div class="appNoticeBrand">
+            <img
+              src="logo.png"
+              alt="MCQs Question Bank Logo"
+              class="appNoticeLogo"
+              width="42"
+              height="42"
+            />
+            <div class="appNoticeTitles">
+              <span class="appNoticeBadge"
+                >📱 OFFICIAL ANDROID APPLICATION</span
+              >
+              <h2 id="appNoticeTitle" class="appNoticeHeading">
+                MCQs Bank Mobile App
+              </h2>
+              <small class="appNoticeSub"
+                >Official Mobile App Now Available for Direct Download</small
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="appNoticeContent compactContent">
-        <div class="appNoticeBodyGrid compactGrid">
-          <div class="appNoticePreviewCol">
-            <div class="actualMockupWrap">
-              <img src="app-mockup.png" alt="MCQs Bank Android Mobile App Screen Preview" class="actualMockupImg" width="482" height="1024" fetchpriority="high">
-              <div class="mockupFloatingPill">
-                <span>📲 Official Mobile App</span>
+        <div class="appNoticeContent compactContent">
+          <div class="appNoticeBodyGrid compactGrid">
+            <div class="appNoticePreviewCol">
+              <div class="actualMockupWrap">
+                <img
+                  src="app-mockup.png"
+                  alt="MCQs Bank Android Mobile App Screen Preview"
+                  class="actualMockupImg"
+                  width="482"
+                  height="1024"
+                  fetchpriority="high"
+                />
+                <div class="mockupFloatingPill">
+                  <span>📲 Official Mobile App</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="appNoticeDetailsCol compactDetails">
+              <div class="appNoticeUrduBox compactUrdu" dir="rtl">
+                📢 <b>موبائل ایپ دستیاب ہے:</b> تمام بکس، ٹیسٹس اور کوئز اپنے
+                اسمارٹ فون پر تیز رفتار اور بغیر انٹرنیٹ آف لائن حل کریں۔
+              </div>
+
+              <a
+                href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk"
+                class="appDownloadBtn"
+                id="appNoticeDownloadLink"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                style="justify-content: center; padding: 10px 16px"
+              >
+                <span class="androidIcon">🤖</span>
+                <span class="appDownloadMain">Download Android App</span>
+              </a>
+
+              <div
+                class="appNoticeSingleLineText"
+                style="
+                  font-size: 9.5px;
+                  color: var(--t-secondary);
+                  text-align: center;
+                  margin-top: 6px;
+                  font-weight: 600;
+                  white-space: nowrap;
+                  letter-spacing: -0.1px;
+                "
+              >
+                ⚡ Fast &amp; Smooth &nbsp;•&nbsp; 📡 100% Offline Mode
+                &nbsp;•&nbsp; 📊 Instant Evaluation
+              </div>
+
+              <p class="appNoticeEngText compactEng">
+                Direct APK for Android smartphones. Practice lecture MCQs
+                offline.
+              </p>
+
+              <div class="appNoticeActions compactActions">
+                <button
+                  id="appNoticeDismissBtn"
+                  class="appNoticeProceedBtn"
+                  type="button"
+                >
+                  <span
+                    >🌐 ویب پورٹل جاری رکھیں / Continue to Web Portal →</span
+                  >
+                </button>
+                <label class="appNoticeRemember">
+                  <input type="checkbox" id="dontShowNoticeAgain" />
+                  <span>Don't show this announcement again today</span>
+                </label>
               </div>
             </div>
           </div>
-
-          <div class="appNoticeDetailsCol compactDetails">
-            <div class="appNoticeUrduBox compactUrdu" dir="rtl">
-              📢 <b>موبائل ایپ دستیاب ہے:</b> تمام بکس، ٹیسٹس اور کوئز اپنے اسمارٹ فون پر تیز رفتار اور بغیر انٹرنیٹ آف لائن حل کریں۔
-            </div>
-
-            <a href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk" class="appDownloadBtn" id="appNoticeDownloadLink" download target="_blank" rel="noopener noreferrer" style="justify-content: center; padding: 10px 16px;">
-              <span class="androidIcon">🤖</span>
-              <span class="appDownloadMain">Download Android App</span>
-            </a>
-
-            <div class="appNoticeSingleLineText" style="font-size: 9.5px; color: var(--t-secondary); text-align: center; margin-top: 6px; font-weight: 600; white-space: nowrap; letter-spacing: -0.1px;">
-              ⚡ Fast &amp; Smooth &nbsp;•&nbsp; 📡 100% Offline Mode &nbsp;•&nbsp; 📊 Instant Evaluation
-            </div>
-
-            <p class="appNoticeEngText compactEng">
-              Direct APK for Android smartphones. Practice lecture MCQs offline.
-            </p>
-
-            <div class="appNoticeActions compactActions">
-              <button id="appNoticeDismissBtn" class="appNoticeProceedBtn" type="button">
-                <span>🌐 ویب پورٹل جاری رکھیں / Continue to Web Portal →</span>
-              </button>
-              <label class="appNoticeRemember">
-                <input type="checkbox" id="dontShowNoticeAgain">
-                <span>Don't show this announcement again today</span>
-              </label>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Reusable Academic Modal Window -->
-  <div id="modal" class="modalBg hidden" role="dialog" aria-modal="true">
-    <div class="modal">
-      <button id="close" class="close" aria-label="Close modal window">×</button>
-      <div id="modalContent"></div>
+    <!-- Reusable Academic Modal Window -->
+    <div id="modal" class="modalBg hidden" role="dialog" aria-modal="true">
+      <div class="modal">
+        <button id="close" class="close" aria-label="Close modal window">
+          ×
+        </button>
+        <div id="modalContent"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Toast Notification Container -->
-  <div id="toast" role="status" aria-live="polite"></div>
+    <!-- Toast Notification Container -->
+    <div id="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js?v=30"></script>
-</body>
+    <script src="script.js?v=30"></script>
+  </body>
 </html>
