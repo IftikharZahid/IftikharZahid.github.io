@@ -6190,16 +6190,31 @@ document.addEventListener("keydown", e => {
 });
 
 // ==========================================================================
-// 9.5 MongoDB Atlas Cloud Sync, Direct JSON Link & Upload Integration
+// MongoDB Atlas Data API — works on GitHub Pages & any device (no local server needed)
+// HOW TO SET UP (one-time):
+//   1. Go to https://cloud.mongodb.com → App Services → Create App
+//   2. Enable "Data API" → copy the App ID and Endpoint URL
+//   3. Create an API Key (Authentication → API Keys)
+//   4. Fill in the three constants below — that's it!
 // ==========================================================================
+const ATLAS_APP_ID    = "";          // e.g. "myapp-abcde"
+const ATLAS_API_KEY   = "";          // e.g. "abc123xyz..."
+const ATLAS_DATA_URL  = "";          // e.g. "https://data.mongodb-api.com/app/myapp-abcde/endpoint/data/v1"
+const ATLAS_DATABASE  = "mcqs_bank"; // your DB name in Atlas
+const ATLAS_COLLECTION = "subjects"; // collection name
+
+// Whether Atlas Data API is properly configured
+const ATLAS_ENABLED = !!(ATLAS_APP_ID && ATLAS_API_KEY && ATLAS_DATA_URL);
+
+// Legacy local server URL (only used if you run node server.js locally)
 const IS_LOCAL_HOST = typeof window !== "undefined" && window.location && (
-  window.location.hostname === "localhost" || 
-  window.location.hostname === "127.0.0.1" || 
-  window.location.hostname.startsWith("192.168.") || 
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1" ||
+  window.location.hostname.startsWith("192.168.") ||
   window.location.hostname.startsWith("10.")
 );
-
-const MONGO_API_URL = (typeof window !== "undefined" && window.location && (window.location.port === "3000" || window.location.port === 3000))
+const MONGO_API_URL = (typeof window !== "undefined" && window.location &&
+  (window.location.port === "3000" || window.location.port === 3000))
   ? `${window.location.origin}/api`
   : (IS_LOCAL_HOST ? "http://localhost:3000/api" : "");
 
@@ -6680,7 +6695,7 @@ if ($("#facultyLoginBtn")) {
   $("#facultyLoginBtn").onclick = () => {
     const pin = prompt("Enter Faculty PIN to access instructor tools:");
     if (pin === null) return;
-    if (pin.trim() === "1234" || pin.trim() === "admin") {
+    if (pin.trim() === "Xa1234") {
       isFacultyLoggedIn = true;
       const container = $("#facultyToolsContainer");
       if (container) {
