@@ -75,13 +75,33 @@ async function initMongo() {
   if (!connectPromise) {
     connectPromise = (async () => {
       try {
+        const customLookup = (hostname, options, callback) => {
+          if (typeof options === 'function') {
+            callback = options;
+            options = {};
+          }
+          const { Resolver } = require('dns').promises;
+          const resolver = new Resolver();
+          resolver.setServers(['8.8.8.8', '1.1.1.1']);
+          resolver.resolve4(hostname).then(addresses => {
+            if (options.all) {
+              callback(null, addresses.map(a => ({ address: a, family: 4 })));
+            } else {
+              callback(null, addresses[0], 4);
+            }
+          }).catch(err => {
+            require('dns').lookup(hostname, options, callback);
+          });
+        };
+
         client = new MongoClient(MONGODB_URI, {
           serverApi: {
             version: ServerApiVersion.v1,
             strict: true,
             deprecationErrors: true,
           },
-          serverSelectionTimeoutMS: 10000
+          serverSelectionTimeoutMS: 10000,
+          lookup: customLookup
         });
         await client.connect();
         db = client.db(DB_NAME);

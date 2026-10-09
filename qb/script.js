@@ -3865,7 +3865,8 @@ function renderBookDetailView(bookKey) {
             : `<button class="secondary selectModuleBtn" type="button" onclick="switchSubject('${esc(w.id)}', false);">Select Module</button>
                <button class="primary takeExamBtn" type="button" onclick="switchSubject('${esc(w.id)}', true);">▶ Take Examination →</button>`
           }
-          ${isFaculty() ? `<button class="adminToolBtn deleteToolBtn" style="margin-top:4px;" type="button" onclick="deleteCustomSubject('${esc(w.id)}')">🗑️ Delete Week</button>` : ""}
+          ${isFaculty() ? `<button class="adminToolBtn editToolBtn" style="margin-top:4px;" type="button" onclick="editCustomSubject('${esc(w.id)}')">✏️ Edit Module</button>
+<button class="adminToolBtn deleteToolBtn" style="margin-top:4px;" type="button" onclick="deleteCustomSubject('${esc(w.id)}')">🗑️ Delete Week</button>` : ""}
         </div>
       </article>`;
     }).join("");
@@ -3962,6 +3963,52 @@ ${target.isBuiltIn ? `<p style="font-size:12px;color:var(--accent);margin:8px 0;
   };
 }
 
+function editCustomSubject(id) {
+  const target = s.subjects.find(sub => sub.id === id);
+  if (!target) return;
+
+  modal(`<h2>✏️ Edit Module Details</h2>
+<p style="font-size:12.5px;color:var(--t-secondary);margin-bottom:14px;">Update information for this specific weekly module.</p>
+<div class="fields">
+  <label>Module/Week Title <span style="color:var(--r);">*</span>
+    <input id="editModuleTitle" value="${esc(target.weekTitle || 'Week ' + target.week)}" required>
+  </label>
+  <label>Syllabus Topic
+    <input id="editModuleTopic" value="${esc(target.topic || '')}">
+  </label>
+  <label>Class / Level
+    <input id="editModuleLevel" value="${esc(target.level || target.bookLevel || 'BS Computer Science')}">
+  </label>
+</div>
+<div class="modalActions" style="margin-top:16px;">
+  <button class="secondary" onclick="closeModal()">Cancel</button>
+  <button class="primary" id="saveModuleEdit">✓ Save Changes</button>
+</div>`);
+
+  $("#saveModuleEdit").onclick = () => {
+    const newTitle = $("#editModuleTitle")?.value.trim();
+    const newTopic = $("#editModuleTopic")?.value.trim();
+    const newLevel = $("#editModuleLevel")?.value.trim();
+    if (!newTitle) { toast("Module title is required.", true); return; }
+
+    target.weekTitle = newTitle;
+    target.topic = newTopic;
+    target.level = newLevel;
+
+    if (s.activeSubjectId === id) {
+      s.activeSubject = target;
+    }
+
+    saveSubjects();
+    closeModal();
+    if (MONGO_API_URL) uploadRecordToMongo(target);
+    toast(`✓ Module updated successfully`);
+
+    renderSubjects();
+    if (s.currentBookView) renderBookDetailView(s.currentBookView);
+  };
+}
+
 function deleteBook(bookKey) {
   const books = getGroupedBooks();
   const book = books.find(b => b.book === bookKey);
@@ -3996,19 +4043,19 @@ function editBook(bookKey) {
 
   modal(`<h2>✏️ Edit Book Info</h2>
 <p style="font-size:12.5px;color:var(--t-secondary);margin-bottom:14px;">Changes will apply to all ${book.weeks.length} weekly module(s) in this book.</p>
-<div style="display:flex;flex-direction:column;gap:12px;">
-  <label style="font-size:12.5px;font-weight:600;">Book / Course Title <span style="color:var(--r);">*</span>
-    <input id="editBookTitle" value="${esc(book.book)}" style="margin-top:4px;" required>
+<div class="fields">
+  <label>Book / Course Title <span style="color:var(--r);">*</span>
+    <input id="editBookTitle" value="${esc(book.book)}" required>
   </label>
-  <label style="font-size:12.5px;font-weight:600;">Course Code / Name
-    <input id="editBookCourse" value="${esc(book.course || book.book)}" style="margin-top:4px;">
+  <label>Course Code / Name
+    <input id="editBookCourse" value="${esc(book.course || book.book)}">
   </label>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-    <label style="font-size:12.5px;font-weight:600;">Class / Level
-      <input id="editBookLevel" value="${esc(book.level || 'BS Computer Science')}" style="margin-top:4px;">
+  <div class="fieldsRow">
+    <label>Class / Level
+      <input id="editBookLevel" value="${esc(book.level || 'BS Computer Science')}">
     </label>
-    <label style="font-size:12.5px;font-weight:600;">Instructor
-      <input id="editBookInstructor" value="${esc(book.createdBy || 'Lec. Iftikhar Zahid')}" style="margin-top:4px;">
+    <label>Instructor
+      <input id="editBookInstructor" value="${esc(book.createdBy || 'Lec. Iftikhar Zahid')}">
     </label>
   </div>
 </div>
@@ -5834,7 +5881,14 @@ function promptAddBookRecord(detectedMeta, validQuestions, fileName){
       s.subjects.push(newSub);
       saveSubjects([newSub]);
       applySubjectSwitch(newSub,false);
-      toast(`✓ Added "${bookVal}" (${weekTitle}) with ${validQuestions.length} MCQs — syncing to cloud...`);
+      
+      const shouldSync = $("#recUploadMongo") && $("#recUploadMongo").checked;
+      if (shouldSync && MONGO_API_URL) {
+        toast(`✓ Added "${bookVal}" (${weekTitle}) with ${validQuestions.length} MCQs — syncing to cloud...`);
+        uploadRecordToMongo(newSub);
+      } else {
+        toast(`✓ Added "${bookVal}" (${weekTitle}) with ${validQuestions.length} MCQs locally.`);
+      }
       go("subjects");
     }else{
       s.activeSubject.book=bookVal;
@@ -5849,7 +5903,14 @@ function promptAddBookRecord(detectedMeta, validQuestions, fileName){
       
       saveSubjects([s.activeSubject]);
       applySubjectSwitch(s.activeSubject,false);
-      toast(`✓ Updated "${bookVal}" with ${validQuestions.length} MCQs — syncing to cloud...`);
+
+      const shouldSync = $("#recUploadMongo") && $("#recUploadMongo").checked;
+      if (shouldSync && MONGO_API_URL) {
+        toast(`✓ Updated "${bookVal}" with ${validQuestions.length} MCQs — syncing to cloud...`);
+        uploadRecordToMongo(s.activeSubject);
+      } else {
+        toast(`✓ Updated "${bookVal}" with ${validQuestions.length} MCQs locally.`);
+      }
     }
   };
 }
@@ -6035,6 +6096,7 @@ function confirmRestoreDefaults(){
 window.start = start;
 window.switchSubject = switchSubject;
 window.deleteCustomSubject = deleteCustomSubject;
+window.editCustomSubject = editCustomSubject;
 window.closeModal = closeModal;
 window.close = closeModal;
 window.confirmSubmit = confirmSubmit;
@@ -6206,17 +6268,19 @@ const ATLAS_COLLECTION = "subjects"; // collection name
 // Whether Atlas Data API is properly configured
 const ATLAS_ENABLED = !!(ATLAS_APP_ID && ATLAS_API_KEY && ATLAS_DATA_URL);
 
-// Legacy local server URL (only used if you run node server.js locally)
-const IS_LOCAL_HOST = typeof window !== "undefined" && window.location && (
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1" ||
-  window.location.hostname.startsWith("192.168.") ||
-  window.location.hostname.startsWith("10.")
-);
-const MONGO_API_URL = (typeof window !== "undefined" && window.location &&
-  (window.location.port === "3000" || window.location.port === 3000))
-  ? `${window.location.origin}/api`
-  : (IS_LOCAL_HOST ? "http://localhost:3000/api" : "");
+// Dynamic Server URL (supports local server and custom configurations)
+let MONGO_API_URL = "";
+try {
+  MONGO_API_URL = localStorage.getItem("CUSTOM_MONGO_API_URL") || "";
+} catch {}
+
+if (!MONGO_API_URL && typeof window !== "undefined" && window.location) {
+  if (window.location.port === "3000" || window.location.port === 3000) {
+    MONGO_API_URL = `${window.location.origin}/api`;
+  } else if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname.startsWith("192.168.") || window.location.hostname.startsWith("10.")) {
+    MONGO_API_URL = `${window.location.protocol}//${window.location.hostname}:3000/api`;
+  }
+}
 
 function resolveDataUrl(url) {
   if (!url) return "";
@@ -6682,6 +6746,20 @@ if ($("#import")) $("#import").onclick = () => $("#file")?.click();
 if ($("#file")) $("#file").onchange = handleFileImport;
 if ($("#export")) $("#export").onclick = () => exportQuestionsJSON();
 if ($("#restoreDefaultQuestions")) $("#restoreDefaultQuestions").onclick = () => confirmRestoreDefaults();
+if ($("#configureApiBtn")) $("#configureApiBtn").onclick = () => {
+  const current = localStorage.getItem("CUSTOM_MONGO_API_URL") || "";
+  const newUrl = prompt("Enter Custom Backend API URL (e.g. http://192.168.1.5:3000/api)\nLeave empty to use default local detection:", current);
+  if (newUrl !== null) {
+    if (newUrl.trim() === "") {
+      localStorage.removeItem("CUSTOM_MONGO_API_URL");
+      toast("Custom API URL removed. Using default configuration.");
+    } else {
+      localStorage.setItem("CUSTOM_MONGO_API_URL", newUrl.trim());
+      toast("Custom API URL updated! Please reload the page.");
+    }
+    setTimeout(() => location.reload(), 1500);
+  }
+};
 if ($("#addSubjectBtn")) $("#addSubjectBtn").onclick = () => $("#file")?.click();
 if ($("#mongoUploadBtn")) $("#mongoUploadBtn").onclick = () => $("#mongoFileInput")?.click();
 if ($("#mongoFileInput")) $("#mongoFileInput").onchange = handleMongoFileSelect;
@@ -7117,3 +7195,9 @@ function initAppNoticeModal() {
 initQuestionBankEvents();
 initInstructorAuth();
 initAppNoticeModal();
+
+// Force scroll to top on load instead of centering
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.scrollTo(0, 0);
