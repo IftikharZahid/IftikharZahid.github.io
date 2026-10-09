@@ -6468,10 +6468,54 @@ async function syncBooksFromWebsiteData(silent = false) {
   try {
     const catalogRes = await fetch(resolveDataUrl("data/catalog.json"));
     if (catalogRes.ok) {
-      dynamicCatalog = await catalogRes.json();
+      const text = await catalogRes.text();
+      try {
+        dynamicCatalog = JSON.parse(text);
+      } catch(e) {
+        console.log("catalog.json is not valid JSON (might be raw Jekyll template).");
+      }
     }
   } catch (e) {
     console.log("No dynamic catalog found, using static defaults.");
+  }
+
+  // Automatically discover new files from GitHub API (avoids manual updates to catalog.json)
+  try {
+    const cached = sessionStorage.getItem("gh_catalog_cache");
+    const cacheTime = sessionStorage.getItem("gh_catalog_time");
+    const now = Date.now();
+    
+    if (cached && cacheTime && (now - parseInt(cacheTime) < 3600000)) { // 1 hour cache
+      const cachedList = JSON.parse(cached);
+      dynamicCatalog = [...new Set([...dynamicCatalog, ...cachedList])];
+    } else {
+      // Determine repository path dynamically if possible, fallback to IftikharZahid
+      let repoPath = "IftikharZahid/IftikharZahid.github.io";
+      if (window.location.hostname.endsWith("github.io")) {
+        const username = window.location.hostname.split(".")[0];
+        const pathSegments = window.location.pathname.split("/").filter(Boolean);
+        const repoName = pathSegments.length > 0 && pathSegments[0] !== "qb" ? pathSegments[0] : window.location.hostname;
+        repoPath = `${username}/${repoName}`;
+      }
+      
+      const ghResponse = await fetch(`https://api.github.com/repos/${repoPath}/contents/qb/data`);
+      if (ghResponse.ok) {
+        const ghData = await ghResponse.json();
+        const ghList = [];
+        for (const file of ghData) {
+          if (file.name.endsWith(".json") && file.name !== "catalog.json") {
+            ghList.push("data/" + file.name);
+          }
+        }
+        if (ghList.length > 0) {
+          sessionStorage.setItem("gh_catalog_cache", JSON.stringify(ghList));
+          sessionStorage.setItem("gh_catalog_time", now.toString());
+          dynamicCatalog = [...new Set([...dynamicCatalog, ...ghList])];
+        }
+      }
+    }
+  } catch (e) {
+    console.log("GitHub API auto-discovery skipped/failed.", e);
   }
 
   // Merge dynamic catalog with static defaults, removing duplicates
