@@ -684,9 +684,9 @@ const computerArchitectureQuestions = [
   {
     "id": 1,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Week 01 Scope",
+    "difficulty": "Easy",
     "question": "What is the primary focus of Week 1 in Computer Architecture and Organization?",
     "options": [
       "CPU registers and addressing modes",
@@ -695,15 +695,15 @@ const computerArchitectureQuestions = [
       "Assembly language programming"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Review of Digital Logic and Design and an overview of computer hardware and software",
+    "explanation": "Week 1 is scoped to reviewing Digital Logic and Design and introducing computer hardware and software; registers and addressing modes belong to later topics.",
     "type": "single"
   },
   {
     "id": 2,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Binary Representation",
+    "difficulty": "Easy",
     "question": "Which number system is commonly used to represent information in digital computers?",
     "options": [
       "Decimal",
@@ -712,15 +712,15 @@ const computerArchitectureQuestions = [
       "Roman"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Binary",
+    "explanation": "Binary uses the two digits 0 and 1 and is the standard representation basis for digital computer data.",
     "type": "single"
   },
   {
     "id": 3,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Binary Representation",
+    "difficulty": "Easy",
     "question": "What is a bit?",
     "options": [
       "A group of 16 bytes",
@@ -729,15 +729,15 @@ const computerArchitectureQuestions = [
       "A storage device"
     ],
     "answer": 1,
-    "explanation": "Correct answer: A binary digit with a value of 0 or 1",
+    "explanation": "A bit is a binary digit, represented as either 0 or 1.",
     "type": "single"
   },
   {
     "id": 4,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Binary Representation",
+    "difficulty": "Easy",
     "question": "How many bits are in one byte?",
     "options": [
       "2",
@@ -746,15 +746,15 @@ const computerArchitectureQuestions = [
       "16"
     ],
     "answer": 2,
-    "explanation": "Correct answer: 8",
+    "explanation": "One standard byte contains 8 bits.",
     "type": "single"
   },
   {
     "id": 5,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Digital Logic",
+    "difficulty": "Easy",
     "question": "What is digital logic?",
     "options": [
       "Logic based on continuous physical quantities only",
@@ -763,15 +763,15 @@ const computerArchitectureQuestions = [
       "A type of storage"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Logic based on discrete states used to construct digital circuits",
+    "explanation": "Digital logic uses discrete logic states to build and reason about digital circuits.",
     "type": "single"
   },
   {
     "id": 6,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
     "question": "Which of the following is a fundamental digital logic building block?",
     "options": [
       "Logic gate",
@@ -780,15 +780,15 @@ const computerArchitectureQuestions = [
       "Keyboard"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Logic gate",
+    "explanation": "Logic gates implement basic Boolean operations and are foundational building blocks of digital circuits.",
     "type": "single"
   },
   {
     "id": 7,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
     "question": "Which gate produces 1 only when all required inputs are 1?",
     "options": [
       "OR",
@@ -797,15 +797,15 @@ const computerArchitectureQuestions = [
       "XOR"
     ],
     "answer": 1,
-    "explanation": "Correct answer: AND",
+    "explanation": "An AND gate outputs 1 only when all its inputs are 1.",
     "type": "single"
   },
   {
     "id": 8,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
     "question": "Which logic gate performs logical inversion?",
     "options": [
       "AND",
@@ -814,15 +814,15 @@ const computerArchitectureQuestions = [
       "NAND"
     ],
     "answer": 2,
-    "explanation": "Correct answer: NOT",
+    "explanation": "A NOT gate inverts its input: 0 becomes 1 and 1 becomes 0.",
     "type": "single"
   },
   {
     "id": 9,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
     "question": "Which gate is the inverse of an AND operation?",
     "options": [
       "NOR",
@@ -831,15 +831,15 @@ const computerArchitectureQuestions = [
       "XNOR"
     ],
     "answer": 1,
-    "explanation": "Correct answer: NAND",
+    "explanation": "NAND is the negation of AND.",
     "type": "single"
   },
   {
     "id": 10,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
     "question": "Which gate is the inverse of an OR operation?",
     "options": [
       "NAND",
@@ -848,15 +848,15 @@ const computerArchitectureQuestions = [
       "AND"
     ],
     "answer": 2,
-    "explanation": "Correct answer: NOR",
+    "explanation": "NOR is the negation of OR.",
     "type": "single"
   },
   {
     "id": 11,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
     "question": "For a two-input XOR gate, the output is 1 when:",
     "options": [
       "Both inputs are 0",
@@ -865,15 +865,15 @@ const computerArchitectureQuestions = [
       "The inputs are always equal"
     ],
     "answer": 2,
-    "explanation": "Correct answer: The inputs differ",
+    "explanation": "A two-input XOR outputs 1 when the inputs are different.",
     "type": "single"
   },
   {
     "id": 12,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Truth Tables",
+    "difficulty": "Easy",
     "question": "What does a truth table show?",
     "options": [
       "Only the input values",
@@ -882,15 +882,15 @@ const computerArchitectureQuestions = [
       "Memory addresses only"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Possible input combinations and their corresponding outputs",
+    "explanation": "A truth table lists possible input combinations and the corresponding output for a logic function.",
     "type": "single"
   },
   {
     "id": 13,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Combinational Logic",
+    "difficulty": "Easy",
     "question": "In combinational logic, the output depends primarily on:",
     "options": [
       "Current inputs",
@@ -899,15 +899,15 @@ const computerArchitectureQuestions = [
       "Program files"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Current inputs",
+    "explanation": "Combinational logic depends on current inputs; it does not depend on stored state from previous cycles.",
     "type": "single"
   },
   {
     "id": 14,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Sequential Logic",
+    "difficulty": "Easy",
     "question": "Which is an example of sequential logic?",
     "options": [
       "Adder",
@@ -916,14 +916,14 @@ const computerArchitectureQuestions = [
       "Decoder"
     ],
     "answer": 2,
-    "explanation": "Correct answer: Register",
+    "explanation": "A register stores state, making it a sequential logic element.",
     "type": "single"
   },
   {
     "id": 15,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Sequential Logic",
     "difficulty": "Medium",
     "question": "Which statement correctly describes sequential logic?",
     "options": [
@@ -933,15 +933,15 @@ const computerArchitectureQuestions = [
       "It is used only for input devices"
     ],
     "answer": 1,
-    "explanation": "Correct answer: It involves stored state in addition to current inputs",
+    "explanation": "Sequential logic combines current inputs with stored state.",
     "type": "single"
   },
   {
     "id": 16,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "CPU",
+    "difficulty": "Easy",
     "question": "What is the primary role of the CPU?",
     "options": [
       "Permanent storage",
@@ -950,15 +950,15 @@ const computerArchitectureQuestions = [
       "Provide internet access"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Execute instructions and coordinate processing operations",
+    "explanation": "The CPU executes instructions and coordinates processing operations.",
     "type": "single"
   },
   {
     "id": 17,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "ALU",
+    "difficulty": "Easy",
     "question": "Which CPU component performs arithmetic and logical operations?",
     "options": [
       "Control Unit",
@@ -967,15 +967,15 @@ const computerArchitectureQuestions = [
       "Input Unit"
     ],
     "answer": 1,
-    "explanation": "Correct answer: ALU",
+    "explanation": "The ALU performs arithmetic and logical operations.",
     "type": "single"
   },
   {
     "id": 18,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "ALU",
+    "difficulty": "Easy",
     "question": "What does ALU stand for?",
     "options": [
       "Arithmetic and Logic Unit",
@@ -984,15 +984,15 @@ const computerArchitectureQuestions = [
       "Arithmetic Loading Unit"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Arithmetic and Logic Unit",
+    "explanation": "ALU is commonly expanded as Arithmetic and Logic Unit (also written Arithmetic Logic Unit).",
     "type": "single"
   },
   {
     "id": 19,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Control Unit",
+    "difficulty": "Easy",
     "question": "Which CPU component coordinates instruction execution?",
     "options": [
       "ALU",
@@ -1001,14 +1001,14 @@ const computerArchitectureQuestions = [
       "Secondary Storage"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Control Unit",
+    "explanation": "The Control Unit coordinates instruction execution.",
     "type": "single"
   },
   {
     "id": 20,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Control Unit",
     "difficulty": "Medium",
     "question": "What is the role of the Control Unit?",
     "options": [
@@ -1018,15 +1018,15 @@ const computerArchitectureQuestions = [
       "Display information"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Coordinate instruction execution and generate control signals",
+    "explanation": "The Control Unit coordinates operations by sequencing activities and generating control signals.",
     "type": "single"
   },
   {
     "id": 21,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "CPU Registers",
+    "difficulty": "Easy",
     "question": "What are CPU registers?",
     "options": [
       "Large external storage devices",
@@ -1035,14 +1035,14 @@ const computerArchitectureQuestions = [
       "Software programs"
     ],
     "answer": 1,
-    "explanation": "Correct answer: High-speed storage locations associated directly with the CPU",
+    "explanation": "CPU registers are small, high-speed storage locations used directly in processor operation.",
     "type": "single"
   },
   {
     "id": 22,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "CPU Registers",
     "difficulty": "Medium",
     "question": "Which statement about registers is correct?",
     "options": [
@@ -1052,15 +1052,15 @@ const computerArchitectureQuestions = [
       "They replace all main memory"
     ],
     "answer": 1,
-    "explanation": "Correct answer: They hold values, addresses, instructions, or control information needed during processing",
+    "explanation": "Registers can hold data values, addresses, instructions, or control information needed during processing.",
     "type": "single"
   },
   {
     "id": 23,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Main Memory",
+    "difficulty": "Easy",
     "question": "What is the primary role of main memory?",
     "options": [
       "Store programs and data needed during processing",
@@ -1069,15 +1069,15 @@ const computerArchitectureQuestions = [
       "Connect to a network"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Store programs and data needed during processing",
+    "explanation": "Main memory stores programs and data that are actively needed during processing.",
     "type": "single"
   },
   {
     "id": 24,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Input/Output",
+    "difficulty": "Easy",
     "question": "Which component provides communication between the computer system and external devices?",
     "options": [
       "Input/Output",
@@ -1086,15 +1086,15 @@ const computerArchitectureQuestions = [
       "Control Unit only"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Input/Output",
+    "explanation": "Input/output functions provide communication between the computer system and external devices.",
     "type": "single"
   },
   {
     "id": 25,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Input Devices",
+    "difficulty": "Easy",
     "question": "Which of the following is an input device?",
     "options": [
       "Display",
@@ -1103,15 +1103,15 @@ const computerArchitectureQuestions = [
       "Speaker"
     ],
     "answer": 2,
-    "explanation": "Correct answer: Keyboard",
+    "explanation": "A keyboard sends data/commands into the computer, so it is an input device.",
     "type": "single"
   },
   {
     "id": 26,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Output Devices",
+    "difficulty": "Easy",
     "question": "Which of the following is an output device?",
     "options": [
       "Keyboard",
@@ -1120,15 +1120,15 @@ const computerArchitectureQuestions = [
       "Display"
     ],
     "answer": 3,
-    "explanation": "Correct answer: Display",
+    "explanation": "A display presents information from the computer, so it is an output device.",
     "type": "single"
   },
   {
     "id": 27,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Secondary Storage",
+    "difficulty": "Easy",
     "question": "What is the purpose of secondary storage?",
     "options": [
       "Provide persistent storage for programs and data",
@@ -1137,15 +1137,15 @@ const computerArchitectureQuestions = [
       "Generate control signals"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Provide persistent storage for programs and data",
+    "explanation": "Secondary storage provides persistent storage that retains programs and data when power is off.",
     "type": "single"
   },
   {
     "id": 28,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Computer Hardware",
+    "difficulty": "Easy",
     "question": "Which statement best describes computer hardware?",
     "options": [
       "Programs and instructions",
@@ -1154,15 +1154,15 @@ const computerArchitectureQuestions = [
       "Only application programs"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Physical components of a computer system",
+    "explanation": "Hardware means the physical components of a computer system.",
     "type": "single"
   },
   {
     "id": 29,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Computer Software",
+    "difficulty": "Easy",
     "question": "Which statement best describes software?",
     "options": [
       "Physical components",
@@ -1171,15 +1171,15 @@ const computerArchitectureQuestions = [
       "A type of memory chip"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Programs, instructions, and related components that direct hardware",
+    "explanation": "Software is the set of programs and instructions that direct the hardware; option B is the intended best answer.",
     "type": "single"
   },
   {
     "id": 30,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "System Software",
+    "difficulty": "Easy",
     "question": "What is system software?",
     "options": [
       "Software that supports operation and management of computer hardware",
@@ -1188,15 +1188,15 @@ const computerArchitectureQuestions = [
       "Only web pages"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Software that supports operation and management of computer hardware",
+    "explanation": "System software supports and manages the operation of computer hardware and the computer system.",
     "type": "single"
   },
   {
     "id": 31,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Application Software",
+    "difficulty": "Easy",
     "question": "Which is an example of application software?",
     "options": [
       "Operating system",
@@ -1205,14 +1205,14 @@ const computerArchitectureQuestions = [
       "System utility"
     ],
     "answer": 2,
-    "explanation": "Correct answer: Word processing software",
+    "explanation": "Word-processing software is application software; operating systems and system utilities are system software.",
     "type": "single"
   },
   {
     "id": 32,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Hardware and Software Relationship",
     "difficulty": "Medium",
     "question": "What is the relationship between hardware and software?",
     "options": [
@@ -1222,14 +1222,14 @@ const computerArchitectureQuestions = [
       "Hardware is a type of application"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Hardware provides physical resources while software provides instructions for using them",
+    "explanation": "Hardware provides physical resources; software supplies instructions that tell the system what operations to perform.",
     "type": "single"
   },
   {
     "id": 33,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Instruction Processing Cycle",
     "difficulty": "Medium",
     "question": "Which sequence represents the simplified conceptual instruction-processing cycle introduced in Week 1?",
     "options": [
@@ -1239,15 +1239,15 @@ const computerArchitectureQuestions = [
       "Store → Execute → Fetch → Decode"
     ],
     "answer": 1,
-    "explanation": "Correct answer: Fetch → Decode → Execute → Store/Write Back",
+    "explanation": "The simplified conceptual sequence is fetch, decode, execute, then store/write back. Actual processor pipelines and instruction cycles can be more detailed.",
     "type": "single"
   },
   {
     "id": 34,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Digital Logic in Computer Architecture",
+    "difficulty": "Easy",
     "question": "Why is digital logic important in computer architecture?",
     "options": [
       "It provides the foundation for digital circuits used in computer hardware",
@@ -1256,15 +1256,15 @@ const computerArchitectureQuestions = [
       "It eliminates the need for memory"
     ],
     "answer": 0,
-    "explanation": "Correct answer: It provides the foundation for digital circuits used in computer hardware",
+    "explanation": "Digital logic provides the circuit-level foundation for digital computer hardware.",
     "type": "single"
   },
   {
     "id": 35,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Combinational Logic",
+    "difficulty": "Easy",
     "question": "Which of the following is an example of combinational logic?",
     "options": [
       "Register",
@@ -1273,15 +1273,15 @@ const computerArchitectureQuestions = [
       "Memory state circuit"
     ],
     "answer": 2,
-    "explanation": "Correct answer: Adder",
+    "explanation": "An adder is combinational logic because its output is determined by the current input values.",
     "type": "single"
   },
   {
     "id": 36,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Main Memory",
+    "difficulty": "Easy",
     "question": "Which component stores active programs and data during processing?",
     "options": [
       "Main Memory",
@@ -1290,14 +1290,14 @@ const computerArchitectureQuestions = [
       "Output device"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Main Memory",
+    "explanation": "Main memory holds active programs and data during processing.",
     "type": "single"
   },
   {
     "id": 37,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Computer System Components",
     "difficulty": "Medium",
     "question": "Which pair is correctly matched?",
     "options": [
@@ -1307,15 +1307,15 @@ const computerArchitectureQuestions = [
       "Secondary Storage — performs Boolean logic"
     ],
     "answer": 2,
-    "explanation": "Correct answer: CPU — executes instructions",
+    "explanation": "The CPU executes instructions; the other pairings assign functions incorrectly to the ALU, Control Unit, or secondary storage.",
     "type": "single"
   },
   {
     "id": 38,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
-    "difficulty": "Medium",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Week 01 Scope",
+    "difficulty": "Easy",
     "question": "Which of the following is a key Week 1 concept?",
     "options": [
       "Hardware and software relationship",
@@ -1324,14 +1324,14 @@ const computerArchitectureQuestions = [
       "Indirect addressing modes"
     ],
     "answer": 0,
-    "explanation": "Correct answer: Hardware and software relationship",
+    "explanation": "The hardware/software relationship is explicitly within the Week 1 introductory scope.",
     "type": "single"
   },
   {
     "id": 39,
     "subject": "Computer Architecture and Organization",
-    "chapter": "Digital Logic & Hardware/Software Overview",
-    "topic": "Digital Logic and Design",
+    "chapter": "Review of Digital Logic and Design; Fundamental Overview of Computer Hardware and Software",
+    "topic": "Week 01 Scope",
     "difficulty": "Medium",
     "question": "What is the main purpose of Week 1?",
     "options": [
@@ -1341,7 +1341,1220 @@ const computerArchitectureQuestions = [
       "To study only CPU flags"
     ],
     "answer": 1,
-    "explanation": "Correct answer: To establish foundational understanding of digital logic, hardware, and software before later architecture topics",
+    "explanation": "Week 1 establishes foundational understanding of digital logic, hardware, and software before more advanced architecture topics.",
+    "type": "single"
+  }
+];
+
+const computerArchitectureWeek02Questions = [
+  {
+    "id": 1,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CPU Registers",
+    "difficulty": "Easy",
+    "question": "What is the primary purpose of CPU registers?",
+    "options": [
+      "High-speed storage used directly during processor execution",
+      "Permanent storage for all files",
+      "Replacement for input/output devices",
+      "Long-term optical storage"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: High-speed storage used directly during processor execution",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Program Counter",
+    "difficulty": "Easy",
+    "question": "Which register identifies the address of the next instruction?",
+    "options": [
+      "Instruction Register",
+      "Program Counter",
+      "Stack Pointer",
+      "Accumulator"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Program Counter",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Instruction Register",
+    "difficulty": "Easy",
+    "question": "What does the Instruction Register hold?",
+    "options": [
+      "The instruction currently being decoded or executed",
+      "Only the next stack address",
+      "All main memory contents",
+      "The processor clock frequency"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: The instruction currently being decoded or executed",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Stack Pointer",
+    "difficulty": "Easy",
+    "question": "Which register identifies the relevant stack location?",
+    "options": [
+      "Program Counter",
+      "Instruction Register",
+      "Stack Pointer",
+      "Status Register"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Stack Pointer",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Status and Flag Registers",
+    "difficulty": "Easy",
+    "question": "What is the typical role of a status or flag register?",
+    "options": [
+      "Store condition and control information",
+      "Store documents permanently",
+      "Compile high-level code",
+      "Control monitor brightness only"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Store condition and control information",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Status and Flag Registers",
+    "difficulty": "Medium",
+    "question": "Which is an example of a condition flag?",
+    "options": [
+      "Zero Flag (ZF)",
+      "File Flag (FF)",
+      "Display Flag (DFI)",
+      "Network Flag (NF)"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Zero Flag (ZF)",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "General-Purpose Registers",
+    "difficulty": "Easy",
+    "question": "What are general-purpose registers commonly used for?",
+    "options": [
+      "Operands, temporary values, and results",
+      "Only operating-system installers",
+      "Replacing the control unit",
+      "Permanent external storage"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Operands, temporary values, and results",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Accumulator",
+    "difficulty": "Easy",
+    "question": "In accumulator-oriented designs, what does the accumulator commonly hold?",
+    "options": [
+      "Operands and arithmetic or logical results",
+      "Only the next instruction address",
+      "Only an opcode",
+      "Input-device locations"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Operands and arithmetic or logical results",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CPU Registers",
+    "difficulty": "Easy",
+    "question": "Which statement about CPU registers is correct?",
+    "options": [
+      "They are small, high-speed storage locations within the processor",
+      "They are slower than all secondary storage",
+      "They are external network peripherals",
+      "They are only for backups"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: They are small, high-speed storage locations within the processor",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Instruction Set Architecture",
+    "difficulty": "Medium",
+    "question": "What does Instruction Set Architecture (ISA) describe?",
+    "options": [
+      "The instruction interface visible to software at processor level",
+      "The physical design of a desk",
+      "Only the file system",
+      "The color of a circuit board"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: The instruction interface visible to software at processor level",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CISC",
+    "difficulty": "Easy",
+    "question": "What is a central characteristic of CISC?",
+    "options": [
+      "A rich and comparatively complex instruction set",
+      "No arithmetic instructions",
+      "Only vector instructions",
+      "No registers"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A rich and comparatively complex instruction set",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "RISC",
+    "difficulty": "Easy",
+    "question": "What is a central emphasis of RISC?",
+    "options": [
+      "A simpler and more regular instruction set",
+      "The largest possible set of complex instructions",
+      "Execution only through external storage",
+      "Removing the instruction set"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A simpler and more regular instruction set",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CISC vs. RISC",
+    "difficulty": "Medium",
+    "question": "Which comparison between CISC and RISC is accurate?",
+    "options": [
+      "CISC emphasizes a rich, complex set; RISC a simpler, more regular set",
+      "CISC has no instructions and RISC no registers",
+      "CISC is storage and RISC is input",
+      "They mean exactly the same approach"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: CISC emphasizes a rich, complex set; RISC a simpler, more regular set",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "MC68000",
+    "difficulty": "Easy",
+    "question": "Which processor is listed as a CISC example in the course outline?",
+    "options": [
+      "MC68000",
+      "A generic GPU",
+      "A disk controller",
+      "A printer"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: MC68000",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "VLIW",
+    "difficulty": "Easy",
+    "question": "What does VLIW stand for?",
+    "options": [
+      "Very Long Instruction Word",
+      "Variable Logic Instruction Width",
+      "Virtual Language Integration Workflow",
+      "Vector-Level Input Window"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Very Long Instruction Word",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "VLIW",
+    "difficulty": "Medium",
+    "question": "What is a defining idea of VLIW?",
+    "options": [
+      "A long instruction word groups operations intended for parallel execution",
+      "Each instruction must perform one memory transfer",
+      "Instructions are stored only on removable media",
+      "It has no instruction encoding"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A long instruction word groups operations intended for parallel execution",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "EPIC",
+    "difficulty": "Easy",
+    "question": "What does EPIC stand for?",
+    "options": [
+      "Explicitly Parallel Instruction Computing",
+      "Extended Processor Input Control",
+      "Electronic Program Interpretation Code",
+      "Enhanced Peripheral Interface Channel"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Explicitly Parallel Instruction Computing",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "EPIC",
+    "difficulty": "Medium",
+    "question": "What is the key idea associated with EPIC?",
+    "options": [
+      "Parallelism is made explicit through compiler and architecture cooperation",
+      "Instructions execute only after being written to disk",
+      "The processor has no control logic",
+      "It compresses image files"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Parallelism is made explicit through compiler and architecture cooperation",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Hybrid Architectures",
+    "difficulty": "Medium",
+    "question": "What is a hybrid architecture?",
+    "options": [
+      "An approach combining features from more than one architectural style",
+      "A system containing only secondary storage",
+      "A processor without an instruction set",
+      "A one-input logic gate"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: An approach combining features from more than one architectural style",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Vector Processors",
+    "difficulty": "Easy",
+    "question": "What kind of parallelism do vector processors primarily exploit?",
+    "options": [
+      "Data-level parallelism",
+      "Only user-interface parallelism",
+      "Only disk scheduling",
+      "No parallelism"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Data-level parallelism",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Vector Processors",
+    "difficulty": "Medium",
+    "question": "Which task best illustrates vector processing?",
+    "options": [
+      "Applying the same operation to multiple array elements",
+      "Opening a file without processing data",
+      "Changing monitor resolution",
+      "Saving a document to USB"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Applying the same operation to multiple array elements",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Superscalar Architecture",
+    "difficulty": "Easy",
+    "question": "What is a key feature of superscalar architecture?",
+    "options": [
+      "Multiple execution resources issue independent instructions",
+      "It executes only one instruction per day",
+      "It removes instruction decoding",
+      "It stores instructions in a printer"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Multiple execution resources issue independent instructions",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Superscalar Architecture",
+    "difficulty": "Medium",
+    "question": "Superscalar processing primarily exploits which parallelism?",
+    "options": [
+      "Instruction-level parallelism",
+      "Data backup parallelism only",
+      "Network routing only",
+      "No parallelism"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Instruction-level parallelism",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "SMT",
+    "difficulty": "Easy",
+    "question": "What does SMT stand for?",
+    "options": [
+      "Simultaneous Multithreading",
+      "Sequential Memory Transfer",
+      "Single Machine Translation",
+      "System Management Table"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Simultaneous Multithreading",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "SMT",
+    "difficulty": "Medium",
+    "question": "What is the central idea of SMT?",
+    "options": [
+      "Instructions from multiple threads share execution resources of one core",
+      "Only one thread can exist in an operating system",
+      "It replaces registers with hard drives",
+      "It converts every instruction to a vector"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Instructions from multiple threads share execution resources of one core",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Parallel Architecture Comparison",
+    "difficulty": "Medium",
+    "question": "Which distinction between vector and superscalar processing is correct?",
+    "options": [
+      "Vector processing works across data elements; superscalar issues independent instructions using multiple execution resources",
+      "Vector is only for files and superscalar only for displays",
+      "Both mean there are no registers",
+      "Superscalar means multiple operating systems"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Vector processing works across data elements; superscalar issues independent instructions using multiple execution resources",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Parallel Architecture Comparison",
+    "difficulty": "Medium",
+    "question": "Which distinction between SMT and vector processing is correct?",
+    "options": [
+      "SMT shares core resources among threads; vector processing exploits data-level parallelism",
+      "SMT is a disk drive and vector processing a network protocol",
+      "Both refer only to instruction storage",
+      "Vector processing requires no registers"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: SMT shares core resources among threads; vector processing exploits data-level parallelism",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CPU Registers",
+    "difficulty": "Medium",
+    "question": "Why are registers important during arithmetic and logical operations?",
+    "options": [
+      "They hold operands and intermediate or final results close to execution units",
+      "They archive all user documents permanently",
+      "They are the only input device",
+      "They eliminate instructions"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: They hold operands and intermediate or final results close to execution units",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Program Counter",
+    "difficulty": "Medium",
+    "question": "What can cause the Program Counter to change from sequential progression?",
+    "options": [
+      "A branch, jump, call, interrupt, or other control-transfer operation",
+      "Changing desktop wallpaper",
+      "Saving a file to secondary storage",
+      "Changing keyboard layout"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A branch, jump, call, interrupt, or other control-transfer operation",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Instruction Register",
+    "difficulty": "Easy",
+    "question": "Which register is associated with the instruction currently being processed?",
+    "options": [
+      "Instruction Register (IR)",
+      "Stack Pointer (SP)",
+      "Program Counter (PC)",
+      "Address Register only"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Instruction Register (IR)",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Address Registers",
+    "difficulty": "Medium",
+    "question": "Which register type holds effective or operand addresses?",
+    "options": [
+      "Address Register",
+      "Accumulator only",
+      "Instruction Register only",
+      "Status Register only"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Address Register",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CISC vs. RISC",
+    "difficulty": "Medium",
+    "question": "What is the most accurate statement about CISC and RISC?",
+    "options": [
+      "They are ISA design approaches with different instruction-set emphases",
+      "They are two CPU registers",
+      "They are types of secondary memory",
+      "They are input devices"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: They are ISA design approaches with different instruction-set emphases",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "VLIW",
+    "difficulty": "Medium",
+    "question": "A processor groups parallel operations into a long instruction word. Which architecture is this?",
+    "options": [
+      "VLIW",
+      "SMT",
+      "CISC exclusively",
+      "Stack Pointer"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: VLIW",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Superscalar Architecture",
+    "difficulty": "Medium",
+    "question": "A processor issues independent instructions through multiple execution units. Which approach is this?",
+    "options": [
+      "Superscalar architecture",
+      "Program Counter",
+      "Address register",
+      "Secondary storage"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Superscalar architecture",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "SMT",
+    "difficulty": "Medium",
+    "question": "A core allows instructions from different threads to share execution resources. Which technique is this?",
+    "options": [
+      "Simultaneous Multithreading (SMT)",
+      "Sequential logic only",
+      "Immediate addressing",
+      "Optical storage"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Simultaneous Multithreading (SMT)",
+    "type": "single"
+  }
+];
+
+const computerArchitectureWeek03Questions = [
+  {
+    "id": 1,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Program Counter",
+    "difficulty": "Easy",
+    "question": "Which register holds the address of the next instruction?",
+    "options": [
+      "Instruction Register",
+      "Program Counter",
+      "Stack Pointer",
+      "Accumulator"
+    ],
+    "answer": 1,
+    "explanation": "Correct answer: Program Counter",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Instruction Register",
+    "difficulty": "Easy",
+    "question": "What is the main function of the Instruction Register (IR)?",
+    "options": [
+      "Hold the instruction currently being decoded or executed",
+      "Store all user files permanently",
+      "Identify the top of the stack only",
+      "Store the CPU temperature"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Hold the instruction currently being decoded or executed",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Stack Pointer",
+    "difficulty": "Easy",
+    "question": "Which register is associated with the current or relevant stack location?",
+    "options": [
+      "Status Register",
+      "Program Counter",
+      "Stack Pointer",
+      "Accumulator"
+    ],
+    "answer": 2,
+    "explanation": "Correct answer: Stack Pointer",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Status and Flag Registers",
+    "difficulty": "Easy",
+    "question": "Which register type stores condition information such as zero, carry, sign, and overflow?",
+    "options": [
+      "Status/Flag Register",
+      "Instruction Register",
+      "Stack Pointer",
+      "General-purpose register only"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Status/Flag Register",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Instruction Set Architecture",
+    "difficulty": "Easy",
+    "question": "What does ISA stand for?",
+    "options": [
+      "Instruction Set Architecture",
+      "Integrated Storage Array",
+      "Internal Software Application",
+      "Instruction Sequencing Algorithm"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Instruction Set Architecture",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Instruction Set Architecture",
+    "difficulty": "Medium",
+    "question": "Which statement best describes an Instruction Set Architecture?",
+    "options": [
+      "It defines the programmer-visible instructions, registers, data types, and architectural rules",
+      "It specifies only the computer's case dimensions",
+      "It is a type of secondary storage",
+      "It describes only monitor resolution"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: It defines the programmer-visible instructions, registers, data types, and architectural rules",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CISC",
+    "difficulty": "Easy",
+    "question": "CISC stands for:",
+    "options": [
+      "Complex Instruction Set Computer",
+      "Central Integrated Storage Controller",
+      "Computer Instruction Sequence Code",
+      "Complex Internal System Cache"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Complex Instruction Set Computer",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CISC",
+    "difficulty": "Easy",
+    "question": "Which design philosophy is associated with CISC?",
+    "options": [
+      "A relatively rich instruction set with instructions that may perform complex operations",
+      "A processor with no instructions",
+      "A design that prohibits addressing modes",
+      "A processor without registers"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A relatively rich instruction set with instructions that may perform complex operations",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "RISC",
+    "difficulty": "Easy",
+    "question": "RISC stands for:",
+    "options": [
+      "Reduced Instruction Set Computer",
+      "Register Integrated System Controller",
+      "Reduced Internal Storage Cache",
+      "Random Instruction Sequence Code"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Reduced Instruction Set Computer",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "RISC",
+    "difficulty": "Easy",
+    "question": "Which design emphasis is associated with RISC?",
+    "options": [
+      "A relatively simple and regular instruction set",
+      "The most complex possible instruction encoding in every case",
+      "Eliminating all registers",
+      "Using only secondary memory"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A relatively simple and regular instruction set",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CISC vs. RISC",
+    "difficulty": "Medium",
+    "question": "Which statement correctly compares CISC and RISC?",
+    "options": [
+      "CISC emphasizes instruction-set richness; RISC emphasizes a simpler, more regular instruction set",
+      "CISC is a register and RISC is a flag",
+      "Both terms describe hard-drive formats",
+      "They are identical terms for one architecture"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: CISC emphasizes instruction-set richness; RISC emphasizes a simpler, more regular instruction set",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "MC68000",
+    "difficulty": "Easy",
+    "question": "Which processor family is named in the course outline as a CISC example?",
+    "options": [
+      "MC68000",
+      "A vector printer",
+      "A disk controller",
+      "A generic network switch"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: MC68000",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "VLIW",
+    "difficulty": "Easy",
+    "question": "What does VLIW mean?",
+    "options": [
+      "Very Long Instruction Word",
+      "Variable Length Input Window",
+      "Virtual Logic Instruction Wrapper",
+      "Vector Link Interface Width"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Very Long Instruction Word",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "VLIW",
+    "difficulty": "Medium",
+    "question": "What is the main idea of VLIW architecture?",
+    "options": [
+      "A long instruction word can group multiple operations intended for parallel execution",
+      "It executes programs without instruction words",
+      "It is used only for permanent file storage",
+      "It prevents all forms of instruction-level parallelism"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A long instruction word can group multiple operations intended for parallel execution",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "EPIC",
+    "difficulty": "Easy",
+    "question": "What does EPIC stand for in processor architecture?",
+    "options": [
+      "Explicitly Parallel Instruction Computing",
+      "Extended Processor Interface Channel",
+      "Electronic Program Instruction Cache",
+      "External Parallel Input Control"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Explicitly Parallel Instruction Computing",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "EPIC",
+    "difficulty": "Medium",
+    "question": "What is characteristic of EPIC as described in the lecture?",
+    "options": [
+      "It makes available instruction parallelism explicit through compiler/architecture cooperation",
+      "It removes the need for software",
+      "It is a type of status flag",
+      "It stores only data addresses"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: It makes available instruction parallelism explicit through compiler/architecture cooperation",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Hybrid Architectures",
+    "difficulty": "Medium",
+    "question": "What is a hybrid processor architecture?",
+    "options": [
+      "An approach that combines characteristics of multiple architectural styles",
+      "A processor that contains only one logic gate",
+      "A system with no instruction set",
+      "A storage format for backups"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: An approach that combines characteristics of multiple architectural styles",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Vector Processors",
+    "difficulty": "Easy",
+    "question": "Which type of parallelism is primarily associated with vector processors?",
+    "options": [
+      "Data-level parallelism",
+      "Thread-level parallelism only",
+      "Disk-level parallelism",
+      "No parallelism"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Data-level parallelism",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Vector Processors",
+    "difficulty": "Medium",
+    "question": "A vector operation applies the same operation across multiple array elements. This illustrates:",
+    "options": [
+      "Vector processing",
+      "Stack addressing",
+      "Instruction decoding only",
+      "Interrupt handling"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Vector processing",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Superscalar Architecture",
+    "difficulty": "Easy",
+    "question": "What is a key characteristic of superscalar processors?",
+    "options": [
+      "They use multiple execution resources to issue independent instructions",
+      "They cannot execute instructions",
+      "They use only one register",
+      "They store programs only on optical media"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: They use multiple execution resources to issue independent instructions",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Superscalar Architecture",
+    "difficulty": "Medium",
+    "question": "Superscalar architecture primarily exploits:",
+    "options": [
+      "Instruction-level parallelism",
+      "Data-level parallelism only",
+      "Thread-level parallelism only",
+      "Disk scheduling"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Instruction-level parallelism",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Simultaneous Multithreading",
+    "difficulty": "Easy",
+    "question": "SMT stands for:",
+    "options": [
+      "Simultaneous Multithreading",
+      "Sequential Memory Transfer",
+      "Single Machine Translation",
+      "System Mode Table"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Simultaneous Multithreading",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Simultaneous Multithreading",
+    "difficulty": "Medium",
+    "question": "What is the main concept of Simultaneous Multithreading (SMT)?",
+    "options": [
+      "Instructions from multiple threads can share execution resources of a processor core",
+      "One core can never process instructions from more than one thread",
+      "It replaces the CPU with main memory",
+      "It converts all instructions into vectors"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Instructions from multiple threads can share execution resources of a processor core",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Parallel Architecture Comparison",
+    "difficulty": "Medium",
+    "question": "Which technique primarily focuses on data-level parallelism?",
+    "options": [
+      "Vector processing",
+      "Superscalar processing",
+      "SMT",
+      "CISC"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Vector processing",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Parallel Architecture Comparison",
+    "difficulty": "Medium",
+    "question": "Which technique primarily focuses on instruction-level parallelism by issuing independent instructions?",
+    "options": [
+      "Superscalar processing",
+      "Vector processing",
+      "SMT",
+      "Stack processing"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Superscalar processing",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Parallel Architecture Comparison",
+    "difficulty": "Medium",
+    "question": "Which technique allows instructions from multiple threads to share core execution resources?",
+    "options": [
+      "SMT",
+      "VLIW only",
+      "CISC",
+      "Program Counter"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: SMT",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Parallel Architecture Comparison",
+    "difficulty": "Medium",
+    "question": "Which pairing is correct?",
+    "options": [
+      "Vector processing — data-level parallelism",
+      "SMT — data-level parallelism only",
+      "Superscalar — thread-level parallelism only",
+      "RISC — a CPU register"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Vector processing — data-level parallelism",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "VLIW and EPIC",
+    "difficulty": "Medium",
+    "question": "Which pairing is correct for VLIW?",
+    "options": [
+      "Long instruction words group operations intended for parallel execution",
+      "A stack pointer identifies the next instruction",
+      "It stores only status flags",
+      "It means Simultaneous Multithreading"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Long instruction words group operations intended for parallel execution",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "VLIW and EPIC",
+    "difficulty": "Medium",
+    "question": "Which pairing best describes EPIC?",
+    "options": [
+      "Explicitly exposes available parallelism with compiler/architecture cooperation",
+      "Uses only permanent external storage",
+      "Identifies the current stack top",
+      "Means Reduced Instruction Set Computer"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Explicitly exposes available parallelism with compiler/architecture cooperation",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "CPU Registers",
+    "difficulty": "Medium",
+    "question": "Why are CPU registers positioned close to execution units?",
+    "options": [
+      "To provide fast access to frequently needed data, addresses, instructions, and results",
+      "To make them slower than main memory",
+      "To replace all secondary storage",
+      "To provide network connectivity"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: To provide fast access to frequently needed data, addresses, instructions, and results",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Program Counter",
+    "difficulty": "Medium",
+    "question": "Which of the following may cause the Program Counter to change its normal sequence?",
+    "options": [
+      "A branch, jump, call, interrupt, or other control-transfer operation",
+      "Changing a document's font",
+      "Changing the monitor's brightness",
+      "Opening a keyboard settings menu"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: A branch, jump, call, interrupt, or other control-transfer operation",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Instruction Register",
+    "difficulty": "Easy",
+    "question": "Which register is most directly associated with holding the instruction being decoded?",
+    "options": [
+      "Instruction Register",
+      "Program Counter",
+      "Stack Pointer",
+      "Address Register"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Instruction Register",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "General-Purpose Registers",
+    "difficulty": "Easy",
+    "question": "What is the typical role of general-purpose registers?",
+    "options": [
+      "Hold operands, temporary values, and results",
+      "Store only the address of the next instruction",
+      "Store only the current instruction",
+      "Control only peripheral power"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Hold operands, temporary values, and results",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Accumulator",
+    "difficulty": "Easy",
+    "question": "Which register is commonly used for operands and arithmetic/logical results in accumulator-oriented designs?",
+    "options": [
+      "Accumulator",
+      "Program Counter",
+      "Stack Pointer",
+      "Instruction Register"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Accumulator",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Address Registers",
+    "difficulty": "Medium",
+    "question": "Which register type can hold effective or operand addresses?",
+    "options": [
+      "Address Register",
+      "Status Register only",
+      "Instruction Register only",
+      "Accumulator only"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Address Register",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Computer Architecture and Organization",
+    "chapter": "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    "topic": "Parallel Architecture Comparison",
+    "difficulty": "Medium",
+    "question": "Which statement accurately distinguishes the three parallel processing approaches in the lecture?",
+    "options": [
+      "Vector processing handles multiple data elements; superscalar issues independent instructions; SMT shares core resources among threads",
+      "All three mean exactly the same thing",
+      "Vector processing refers to stack location, superscalar to status flags, and SMT to memory addresses",
+      "None of them exploits parallelism"
+    ],
+    "answer": 0,
+    "explanation": "Correct answer: Vector processing handles multiple data elements; superscalar issues independent instructions; SMT shares core resources among threads",
     "type": "single"
   }
 ];
@@ -3476,6 +4689,36 @@ const DEFAULT_SUBJECTS = [
     questions: computerArchitectureQuestions
   },
   {
+    id: "computer-architecture-and-organization-week-02",
+    legacyIds: ["computer-architecture-w02", "cao-bscs-w02"],
+    book: "Computer Architecture and Organization",
+    course: "Computer Architecture and Organization",
+    week: 2,
+    weekTitle: "Week 02",
+    topic: "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "💻",
+    isBuiltIn: true,
+    totalQuestions: computerArchitectureWeek02Questions.length,
+    questions: computerArchitectureWeek02Questions
+  },
+  {
+    id: "computer-architecture-and-organization-week-03",
+    legacyIds: ["computer-architecture-w03", "cao-bscs-w03"],
+    book: "Computer Architecture and Organization",
+    course: "Computer Architecture and Organization",
+    week: 3,
+    weekTitle: "Week 03",
+    topic: "Instruction Set Architecture Families and Processor Parallelism: CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "💻",
+    isBuiltIn: true,
+    totalQuestions: computerArchitectureWeek03Questions.length,
+    questions: computerArchitectureWeek03Questions
+  },
+  {
     id: "database-systems-week-02",
     legacyIds: ["database-systems-w02", "dbs-w02", "database-systems-week-2"],
     book: "Database Systems",
@@ -3533,7 +4776,11 @@ function main() {
 }
 function optText(o) { if (!o && o !== 0) return ""; if (typeof o === "string") return o; if (typeof o.text === "string") return o.text; if (typeof o.option === "string") return o.option; return String(o); }
 
+const CATALOG_BUILD_VERSION = "2026.10.12-v4";
+
 function loadStoredSubjects() {
+  const currentCatalogVersion = read("qb_catalog_version", "");
+  const isCatalogOutdated = currentCatalogVersion !== CATALOG_BUILD_VERSION;
   const stored = read(K.subjects, "");
   let list = [];
   if (stored) {
@@ -3553,10 +4800,17 @@ function loadStoredSubjects() {
       (s.book && s.book.trim().toLowerCase() === defSub.book.trim().toLowerCase() && Number(s.week) === Number(defSub.week))
     );
     if (!existing) {
-      list.push({ ...defSub, questions: [...defSub.questions] });
+      list.push({ ...defSub, catalogVersion: CATALOG_BUILD_VERSION, questions: [...defSub.questions] });
     } else {
       existing.id = defSub.id;
-      if (!existing.questions || !existing.questions.length) existing.questions = [...defSub.questions];
+      // Auto-heal any subject corrupted with all-zero answers, missing questions, or stale catalog version
+      const hasCorruptedZeroAnswers = Array.isArray(existing.questions) && existing.questions.length > 5 && existing.questions.every(q => q.answer === 0);
+      const questionCountMismatch = !existing.questions || existing.questions.length !== defSub.questions.length;
+      
+      if (isCatalogOutdated || hasCorruptedZeroAnswers || questionCountMismatch) {
+        existing.questions = [...defSub.questions];
+        existing.catalogVersion = CATALOG_BUILD_VERSION;
+      }
       existing.totalQuestions = existing.questions.length;
       existing.isBuiltIn = true;
       if (!existing.book) existing.book = defSub.book;
@@ -3568,6 +4822,9 @@ function loadStoredSubjects() {
       if (!existing.createdBy) existing.createdBy = defSub.createdBy;
     }
   });
+
+  store("qb_catalog_version", CATALOG_BUILD_VERSION);
+  store(K.subjects, JSON.stringify(list));
   return list;
 }
 
@@ -6307,6 +7564,8 @@ const STATIC_CATALOG_URLS = [
   "data/bscs_oop_week04.json",
   "data/bscs_theory_of_automata_week02.json",
   "data/bscs_computer_architecture_week01.json",
+  "data/bscs_computer_architecture_week02.json",
+  "data/bscs_computer_architecture_week03.json",
   "data/bscs_database_systems_week02.json"
 ];
 
@@ -6364,16 +7623,34 @@ function parseAndNormalizeJSON(parsed, fallbackName = "") {
     }
     if (options.length < 2) return;
 
-    let rawAns = q.answer !== undefined ? q.answer : (q.correctOptionIndex !== undefined ? q.correctOptionIndex : (q.correctIndex !== undefined ? q.correctIndex : 0));
+    let correctIdxFromOptions = -1;
+    if (Array.isArray(rawOpts)) {
+      correctIdxFromOptions = rawOpts.findIndex(o => o && typeof o === "object" && (o.isCorrect === true || o.correct === true));
+    }
+
     let answerIdx = 0;
-    if (typeof rawAns === "number" && rawAns >= 0 && rawAns < options.length) {
-      answerIdx = rawAns;
-    } else if (typeof rawAns === "string") {
-      const letterIdx = ["A", "B", "C", "D", "E"].indexOf(rawAns.trim().toUpperCase());
+    if (typeof q.correctOptionIndex === "number" && q.correctOptionIndex >= 0 && q.correctOptionIndex < options.length) {
+      answerIdx = q.correctOptionIndex;
+    } else if (typeof q.correctIndex === "number" && q.correctIndex >= 0 && q.correctIndex < options.length) {
+      answerIdx = q.correctIndex;
+    } else if (correctIdxFromOptions >= 0 && correctIdxFromOptions < options.length) {
+      answerIdx = correctIdxFromOptions;
+    } else if (typeof q.correctAnswer === "string" && q.correctAnswer.trim()) {
+      const letterIdx = ["A", "B", "C", "D", "E"].indexOf(q.correctAnswer.trim().toUpperCase());
       if (letterIdx >= 0 && letterIdx < options.length) {
         answerIdx = letterIdx;
       } else {
-        const found = options.findIndex(o => o.toLowerCase() === rawAns.trim().toLowerCase());
+        const found = options.findIndex(o => o.toLowerCase() === q.correctAnswer.trim().toLowerCase());
+        if (found >= 0) answerIdx = found;
+      }
+    } else if (typeof q.answer === "number" && q.answer >= 0 && q.answer < options.length) {
+      answerIdx = q.answer;
+    } else if (typeof q.answer === "string" && q.answer.trim()) {
+      const letterIdx = ["A", "B", "C", "D", "E"].indexOf(q.answer.trim().toUpperCase());
+      if (letterIdx >= 0 && letterIdx < options.length) {
+        answerIdx = letterIdx;
+      } else {
+        const found = options.findIndex(o => o.toLowerCase() === q.answer.trim().toLowerCase());
         if (found >= 0) answerIdx = found;
       }
     }
@@ -6387,7 +7664,7 @@ function parseAndNormalizeJSON(parsed, fallbackName = "") {
       question: prompt,
       options: options,
       answer: answerIdx,
-      explanation: (q.explanation || q.explain || "").trim(),
+      explanation: (q.explanation || q.explain || "").trim() || (options[answerIdx] ? `Correct answer: ${options[answerIdx]}` : ""),
       type: "single"
     });
   });
@@ -6437,7 +7714,7 @@ async function checkMongoStatus(quiet = false) {
   badge.textContent = `✓ Cloud Catalog Ready`;
   badge.className = "tag success";
   if (info) {
-    info.innerHTML = `Website running with verified static JSON course catalog (7 Books ready). Local MongoDB Atlas API server can be started with <code>node server.js</code>.`;
+    info.innerHTML = `Website running with verified static JSON course catalog (9 Books ready). Local MongoDB Atlas API server can be started with <code>node server.js</code>.`;
   }
   return null;
 }
@@ -6536,6 +7813,11 @@ async function syncBooksFromWebsiteData(silent = false) {
           if (idx !== -1) {
             const prevIcon = s.subjects[idx].icon;
             s.subjects[idx] = { ...s.subjects[idx], ...norm, icon: prevIcon || norm.icon || "📚", isBuiltIn: true };
+            if (s.activeSubjectId === s.subjects[idx].id || (s.activeSubject && s.activeSubject.book.trim().toLowerCase() === norm.book.trim().toLowerCase() && Number(s.activeSubject.week) === Number(norm.week))) {
+              s.activeSubject = s.subjects[idx];
+              s.activeSubjectId = s.subjects[idx].id;
+              s.questions = s.subjects[idx].questions || [];
+            }
           } else {
             s.subjects.push({ ...norm, isBuiltIn: true });
           }
@@ -6708,6 +7990,8 @@ function openDirectLinkModal() {
     { name: "Object-Oriented Programming (Week 04)", url: "data/bscs_oop_week04.json", desc: "20 MCQs • Constructors, Encapsulation, Access Specifiers" },
     { name: "Theory of Automata (Week 02)", url: "data/bscs_theory_of_automata_week02.json", desc: "40 MCQs • Regular Expressions & Recursive Definitions" },
     { name: "Computer Architecture and Organization (Week 01)", url: "data/bscs_computer_architecture_week01.json", desc: "39 MCQs • Digital Logic & Hardware Overview" },
+    { name: "Computer Architecture and Organization (Week 02)", url: "data/bscs_computer_architecture_week02.json", desc: "35 MCQs • CPU Registers, ISA, CISC vs RISC, VLIW, SMT" },
+    { name: "Computer Architecture and Organization (Week 03)", url: "data/bscs_computer_architecture_week03.json", desc: "36 MCQs • ISA Families & Processor Parallelism" },
     { name: "Database Systems (Week 02)", url: "data/bscs_database_systems_week02.json", desc: "39 MCQs • Three-Level Schema Architecture & Data Independence" }
   ];
 

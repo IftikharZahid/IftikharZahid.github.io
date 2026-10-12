@@ -242,6 +242,35 @@ const server = http.createServer(async (req, res) => {
             const slug = (bookTitle + "-" + (chapter.toLowerCase().includes("week") ? chapter : `week-${weekNum}`)).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
             const topic = q0.topic || q0.chapter || bookTitle;
 
+            function extractAnswerIndex(q, opts) {
+              if (typeof q.correctOptionIndex === 'number' && q.correctOptionIndex >= 0 && q.correctOptionIndex < opts.length) {
+                return q.correctOptionIndex;
+              }
+              if (typeof q.correctIndex === 'number' && q.correctIndex >= 0 && q.correctIndex < opts.length) {
+                return q.correctIndex;
+              }
+              if (Array.isArray(q.options)) {
+                const fromOpts = q.options.findIndex(o => o && typeof o === 'object' && (o.isCorrect === true || o.correct === true));
+                if (fromOpts >= 0 && fromOpts < opts.length) return fromOpts;
+              }
+              if (typeof q.correctAnswer === 'string' && q.correctAnswer.trim()) {
+                const letterIdx = ["A","B","C","D","E"].indexOf(q.correctAnswer.trim().toUpperCase());
+                if (letterIdx >= 0 && letterIdx < opts.length) return letterIdx;
+                const found = opts.findIndex(o => o.toLowerCase() === q.correctAnswer.trim().toLowerCase());
+                if (found >= 0) return found;
+              }
+              if (typeof q.answer === 'number' && q.answer >= 0 && q.answer < opts.length) {
+                return q.answer;
+              }
+              if (typeof q.answer === 'string' && q.answer.trim()) {
+                const letterIdx = ["A","B","C","D","E"].indexOf(q.answer.trim().toUpperCase());
+                if (letterIdx >= 0 && letterIdx < opts.length) return letterIdx;
+                const found = opts.findIndex(o => o.toLowerCase() === q.answer.trim().toLowerCase());
+                if (found >= 0) return found;
+              }
+              return 0;
+            }
+
             record = {
               id: slug,
               book: bookTitle,
@@ -254,19 +283,24 @@ const server = http.createServer(async (req, res) => {
               icon: "📚",
               isBuiltIn: false,
               totalQuestions: rawList.length,
-              questions: rawList.map((q, idx) => ({
-                id: q.id || (idx + 1),
-                questionIndex: q.questionIndex || q.id || (idx + 1),
-                subject: q.subject || bookTitle,
-                chapter: q.chapter || chapter,
-                topic: q.topic || topic,
-                difficulty: q.difficulty || "Medium",
-                question: (q.question || q.prompt || "").trim(),
-                options: Array.isArray(q.options) ? q.options : (typeof q.options === 'object' && q.options ? Object.values(q.options) : []),
-                answer: typeof q.answer === 'number' ? q.answer : 0,
-                explanation: (q.explanation || "").trim(),
-                type: q.type || "single"
-              })),
+              questions: rawList.map((q, idx) => {
+                const opts = Array.isArray(q.options) 
+                  ? q.options.map(o => typeof o === 'object' && o ? (o.text || o.option || JSON.stringify(o)) : String(o)) 
+                  : (typeof q.options === 'object' && q.options ? Object.values(q.options) : []);
+                return {
+                  id: q.id || (idx + 1),
+                  questionIndex: q.questionIndex || q.id || (idx + 1),
+                  subject: q.subject || bookTitle,
+                  chapter: q.chapter || chapter,
+                  topic: q.topic || topic,
+                  difficulty: q.difficulty || "Medium",
+                  question: (q.question || q.prompt || "").trim(),
+                  options: opts,
+                  answer: extractAnswerIndex(q, opts),
+                  explanation: (q.explanation || "").trim(),
+                  type: q.type || "single"
+                };
+              }),
               uploadedAt: new Date()
             };
           } else {
@@ -282,6 +316,35 @@ const server = http.createServer(async (req, res) => {
                            (Array.isArray(root.questions) ? root.questions :
                            (Array.isArray(root.data) ? root.data : []))));
 
+            function extractAnswerIndex(q, opts) {
+              if (typeof q.correctOptionIndex === 'number' && q.correctOptionIndex >= 0 && q.correctOptionIndex < opts.length) {
+                return q.correctOptionIndex;
+              }
+              if (typeof q.correctIndex === 'number' && q.correctIndex >= 0 && q.correctIndex < opts.length) {
+                return q.correctIndex;
+              }
+              if (Array.isArray(q.options)) {
+                const fromOpts = q.options.findIndex(o => o && typeof o === 'object' && (o.isCorrect === true || o.correct === true));
+                if (fromOpts >= 0 && fromOpts < opts.length) return fromOpts;
+              }
+              if (typeof q.correctAnswer === 'string' && q.correctAnswer.trim()) {
+                const letterIdx = ["A","B","C","D","E"].indexOf(q.correctAnswer.trim().toUpperCase());
+                if (letterIdx >= 0 && letterIdx < opts.length) return letterIdx;
+                const found = opts.findIndex(o => o.toLowerCase() === q.correctAnswer.trim().toLowerCase());
+                if (found >= 0) return found;
+              }
+              if (typeof q.answer === 'number' && q.answer >= 0 && q.answer < opts.length) {
+                return q.answer;
+              }
+              if (typeof q.answer === 'string' && q.answer.trim()) {
+                const letterIdx = ["A","B","C","D","E"].indexOf(q.answer.trim().toUpperCase());
+                if (letterIdx >= 0 && letterIdx < opts.length) return letterIdx;
+                const found = opts.findIndex(o => o.toLowerCase() === q.answer.trim().toLowerCase());
+                if (found >= 0) return found;
+              }
+              return 0;
+            }
+
             record = {
               id: slug,
               book: bookTitle,
@@ -294,19 +357,24 @@ const server = http.createServer(async (req, res) => {
               icon: "📚",
               isBuiltIn: false,
               totalQuestions: rawList.length,
-              questions: rawList.map((q, idx) => ({
-                id: q.id || (idx + 1),
-                questionIndex: q.questionIndex || q.id || (idx + 1),
-                subject: q.subject || bookTitle,
-                chapter: q.chapter || root.topic || root.syllabusCoverage || bookTitle,
-                topic: q.topic || root.topic || bookTitle,
-                difficulty: q.difficulty || "Medium",
-                question: (q.question || q.prompt || "").trim(),
-                options: Array.isArray(q.options) ? q.options : (typeof q.options === 'object' && q.options ? Object.values(q.options) : []),
-                answer: typeof q.answer === 'number' ? q.answer : 0,
-                explanation: (q.explanation || "").trim(),
-                type: q.type || "single"
-              })),
+              questions: rawList.map((q, idx) => {
+                const opts = Array.isArray(q.options) 
+                  ? q.options.map(o => typeof o === 'object' && o ? (o.text || o.option || JSON.stringify(o)) : String(o)) 
+                  : (typeof q.options === 'object' && q.options ? Object.values(q.options) : []);
+                return {
+                  id: q.id || (idx + 1),
+                  questionIndex: q.questionIndex || q.id || (idx + 1),
+                  subject: q.subject || bookTitle,
+                  chapter: q.chapter || root.topic || root.syllabusCoverage || bookTitle,
+                  topic: q.topic || root.topic || bookTitle,
+                  difficulty: q.difficulty || "Medium",
+                  question: (q.question || q.prompt || "").trim(),
+                  options: opts,
+                  answer: extractAnswerIndex(q, opts),
+                  explanation: (q.explanation || "").trim(),
+                  type: q.type || "single"
+                };
+              }),
               uploadedAt: new Date()
             };
           }

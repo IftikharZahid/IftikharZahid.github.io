@@ -1,0 +1,1205 @@
+{
+  "book": "Computer Architecture and Organization",
+  "course": "Computer Architecture and Organization",
+  "courseCode": "CAO",
+  "bankId": "CAO-BSCS-W02",
+  "week": 2,
+  "weekNo": 2,
+  "weekTitle": "Week 02",
+  "topic": "CPU Registers and Types; Instruction Set Architecture; CISC, RISC, VLIW, EPIC, Hybrid Architectures, Vector Processors, Superscalar Architecture, SMT, and MC68000",
+  "level": "BS Computer Science",
+  "program": "BS Computer Science",
+  "assessmentType": "MCQs",
+  "questionType": "MCQ",
+  "language": "English",
+  "totalQuestions": 35,
+  "marksPerQuestion": 1,
+  "totalMarks": 35,
+  "createdBy": "Lec. Iftikhar Zahid",
+  "preparedBy": "Lec. Iftikhar Zahid",
+  "role": "Lecturer, Computer Science",
+  "version": "1.0",
+  "schemaVersion": "1.0",
+  "encoding": "UTF-8",
+  "sourceDocument": "Computer_Architecture_Week_02_03_Professional_Lecture_Lec_Iftikhar_Zahid.docx",
+  "sourceScopeNote": "The available lecture combines Weeks 02–03 and presents these architecture topics as a combined scope; the source does not separate every topic exclusively into Week 02.",
+  "topics": [
+    "CPU Registers",
+    "Program Counter",
+    "Instruction Register",
+    "Stack Pointer",
+    "Status and Flag Registers",
+    "General-Purpose Registers",
+    "Accumulator",
+    "Instruction Set Architecture",
+    "CISC",
+    "RISC",
+    "CISC vs. RISC",
+    "MC68000",
+    "VLIW",
+    "EPIC",
+    "Hybrid Architectures",
+    "Vector Processors",
+    "Superscalar Architecture",
+    "SMT",
+    "Parallel Architecture Comparison",
+    "Address Registers"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of CPU registers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "High-speed storage used directly during processor execution",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Permanent storage for all files",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Replacement for input/output devices",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Long-term optical storage",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "CPU Registers",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: High-speed storage used directly during processor execution"
+    },
+    {
+      "id": 2,
+      "question": "Which register identifies the address of the next instruction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Instruction Register",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Program Counter",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Stack Pointer",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Accumulator",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "marks": 1,
+      "topic": "Program Counter",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Program Counter"
+    },
+    {
+      "id": 3,
+      "question": "What does the Instruction Register hold?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The instruction currently being decoded or executed",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Only the next stack address",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "All main memory contents",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "The processor clock frequency",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Instruction Register",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: The instruction currently being decoded or executed"
+    },
+    {
+      "id": 4,
+      "question": "Which register identifies the relevant stack location?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Program Counter",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Instruction Register",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Stack Pointer",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "Status Register",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "marks": 1,
+      "topic": "Stack Pointer",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Stack Pointer"
+    },
+    {
+      "id": 5,
+      "question": "What is the typical role of a status or flag register?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Store condition and control information",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Store documents permanently",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Compile high-level code",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Control monitor brightness only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Status and Flag Registers",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Store condition and control information"
+    },
+    {
+      "id": 6,
+      "question": "Which is an example of a condition flag?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero Flag (ZF)",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "File Flag (FF)",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Display Flag (DFI)",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Network Flag (NF)",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Status and Flag Registers",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Zero Flag (ZF)"
+    },
+    {
+      "id": 7,
+      "question": "What are general-purpose registers commonly used for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Operands, temporary values, and results",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Only operating-system installers",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Replacing the control unit",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Permanent external storage",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "General-Purpose Registers",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Operands, temporary values, and results"
+    },
+    {
+      "id": 8,
+      "question": "In accumulator-oriented designs, what does the accumulator commonly hold?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Operands and arithmetic or logical results",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Only the next instruction address",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Only an opcode",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Input-device locations",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Accumulator",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Operands and arithmetic or logical results"
+    },
+    {
+      "id": 9,
+      "question": "Which statement about CPU registers is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are small, high-speed storage locations within the processor",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "They are slower than all secondary storage",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "They are external network peripherals",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "They are only for backups",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "CPU Registers",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: They are small, high-speed storage locations within the processor"
+    },
+    {
+      "id": 10,
+      "question": "What does Instruction Set Architecture (ISA) describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The instruction interface visible to software at processor level",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The physical design of a desk",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Only the file system",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "The color of a circuit board",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Instruction Set Architecture",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: The instruction interface visible to software at processor level"
+    },
+    {
+      "id": 11,
+      "question": "What is a central characteristic of CISC?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A rich and comparatively complex instruction set",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "No arithmetic instructions",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Only vector instructions",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "No registers",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "CISC",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: A rich and comparatively complex instruction set"
+    },
+    {
+      "id": 12,
+      "question": "What is a central emphasis of RISC?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A simpler and more regular instruction set",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The largest possible set of complex instructions",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Execution only through external storage",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Removing the instruction set",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "RISC",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: A simpler and more regular instruction set"
+    },
+    {
+      "id": 13,
+      "question": "Which comparison between CISC and RISC is accurate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CISC emphasizes a rich, complex set; RISC a simpler, more regular set",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "CISC has no instructions and RISC no registers",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "CISC is storage and RISC is input",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "They mean exactly the same approach",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "CISC vs. RISC",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: CISC emphasizes a rich, complex set; RISC a simpler, more regular set"
+    },
+    {
+      "id": 14,
+      "question": "Which processor is listed as a CISC example in the course outline?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MC68000",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "A generic GPU",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "A disk controller",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A printer",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "MC68000",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: MC68000"
+    },
+    {
+      "id": 15,
+      "question": "What does VLIW stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Very Long Instruction Word",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Variable Logic Instruction Width",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Virtual Language Integration Workflow",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Vector-Level Input Window",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "VLIW",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Very Long Instruction Word"
+    },
+    {
+      "id": 16,
+      "question": "What is a defining idea of VLIW?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A long instruction word groups operations intended for parallel execution",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Each instruction must perform one memory transfer",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Instructions are stored only on removable media",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "It has no instruction encoding",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "VLIW",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: A long instruction word groups operations intended for parallel execution"
+    },
+    {
+      "id": 17,
+      "question": "What does EPIC stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Explicitly Parallel Instruction Computing",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Extended Processor Input Control",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Electronic Program Interpretation Code",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Enhanced Peripheral Interface Channel",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "EPIC",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Explicitly Parallel Instruction Computing"
+    },
+    {
+      "id": 18,
+      "question": "What is the key idea associated with EPIC?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Parallelism is made explicit through compiler and architecture cooperation",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Instructions execute only after being written to disk",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "The processor has no control logic",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "It compresses image files",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "EPIC",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Parallelism is made explicit through compiler and architecture cooperation"
+    },
+    {
+      "id": 19,
+      "question": "What is a hybrid architecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An approach combining features from more than one architectural style",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "A system containing only secondary storage",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "A processor without an instruction set",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A one-input logic gate",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Hybrid Architectures",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: An approach combining features from more than one architectural style"
+    },
+    {
+      "id": 20,
+      "question": "What kind of parallelism do vector processors primarily exploit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data-level parallelism",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Only user-interface parallelism",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Only disk scheduling",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "No parallelism",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Vector Processors",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Data-level parallelism"
+    },
+    {
+      "id": 21,
+      "question": "Which task best illustrates vector processing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Applying the same operation to multiple array elements",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Opening a file without processing data",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Changing monitor resolution",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Saving a document to USB",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Vector Processors",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Applying the same operation to multiple array elements"
+    },
+    {
+      "id": 22,
+      "question": "What is a key feature of superscalar architecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multiple execution resources issue independent instructions",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "It executes only one instruction per day",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "It removes instruction decoding",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "It stores instructions in a printer",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Superscalar Architecture",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Multiple execution resources issue independent instructions"
+    },
+    {
+      "id": 23,
+      "question": "Superscalar processing primarily exploits which parallelism?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Instruction-level parallelism",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Data backup parallelism only",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Network routing only",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "No parallelism",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Superscalar Architecture",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Instruction-level parallelism"
+    },
+    {
+      "id": 24,
+      "question": "What does SMT stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Simultaneous Multithreading",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Sequential Memory Transfer",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Single Machine Translation",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "System Management Table",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "SMT",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Simultaneous Multithreading"
+    },
+    {
+      "id": 25,
+      "question": "What is the central idea of SMT?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Instructions from multiple threads share execution resources of one core",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Only one thread can exist in an operating system",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "It replaces registers with hard drives",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "It converts every instruction to a vector",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "SMT",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Instructions from multiple threads share execution resources of one core"
+    },
+    {
+      "id": 26,
+      "question": "Which distinction between vector and superscalar processing is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vector processing works across data elements; superscalar issues independent instructions using multiple execution resources",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Vector is only for files and superscalar only for displays",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Both mean there are no registers",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Superscalar means multiple operating systems",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Parallel Architecture Comparison",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Vector processing works across data elements; superscalar issues independent instructions using multiple execution resources"
+    },
+    {
+      "id": 27,
+      "question": "Which distinction between SMT and vector processing is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SMT shares core resources among threads; vector processing exploits data-level parallelism",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "SMT is a disk drive and vector processing a network protocol",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Both refer only to instruction storage",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Vector processing requires no registers",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Parallel Architecture Comparison",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: SMT shares core resources among threads; vector processing exploits data-level parallelism"
+    },
+    {
+      "id": 28,
+      "question": "Why are registers important during arithmetic and logical operations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They hold operands and intermediate or final results close to execution units",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "They archive all user documents permanently",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "They are the only input device",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "They eliminate instructions",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "CPU Registers",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: They hold operands and intermediate or final results close to execution units"
+    },
+    {
+      "id": 29,
+      "question": "What can cause the Program Counter to change from sequential progression?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A branch, jump, call, interrupt, or other control-transfer operation",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Changing desktop wallpaper",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Saving a file to secondary storage",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Changing keyboard layout",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Program Counter",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: A branch, jump, call, interrupt, or other control-transfer operation"
+    },
+    {
+      "id": 30,
+      "question": "Which register is associated with the instruction currently being processed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Instruction Register (IR)",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Stack Pointer (SP)",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Program Counter (PC)",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Address Register only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Instruction Register",
+      "difficulty": "Easy",
+      "type": "single",
+      "explanation": "Correct answer: Instruction Register (IR)"
+    },
+    {
+      "id": 31,
+      "question": "Which register type holds effective or operand addresses?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Address Register",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Accumulator only",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Instruction Register only",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Status Register only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Address Registers",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Address Register"
+    },
+    {
+      "id": 32,
+      "question": "What is the most accurate statement about CISC and RISC?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are ISA design approaches with different instruction-set emphases",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "They are two CPU registers",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "They are types of secondary memory",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "They are input devices",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "CISC vs. RISC",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: They are ISA design approaches with different instruction-set emphases"
+    },
+    {
+      "id": 33,
+      "question": "A processor groups parallel operations into a long instruction word. Which architecture is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "VLIW",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "SMT",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "CISC exclusively",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Stack Pointer",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "VLIW",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: VLIW"
+    },
+    {
+      "id": 34,
+      "question": "A processor issues independent instructions through multiple execution units. Which approach is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Superscalar architecture",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Program Counter",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Address register",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Secondary storage",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "Superscalar Architecture",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Superscalar architecture"
+    },
+    {
+      "id": 35,
+      "question": "A core allows instructions from different threads to share execution resources. Which technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Simultaneous Multithreading (SMT)",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Sequential logic only",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Immediate addressing",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Optical storage",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "marks": 1,
+      "topic": "SMT",
+      "difficulty": "Medium",
+      "type": "single",
+      "explanation": "Correct answer: Simultaneous Multithreading (SMT)"
+    }
+  ]
+}
