@@ -1,8 +1,10 @@
 {
   "metadata": {
+    "book": "Theory of Automata",
     "course": "Theory of Automata",
     "level": "BS Computer Science",
     "week": 3,
+    "weekTitle": "Week 03",
     "topic": "Kleene's Theorem; Transition Graphs to Regular Expressions; Regular Expressions to Finite Automata",
     "questionType": "MCQ",
     "language": "English",

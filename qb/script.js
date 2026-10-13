@@ -4776,7 +4776,7 @@ function main() {
 }
 function optText(o) { if (!o && o !== 0) return ""; if (typeof o === "string") return o; if (typeof o.text === "string") return o.text; if (typeof o.option === "string") return o.option; return String(o); }
 
-const CATALOG_BUILD_VERSION = "2026.10.12-v4";
+const CATALOG_BUILD_VERSION = "2026.10.12-v5";
 
 function loadStoredSubjects() {
   const currentCatalogVersion = read("qb_catalog_version", "");
@@ -4790,8 +4790,38 @@ function loadStoredSubjects() {
     } catch {}
   }
 
-  // Purge any corrupted 0-question subject records (e.g. from previous broken uploads)
-  list = list.filter(sub => !(sub.id === "custom-question-bank-week-01" || (!sub.isBuiltIn && (!sub.questions || sub.questions.length === 0))));
+  // Purge any corrupted phantom subject records (e.g. course-book-*, custom-question-bank-week-01, empty records)
+  list = list.filter(sub => !(
+    sub.id === "custom-question-bank-week-01" || 
+    (sub.id && String(sub.id).startsWith("course-book-")) ||
+    (sub.book && String(sub.book).toLowerCase() === "course book") ||
+    (!sub.isBuiltIn && (!sub.questions || sub.questions.length === 0))
+  ));
+
+  // Remap any remaining subjects with book === "Course Book" to their actual course
+  list.forEach(sub => {
+    if (sub.book && String(sub.book).toLowerCase() === "course book") {
+      sub.book = (sub.course && String(sub.course).toLowerCase() !== "course book") ? sub.course : "Theory of Automata";
+      const slugCourse = sub.book.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      sub.id = `${slugCourse}-week-${sub.week || 1}`;
+    }
+  });
+
+  // Deduplicate records by book and week
+  const uniqueList = [];
+  list.forEach(sub => {
+    const existing = uniqueList.find(x => 
+      x.id === sub.id || 
+      (x.book && sub.book && x.book.trim().toLowerCase() === sub.book.trim().toLowerCase() && Number(x.week) === Number(sub.week))
+    );
+    if (!existing) {
+      uniqueList.push(sub);
+    } else if (sub.questions && sub.questions.length > (existing.questions ? existing.questions.length : 0)) {
+      const idx = uniqueList.indexOf(existing);
+      uniqueList[idx] = sub;
+    }
+  });
+  list = uniqueList;
 
   DEFAULT_SUBJECTS.forEach(defSub => {
     const existing = list.find(s => 
@@ -4879,6 +4909,12 @@ const s = {
 window.s = s;
 
 function saveSubjects(subjectsToSync = []) {
+  s.subjects = s.subjects.filter(sub => !(
+    sub.id === "custom-question-bank-week-01" ||
+    (sub.id && String(sub.id).startsWith("course-book-")) ||
+    (sub.book && String(sub.book).toLowerCase() === "course book") ||
+    (!sub.isBuiltIn && sub.totalQuestions === 0 && (!sub.questions || sub.questions.length === 0))
+  ));
   store(K.subjects, JSON.stringify(s.subjects));
   // Auto-push changed subjects to MongoDB if server is reachable
   if (MONGO_API_URL && subjectsToSync.length > 0) {
@@ -4904,30 +4940,41 @@ async function deleteFromMongo(subjectId) {
 
 function getBookGroupKey(sub) {
   let b = (sub.book || sub.course || "").trim();
-  const lower = b.toLowerCase();
-  if (lower.includes("object-oriented") || lower.includes("object oriented") || lower === "oop") {
+  if (b.toLowerCase() === "course book" || b.toLowerCase().startsWith("course book")) {
+    b = (sub.course || "").trim();
+  }
+  const combined = ((sub.book || "") + " " + (sub.course || "")).toLowerCase();
+  if (combined.includes("object-oriented") || combined.includes("object oriented") || combined === "oop") {
     return "Object-Oriented Programming";
   }
-  if (lower.includes("theory of automata") || lower.includes("automata")) {
+  if (combined.includes("theory of automata") || combined.includes("automata")) {
     return "Theory of Automata";
   }
-  if (lower.includes("computer architecture")) {
+  if (combined.includes("computer architecture")) {
     return "Computer Architecture and Organization";
   }
-  if (lower.includes("database system")) {
+  if (combined.includes("database system")) {
     return "Database Systems";
   }
-  return b || "General Study";
+  if (!b || b.toLowerCase() === "course book") {
+    b = (sub.course && sub.course.toLowerCase() !== "course book") ? sub.course.trim() : "General Study";
+  }
+  return b;
 }
 
 function getGroupedBooks() {
   const map = new Map();
   s.subjects.forEach(sub => {
+    if (sub.book && sub.book.toLowerCase() === "course book") {
+      sub.book = getBookGroupKey(sub);
+    }
     const key = getBookGroupKey(sub);
+    if (!key || key.toLowerCase() === "course book") return;
+
     if (!map.has(key)) {
       map.set(key, {
         book: key,
-        course: sub.course || key,
+        course: sub.course && sub.course.toLowerCase() !== "course book" ? sub.course : key,
         icon: sub.icon || "📚",
         level: sub.level || "BS Computer Science",
         createdBy: sub.createdBy || "Lec. Iftikhar Zahid",
@@ -4938,7 +4985,24 @@ function getGroupedBooks() {
     if (sub.icon && sub.icon !== "📚" && (bookObj.icon === "📚" || !bookObj.icon)) {
       bookObj.icon = sub.icon;
     }
-    bookObj.weeks.push(sub);
+
+    // Deduplicate modules within the book by week number or id
+    const subWeekNum = Number(sub.week) || parseInt(String(sub.weekTitle || "").replace(/\D/g, "")) || 0;
+    const existingWeek = bookObj.weeks.find(w => {
+      const wNum = Number(w.week) || parseInt(String(w.weekTitle || "").replace(/\D/g, "")) || 0;
+      return (subWeekNum > 0 && wNum === subWeekNum) || w.id === sub.id;
+    });
+
+    if (!existingWeek) {
+      bookObj.weeks.push(sub);
+    } else {
+      const existingCount = existingWeek.questions ? existingWeek.questions.length : 0;
+      const subCount = sub.questions ? sub.questions.length : 0;
+      if (subCount > existingCount || (sub.isBuiltIn && !existingWeek.isBuiltIn)) {
+        const idx = bookObj.weeks.indexOf(existingWeek);
+        bookObj.weeks[idx] = sub;
+      }
+    }
   });
 
   const books = [];
@@ -4964,7 +5028,13 @@ function renderSubjects() {
   const grid = $("#subjectGrid");
   if (!grid) return;
 
-  const groupedBooks = getGroupedBooks();
+  s.subjects = s.subjects.filter(sub => !(
+    sub.id === "custom-question-bank-week-01" ||
+    (sub.id && String(sub.id).startsWith("course-book-")) ||
+    (sub.book && String(sub.book).toLowerCase() === "course book")
+  ));
+
+  const groupedBooks = getGroupedBooks().filter(b => b.book && b.book.toLowerCase() !== "course book");
 
   // If a book detail sub-screen is currently open, refresh it
   if (s.currentBookView) {
@@ -7591,9 +7661,14 @@ function parseAndNormalizeJSON(parsed, fallbackName = "") {
   } else if (parsed && typeof parsed === "object") {
     const root = parsed.questionBank || parsed.metadata || parsed;
     const weekNum = Number(root.week || root.weekNo) || 1;
+    let detectedBook = (root.book || root.course || root.subject || root.title || root.courseCode || "").trim();
+    let detectedCourse = (root.course || root.subject || root.book || root.courseCode || "Computer Science").trim();
+    if (!detectedBook || detectedBook.toLowerCase() === "course book") {
+      detectedBook = (detectedCourse && detectedCourse.toLowerCase() !== "course book") ? detectedCourse : "Course Syllabus";
+    }
     meta = {
-      book: root.book || root.subject || root.title || root.courseCode || "Course Book",
-      course: root.course || root.subject || root.courseCode || "Computer Science",
+      book: detectedBook,
+      course: detectedCourse,
       week: weekNum,
       weekTitle: root.weekTitle || root.section || (root.week ? `Week ${root.week}` : `Week ${weekNum}`),
       topic: root.topic || root.syllabusCoverage || root.title || "Course Review",
@@ -7828,7 +7903,12 @@ async function syncBooksFromWebsiteData(silent = false) {
   }
 
   if (loaded > 0) {
-    s.subjects = s.subjects.filter(sub => !(sub.id === "custom-question-bank-week-01" || (!sub.isBuiltIn && sub.totalQuestions === 0 && (!sub.questions || sub.questions.length === 0))));
+    s.subjects = s.subjects.filter(sub => !(
+      sub.id === "custom-question-bank-week-01" ||
+      (sub.id && String(sub.id).startsWith("course-book-")) ||
+      (sub.book && String(sub.book).toLowerCase() === "course book") ||
+      (!sub.isBuiltIn && sub.totalQuestions === 0 && (!sub.questions || sub.questions.length === 0))
+    ));
     saveSubjects();
     renderSubjects();
     updateHeroSubjectUI();

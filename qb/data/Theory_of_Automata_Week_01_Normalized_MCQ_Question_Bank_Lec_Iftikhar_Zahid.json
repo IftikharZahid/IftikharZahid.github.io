@@ -1,8 +1,10 @@
 {
   "metadata": {
+    "book": "Theory of Automata",
     "course": "Theory of Automata",
     "level": "BS Computer Science",
     "week": 1,
+    "weekTitle": "Week 01",
     "topic": "Languages, Alphabet, Strings & Recursive Definitions",
     "questionType": "MCQ",
     "language": "English",
