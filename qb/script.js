@@ -4892,6 +4892,9 @@ const s = {
   timer: null,
   result: null,
   student: {},
+  selectedClassFilter: "all",
+  bookSearchQuery: "",
+  currentBookView: null,
   qbank: {
     search: "",
     course: "all",
@@ -5024,6 +5027,152 @@ function getGroupedBooks() {
 let isFacultyLoggedIn = false;
 function isFaculty() { return isFacultyLoggedIn; }
 
+function getBookCourseCode(bookTitle) {
+  const t = (bookTitle || "").toLowerCase();
+  if (t.includes("automata")) return "TOA-401";
+  if (t.includes("object-oriented") || t.includes("oop")) return "OOP-201";
+  if (t.includes("architecture")) return "CAO-202";
+  if (t.includes("database")) return "DBS-301";
+  if (t.includes("operating system")) return "OS-303";
+  if (t.includes("data structure") || t.includes("dsa")) return "DSA-203";
+  return "CS-200";
+}
+
+function getBookTheme(bookTitle) {
+  const t = (bookTitle || "").toLowerCase();
+  if (t.includes("automata")) {
+    return {
+      className: "bookThemeAutomata",
+      primary: "#065f46",
+      accent: "#34d399",
+      code: "TOA-401",
+      short: "Automata",
+      icon: "⚙️"
+    };
+  }
+  if (t.includes("object-oriented") || t.includes("oop")) {
+    return {
+      className: "bookThemeOop",
+      primary: "#4338ca",
+      accent: "#a5b4fc",
+      code: "OOP-201",
+      short: "OOP",
+      icon: "💻"
+    };
+  }
+  if (t.includes("architecture")) {
+    return {
+      className: "bookThemeCao",
+      primary: "#1d4ed8",
+      accent: "#60a5fa",
+      code: "CAO-202",
+      short: "Arch & Org",
+      icon: "🧩"
+    };
+  }
+  if (t.includes("database")) {
+    return {
+      className: "bookThemeDbs",
+      primary: "#be123c",
+      accent: "#fda4af",
+      code: "DBS-301",
+      short: "Database",
+      icon: "🗄️"
+    };
+  }
+  return {
+    className: "bookThemeDefault",
+    primary: "#b45309",
+    accent: "#fcd34d",
+    code: "CS-200",
+    short: "CS Book",
+    icon: "📚"
+  };
+}
+
+function getBookTopicHighlights(book) {
+  const rawTopics = [];
+  (book.weeks || []).forEach(w => {
+    if (Array.isArray(w.topics) && w.topics.length) {
+      rawTopics.push(...w.topics.slice(0, 3));
+    } else if (typeof w.topic === "string" && w.topic.trim()) {
+      const parts = w.topic.split(/[;•,\/]/).map(p => p.trim()).filter(p => p.length > 2 && p.length < 40);
+      rawTopics.push(...parts);
+    }
+  });
+  const clean = [];
+  const seen = new Set();
+  for (const t of rawTopics) {
+    const lower = t.toLowerCase();
+    if (!seen.has(lower) && !lower.includes("scope") && !lower.includes("week") && clean.length < 3) {
+      seen.add(lower);
+      clean.push(t);
+    }
+  }
+  if (clean.length === 0) {
+    clean.push("Curriculum Syllabus", "Lecture MCQs", "Exam Review");
+  }
+  return clean;
+}
+
+function getBookClasses(book) {
+  const levels = new Set();
+  (book.weeks || []).forEach(w => {
+    const lvl = (w.level || w.class || w.program || book.level || "").trim();
+    if (lvl) levels.add(lvl);
+  });
+  if (levels.size === 0) levels.add("BS Computer Science");
+  return Array.from(levels);
+}
+
+let classFilterEventsAttached = false;
+function attachClassFilterEvents() {
+  if (classFilterEventsAttached) return;
+  classFilterEventsAttached = true;
+
+  const tabsContainer = $("#classFilterTabs");
+  if (tabsContainer) {
+    tabsContainer.addEventListener("click", e => {
+      const btn = e.target.closest(".classFilterBtn");
+      if (!btn) return;
+      const targetClass = btn.getAttribute("data-class") || "all";
+      s.selectedClassFilter = targetClass;
+
+      tabsContainer.querySelectorAll(".classFilterBtn").forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      renderSubjects();
+    });
+  }
+
+  const searchInput = $("#bookCatalogSearch");
+  if (searchInput) {
+    searchInput.addEventListener("input", e => {
+      s.bookSearchQuery = e.target.value;
+      renderSubjects();
+    });
+  }
+}
+
+function resetBookFilter() {
+  s.selectedClassFilter = "all";
+  s.bookSearchQuery = "";
+  const searchInput = $("#bookCatalogSearch");
+  if (searchInput) searchInput.value = "";
+  const tabsContainer = $("#classFilterTabs");
+  if (tabsContainer) {
+    tabsContainer.querySelectorAll(".classFilterBtn").forEach(b => {
+      const isAll = b.getAttribute("data-class") === "all";
+      b.classList.toggle("active", isAll);
+      b.setAttribute("aria-selected", isAll ? "true" : "false");
+    });
+  }
+  renderSubjects();
+}
+
 function renderSubjects() {
   const grid = $("#subjectGrid");
   if (!grid) return;
@@ -5034,11 +5183,11 @@ function renderSubjects() {
     (sub.book && String(sub.book).toLowerCase() === "course book")
   ));
 
-  const groupedBooks = getGroupedBooks().filter(b => b.book && b.book.toLowerCase() !== "course book");
+  const allGroupedBooks = getGroupedBooks().filter(b => b.book && b.book.toLowerCase() !== "course book");
 
   // If a book detail sub-screen is currently open, refresh it
   if (s.currentBookView) {
-    const stillExists = groupedBooks.some(b => b.book === s.currentBookView);
+    const stillExists = allGroupedBooks.some(b => b.book === s.currentBookView);
     if (stillExists) {
       renderBookDetailView(s.currentBookView);
     } else {
@@ -5046,46 +5195,193 @@ function renderSubjects() {
     }
   }
 
-  grid.innerHTML = groupedBooks.map(book => {
+  // Calculate Class Counts for the filter toolbar
+  let bscsCount = 0;
+  let adpCount = 0;
+  allGroupedBooks.forEach(b => {
+    const classes = getBookClasses(b).map(c => c.toLowerCase());
+    if (classes.some(c => c.includes("bs") || c.includes("computer science"))) bscsCount++;
+    if (classes.some(c => c.includes("adp"))) adpCount++;
+  });
+
+  const countAll = $("#countAllClasses");
+  const countBscs = $("#countBscs");
+  const countAdp = $("#countAdp");
+  if (countAll) countAll.textContent = allGroupedBooks.length;
+  if (countBscs) countBscs.textContent = bscsCount;
+  if (countAdp) countAdp.textContent = adpCount;
+
+  // Filter books according to selected class and search query
+  const currentFilter = s.selectedClassFilter || "all";
+  const searchQ = (s.bookSearchQuery || "").trim().toLowerCase();
+
+  const filteredBooks = allGroupedBooks.filter(book => {
+    const classes = getBookClasses(book).map(c => c.toLowerCase());
+    
+    // Class filter check
+    if (currentFilter === "bscs") {
+      const match = classes.some(c => c.includes("bs") || c.includes("computer science"));
+      if (!match) return false;
+    } else if (currentFilter === "adp") {
+      const match = classes.some(c => c.includes("adp"));
+      if (!match) return false;
+    }
+
+    // Search query check
+    if (searchQ) {
+      const theme = getBookTheme(book.book);
+      const topics = getBookTopicHighlights(book).join(" ").toLowerCase();
+      const haystack = (book.book + " " + (book.course || "") + " " + theme.code + " " + topics + " " + classes.join(" ")).toLowerCase();
+      if (!haystack.includes(searchQ)) return false;
+    }
+
+    return true;
+  });
+
+  if (filteredBooks.length === 0) {
+    grid.innerHTML = `
+      <div class="emptyCatalogNotice">
+        <span class="emptyNoticeIcon">📚</span>
+        <h3>No Course Books Match Your Filter</h3>
+        <p>No undergraduate course records matched "<b>${esc(searchQ || currentFilter)}</b>".</p>
+        <button type="button" class="secondary" onclick="resetBookFilter()">Reset Filters</button>
+      </div>`;
+    attachClassFilterEvents();
+    return;
+  }
+
+  grid.innerHTML = filteredBooks.map(book => {
     const hasActive = !!book.hasActiveWeek;
     const weekCount = book.weeks.length;
-    const weekCountLabel = weekCount === 1 ? "1 Weekly Module" : `${weekCount} Weekly Modules`;
+    const weekCountLabel = weekCount === 1 ? "1 Module" : `${weekCount} Modules`;
+    const theme = getBookTheme(book.book);
+    const topics = getBookTopicHighlights(book);
+    const classes = getBookClasses(book);
+    const courseSubtitle = (book.course && book.course.toLowerCase() !== book.book.toLowerCase())
+      ? esc(book.course)
+      : "Undergraduate Continuous Assessment & Question Bank";
 
-    return `<article class="subjectCard bookCard ${hasActive ? "active" : ""}" data-book-key="${esc(book.book)}" onclick="openBookDetail('${esc(book.book)}')" title="Click to view weekly examination modules">
-      <div class="bookCardTop">
-        <div class="bookCardIcon">${esc(book.icon || "📚")}</div>
-        <div class="bookCardHead">
-          <div class="bookCardBadges">
-            <span class="tag" style="background:var(--p-subtle);color:var(--p);font-weight:700;">📅 ${weekCountLabel}</span>
-            <span class="tag success">${book.totalQuestions} Total MCQs</span>
-            ${hasActive ? `<span class="activeIndicator"><i class="activeDot"></i> Active Book (${esc(book.activeWeek.weekTitle || "Week " + book.activeWeek.week)})</span>` : ""}
-          </div>
-          <h3 class="bookCardTitle">${esc(book.book)}</h3>
-          <div class="bookCourseSubtitle">${esc(book.course)}</div>
+    return `
+    <article class="subjectCard bookCard ${theme.className} ${hasActive ? "active" : ""}" 
+             data-book-key="${esc(book.book)}" 
+             onclick="openBookDetail('${esc(book.book)}')" 
+             title="Click to view weekly examination modules for ${esc(book.book)}">
+      
+      <!-- 3D Book Left Spine -->
+      <div class="bookSpine" aria-hidden="true">
+        <div class="spineRib topRib"></div>
+        <div class="spineMonogram">
+          <span class="spineIcon">${esc(theme.icon)}</span>
+          <span class="spineCode">${esc(theme.code)}</span>
         </div>
+        <div class="spineRib midRib"></div>
+        <div class="spineTitleVertical">${esc(theme.short)}</div>
+        <div class="spineRib btmRib"></div>
       </div>
 
-      <p class="bookCardIntro">Continuous assessment course for <b>${esc(book.level || "BS Computer Science")}</b>. Contains <b>${weekCountLabel}</b> covering verified lecture syllabus and examination practice.</p>
+      <!-- Book Cover Face -->
+      <div class="bookCoverBody">
+        <!-- Academic Foil Header (Integrated Active Badge without Overlapping) -->
+        <div class="bookCoverHeader">
+          <div class="bookHeaderImprint">
+            <span class="imprintEmblem">🏛️</span>
+            <span class="imprintText">ACADEMIC LECTURE SERIES</span>
+          </div>
+          <div class="bookHeaderBadges">
+            ${hasActive ? `<span class="activeFoilBadge">★ ACTIVE</span>` : ""}
+            <span class="bookCourseCodeBadge">${esc(theme.code)}</span>
+          </div>
+        </div>
 
-      <div class="bookCardMeta">
-        <span>Class: <b>${esc(book.level || "BS Computer Science")}</b></span>
-        <span>Instructor: <b>${esc(book.createdBy || "Lec. Iftikhar Zahid")}</b></span>
+        <!-- Book Title & Course Identification -->
+        <div class="bookTitleBlock">
+          <h3 class="bookCardTitle">${esc(book.book)}</h3>
+          <div class="bookCourseSubtitle">${courseSubtitle}</div>
+        </div>
+
+        <!-- Class & Degree Badges (Colorful & Prominent) -->
+        <div class="bookClassPillRow">
+          ${classes.map(c => `
+            <span class="bookClassPill">
+              <span class="classIcon">🎓</span> ${esc(c)}
+            </span>
+          `).join("")}
+          <span class="bookEditionTag">2026 Academic Edition</span>
+        </div>
+
+        <!-- Detailed Academic Stats Grid (COMPACT & OVERFLOW-SAFE) -->
+        <div class="bookDetailsGrid">
+          <div class="bookDetailChip">
+            <span class="chipIcon">📅</span>
+            <div class="chipMeta">
+              <span class="chipLabel">MODULES</span>
+              <b class="chipValue">${weekCountLabel}</b>
+            </div>
+          </div>
+          <div class="bookDetailChip">
+            <span class="chipIcon">📝</span>
+            <div class="chipMeta">
+              <span class="chipLabel">QUESTION BANK</span>
+              <b class="chipValue">${book.totalQuestions} MCQs</b>
+            </div>
+          </div>
+          <div class="bookDetailChip">
+            <span class="chipIcon">⏱️</span>
+            <div class="chipMeta">
+              <span class="chipLabel">EXAM TIME</span>
+              <b class="chipValue">${book.totalQuestions} Mins</b>
+            </div>
+          </div>
+          <div class="bookDetailChip">
+            <span class="chipIcon">🏆</span>
+            <div class="chipMeta">
+              <span class="chipLabel">BENCHMARK</span>
+              <b class="chipValue">50% Pass</b>
+            </div>
+          </div>
+        </div>
+
+        <!-- Syllabus Lecture Coverage Tags -->
+        <div class="bookSyllabusScope">
+          <span class="scopeLabel">SYLLABUS TOPICS:</span>
+          <div class="scopeTagList">
+            ${topics.map(t => `<span class="scopeTag">• ${esc(t)}</span>`).join("")}
+          </div>
+        </div>
+
+        <!-- Faculty Accreditation & Verification (Strict Single Line) -->
+        <div class="bookFacultyMeta">
+          <div class="facultyProfile">
+            <span class="facultyAvatar">👨‍🏫</span>
+            <span class="facultyName">${esc(book.createdBy || "Lec. Iftikhar Zahid")}</span>
+            <span class="verifiedBadge" title="Verified Lecture MCQs">✓ Verified</span>
+          </div>
+          <span class="departmentTag">• Dept. of CS</span>
+        </div>
+
+        <!-- Bottom Actions -->
+        <div class="bookCardFoot">
+          <span class="bookFootNote">📖 ${weekCount} ${weekCount === 1 ? "Module" : "Modules"}</span>
+          <button class="bookOpenBtn" type="button" onclick="event.stopPropagation(); openBookDetail('${esc(book.book)}')">
+            <span>Explore Modules</span>
+            <span class="btnArrow">→</span>
+          </button>
+        </div>
+
+        ${isFaculty() ? `
+        <div class="adminBookToolbar" onclick="event.stopPropagation()">
+          <span class="adminToolbarBadge">🔐 Admin</span>
+          <button class="adminToolBtn editToolBtn" type="button" onclick="editBook('${esc(book.book)}')" title="Edit book details">✏️ Edit Info</button>
+          <button class="adminToolBtn deleteToolBtn" type="button" onclick="deleteBook('${esc(book.book)}')" title="Delete entire book">🗑️ Delete Book</button>
+        </div>` : ""}
       </div>
 
-      <div class="bookCardFoot">
-        <span class="bookModulesPill">📖 ${weekCount} ${weekCount === 1 ? "Week Available" : "Weeks Available"}</span>
-        <button class="primary viewModulesBtn" type="button" onclick="event.stopPropagation(); openBookDetail('${esc(book.book)}')">
-          View Weekly Modules (${weekCount}) →
-        </button>
-      </div>
-      ${isFaculty() ? `
-      <div class="adminBookToolbar" onclick="event.stopPropagation()">
-        <span class="adminToolbarBadge">🔐 Admin</span>
-        <button class="adminToolBtn editToolBtn" type="button" onclick="editBook('${esc(book.book)}')" title="Edit book details">✏️ Edit Info</button>
-        <button class="adminToolBtn deleteToolBtn" type="button" onclick="deleteBook('${esc(book.book)}')" title="Delete entire book">🗑️ Delete Book</button>
-      </div>` : ""}
+      <!-- 3D Stacked Book Pages (Right Edge) -->
+      <div class="bookPagesEdge" aria-hidden="true"></div>
     </article>`;
   }).join("");
+
+  attachClassFilterEvents();
 }
 
 function openBookDetail(bookKey) {
@@ -5114,26 +5410,37 @@ function renderBookDetailView(bookKey) {
   const hero = $("#bookDetailHero");
   const weeksGrid = $("#bookWeeksGrid");
   const heading = $("#bookModulesHeading");
+  const theme = getBookTheme(book.book);
+  const classes = getBookClasses(book);
 
   if (heading) {
     heading.textContent = `${book.book} — Weekly Examination Modules`;
   }
 
   if (hero) {
+    hero.className = `bookDetailHero card ${theme.className}`;
     hero.innerHTML = `
       <div class="heroHeaderRow">
-        <div class="heroBookIcon">${esc(book.icon || "📚")}</div>
+        <div class="heroBookSpinePill" aria-hidden="true">
+          <span class="heroSpineIcon">${esc(theme.icon)}</span>
+          <span class="heroSpineCode">${esc(theme.code)}</span>
+        </div>
         <div class="heroBookInfo">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px;">
-            <span class="tag" style="background:var(--p-subtle);color:var(--p);font-weight:700;">${esc(book.level || "BS Computer Science")}</span>
-            <span class="tag success">${book.totalQuestions} Questions Total</span>
-            ${book.hasActiveWeek ? `<span class="activeIndicator"><i class="activeDot"></i> Current Active Book</span>` : ""}
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px;">
+            ${classes.map(c => `
+              <span class="bookClassPill" style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);font-weight:700;">🎓 ${esc(c)}</span>
+            `).join("")}
+            <span class="bookCourseCodeBadge" style="background:rgba(255,255,255,0.25);color:#fff;border:1px solid rgba(255,255,255,0.4);">${esc(theme.code)}</span>
+            <span class="tag success" style="font-weight:700;">${book.totalQuestions} Questions Total</span>
+            ${book.hasActiveWeek ? `<span class="activeFoilBadge" style="font-size:11px;padding:3px 10px;">★ Current Active Book</span>` : ""}
           </div>
-          <h1>${esc(book.book)}</h1>
-          <div class="heroBookMeta">
-            <span>Course: <b>${esc(book.course)}</b></span>
+          <h1 style="color:#ffffff;text-shadow:0 1px 3px rgba(0,0,0,0.5);">${esc(book.book)}</h1>
+          <div class="heroBookMeta" style="color:rgba(255,255,255,0.85);">
+            <span>Course: <b style="color:#ffffff;">${esc(book.course)}</b></span>
             <span>•</span>
-            <span>Instructor: <b>${esc(book.createdBy || "Lec. Iftikhar Zahid")}</b></span>
+            <span>Instructor: <b style="color:#ffffff;">${esc(book.createdBy || "Lec. Iftikhar Zahid")}</b></span>
+            <span>•</span>
+            <span>Dept. of Computer Science</span>
           </div>
         </div>
       </div>
@@ -5160,41 +5467,94 @@ function renderBookDetailView(bookKey) {
   }
 
   if (weeksGrid) {
+    weeksGrid.className = `bookWeeksGrid ${theme.className}`;
     weeksGrid.innerHTML = book.weeks.map(w => {
       const isThisActive = w.id === s.activeSubjectId;
       const qCount = w.questions ? w.questions.length : 0;
-      const isBuiltIn = !!w.isBuiltIn;
       const topicStr = w.topic || "Course Syllabus Review";
+      const weekTitle = esc(w.weekTitle || "Week " + (w.week || "01"));
+      const weekNum = esc(String(w.week || "01").padStart(2, "0"));
 
-      return `<article class="weekModuleCard ${isThisActive ? "activeWeek" : ""}">
-        <div class="weekCardHeader">
-          <div class="weekCardPillRow">
-            <span class="weekTitlePill">${esc(w.weekTitle || "Week " + w.week)}</span>
-            <span class="weekQBadge">${qCount} Questions</span>
-            <span class="tag" style="font-size:10px;background:var(--card-subtle);">⏱️ ${qCount} Mins</span>
-            ${isThisActive ? `<span class="activeIndicator" style="font-size:10.5px;padding:3px 8px;"><i class="activeDot"></i> Currently Active</span>` : ""}
+      return `
+      <article class="weekModuleCard ${theme.className} ${isThisActive ? "activeWeek" : ""}" data-week-id="${esc(w.id)}">
+        <!-- Left Chapter Spine Strip -->
+        <div class="weekModuleSpine" aria-hidden="true">
+          <div class="spineRib topRib"></div>
+          <div class="weekSpineMonogram">
+            <span class="weekSpineIcon">${esc(theme.icon)}</span>
+            <span class="weekSpineCode">W${weekNum}</span>
+          </div>
+          <div class="spineRib midRib"></div>
+          <div class="weekSpineTitleVertical">UNIT ${weekNum}</div>
+          <div class="spineRib btmRib"></div>
+        </div>
+
+        <!-- Chapter Body -->
+        <div class="weekModuleBody">
+          <!-- Top Header Row -->
+          <div class="weekModuleHeader">
+            <div class="weekHeaderLeft">
+              <span class="weekUnitBadge">MODULE ${weekNum}</span>
+              <span class="weekCourseTag">${esc(theme.code)}</span>
+              ${isThisActive ? `<span class="activeFoilBadge">★ ACTIVE</span>` : ""}
+            </div>
+            <div class="weekHeaderBadges">
+              <span class="weekMetricBadge">📝 ${qCount} MCQs</span>
+              <span class="weekMetricBadge">⏱️ ${qCount}m</span>
+            </div>
+          </div>
+
+          <!-- Week Title & Subtitle -->
+          <div class="weekTitleBlock">
+            <h3 class="weekCardHeading">${weekTitle} Assessment</h3>
+            <div class="weekCardSubtitle">Continuous Assessment MCQ Examination Bank</div>
+          </div>
+
+          <!-- Syllabus Topic Box -->
+          <div class="weekTopicBox">
+            <span class="weekTopicLabel">LECTURE &amp; SYLLABUS TOPIC</span>
+            <div class="weekTopicText">${esc(topicStr)}</div>
+          </div>
+
+          <!-- Compact Academic Details Strip (Single Line) -->
+          <div class="weekDetailsStrip">
+            <div class="weekDetailChip">
+              <span class="wChipIcon">🎓</span>
+              <span><b>${esc(w.level || book.level || "BS CS")}</b></span>
+            </div>
+            <div class="weekDetailChip">
+              <span class="wChipIcon">⏱️</span>
+              <span><b>${qCount} Mins</b></span>
+            </div>
+            <div class="weekDetailChip">
+              <span class="wChipIcon">🏆</span>
+              <span><b>50% Pass</b></span>
+            </div>
+          </div>
+
+          <!-- Actions Footer -->
+          <div class="weekCardActions">
+            ${isThisActive 
+              ? `<button class="primary weekLaunchBtn" type="button" onclick="start();">
+                   <span>▶ Resume Examination</span>
+                   <span class="btnArrow">→</span>
+                 </button>` 
+              : `<button class="secondary weekSelectBtn" type="button" onclick="switchSubject('${esc(w.id)}', false);">Select Module</button>
+                 <button class="primary weekLaunchBtn" type="button" onclick="switchSubject('${esc(w.id)}', true);">
+                   <span>▶ Launch Exam</span>
+                   <span class="btnArrow">→</span>
+                 </button>`
+            }
+            ${isFaculty() ? `
+              <div class="weekAdminTools">
+                <button class="adminToolBtn editToolBtn" type="button" onclick="editCustomSubject('${esc(w.id)}')">✏️ Edit</button>
+                <button class="adminToolBtn deleteToolBtn" type="button" onclick="deleteCustomSubject('${esc(w.id)}')">🗑️ Delete</button>
+              </div>` : ""}
           </div>
         </div>
 
-        <div class="weekCardTopicBox">
-          <span class="topicBoxLabel">LECTURE &amp; SYLLABUS TOPIC</span>
-          <div class="topicBoxText">${esc(topicStr)}</div>
-        </div>
-
-        <div class="weekCardMetaGrid">
-          <span>Target Class: <b>${esc(w.level || book.level || "BS Computer Science")}</b></span>
-          <span>Pass Mark: <b>50% Benchmark</b></span>
-        </div>
-
-        <div class="weekCardActions">
-          ${isThisActive 
-            ? `<button class="primary takeExamBtn" type="button" onclick="start();">▶ Start / Resume Exam</button>` 
-            : `<button class="secondary selectModuleBtn" type="button" onclick="switchSubject('${esc(w.id)}', false);">Select Module</button>
-               <button class="primary takeExamBtn" type="button" onclick="switchSubject('${esc(w.id)}', true);">▶ Take Examination →</button>`
-          }
-          ${isFaculty() ? `<button class="adminToolBtn editToolBtn" style="margin-top:4px;" type="button" onclick="editCustomSubject('${esc(w.id)}')">✏️ Edit Module</button>
-<button class="adminToolBtn deleteToolBtn" style="margin-top:4px;" type="button" onclick="deleteCustomSubject('${esc(w.id)}')">🗑️ Delete Week</button>` : ""}
-        </div>
+        <!-- Right Stacked Pages Edge -->
+        <div class="weekPagesEdge" aria-hidden="true"></div>
       </article>`;
     }).join("");
   }
@@ -6936,7 +7296,17 @@ function updateExamStatusUI(){
       }else{
         banner.classList.remove("hidden");
         const bInfo = $("#bannerInfo");
-        if(bInfo) bInfo.innerHTML = `<b>Exam in Progress:</b> ${esc(s.activeSubject?.book || "Exam")} • Question ${qNum} of ${s.questions?.length || 40} • ${fmt(remainingSec)} remaining`;
+        if(bInfo) {
+          bInfo.innerHTML = `
+            <span class="bannerStatusBadge">Exam in Progress</span>
+            <strong class="bannerSubjectName">${esc(s.activeSubject?.book || "Exam")}</strong>
+            <div class="bannerMetaRow">
+              <span class="bannerMetaItem">Question ${qNum} of ${s.questions?.length || 40}</span>
+              <span class="bannerSep">•</span>
+              <span class="bannerMetaItem bannerTimeRemaining">⏱️ ${fmt(remainingSec)} remaining</span>
+            </div>
+          `;
+        }
       }
     }
   } 

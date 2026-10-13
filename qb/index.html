@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=30" />
+    <link rel="stylesheet" href="style.css?v=40" />
     <link rel="icon" type="image/png" href="logo.png" />
   </head>
   <body>
@@ -159,14 +159,21 @@
         class="examBanner wrap hidden no-print"
         role="alert"
       >
-        <div class="examBannerContent">
+        <div class="examBannerContent examBannerLeft">
           <span class="examBannerPulse" aria-hidden="true"></span>
-          <span id="bannerInfo"
-            ><b>Examination In Progress:</b> Question 1 • 60:00 remaining</span
-          >
+          <div id="bannerInfo" class="bannerInfo">
+            <span class="bannerStatusBadge">Exam in Progress</span>
+            <strong class="bannerSubjectName">Examination In Progress</strong>
+            <div class="bannerMetaRow">
+              <span class="bannerMetaItem">Question 1</span>
+              <span class="bannerSep">•</span>
+              <span class="bannerMetaItem bannerTimeRemaining">⏱️ 60:00 remaining</span>
+            </div>
+          </div>
         </div>
-        <button id="bannerResumeBtn" class="primary" type="button">
-          ▶ Resume Examination →
+        <button id="bannerResumeBtn" class="primary bannerResumeBtn" type="button">
+          <span>▶ Resume Examination</span>
+          <span class="bannerBtnArrow">→</span>
         </button>
       </div>
 
@@ -281,6 +288,35 @@
             modules, study individual question sets, or launch a timed
             assessment test.
           </p>
+
+          <!-- Academic Class & Subject Filter Toolbar -->
+          <div class="classFilterToolbar" id="classFilterToolbar">
+            <div class="classFilterTabs" id="classFilterTabs" role="tablist" aria-label="Filter courses by class">
+              <button type="button" class="classFilterBtn active" data-class="all" role="tab" aria-selected="true">
+                <span class="filterIcon">🎓</span> All Classes
+                <span class="filterCountBadge" id="countAllClasses">4</span>
+              </button>
+              <button type="button" class="classFilterBtn" data-class="bscs" role="tab" aria-selected="false">
+                <span class="filterIcon">🏛️</span> BS Computer Science
+                <span class="filterCountBadge" id="countBscs">4</span>
+              </button>
+              <button type="button" class="classFilterBtn" data-class="adp" role="tab" aria-selected="false">
+                <span class="filterIcon">📜</span> ADP CS
+                <span class="filterCountBadge" id="countAdp">1</span>
+              </button>
+            </div>
+            <div class="classFilterSearchWrap">
+              <span class="filterSearchIcon" aria-hidden="true">🔍</span>
+              <input
+                type="search"
+                id="bookCatalogSearch"
+                class="bookCatalogSearchInput"
+                placeholder="Search course title, code (e.g. TOA, CAO, OOP), or topic..."
+                aria-label="Filter course books"
+              />
+            </div>
+          </div>
+
           <div id="subjectGrid" class="subjectGrid">
             <!-- Rendered dynamically -->
           </div>
@@ -289,7 +325,7 @@
         <!-- VIEW 2: Dedicated Weekly Examination Modules Screen -->
         <div id="bookDetailView" class="hidden">
           <div class="bookDetailTopBar">
-            <button id="backToBooksBtn" class="backToBooksBtn" type="button">
+            <button id="backToBooksBtn" class="backToBooksBtn" type="button" onclick="closeBookDetail()">
               <span>←</span> Back to Course Catalog
             </button>
           </div>
@@ -761,10 +797,11 @@
     </main>
 
     <!-- ==========================================================================
-       Academic Footer
+       Academic Site Footer (Compact & Professional)
        ========================================================================== -->
     <footer class="siteFooter no-print">
       <div class="wrap footerWrap">
+        <!-- Compact Academic Identity Block -->
         <div class="footerBrandBlock">
           <button
             class="brand footerBrand"
@@ -775,135 +812,134 @@
               src="logo.png"
               alt="University Logo"
               class="brandImg"
-              width="40"
-              height="40"
+              width="32"
+              height="32"
               loading="lazy"
             />
-            <span class="brandText">
-              <strong class="brandTitle">MCQs Question Bank</strong>
-              <small class="brandSubtitle"
-                >Continuous Assessment &amp; Examination System</small
-              >
-            </span>
+            <div class="footerBrandText">
+              <strong class="footerBrandTitle">MCQs Question Bank</strong>
+              <span class="footerBrandSub">Continuous Assessment &amp; Examination System</span>
+            </div>
           </button>
-          <p class="footerDesc">
-            Official continuous assessment question bank and computer science
-            examination portal for undergraduate curriculum review.
+          <p class="footerAcademicAffil">
+            Department of Computer Science • Higher Education Academic Portal
           </p>
         </div>
 
-        <div class="footerLinksBlock">
-          <div class="footerCol">
-            <span class="footerColTitle">Candidate Tools</span>
-            <div class="candidateToolsGrid">
+        <!-- Compact Utility Actions Cluster -->
+        <div class="footerActionsCluster">
+          <!-- Candidate Quick Tools -->
+          <div class="footerActionsGroup">
+            <span class="footerGroupLabel">Candidate Tools</span>
+            <div class="footerPillsRow">
               <button
                 id="footerBookmarksBtn"
-                class="candidateToolBtn"
-                title="View Bookmarks"
+                class="footerActionPill candidateToolBtn"
+                type="button"
+                title="View Bookmarked Questions"
               >
-                <span class="toolIcon">⭐</span>
-                <div class="toolText">
-                  <span class="toolTitle">Bookmarks</span>
-                  <span class="toolDesc">Review saved MCQs</span>
-                </div>
+                <span class="pillIcon">⭐</span>
+                <span>Bookmarks</span>
               </button>
               <button
                 id="footerResetBtn"
-                class="candidateToolBtn"
-                title="Reset all progress"
+                class="footerActionPill candidateToolBtn"
+                type="button"
+                title="Reset All Local Progress"
               >
-                <span class="toolIcon">🔄</span>
-                <div class="toolText">
-                  <span class="toolTitle">Reset Progress</span>
-                  <span class="toolDesc">Clear local data</span>
-                </div>
+                <span class="pillIcon">🔄</span>
+                <span>Reset Progress</span>
               </button>
               <a
                 href="https://github.com/IftikharZahid/MCQs-Bank/releases/latest/download/app-debug.apk"
-                class="candidateToolBtn"
+                class="footerActionPill candidateToolBtn"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Download Official Android App APK"
               >
-                <span class="toolIcon">📱</span>
-                <div class="toolText">
-                  <span class="toolTitle">Android App</span>
-                  <span class="toolDesc">Download direct APK</span>
-                </div>
+                <span class="pillIcon">📱</span>
+                <span>Android App</span>
               </a>
             </div>
           </div>
-          <div class="footerCol facultyFooterCol">
-            <span class="footerColTitle">Faculty Access</span>
 
-            <button
-              id="facultyLoginBtn"
-              class="footerFacultyBtn"
-              type="button"
-              title="Instructor login"
-            >
-              <span class="facultyIcon">🔐</span>
-              <span>Faculty Login</span>
-            </button>
+          <!-- Subtle Divider between Candidate Actions & Faculty Login -->
+          <div class="footerActionsDivider" aria-hidden="true"></div>
 
-            <div
-              id="facultyToolsContainer"
-              class="hidden"
-              style="display: flex; flex-direction: column; gap: 8px"
-            >
+          <!-- Faculty Operations -->
+          <div class="footerActionsGroup facultyActionGroup">
+            <div class="footerPillsRow">
               <button
-                id="import"
-                class="footerFacultyBtn"
+                id="facultyLoginBtn"
+                class="footerActionPill facultyLoginPill footerFacultyBtn"
                 type="button"
-                title="Upload question bank JSON file"
+                title="Instructor secure access"
               >
-                <span class="facultyIcon">📁</span>
-                <span>Upload JSON</span>
+                <span class="facultyIcon">🔐</span>
+                <span>Faculty Login</span>
               </button>
-              <input
-                id="file"
-                type="file"
-                accept=".json,application/json"
-                hidden
-              />
-              <button
-                id="export"
-                class="footerFacultyBtn"
-                type="button"
-                title="Export to JSON"
+              <div
+                id="facultyToolsContainer"
+                class="hidden facultyToolsInline"
               >
-                <span class="facultyIcon">📤</span>
-                <span>Export Bank</span>
-              </button>
-              <button
-                id="restoreDefaultQuestions"
-                class="footerFacultyBtn"
-                type="button"
-                style="background: rgba(220, 38, 38, 0.1); color: #b91c1c"
-              >
-                <span class="facultyIcon">⚠️</span>
-                <span>Reset Catalog</span>
-              </button>
-              <button
-                id="configureApiBtn"
-                class="footerFacultyBtn"
-                type="button"
-                title="Configure Backend API URL"
-              >
-                <span class="facultyIcon">⚙️</span>
-                <span>Backend API</span>
-              </button>
+                <button
+                  id="import"
+                  class="footerActionPill facultyPill footerFacultyBtn"
+                  type="button"
+                  title="Upload question bank JSON file"
+                >
+                  <span class="facultyIcon">📁</span>
+                  <span>Upload JSON</span>
+                </button>
+                <input
+                  id="file"
+                  type="file"
+                  accept=".json,application/json"
+                  hidden
+                />
+                <button
+                  id="export"
+                  class="footerActionPill facultyPill footerFacultyBtn"
+                  type="button"
+                  title="Export question bank to JSON"
+                >
+                  <span class="facultyIcon">📤</span>
+                  <span>Export Bank</span>
+                </button>
+                <button
+                  id="restoreDefaultQuestions"
+                  class="footerActionPill facultyPill dangerPill footerFacultyBtn"
+                  type="button"
+                  title="Reset catalog to defaults"
+                >
+                  <span class="facultyIcon">⚠️</span>
+                  <span>Reset Catalog</span>
+                </button>
+                <button
+                  id="configureApiBtn"
+                  class="footerActionPill facultyPill footerFacultyBtn"
+                  type="button"
+                  title="Configure Backend API URL"
+                >
+                  <span class="facultyIcon">⚙️</span>
+                  <span>Backend API</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Slim Baseline Strip -->
       <div class="wrap footerBottomBar">
-        <div class="footerMeta">
-          <span>Department of Computer Science • Higher Education</span>
+        <div class="footerBottomLeft">
           <span>© 2026 MCQs Question Bank System. All rights reserved.</span>
+          <span class="footerSep">•</span>
+          <span>Computer Science Curriculum Assessment</span>
         </div>
-        <div class="footerMetaRight">
-          <span class="footerStatusDot"></span> Operational • v2.7
+        <div class="footerBottomRight">
+          <span class="footerStatusDot"></span>
+          <span>Operational • v2.7</span>
         </div>
       </div>
     </footer>
@@ -1043,6 +1079,6 @@
     <!-- Toast Notification Container -->
     <div id="toast" role="status" aria-live="polite"></div>
 
-    <script src="script.js?v=30"></script>
+    <script src="script.js?v=40"></script>
   </body>
 </html>
