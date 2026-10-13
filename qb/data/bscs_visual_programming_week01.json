@@ -1,0 +1,1362 @@
+{
+  "book": "Visual Programming",
+  "course": "Visual Programming",
+  "courseCode": "VP",
+  "bankId": "VP-BSCS-W01",
+  "title": "Visual Programming — Week 01 MCQ Question Bank",
+  "week": 1,
+  "weekNo": 1,
+  "weekTitle": "Week 01 — Introduction to Visual Programming & .NET Framework",
+  "topic": "Visual Programming Fundamentals, GUI, .NET Framework and Modern .NET, FCL, CIL, CLR, C# Execution, Windows Forms and Event-Driven Programming",
+  "level": "BS Computer Science",
+  "program": "BS Computer Science",
+  "creditHours": "04 (03 Theory + 01 Lab)",
+  "lecture": "01 — Introduction to Visual Programming & .NET Framework",
+  "prerequisite": "Object-Oriented Programming",
+  "assessmentType": "MCQs",
+  "questionType": "MCQ",
+  "language": "English",
+  "totalQuestions": 39,
+  "marksPerQuestion": 1,
+  "totalMarks": 39,
+  "createdBy": "Lec. Iftikhar Zahid",
+  "preparedBy": "Lec. Iftikhar Zahid",
+  "role": "Lecturer, Computer Science",
+  "version": "1.0",
+  "schemaVersion": "1.1",
+  "encoding": "UTF-8",
+  "sourceDocument": "Visual_Programming_Week_01_MCQs(1).docx",
+  "sourceScopeNote": "Question stems, option wording, and answer letters were extracted from the uploaded document. Answer letters follow its final-page answer key; explanations and topic labels were added for the normalized question-bank format.",
+  "validation": {
+    "questionsExtracted": 39,
+    "answerKeyEntriesExtracted": 39,
+    "answerKeyFromSource": true,
+    "fourOptionsPerQuestion": true,
+    "exactlyOneCorrectOptionPerQuestion": true,
+    "correctAnswerAndIndexConsistent": true,
+    "explanationsIncluded": true
+  },
+  "topics": [
+    "Visual Programming Fundamentals",
+    "GUI Fundamentals",
+    "GUI Controls",
+    "C# and Course Environment",
+    "Windows Forms",
+    "Visual Programming Characteristics",
+    "Advantages of Visual Programming",
+    "Applications of Visual Programming",
+    ".NET Platform",
+    "C# and .NET History",
+    ".NET Framework",
+    ".NET Core",
+    "Modern .NET",
+    "Cross-Platform .NET",
+    "Framework Class Library",
+    ".NET Libraries",
+    "Common Intermediate Language",
+    "C# Compilation",
+    "Common Language Runtime",
+    "CLR Services",
+    "Garbage Collection",
+    "C# Execution Pipeline",
+    "Event-Driven Programming",
+    "GUI Events",
+    "TextBox Control",
+    "Button Control",
+    "Label Control",
+    "Visual Studio IDE",
+    "Integrated Development Environment",
+    ".NET Framework vs Modern .NET",
+    "GUI Designer",
+    "Windows Application Components"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Visual Programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Programming without source code",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Programming only through command-line commands",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "A programming approach combining visual interface design with programming code",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "Programming only for databases",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "Visual programming combines visual interface design with programming code; it does not mean programming without source code.",
+      "marks": 1,
+      "topic": "Visual Programming Fundamentals",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "question": "What does GUI stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "General User Interface",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Graphical User Interface",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Graphical Utility Integration",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "General Utility Interface",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "GUI stands for Graphical User Interface.",
+      "marks": 1,
+      "topic": "GUI Fundamentals",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is a GUI control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Compiler",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Button",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Database",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Operating system",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "A button is a graphical user-interface control; the other choices are not GUI controls.",
+      "marks": 1,
+      "topic": "GUI Controls",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "question": "Which language is primarily used in this course?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Python",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Java",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "C#",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "PHP",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "The source identifies C# as the language used in this course.",
+      "marks": 1,
+      "topic": "C# and Course Environment",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "question": "Which is commonly used for Windows GUI development with C#?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WinForms",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "SQL",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "HTML",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "JSON",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "WinForms is commonly used to build Windows desktop graphical user interfaces with C#.",
+      "marks": 1,
+      "topic": "Windows Forms",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "question": "What is a major characteristic of visual programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It never uses code",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "It emphasizes graphical interfaces and event-driven interaction",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "It cannot use variables",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "It requires no testing",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Visual programming emphasizes graphical interfaces and event-driven interaction while still using code.",
+      "marks": 1,
+      "topic": "Visual Programming Characteristics",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "question": "Which is an advantage of visual programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Faster GUI development",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Elimination of all programming errors",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "No debugging required",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "No programming knowledge required",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Visual designers can speed up GUI development, but they do not eliminate errors or debugging.",
+      "marks": 1,
+      "topic": "Advantages of Visual Programming",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "question": "Which is a common application of visual programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Student management system",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Hospital management system",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Inventory system",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Student, hospital, and inventory management systems are all plausible applications, so 'All of the above' is correct.",
+      "marks": 1,
+      "topic": "Applications of Visual Programming",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "question": "What is .NET?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A DBMS",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "A software development platform and ecosystem",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "An operating system",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A single programming language",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": ".NET is a software development platform and ecosystem, not a database or a single programming language.",
+      "marks": 1,
+      "topic": ".NET Platform",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "question": "Which company developed C# and .NET?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Apple",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Google",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Microsoft",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "IBM",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "C# and .NET were developed by Microsoft.",
+      "marks": 1,
+      "topic": "C# and .NET History",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "question": "The .NET Framework is primarily associated with:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Windows-focused application development",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Hardware manufacturing",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Database administration only",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Networking only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "The original .NET Framework is primarily associated with Windows-focused application development.",
+      "marks": 1,
+      "topic": ".NET Framework",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "question": "What was the main goal of .NET Core?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cross-platform .NET development",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Replacing C#",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Creating only WinForms",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Developing hardware",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": ".NET Core introduced cross-platform .NET development.",
+      "marks": 1,
+      "topic": ".NET Core",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "question": "Modern .NET evolved from which earlier cross-platform platform?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Java",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": ".NET Core",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Win32",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Visual Basic 6",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Modern .NET evolved from .NET Core.",
+      "marks": 1,
+      "topic": "Modern .NET",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "question": "Modern .NET can target:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Windows, Linux, and macOS",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Windows only",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Linux only",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "macOS only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Modern .NET supports Windows, Linux, and macOS, subject to support for particular workloads and components.",
+      "marks": 1,
+      "topic": "Cross-Platform .NET",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "question": "What does FCL stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Framework Class Library",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "File Control Language",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Framework Code Library",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Functional Class Language",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "FCL stands for Framework Class Library.",
+      "marks": 1,
+      "topic": "Framework Class Library",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "question": "What is the purpose of the Framework Class Library?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To provide reusable classes and APIs",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "To replace the OS",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To design hardware",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "To create only databases",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "The Framework Class Library provides reusable classes and APIs for common programming tasks.",
+      "marks": 1,
+      "topic": "Framework Class Library",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "question": "Which can be provided by .NET libraries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File handling",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "String manipulation",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Networking",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": ".NET libraries include facilities for file handling, string manipulation, networking, and more.",
+      "marks": 1,
+      "topic": ".NET Libraries",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "question": "What does CIL stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Common Integrated Language",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Common Intermediate Language",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Computer Intermediate Library",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Common Interface Language",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "CIL stands for Common Intermediate Language.",
+      "marks": 1,
+      "topic": "Common Intermediate Language",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "question": "What is the relationship between C# source code and CIL?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CIL is generated from C# source code by compilation",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "C# is generated from CIL",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "CIL is a database",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "CIL is a GUI control",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "C# source code is compiled into intermediate language (CIL) before runtime execution.",
+      "marks": 1,
+      "topic": "C# Compilation",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "question": "Which component executes .NET intermediate code at runtime?",
+      "options": [
+        {
+          "id": "A",
+          "text": "FCL",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "CLR",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "IDE",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "WinForms Designer",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The Common Language Runtime (CLR) executes .NET intermediate code and provides runtime services.",
+      "marks": 1,
+      "topic": "Common Language Runtime",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "question": "What does CLR stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Common Language Runtime",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Common Library Resource",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Computer Language Runtime",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Common Logic Repository",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "CLR stands for Common Language Runtime.",
+      "marks": 1,
+      "topic": "Common Language Runtime",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "question": "Which is a service provided by CLR?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memory management",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Exception handling",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Thread management",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "CLR services include memory management, exception handling, and thread management.",
+      "marks": 1,
+      "topic": "CLR Services",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "question": "What is garbage collection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deleting source code",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Automatically reclaiming memory from objects no longer in use",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Removing database records",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Clearing the UI",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Garbage collection automatically reclaims memory associated with objects no longer reachable/needed by the managed runtime.",
+      "marks": 1,
+      "topic": "Garbage Collection",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "question": "Which sequence best represents simplified C# execution?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CIL → C# → CLR → Compiler",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "C# → Compiler → CIL → CLR → Execution",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "CLR → CIL → C# → Compiler",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "C# → CLR → Compiler → CIL",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The simplified flow is C# source → compiler → CIL → CLR/runtime → execution.",
+      "marks": 1,
+      "topic": "C# Execution Pipeline",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "question": "What is event-driven programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Programming based on user or system events",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Programming without variables",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Programming only with databases",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Programming without functions",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Event-driven programming responds to user or system events.",
+      "marks": 1,
+      "topic": "Event-Driven Programming",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "question": "Which is an example of a GUI event?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Button click",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Variable declaration",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Class definition",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Compilation",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "A button click is a common GUI event.",
+      "marks": 1,
+      "topic": "GUI Events",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "question": "In Windows Forms, what is a Form?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A database table",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "A graphical window/interface",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "A compiler",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A programming language",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "In Windows Forms, a Form represents a graphical window/interface.",
+      "marks": 1,
+      "topic": "Windows Forms",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "question": "Which control commonly accepts text input?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Label",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "TextBox",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "PictureBox",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Panel",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "A TextBox is commonly used to accept text input.",
+      "marks": 1,
+      "topic": "TextBox Control",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "question": "Which control commonly triggers an action when clicked?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Label",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Button",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "PictureBox",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Panel",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "A Button commonly triggers an action when clicked.",
+      "marks": 1,
+      "topic": "Button Control",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "question": "Which control primarily displays non-editable text?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Label",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "TextBox",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Button",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "ComboBox",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "A Label is commonly used to display non-editable text.",
+      "marks": 1,
+      "topic": "Label Control",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "question": "Which IDE is commonly used for C# and .NET development?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Visual Studio",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "MS Paint",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Calculator",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Media Player",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Visual Studio is commonly used for C# and .NET development.",
+      "marks": 1,
+      "topic": "Visual Studio IDE",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "question": "What does IDE stand for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Integrated Development Environment",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Internal Data Engine",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Integrated Database Element",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Internet Development Extension",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "IDE stands for Integrated Development Environment.",
+      "marks": 1,
+      "topic": "Integrated Development Environment",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "question": "Which statement about Visual Programming is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It eliminates source code",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "It combines visual interface development with programming",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "It is only for games",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "It does not support events",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Visual programming combines visual interface development with programming.",
+      "marks": 1,
+      "topic": "Visual Programming Fundamentals",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "question": "Which is NOT a normal GUI control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Compiler",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "TextBox",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Button",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Label",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "A compiler is a development tool, not a normal GUI control.",
+      "marks": 1,
+      "topic": "GUI Controls",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "question": "What is the primary role of CLR?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Designing forms",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Executing .NET applications and providing runtime services",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Creating databases",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Editing images",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The CLR executes .NET applications and provides runtime services.",
+      "marks": 1,
+      "topic": "Common Language Runtime",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "question": "Which component handles automatic memory management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Garbage Collector",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "WinForms",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "TextBox",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "CIL",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "The Garbage Collector handles automatic memory reclamation in managed .NET applications.",
+      "marks": 1,
+      "topic": "Garbage Collection",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "question": "Which statement correctly compares .NET Framework and modern .NET?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are exactly the same",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Modern .NET is the current evolution, while .NET Framework is the older Windows-focused platform",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": ".NET Framework is newer",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Modern .NET is Windows-only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Modern .NET is the current evolution from .NET Core; the older .NET Framework is Windows-focused.",
+      "marks": 1,
+      "topic": ".NET Framework vs Modern .NET",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "question": "Which is a benefit of a GUI designer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Faster interface prototyping",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Automatic elimination of all bugs",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "No need to understand programming",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "No testing required",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "A GUI designer can accelerate interface prototyping, but cannot guarantee the absence of bugs.",
+      "marks": 1,
+      "topic": "GUI Designer",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "question": "Which set best represents building blocks of a visual Windows application?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Forms, controls, properties, events, and code",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "CPU, RAM, keyboard, and mouse only",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Tables, rows, and columns only",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "HTML tags only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "A visual Windows application commonly consists of forms, controls, properties, events, and code.",
+      "marks": 1,
+      "topic": "Windows Application Components",
+      "difficulty": "Medium",
+      "type": "single"
+    }
+  ]
+}

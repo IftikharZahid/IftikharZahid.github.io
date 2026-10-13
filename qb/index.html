@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=40" />
+    <link rel="stylesheet" href="style.css?v=44" />
     <link rel="icon" type="image/png" href="logo.png" />
   </head>
   <body>
@@ -197,24 +197,30 @@
           </p>
 
           <div class="actions heroActions">
-            <button id="startHero" class="primary big">
-              Launch Timed Examination →
+            <button id="startHero" class="primary" type="button">
+              ▶ Launch Examination →
             </button>
-            <button data-go="subjects" class="secondary big">
-              Course Catalog &amp; Modules
+            <button data-go="subjects" class="secondary" type="button">
+              <span>📚 Course Catalog</span>
             </button>
-            <button data-go="results" class="subtle big">Past Results</button>
+            <button data-go="results" class="secondary heroPastResultsBtn" type="button">
+              <span>📊 Past Results</span>
+            </button>
           </div>
 
           <div class="stats heroStats">
-            <div class="statBox">
-              <b id="total">40</b><small>Module MCQs</small>
+            <div class="statBox" title="Total verified MCQs across all books in Question Bank">
+              <b id="heroTotalBank">270</b><small>Total Bank MCQs</small>
             </div>
-            <div class="statBox">
-              <b id="heroMinutes">40</b><small>Minutes (1m/MCQ)</small>
+            <div class="statBox" title="Total undergraduate course books in curriculum catalog">
+              <b id="heroTotalBooks">4</b><small>Course Books</small>
             </div>
-            <div class="statBox"><b>50%</b><small>Pass Standard</small></div>
-            <div class="statBox"><b>Instant</b><small>Feedback</small></div>
+            <div class="statBox" title="Questions ready in currently active module">
+              <b id="total">40</b><small>Active Module</small>
+            </div>
+            <div class="statBox" title="Examination time allocation (1 minute per question)">
+              <b id="heroMinutes">40m</b><small>Time Allowed</small>
+            </div>
           </div>
         </div>
 
@@ -1079,6 +1085,6 @@
     <!-- Toast Notification Container -->
     <div id="toast" role="status" aria-live="polite"></div>
 
-    <script src="script.js?v=40"></script>
+    <script src="script.js?v=44"></script>
   </body>
 </html>

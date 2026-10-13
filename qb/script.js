@@ -4597,6 +4597,2038 @@ const oopWeek01Questions = [
   }
 ];
 
+const visualProgrammingWeek01Questions = [
+  {
+    "id": 1,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Visual Programming Fundamentals",
+    "difficulty": "Easy",
+    "question": "What is Visual Programming?",
+    "options": [
+      "Programming without source code",
+      "Programming only through command-line commands",
+      "A programming approach combining visual interface design with programming code",
+      "Programming only for databases"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Visual programming combines visual interface design with programming code; it does not mean programming without source code.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "GUI Fundamentals",
+    "difficulty": "Easy",
+    "question": "What does GUI stand for?",
+    "options": [
+      "General User Interface",
+      "Graphical User Interface",
+      "Graphical Utility Integration",
+      "General Utility Interface"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — GUI stands for Graphical User Interface.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "GUI Controls",
+    "difficulty": "Easy",
+    "question": "Which of the following is a GUI control?",
+    "options": [
+      "Compiler",
+      "Button",
+      "Database",
+      "Operating system"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A button is a graphical user-interface control; the other choices are not GUI controls.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "C# and Course Environment",
+    "difficulty": "Easy",
+    "question": "Which language is primarily used in this course?",
+    "options": [
+      "Python",
+      "Java",
+      "C#",
+      "PHP"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — The source identifies C# as the language used in this course.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Windows Forms",
+    "difficulty": "Easy",
+    "question": "Which is commonly used for Windows GUI development with C#?",
+    "options": [
+      "WinForms",
+      "SQL",
+      "HTML",
+      "JSON"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — WinForms is commonly used to build Windows desktop graphical user interfaces with C#.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Visual Programming Characteristics",
+    "difficulty": "Medium",
+    "question": "What is a major characteristic of visual programming?",
+    "options": [
+      "It never uses code",
+      "It emphasizes graphical interfaces and event-driven interaction",
+      "It cannot use variables",
+      "It requires no testing"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Visual programming emphasizes graphical interfaces and event-driven interaction while still using code.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Advantages of Visual Programming",
+    "difficulty": "Easy",
+    "question": "Which is an advantage of visual programming?",
+    "options": [
+      "Faster GUI development",
+      "Elimination of all programming errors",
+      "No debugging required",
+      "No programming knowledge required"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Visual designers can speed up GUI development, but they do not eliminate errors or debugging.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Applications of Visual Programming",
+    "difficulty": "Easy",
+    "question": "Which is a common application of visual programming?",
+    "options": [
+      "Student management system",
+      "Hospital management system",
+      "Inventory system",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Student, hospital, and inventory management systems are all plausible applications, so 'All of the above' is correct.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": ".NET Platform",
+    "difficulty": "Easy",
+    "question": "What is .NET?",
+    "options": [
+      "A DBMS",
+      "A software development platform and ecosystem",
+      "An operating system",
+      "A single programming language"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — .NET is a software development platform and ecosystem, not a database or a single programming language.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "C# and .NET History",
+    "difficulty": "Easy",
+    "question": "Which company developed C# and .NET?",
+    "options": [
+      "Apple",
+      "Google",
+      "Microsoft",
+      "IBM"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — C# and .NET were developed by Microsoft.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": ".NET Framework",
+    "difficulty": "Easy",
+    "question": "The .NET Framework is primarily associated with:",
+    "options": [
+      "Windows-focused application development",
+      "Hardware manufacturing",
+      "Database administration only",
+      "Networking only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The original .NET Framework is primarily associated with Windows-focused application development.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": ".NET Core",
+    "difficulty": "Medium",
+    "question": "What was the main goal of .NET Core?",
+    "options": [
+      "Cross-platform .NET development",
+      "Replacing C#",
+      "Creating only WinForms",
+      "Developing hardware"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — .NET Core introduced cross-platform .NET development.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Modern .NET",
+    "difficulty": "Medium",
+    "question": "Modern .NET evolved from which earlier cross-platform platform?",
+    "options": [
+      "Java",
+      ".NET Core",
+      "Win32",
+      "Visual Basic 6"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Modern .NET evolved from .NET Core.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Cross-Platform .NET",
+    "difficulty": "Easy",
+    "question": "Modern .NET can target:",
+    "options": [
+      "Windows, Linux, and macOS",
+      "Windows only",
+      "Linux only",
+      "macOS only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Modern .NET supports Windows, Linux, and macOS, subject to support for particular workloads and components.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Framework Class Library",
+    "difficulty": "Easy",
+    "question": "What does FCL stand for?",
+    "options": [
+      "Framework Class Library",
+      "File Control Language",
+      "Framework Code Library",
+      "Functional Class Language"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — FCL stands for Framework Class Library.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Framework Class Library",
+    "difficulty": "Easy",
+    "question": "What is the purpose of the Framework Class Library?",
+    "options": [
+      "To provide reusable classes and APIs",
+      "To replace the OS",
+      "To design hardware",
+      "To create only databases"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The Framework Class Library provides reusable classes and APIs for common programming tasks.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": ".NET Libraries",
+    "difficulty": "Easy",
+    "question": "Which can be provided by .NET libraries?",
+    "options": [
+      "File handling",
+      "String manipulation",
+      "Networking",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — .NET libraries include facilities for file handling, string manipulation, networking, and more.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Common Intermediate Language",
+    "difficulty": "Easy",
+    "question": "What does CIL stand for?",
+    "options": [
+      "Common Integrated Language",
+      "Common Intermediate Language",
+      "Computer Intermediate Library",
+      "Common Interface Language"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — CIL stands for Common Intermediate Language.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "C# Compilation",
+    "difficulty": "Medium",
+    "question": "What is the relationship between C# source code and CIL?",
+    "options": [
+      "CIL is generated from C# source code by compilation",
+      "C# is generated from CIL",
+      "CIL is a database",
+      "CIL is a GUI control"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — C# source code is compiled into intermediate language (CIL) before runtime execution.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Common Language Runtime",
+    "difficulty": "Easy",
+    "question": "Which component executes .NET intermediate code at runtime?",
+    "options": [
+      "FCL",
+      "CLR",
+      "IDE",
+      "WinForms Designer"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The Common Language Runtime (CLR) executes .NET intermediate code and provides runtime services.",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Common Language Runtime",
+    "difficulty": "Easy",
+    "question": "What does CLR stand for?",
+    "options": [
+      "Common Language Runtime",
+      "Common Library Resource",
+      "Computer Language Runtime",
+      "Common Logic Repository"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — CLR stands for Common Language Runtime.",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "CLR Services",
+    "difficulty": "Medium",
+    "question": "Which is a service provided by CLR?",
+    "options": [
+      "Memory management",
+      "Exception handling",
+      "Thread management",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — CLR services include memory management, exception handling, and thread management.",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Garbage Collection",
+    "difficulty": "Easy",
+    "question": "What is garbage collection?",
+    "options": [
+      "Deleting source code",
+      "Automatically reclaiming memory from objects no longer in use",
+      "Removing database records",
+      "Clearing the UI"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Garbage collection automatically reclaims memory associated with objects no longer reachable/needed by the managed runtime.",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "C# Execution Pipeline",
+    "difficulty": "Medium",
+    "question": "Which sequence best represents simplified C# execution?",
+    "options": [
+      "CIL → C# → CLR → Compiler",
+      "C# → Compiler → CIL → CLR → Execution",
+      "CLR → CIL → C# → Compiler",
+      "C# → CLR → Compiler → CIL"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The simplified flow is C# source → compiler → CIL → CLR/runtime → execution.",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Event-Driven Programming",
+    "difficulty": "Easy",
+    "question": "What is event-driven programming?",
+    "options": [
+      "Programming based on user or system events",
+      "Programming without variables",
+      "Programming only with databases",
+      "Programming without functions"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Event-driven programming responds to user or system events.",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "GUI Events",
+    "difficulty": "Easy",
+    "question": "Which is an example of a GUI event?",
+    "options": [
+      "Button click",
+      "Variable declaration",
+      "Class definition",
+      "Compilation"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A button click is a common GUI event.",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Windows Forms",
+    "difficulty": "Easy",
+    "question": "In Windows Forms, what is a Form?",
+    "options": [
+      "A database table",
+      "A graphical window/interface",
+      "A compiler",
+      "A programming language"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — In Windows Forms, a Form represents a graphical window/interface.",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "TextBox Control",
+    "difficulty": "Easy",
+    "question": "Which control commonly accepts text input?",
+    "options": [
+      "Label",
+      "TextBox",
+      "PictureBox",
+      "Panel"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A TextBox is commonly used to accept text input.",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Button Control",
+    "difficulty": "Easy",
+    "question": "Which control commonly triggers an action when clicked?",
+    "options": [
+      "Label",
+      "Button",
+      "PictureBox",
+      "Panel"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A Button commonly triggers an action when clicked.",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Label Control",
+    "difficulty": "Easy",
+    "question": "Which control primarily displays non-editable text?",
+    "options": [
+      "Label",
+      "TextBox",
+      "Button",
+      "ComboBox"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A Label is commonly used to display non-editable text.",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Visual Studio IDE",
+    "difficulty": "Easy",
+    "question": "Which IDE is commonly used for C# and .NET development?",
+    "options": [
+      "Visual Studio",
+      "MS Paint",
+      "Calculator",
+      "Media Player"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Visual Studio is commonly used for C# and .NET development.",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Integrated Development Environment",
+    "difficulty": "Easy",
+    "question": "What does IDE stand for?",
+    "options": [
+      "Integrated Development Environment",
+      "Internal Data Engine",
+      "Integrated Database Element",
+      "Internet Development Extension"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — IDE stands for Integrated Development Environment.",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Visual Programming Fundamentals",
+    "difficulty": "Easy",
+    "question": "Which statement about Visual Programming is correct?",
+    "options": [
+      "It eliminates source code",
+      "It combines visual interface development with programming",
+      "It is only for games",
+      "It does not support events"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Visual programming combines visual interface development with programming.",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "GUI Controls",
+    "difficulty": "Easy",
+    "question": "Which is NOT a normal GUI control?",
+    "options": [
+      "Compiler",
+      "TextBox",
+      "Button",
+      "Label"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A compiler is a development tool, not a normal GUI control.",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Common Language Runtime",
+    "difficulty": "Easy",
+    "question": "What is the primary role of CLR?",
+    "options": [
+      "Designing forms",
+      "Executing .NET applications and providing runtime services",
+      "Creating databases",
+      "Editing images"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The CLR executes .NET applications and provides runtime services.",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Garbage Collection",
+    "difficulty": "Easy",
+    "question": "Which component handles automatic memory management?",
+    "options": [
+      "Garbage Collector",
+      "WinForms",
+      "TextBox",
+      "CIL"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The Garbage Collector handles automatic memory reclamation in managed .NET applications.",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": ".NET Framework vs Modern .NET",
+    "difficulty": "Medium",
+    "question": "Which statement correctly compares .NET Framework and modern .NET?",
+    "options": [
+      "They are exactly the same",
+      "Modern .NET is the current evolution, while .NET Framework is the older Windows-focused platform",
+      ".NET Framework is newer",
+      "Modern .NET is Windows-only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Modern .NET is the current evolution from .NET Core; the older .NET Framework is Windows-focused.",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "GUI Designer",
+    "difficulty": "Easy",
+    "question": "Which is a benefit of a GUI designer?",
+    "options": [
+      "Faster interface prototyping",
+      "Automatic elimination of all bugs",
+      "No need to understand programming",
+      "No testing required"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A GUI designer can accelerate interface prototyping, but cannot guarantee the absence of bugs.",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Visual Programming",
+    "chapter": "Week 01 — Introduction to Visual Programming & .NET Framework",
+    "topic": "Windows Application Components",
+    "difficulty": "Medium",
+    "question": "Which set best represents building blocks of a visual Windows application?",
+    "options": [
+      "Forms, controls, properties, events, and code",
+      "CPU, RAM, keyboard, and mouse only",
+      "Tables, rows, and columns only",
+      "HTML tags only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A visual Windows application commonly consists of forms, controls, properties, events, and code.",
+    "type": "single"
+  }
+];
+
+const visualProgrammingWeek02Questions = [
+  {
+    "id": 1,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Windows Forms",
+    "difficulty": "Easy",
+    "question": "What is Windows Forms primarily used for in C# development?",
+    "options": [
+      "Developing command-line tools only",
+      "Creating Windows desktop graphical user interfaces",
+      "Managing database servers only",
+      "Designing computer hardware"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Windows Forms is used to create Windows desktop graphical user interfaces.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Windows Forms",
+    "difficulty": "Easy",
+    "question": "What is a Form in a Windows Forms application?",
+    "options": [
+      "A database query",
+      "A programming operator",
+      "A graphical window that hosts controls",
+      "A compiler instruction"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — A Form is a graphical window that can host controls.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Visual Studio Designer",
+    "difficulty": "Easy",
+    "question": "Which component is commonly used to visually design a Windows Form in Visual Studio?",
+    "options": [
+      "Windows Forms Designer",
+      "SQL Query Editor",
+      "Task Manager",
+      "Command Prompt"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The Windows Forms Designer provides a visual surface for arranging controls.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "GUI Fundamentals",
+    "difficulty": "Easy",
+    "question": "What is the primary purpose of a GUI control?",
+    "options": [
+      "To replace the operating system",
+      "To compile the entire application",
+      "To store source code permanently",
+      "To provide an interface element for user interaction or information display"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — GUI controls provide interface elements for user interaction or displaying information.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Windows Forms Controls",
+    "difficulty": "Easy",
+    "question": "Which of the following is a standard Windows Forms control?",
+    "options": [
+      "Compiler",
+      "Button",
+      "Namespace",
+      "Assembly"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Button is a standard Windows Forms control.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Label Control",
+    "difficulty": "Medium",
+    "question": "Which control is most suitable for displaying a short, non-editable text caption?",
+    "options": [
+      "TextBox",
+      "ComboBox",
+      "Label",
+      "NumericUpDown"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — A Label is commonly used to display non-editable text.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "TextBox Control",
+    "difficulty": "Easy",
+    "question": "Which control is commonly used to receive text entered by a user?",
+    "options": [
+      "TextBox",
+      "Label",
+      "PictureBox",
+      "Panel"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — TextBox is commonly used for text input.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Button Control",
+    "difficulty": "Easy",
+    "question": "Which control is commonly used to initiate an action when clicked?",
+    "options": [
+      "Label",
+      "PictureBox",
+      "GroupBox",
+      "Button"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — A Button commonly initiates an action when clicked.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "ComboBox Control",
+    "difficulty": "Easy",
+    "question": "Which Windows Forms control allows a user to select an item from a drop-down list?",
+    "options": [
+      "Label",
+      "ComboBox",
+      "PictureBox",
+      "Panel"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — ComboBox provides a drop-down list of items.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "PictureBox Control",
+    "difficulty": "Easy",
+    "question": "Which control is designed to display images in a Windows Forms application?",
+    "options": [
+      "TextBox",
+      "CheckBox",
+      "PictureBox",
+      "ListBox"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — PictureBox is intended for displaying images.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Control Properties",
+    "difficulty": "Medium",
+    "question": "What is a property in C# GUI programming?",
+    "options": [
+      "A feature that describes or controls an object's state or behavior",
+      "A database table",
+      "A compiler error",
+      "A type of operating system"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Properties describe or configure aspects of an object.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Text Property",
+    "difficulty": "Easy",
+    "question": "Which property commonly determines the text displayed on a Button?",
+    "options": [
+      "Name",
+      "Size",
+      "Location",
+      "Text"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — The Text property determines the text displayed by a Button.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Name Property",
+    "difficulty": "Easy",
+    "question": "Which property identifies a control by its programmatic name?",
+    "options": [
+      "Font",
+      "Name",
+      "BackColor",
+      "Visible"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The Name property identifies the control in code and the designer.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Enabled Property",
+    "difficulty": "Medium",
+    "question": "Which property determines whether a control can receive user interaction?",
+    "options": [
+      "Text",
+      "Size",
+      "Enabled",
+      "BackColor"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Enabled determines whether a control is enabled for interaction.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Visible Property",
+    "difficulty": "Easy",
+    "question": "Which property controls whether a control is displayed on the form?",
+    "options": [
+      "Visible",
+      "Name",
+      "TabIndex",
+      "Font"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Visible determines whether a control is shown.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "BackColor Property",
+    "difficulty": "Easy",
+    "question": "Which property is commonly used to change a control's background color?",
+    "options": [
+      "ForeColor",
+      "Text",
+      "Enabled",
+      "BackColor"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — BackColor specifies a control's background color.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "ForeColor Property",
+    "difficulty": "Easy",
+    "question": "Which property controls the foreground or text color of a control?",
+    "options": [
+      "BackColor",
+      "ForeColor",
+      "Location",
+      "Size"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — ForeColor specifies the foreground color.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Location Property",
+    "difficulty": "Easy",
+    "question": "Which property specifies the position of a control on a form?",
+    "options": [
+      "Text",
+      "Name",
+      "Location",
+      "Enabled"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Location specifies a control's position.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Size Property",
+    "difficulty": "Easy",
+    "question": "Which property specifies the width and height of a control?",
+    "options": [
+      "Size",
+      "Visible",
+      "Text",
+      "TabIndex"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Size specifies the control's width and height.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Text Property",
+    "difficulty": "Easy",
+    "question": "What is the main purpose of the Text property of a Label?",
+    "options": [
+      "To determine its database connection",
+      "To set its memory address",
+      "To compile the form",
+      "To specify the text displayed by the Label"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — The Label's Text property specifies the displayed caption.",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Event-Driven Programming",
+    "difficulty": "Medium",
+    "question": "What is an event in event-driven programming?",
+    "options": [
+      "A variable declaration",
+      "An occurrence recognized by a program that may trigger a response",
+      "A database field",
+      "A class constructor only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — An event is an occurrence to which a program can respond.",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "GUI Events",
+    "difficulty": "Easy",
+    "question": "Which of the following is an example of a GUI event?",
+    "options": [
+      "Declaring a namespace",
+      "Creating a class file",
+      "Clicking a Button",
+      "Naming a variable"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Clicking a Button is a common GUI event.",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Event Handlers",
+    "difficulty": "Medium",
+    "question": "What is an event handler?",
+    "options": [
+      "A method associated with responding to an event",
+      "A visual property only",
+      "A database connection string",
+      "A type of GUI container"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — An event handler is a method that responds to an event.",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Button Click Event",
+    "difficulty": "Easy",
+    "question": "Which event is commonly used to respond to a Button click in Windows Forms?",
+    "options": [
+      "LoadFile",
+      "Compile",
+      "SaveProject",
+      "Click"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Click is the event commonly used for a Button click.",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Event Handling",
+    "difficulty": "Easy",
+    "question": "What happens when a user clicks a Button whose Click event has a correctly connected event handler?",
+    "options": [
+      "The operating system must restart",
+      "The associated handler can execute",
+      "The form is always deleted",
+      "The source code is automatically removed"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — When the Click event is raised, its subscribed handler can execute.",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Event Subscription",
+    "difficulty": "Medium",
+    "question": "Which C# operator is commonly used to subscribe a method to an event?",
+    "options": [
+      "class",
+      "return",
+      "+=",
+      "namespace"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — The += operator is commonly used to add an event-handler delegate to an event.",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Event Handler Parameters",
+    "difficulty": "Medium",
+    "question": "In a typical Windows Forms event handler, what does the sender parameter represent?",
+    "options": [
+      "The object that raised the event",
+      "The application database",
+      "The compiler output file",
+      "The form's source-code filename"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — sender typically refers to the object that raised the event.",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Event Handler Parameters",
+    "difficulty": "Medium",
+    "question": "In a typical Windows Forms event handler, what does the EventArgs e parameter provide?",
+    "options": [
+      "The complete Visual Studio project",
+      "A database server",
+      "A new Windows Form",
+      "Event-related argument information, where applicable"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — EventArgs provides event argument information; specific event types may expose additional data.",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Form Load Event",
+    "difficulty": "Easy",
+    "question": "Which event is commonly associated with a form being loaded?",
+    "options": [
+      "Print",
+      "Load",
+      "Compile",
+      "Install"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The Load event occurs as the form is being loaded.",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Event Handling",
+    "difficulty": "Easy",
+    "question": "What is the primary purpose of an event handler attached to a Button's Click event?",
+    "options": [
+      "To change the C# language",
+      "To create an operating system",
+      "To execute the required response to the click",
+      "To replace the compiler"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — The handler executes application logic in response to the click.",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "C# Control Properties",
+    "difficulty": "Medium",
+    "question": "Which statement correctly changes a Label's displayed text to \"Welcome\"?",
+    "options": [
+      "label1.Text = \"Welcome\";",
+      "label1.Name == \"Welcome\";",
+      "label1.Visible = \"Welcome\";",
+      "label1.Size = \"Welcome\";"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Assigning to label1.Text changes the displayed text.",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "C# Control Properties",
+    "difficulty": "Medium",
+    "question": "Which statement disables a Button named btnSave?",
+    "options": [
+      "btnSave.Text = false;",
+      "btnSave.Name = false;",
+      "btnSave.Visible = \"Disabled\";",
+      "btnSave.Enabled = false;"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Setting Enabled to false disables the Button.",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "C# Control Properties",
+    "difficulty": "Medium",
+    "question": "Which statement hides a control named label1?",
+    "options": [
+      "label1.Enabled = \"Hide\";",
+      "label1.Visible = false;",
+      "label1.Text = false;",
+      "label1.Location = false;"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Setting Visible to false hides the control.",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Visual Studio IDE",
+    "difficulty": "Easy",
+    "question": "What is the purpose of Solution Explorer in Visual Studio?",
+    "options": [
+      "To execute database queries exclusively",
+      "To display only application output",
+      "To organize and navigate project files and resources",
+      "To replace the C# compiler"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Solution Explorer displays and organizes projects, files, and resources.",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Visual Studio Designer",
+    "difficulty": "Easy",
+    "question": "What is the primary role of the Properties window in the Windows Forms Designer?",
+    "options": [
+      "To view and modify the selected object's properties",
+      "To create operating system accounts",
+      "To execute SQL queries automatically",
+      "To manage computer hardware"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The Properties window lets developers inspect and change properties of the selected object.",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Visual Studio Toolbox",
+    "difficulty": "Easy",
+    "question": "What is the purpose of the Toolbox in the Windows Forms Designer?",
+    "options": [
+      "To store database records",
+      "To display runtime exceptions only",
+      "To compile all source files manually",
+      "To provide controls and components that can be added to a form"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — The Toolbox provides controls and components to place on a form.",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Windows Forms Source Code",
+    "difficulty": "Easy",
+    "question": "What is the purpose of the C# source-code file associated with a Windows Form?",
+    "options": [
+      "To store only image files",
+      "To contain C# code associated with the form",
+      "To replace all project configuration files",
+      "To store only database records"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The source file contains C# code associated with the form.",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Windows Forms Initialization",
+    "difficulty": "Medium",
+    "question": "What is the purpose of the InitializeComponent() method in a typical Windows Forms form?",
+    "options": [
+      "To uninstall Visual Studio",
+      "To create a database server",
+      "To initialize the form's generated component and control setup",
+      "To convert C# into a different programming language"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — InitializeComponent sets up the form's generated components and controls.",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Testing and Debugging",
+    "difficulty": "Easy",
+    "question": "Why should a developer test a Windows Forms application after designing its interface?",
+    "options": [
+      "To verify that controls and event handlers behave as expected",
+      "To eliminate the need for source code",
+      "To ensure that every property has the same value",
+      "To prevent all possible future errors permanently"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Testing verifies expected behavior and helps identify defects.",
+    "type": "single"
+  },
+  {
+    "id": 40,
+    "subject": "Visual Programming",
+    "chapter": "Week 02 — Windows Forms, Controls, Properties and Events",
+    "topic": "Windows Forms Concepts",
+    "difficulty": "Medium",
+    "question": "Which statement best describes the relationship between controls, properties, and events in a Windows Forms application?",
+    "options": [
+      "Controls can only store database records",
+      "Properties replace all event handlers",
+      "Events are used only to define class names",
+      "Controls provide interface elements, properties configure them, and events enable responses to interactions"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Controls are interface elements, properties configure their state, and events support interaction-driven responses.",
+    "type": "single"
+  }
+];
+
+const softwareEngineeringLecture01Questions = [
+  {
+    "id": 1,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Nature of Software",
+    "difficulty": "Easy",
+    "question": "Which statement best defines software?",
+    "options": [
+      "A physical component of a computer",
+      "A collection of programs, associated data, configuration information, and documentation",
+      "Only source code",
+      "Only a database"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Software includes programs together with associated data, configuration information, and documentation; it is not limited to source code.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Nature of Software",
+    "difficulty": "Easy",
+    "question": "Software is primarily:",
+    "options": [
+      "Physical",
+      "Intangible",
+      "Mechanical",
+      "Manufactured"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Software is intangible: it is a logical product rather than a physical component.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Nature of Software",
+    "difficulty": "Easy",
+    "question": "Which is an example of software?",
+    "options": [
+      "CPU",
+      "Keyboard",
+      "Mobile application",
+      "Monitor"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — A mobile application is software; a CPU, keyboard, and monitor are hardware.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Nature of Software",
+    "difficulty": "Easy",
+    "question": "Software is generally:",
+    "options": [
+      "Manufactured",
+      "Developed",
+      "Physically assembled",
+      "Mechanically produced"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Software is developed through engineering activities rather than physically manufactured like hardware.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Nature of Software",
+    "difficulty": "Easy",
+    "question": "Which is NOT normally part of a software product?",
+    "options": [
+      "Application code",
+      "Documentation",
+      "Configuration",
+      "Physical raw materials"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Physical raw materials are not normally part of the software product itself.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Maintenance",
+    "difficulty": "Medium",
+    "question": "Why does software require maintenance?",
+    "options": [
+      "It physically wears out",
+      "Requirements and environments can change",
+      "It cannot be updated",
+      "Source code physically deteriorates"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Software may need maintenance when requirements, platforms, operating systems, or operating conditions change.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Maintenance",
+    "difficulty": "Medium",
+    "question": "Which may make software more difficult or expensive to maintain?",
+    "options": [
+      "Changing requirements",
+      "New operating systems",
+      "Security vulnerabilities",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Changing requirements, new operating systems, and security vulnerabilities can all increase maintenance effort.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Maintenance",
+    "difficulty": "Easy",
+    "question": "Software does not physically wear out like:",
+    "options": [
+      "Software",
+      "Hardware",
+      "Documentation",
+      "Data"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Hardware can physically wear out; software does not physically wear out in the same way.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Engineering Fundamentals",
+    "difficulty": "Easy",
+    "question": "Software Engineering is:",
+    "options": [
+      "A programming language",
+      "An engineering discipline concerned with software production and maintenance",
+      "A hardware process",
+      "A database technique"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Software Engineering is an engineering discipline concerned with software production and maintenance.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Engineering Fundamentals",
+    "difficulty": "Easy",
+    "question": "Software Engineering covers:",
+    "options": [
+      "Only programming",
+      "Only testing",
+      "The complete software production process",
+      "Only design"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Software Engineering addresses the complete software production process, not just coding, testing, or design.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Life Cycle",
+    "difficulty": "Medium",
+    "question": "Which sequence represents the simplified software life cycle?",
+    "options": [
+      "Testing → Design → Requirements",
+      "Requirements → Design → Implementation → Testing → Deployment → Maintenance → Evolution",
+      "Coding → Hardware → Testing",
+      "Deployment → Coding → Requirements"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The source gives the simplified sequence: requirements, design, implementation, testing, deployment, maintenance, and evolution.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Engineering Importance",
+    "difficulty": "Medium",
+    "question": "Why is Software Engineering important for large systems?",
+    "options": [
+      "They require less planning",
+      "They involve complexity, stakeholders, and long-term maintenance",
+      "They need no testing",
+      "One programmer is always sufficient"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Large systems involve complexity, multiple stakeholders, and long-term maintenance needs.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Engineering Quality",
+    "difficulty": "Easy",
+    "question": "Which may result from poor engineering practices?",
+    "options": [
+      "Cost overruns",
+      "Schedule delays",
+      "Poor quality",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Poor engineering practices can cause cost overruns, schedule delays, and poor quality.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Security",
+    "difficulty": "Easy",
+    "question": "Weak engineering practices may introduce:",
+    "options": [
+      "Guaranteed security",
+      "Security vulnerabilities",
+      "Zero defects",
+      "Automatic scalability"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Weak engineering practices can introduce security vulnerabilities.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Project Coordination",
+    "difficulty": "Medium",
+    "question": "As software components and developers increase, what may become difficult?",
+    "options": [
+      "Coordination",
+      "Compilation",
+      "Keyboard operation",
+      "Manufacturing"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — As projects and teams grow, coordination can become difficult.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Programming vs Software Engineering",
+    "difficulty": "Easy",
+    "question": "Programming primarily focuses on:",
+    "options": [
+      "Writing programs",
+      "Requirements management",
+      "Software evolution",
+      "Project coordination"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Programming primarily focuses on writing programs.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Programming vs Software Engineering",
+    "difficulty": "Medium",
+    "question": "Which statement correctly relates programming and Software Engineering?",
+    "options": [
+      "They are identical",
+      "Programming is a component of Software Engineering",
+      "Software Engineering is part of programming",
+      "They are unrelated"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Programming is one component within the broader discipline of Software Engineering.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Requirements Analysis",
+    "difficulty": "Medium",
+    "question": "Which is more characteristic of Software Engineering than basic programming?",
+    "options": [
+      "Writing a loop",
+      "Declaring a variable",
+      "Requirements analysis",
+      "Writing a function"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Requirements analysis is more characteristic of Software Engineering than basic coding tasks.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Professional Software Development",
+    "difficulty": "Easy",
+    "question": "Professional software development uses:",
+    "options": [
+      "No planning",
+      "Systematic engineering practices, tools, processes, and quality assurance",
+      "No documentation",
+      "No testing"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Professional development uses systematic practices, tools, processes, and quality assurance.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Development Roles",
+    "difficulty": "Easy",
+    "question": "Which may be a professional software development role?",
+    "options": [
+      "Requirements Engineer",
+      "Software Architect",
+      "QA/Test Engineer",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Requirements engineers, software architects, and QA/test engineers can all be professional software development roles.",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Development Roles",
+    "difficulty": "Medium",
+    "question": "Why are multiple specialized roles used in large projects?",
+    "options": [
+      "Different activities require different expertise",
+      "Programming is impossible",
+      "Testing is unnecessary",
+      "Documentation is unnecessary"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Large projects use specialized roles because different activities require different expertise.",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Specification",
+    "difficulty": "Medium",
+    "question": "Software specification primarily asks:",
+    "options": [
+      "How should the system be constructed?",
+      "What should the system do?",
+      "How is hardware manufactured?",
+      "Who buys the system?"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Specification primarily describes what the system should do.",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Requirements",
+    "difficulty": "Easy",
+    "question": "Software requirements describe:",
+    "options": [
+      "Services, functions, constraints, and expected behavior",
+      "Only programming languages",
+      "Only hardware",
+      "Only database tables"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Requirements describe services, functions, constraints, and expected behavior.",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Design",
+    "difficulty": "Medium",
+    "question": "Software design primarily asks:",
+    "options": [
+      "What should the system do?",
+      "How should the system be constructed?",
+      "Who will use the system?",
+      "When will hardware be manufactured?"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Design primarily addresses how the system should be constructed.",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Design",
+    "difficulty": "Medium",
+    "question": "Which may be addressed during software design?",
+    "options": [
+      "Architecture",
+      "Database structure",
+      "Security mechanisms",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Software design may cover architecture, database structure, and security mechanisms.",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Implementation",
+    "difficulty": "Easy",
+    "question": "Implementation is the stage where:",
+    "options": [
+      "The design is transformed into executable software",
+      "Requirements are ignored",
+      "Hardware is manufactured",
+      "The system is retired"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Implementation transforms the design into executable software.",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Implementation",
+    "difficulty": "Easy",
+    "question": "Which is an implementation activity?",
+    "options": [
+      "Programming",
+      "Database implementation",
+      "Interface development",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Programming, database implementation, and interface development can all be implementation activities.",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Technology Selection",
+    "difficulty": "Medium",
+    "question": "Technology selection should primarily be based on:",
+    "options": [
+      "Developer preference alone",
+      "Project requirements",
+      "Social media popularity",
+      "The newest language"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Technology selection should be driven primarily by project requirements.",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Validation",
+    "difficulty": "Medium",
+    "question": "The purpose of software validation is to determine whether:",
+    "options": [
+      "The software satisfies its requirements",
+      "The team is large",
+      "The language is popular",
+      "The system has many screens"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Validation checks whether the software satisfies its requirements.",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Validation",
+    "difficulty": "Medium",
+    "question": "Which is associated with software validation?",
+    "options": [
+      "Testing",
+      "Reviews",
+      "Inspections",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Testing, reviews, and inspections can all contribute to validation activities.",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Evolution",
+    "difficulty": "Easy",
+    "question": "Software evolution refers to:",
+    "options": [
+      "Physical manufacturing",
+      "Modification and adaptation of software",
+      "Preventing changes",
+      "Removing documentation"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Software evolution means modifying and adapting software over time.",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Evolution",
+    "difficulty": "Easy",
+    "question": "Which can cause software evolution?",
+    "options": [
+      "New requirements",
+      "Security updates",
+      "New operating systems",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — New requirements, security updates, and operating-system changes can all drive software evolution.",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Process",
+    "difficulty": "Medium",
+    "question": "A software process is:",
+    "options": [
+      "A programming language",
+      "A structured set of activities used to specify, develop, validate, deliver, and maintain software",
+      "Hardware",
+      "A database table"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A software process is a structured set of activities used to specify, develop, validate, deliver, and maintain software.",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Process Structure",
+    "difficulty": "Medium",
+    "question": "Which is a major element of software process structure?",
+    "options": [
+      "Activities",
+      "Tasks",
+      "Milestones",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Activities, tasks, and milestones are all elements of process structure.",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Milestones",
+    "difficulty": "Easy",
+    "question": "A point at which significant progress is achieved or reviewed is a:",
+    "options": [
+      "Task",
+      "Milestone",
+      "Deliverable",
+      "Requirement"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A milestone marks a significant point of progress or review.",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Deliverables",
+    "difficulty": "Easy",
+    "question": "Documents, models, reports, and software components produced during development are:",
+    "options": [
+      "Milestones",
+      "Deliverables",
+      "Variables",
+      "Constraints"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Deliverables are outputs such as documents, models, reports, and software components.",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Process Models",
+    "difficulty": "Medium",
+    "question": "A software process model is:",
+    "options": [
+      "A physical computer model",
+      "An abstract representation of a software development process",
+      "A programming language",
+      "A database schema"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A process model is an abstract representation of a software development process.",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Software Process Models",
+    "difficulty": "Medium",
+    "question": "Which are major process models/approaches listed in the lecture?",
+    "options": [
+      "Waterfall",
+      "Incremental Development",
+      "Spiral and Agile Development",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — The source lists Waterfall, Incremental Development, Spiral, and Agile Development as process models/approaches.",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Waterfall Model",
+    "difficulty": "Medium",
+    "question": "The Waterfall model organizes development into:",
+    "options": [
+      "Random activities",
+      "Sequential phases",
+      "Hardware units",
+      "Continuous deployment only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The Waterfall model organizes development into sequential phases.",
+    "type": "single"
+  },
+  {
+    "id": 40,
+    "subject": "Software Engineering",
+    "chapter": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+    "topic": "Agile Development",
+    "difficulty": "Medium",
+    "question": "Agile development emphasizes:",
+    "options": [
+      "Iterative and incremental development with continuous feedback",
+      "Only sequential development",
+      "No feedback",
+      "No testing"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Agile emphasizes iterative and incremental development with continuous feedback.",
+    "type": "single"
+  }
+];
+
 const DEFAULT_SUBJECTS = [
   {
     id: "object-oriented-programming-week-1",
@@ -4732,6 +6764,51 @@ const DEFAULT_SUBJECTS = [
     isBuiltIn: true,
     totalQuestions: databaseSystemsQuestions.length,
     questions: databaseSystemsQuestions
+  },
+  {
+    id: "visual-programming-week-01",
+    legacyIds: ["vp-bscs-w01", "vp-week-01", "visual-programming-week-1"],
+    book: "Visual Programming",
+    course: "Visual Programming",
+    week: 1,
+    weekTitle: "Week 01",
+    topic: "Visual Programming Fundamentals, GUI, .NET Framework and Modern .NET, FCL, CIL, CLR, C# Execution, Windows Forms and Event-Driven Programming",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "🖼️",
+    isBuiltIn: true,
+    totalQuestions: visualProgrammingWeek01Questions.length,
+    questions: visualProgrammingWeek01Questions
+  },
+  {
+    id: "visual-programming-week-02",
+    legacyIds: ["vp-bscs-w02", "vp-week-02", "visual-programming-week-2"],
+    book: "Visual Programming",
+    course: "Visual Programming",
+    week: 2,
+    weekTitle: "Week 02",
+    topic: "Windows Forms, GUI Controls, Properties, Events, Event Handlers, C# Control Properties, Visual Studio Designer and Project Structure",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "🖼️",
+    isBuiltIn: true,
+    totalQuestions: visualProgrammingWeek02Questions.length,
+    questions: visualProgrammingWeek02Questions
+  },
+  {
+    id: "software-engineering-lecture-01",
+    legacyIds: ["se-bscs-l01", "se-lecture-01", "software-engineering-week-1"],
+    book: "Software Engineering",
+    course: "Software Engineering",
+    week: 1,
+    weekTitle: "Lecture 01",
+    topic: "Nature of Software, Software Engineering Fundamentals, Programming vs Software Engineering, Life Cycle, Specification, Design, Implementation, Validation, Evolution & Process Models",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "📐",
+    isBuiltIn: true,
+    totalQuestions: softwareEngineeringLecture01Questions.length,
+    questions: softwareEngineeringLecture01Questions
   }
 ];
 
@@ -4776,7 +6853,7 @@ function main() {
 }
 function optText(o) { if (!o && o !== 0) return ""; if (typeof o === "string") return o; if (typeof o.text === "string") return o.text; if (typeof o.option === "string") return o.option; return String(o); }
 
-const CATALOG_BUILD_VERSION = "2026.10.12-v5";
+const CATALOG_BUILD_VERSION = "2026.10.14-v7";
 
 function loadStoredSubjects() {
   const currentCatalogVersion = read("qb_catalog_version", "");
@@ -4959,6 +7036,12 @@ function getBookGroupKey(sub) {
   if (combined.includes("database system")) {
     return "Database Systems";
   }
+  if (combined.includes("visual programming") || combined.includes("visual") || combined === "vp") {
+    return "Visual Programming";
+  }
+  if (combined.includes("software engineering") || combined.includes("software eng") || combined === "se") {
+    return "Software Engineering";
+  }
   if (!b || b.toLowerCase() === "course book") {
     b = (sub.course && sub.course.toLowerCase() !== "course book") ? sub.course.trim() : "General Study";
   }
@@ -5033,6 +7116,8 @@ function getBookCourseCode(bookTitle) {
   if (t.includes("object-oriented") || t.includes("oop")) return "OOP-201";
   if (t.includes("architecture")) return "CAO-202";
   if (t.includes("database")) return "DBS-301";
+  if (t.includes("visual") || t.includes("vp")) return "VP-301";
+  if (t.includes("software engineering") || t.includes("software eng") || t.includes("se")) return "SE-1104";
   if (t.includes("operating system")) return "OS-303";
   if (t.includes("data structure") || t.includes("dsa")) return "DSA-203";
   return "CS-200";
@@ -5078,6 +7163,26 @@ function getBookTheme(bookTitle) {
       code: "DBS-301",
       short: "Database",
       icon: "🗄️"
+    };
+  }
+  if (t.includes("visual") || t.includes("vp")) {
+    return {
+      className: "bookThemeVp",
+      primary: "#6d28d9",
+      accent: "#c4b5fd",
+      code: "VP-301",
+      short: "Visual Prog",
+      icon: "🖼️"
+    };
+  }
+  if (t.includes("software engineering") || t.includes("software eng") || t.includes("se")) {
+    return {
+      className: "bookThemeSe",
+      primary: "#0d9488",
+      accent: "#5eead4",
+      code: "SE-1104",
+      short: "Soft Eng",
+      icon: "📐"
     };
   }
   return {
@@ -5644,6 +7749,7 @@ ${target.isBuiltIn ? `<p style="font-size:12px;color:var(--accent);margin:8px 0;
       if (s.subjects.length) applySubjectSwitch(s.subjects[0], false);
     } else {
       renderSubjects();
+      updateQuestionCountUI();
       if (s.currentBookView) renderBookDetailView(s.currentBookView);
     }
     toast(`Removed week module from catalog.`);
@@ -5716,7 +7822,10 @@ function deleteBook(bookKey) {
     const activeGone = weekIds.includes(s.activeSubjectId);
     closeBookDetail();
     if (activeGone && s.subjects.length) applySubjectSwitch(s.subjects[0], false);
-    else renderSubjects();
+    else {
+      renderSubjects();
+      updateQuestionCountUI();
+    }
     // Instant MongoDB sync — delete all weeks of this book
     if (MONGO_API_URL) weekIds.forEach(id => deleteFromMongo(id));
     toast(`Deleted book "${bookKey}" and all its modules.`);
@@ -7288,7 +9397,7 @@ function updateExamStatusUI(){
       drawerStartBtn.classList.add("resumeActive");
     }
     if(startHeroBtn){
-      startHeroBtn.innerHTML = `Resume Practice Exam (Question ${qNum}) →`;
+      startHeroBtn.innerHTML = `▶ Resume Exam (Q${qNum}) →`;
     }
     if(banner){
       if(isLiveVisible){
@@ -7322,7 +9431,7 @@ function updateExamStatusUI(){
       drawerStartBtn.classList.remove("resumeActive");
     }
     if(startHeroBtn){
-      startHeroBtn.innerHTML = "Continue to Exam →";
+      startHeroBtn.innerHTML = "▶ Continue to Exam →";
     }
     if(banner){
       banner.classList.add("hidden");
@@ -7340,7 +9449,7 @@ function updateExamStatusUI(){
       drawerStartBtn.classList.remove("resumeActive");
     }
     if(startHeroBtn){
-      startHeroBtn.innerHTML = "Start Practice Exam →";
+      startHeroBtn.innerHTML = "▶ Launch Exam →";
     }
     if(banner){
       banner.classList.add("hidden");
@@ -7350,8 +9459,17 @@ function updateExamStatusUI(){
 
 function updateQuestionCountUI(){
   const totalCount=s.questions?s.questions.length:0;
+  
+  // Calculate total question bank records and courses
+  const allBankQuestions = (s.subjects || []).reduce((sum, sub) => sum + (sub.questions ? sub.questions.length : 0), 0);
+  const groupedBooks = typeof getGroupedBooks === "function" ? getGroupedBooks() : [];
+  const validBooks = groupedBooks.filter(b => b.book && b.book.toLowerCase() !== "course book");
+  const totalBooksCount = validBooks.length || (s.subjects ? new Set(s.subjects.map(x => x.book)).size : 1);
+
+  if($("#heroTotalBank")) $("#heroTotalBank").textContent=allBankQuestions || totalCount;
+  if($("#heroTotalBooks")) $("#heroTotalBooks").textContent=totalBooksCount;
   if($("#total")) $("#total").textContent=totalCount;
-  if($("#heroMinutes")) $("#heroMinutes").textContent=totalCount;
+  if($("#heroMinutes")) $("#heroMinutes").textContent=`${totalCount}m`;
   if($("#previewTimer")) $("#previewTimer").textContent=`⏱️ ${String(totalCount).padStart(2,"0")}:00 Allowed`;
   if($("#subjectTagCount")) $("#subjectTagCount").textContent=`${totalCount} MCQs Ready`;
   if($("#count")) $("#count").textContent=(s.filtered?s.filtered.length:totalCount)+" question"+((s.filtered?s.filtered.length:totalCount)===1?"":"s");
@@ -8006,7 +10124,10 @@ const STATIC_CATALOG_URLS = [
   "data/bscs_computer_architecture_week01.json",
   "data/bscs_computer_architecture_week02.json",
   "data/bscs_computer_architecture_week03.json",
-  "data/bscs_database_systems_week02.json"
+  "data/bscs_database_systems_week02.json",
+  "data/bscs_visual_programming_week01.json",
+  "data/bscs_visual_programming_week02.json",
+  "data/bscs_software_engineering_lecture01.json"
 ];
 
 function parseAndNormalizeJSON(parsed, fallbackName = "") {
@@ -8442,7 +10563,10 @@ function openDirectLinkModal() {
     { name: "Computer Architecture and Organization (Week 01)", url: "data/bscs_computer_architecture_week01.json", desc: "39 MCQs • Digital Logic & Hardware Overview" },
     { name: "Computer Architecture and Organization (Week 02)", url: "data/bscs_computer_architecture_week02.json", desc: "35 MCQs • CPU Registers, ISA, CISC vs RISC, VLIW, SMT" },
     { name: "Computer Architecture and Organization (Week 03)", url: "data/bscs_computer_architecture_week03.json", desc: "36 MCQs • ISA Families & Processor Parallelism" },
-    { name: "Database Systems (Week 02)", url: "data/bscs_database_systems_week02.json", desc: "39 MCQs • Three-Level Schema Architecture & Data Independence" }
+    { name: "Database Systems (Week 02)", url: "data/bscs_database_systems_week02.json", desc: "39 MCQs • Three-Level Schema Architecture & Data Independence" },
+    { name: "Visual Programming (Week 01)", url: "data/bscs_visual_programming_week01.json", desc: "39 MCQs • Visual Programming, .NET Platform, CIL, CLR & WinForms" },
+    { name: "Visual Programming (Week 02)", url: "data/bscs_visual_programming_week02.json", desc: "40 MCQs • WinForms, Controls, Properties, Events & Designer" },
+    { name: "Software Engineering (Lecture 01)", url: "data/bscs_software_engineering_lecture01.json", desc: "40 MCQs • Nature of Software, SDLC, Specification, Design, Process Models" }
   ];
 
   modal(`<h2>Load Questions via Direct JSON Link</h2>

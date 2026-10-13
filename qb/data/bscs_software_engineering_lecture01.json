@@ -1,0 +1,1388 @@
+{
+  "book": "Software Engineering",
+  "course": "Software Engineering",
+  "courseCode": "INFT-1104",
+  "bankId": "SE-BSCS-L01",
+  "title": "Software Engineering — Lecture 01 MCQ Question Bank",
+  "week": 1,
+  "weekNo": 1,
+  "weekTitle": "Lecture 01 — Software Engineering Fundamentals and Process Models",
+  "topic": "Nature of Software, Software Engineering, Programming vs Software Engineering, Professional Development, Specification, Design, Implementation, Validation, Evolution, Software Process and Process Models",
+  "level": "BS Computer Science",
+  "program": "BS Computer Science",
+  "creditHours": 3,
+  "assessmentType": "MCQs",
+  "questionType": "MCQ",
+  "language": "English",
+  "totalQuestions": 40,
+  "marksPerQuestion": 1,
+  "totalMarks": 40,
+  "createdBy": "Lec. Iftikhar Zahid",
+  "preparedBy": "Lec. Iftikhar Zahid",
+  "role": "Lecturer, Computer Science",
+  "version": "1.0",
+  "schemaVersion": "1.1",
+  "encoding": "UTF-8",
+  "sourceDocument": "Software_Engineering_Lecture_01_MCQs_Lecturer_Iftikhar_Zahid(1).docx",
+  "sourceScopeNote": "Question wording and option order were extracted from the uploaded Lecture 01 document. Correct answers follow the answer-key table on page 6; explanations were added to support review and website feedback.",
+  "validation": {
+    "questionsExtracted": 40,
+    "answerKeyEntries": 40,
+    "answerKeySourcePage": 6,
+    "fourOptionsPerQuestion": true,
+    "exactlyOneCorrectOptionPerQuestion": true,
+    "correctAnswerAndIndexConsistent": true,
+    "explanationsIncluded": true,
+    "structuralValidation": "passed"
+  },
+  "topics": [
+    "Nature of Software",
+    "Software Maintenance",
+    "Software Engineering Fundamentals",
+    "Software Life Cycle",
+    "Software Engineering Importance",
+    "Software Engineering Quality",
+    "Software Security",
+    "Software Project Coordination",
+    "Programming vs Software Engineering",
+    "Requirements Analysis",
+    "Professional Software Development",
+    "Software Development Roles",
+    "Software Specification",
+    "Software Requirements",
+    "Software Design",
+    "Implementation",
+    "Technology Selection",
+    "Software Validation",
+    "Software Evolution",
+    "Software Process",
+    "Software Process Structure",
+    "Milestones",
+    "Deliverables",
+    "Software Process Models",
+    "Waterfall Model",
+    "Agile Development"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which statement best defines software?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A physical component of a computer",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "A collection of programs, associated data, configuration information, and documentation",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Only source code",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Only a database",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Software includes programs together with associated data, configuration information, and documentation; it is not limited to source code.",
+      "marks": 1,
+      "topic": "Nature of Software",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "question": "Software is primarily:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Physical",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Intangible",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Mechanical",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Manufactured",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Software is intangible: it is a logical product rather than a physical component.",
+      "marks": 1,
+      "topic": "Nature of Software",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "question": "Which is an example of software?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CPU",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Keyboard",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Mobile application",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "Monitor",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "A mobile application is software; a CPU, keyboard, and monitor are hardware.",
+      "marks": 1,
+      "topic": "Nature of Software",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "question": "Software is generally:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Manufactured",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Developed",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Physically assembled",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Mechanically produced",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Software is developed through engineering activities rather than physically manufactured like hardware.",
+      "marks": 1,
+      "topic": "Nature of Software",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "question": "Which is NOT normally part of a software product?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Application code",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Documentation",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Configuration",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Physical raw materials",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Physical raw materials are not normally part of the software product itself.",
+      "marks": 1,
+      "topic": "Nature of Software",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "question": "Why does software require maintenance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It physically wears out",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Requirements and environments can change",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "It cannot be updated",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Source code physically deteriorates",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Software may need maintenance when requirements, platforms, operating systems, or operating conditions change.",
+      "marks": 1,
+      "topic": "Software Maintenance",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "question": "Which may make software more difficult or expensive to maintain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Changing requirements",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "New operating systems",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Security vulnerabilities",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Changing requirements, new operating systems, and security vulnerabilities can all increase maintenance effort.",
+      "marks": 1,
+      "topic": "Software Maintenance",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "question": "Software does not physically wear out like:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Software",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Hardware",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Documentation",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Data",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Hardware can physically wear out; software does not physically wear out in the same way.",
+      "marks": 1,
+      "topic": "Software Maintenance",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "question": "Software Engineering is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A programming language",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "An engineering discipline concerned with software production and maintenance",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "A hardware process",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A database technique",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Software Engineering is an engineering discipline concerned with software production and maintenance.",
+      "marks": 1,
+      "topic": "Software Engineering Fundamentals",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "question": "Software Engineering covers:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only programming",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Only testing",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "The complete software production process",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "Only design",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "Software Engineering addresses the complete software production process, not just coding, testing, or design.",
+      "marks": 1,
+      "topic": "Software Engineering Fundamentals",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "question": "Which sequence represents the simplified software life cycle?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Testing → Design → Requirements",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Requirements → Design → Implementation → Testing → Deployment → Maintenance → Evolution",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Coding → Hardware → Testing",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Deployment → Coding → Requirements",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The source gives the simplified sequence: requirements, design, implementation, testing, deployment, maintenance, and evolution.",
+      "marks": 1,
+      "topic": "Software Life Cycle",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "question": "Why is Software Engineering important for large systems?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They require less planning",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "They involve complexity, stakeholders, and long-term maintenance",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "They need no testing",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "One programmer is always sufficient",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Large systems involve complexity, multiple stakeholders, and long-term maintenance needs.",
+      "marks": 1,
+      "topic": "Software Engineering Importance",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "question": "Which may result from poor engineering practices?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cost overruns",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Schedule delays",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Poor quality",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Poor engineering practices can cause cost overruns, schedule delays, and poor quality.",
+      "marks": 1,
+      "topic": "Software Engineering Quality",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "question": "Weak engineering practices may introduce:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Guaranteed security",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Security vulnerabilities",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Zero defects",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Automatic scalability",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Weak engineering practices can introduce security vulnerabilities.",
+      "marks": 1,
+      "topic": "Software Security",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "question": "As software components and developers increase, what may become difficult?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Coordination",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Compilation",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Keyboard operation",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Manufacturing",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "As projects and teams grow, coordination can become difficult.",
+      "marks": 1,
+      "topic": "Software Project Coordination",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "question": "Programming primarily focuses on:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Writing programs",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Requirements management",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Software evolution",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Project coordination",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Programming primarily focuses on writing programs.",
+      "marks": 1,
+      "topic": "Programming vs Software Engineering",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "question": "Which statement correctly relates programming and Software Engineering?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are identical",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Programming is a component of Software Engineering",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Software Engineering is part of programming",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "They are unrelated",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Programming is one component within the broader discipline of Software Engineering.",
+      "marks": 1,
+      "topic": "Programming vs Software Engineering",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "question": "Which is more characteristic of Software Engineering than basic programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Writing a loop",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Declaring a variable",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Requirements analysis",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "Writing a function",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "Requirements analysis is more characteristic of Software Engineering than basic coding tasks.",
+      "marks": 1,
+      "topic": "Requirements Analysis",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "question": "Professional software development uses:",
+      "options": [
+        {
+          "id": "A",
+          "text": "No planning",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Systematic engineering practices, tools, processes, and quality assurance",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "No documentation",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "No testing",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Professional development uses systematic practices, tools, processes, and quality assurance.",
+      "marks": 1,
+      "topic": "Professional Software Development",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "question": "Which may be a professional software development role?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Requirements Engineer",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Software Architect",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "QA/Test Engineer",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Requirements engineers, software architects, and QA/test engineers can all be professional software development roles.",
+      "marks": 1,
+      "topic": "Software Development Roles",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "question": "Why are multiple specialized roles used in large projects?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Different activities require different expertise",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Programming is impossible",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Testing is unnecessary",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Documentation is unnecessary",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Large projects use specialized roles because different activities require different expertise.",
+      "marks": 1,
+      "topic": "Software Development Roles",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "question": "Software specification primarily asks:",
+      "options": [
+        {
+          "id": "A",
+          "text": "How should the system be constructed?",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "What should the system do?",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "How is hardware manufactured?",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Who buys the system?",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Specification primarily describes what the system should do.",
+      "marks": 1,
+      "topic": "Software Specification",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "question": "Software requirements describe:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Services, functions, constraints, and expected behavior",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Only programming languages",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Only hardware",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Only database tables",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Requirements describe services, functions, constraints, and expected behavior.",
+      "marks": 1,
+      "topic": "Software Requirements",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "question": "Software design primarily asks:",
+      "options": [
+        {
+          "id": "A",
+          "text": "What should the system do?",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "How should the system be constructed?",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Who will use the system?",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "When will hardware be manufactured?",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Design primarily addresses how the system should be constructed.",
+      "marks": 1,
+      "topic": "Software Design",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "question": "Which may be addressed during software design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Architecture",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Database structure",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Security mechanisms",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Software design may cover architecture, database structure, and security mechanisms.",
+      "marks": 1,
+      "topic": "Software Design",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "question": "Implementation is the stage where:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The design is transformed into executable software",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Requirements are ignored",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Hardware is manufactured",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "The system is retired",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Implementation transforms the design into executable software.",
+      "marks": 1,
+      "topic": "Implementation",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "question": "Which is an implementation activity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Programming",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Database implementation",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Interface development",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Programming, database implementation, and interface development can all be implementation activities.",
+      "marks": 1,
+      "topic": "Implementation",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "question": "Technology selection should primarily be based on:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Developer preference alone",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Project requirements",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Social media popularity",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "The newest language",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Technology selection should be driven primarily by project requirements.",
+      "marks": 1,
+      "topic": "Technology Selection",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "question": "The purpose of software validation is to determine whether:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The software satisfies its requirements",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The team is large",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "The language is popular",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "The system has many screens",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Validation checks whether the software satisfies its requirements.",
+      "marks": 1,
+      "topic": "Software Validation",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "question": "Which is associated with software validation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Testing",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Reviews",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Inspections",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Testing, reviews, and inspections can all contribute to validation activities.",
+      "marks": 1,
+      "topic": "Software Validation",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "question": "Software evolution refers to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Physical manufacturing",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Modification and adaptation of software",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Preventing changes",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Removing documentation",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Software evolution means modifying and adapting software over time.",
+      "marks": 1,
+      "topic": "Software Evolution",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "question": "Which can cause software evolution?",
+      "options": [
+        {
+          "id": "A",
+          "text": "New requirements",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Security updates",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "New operating systems",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "New requirements, security updates, and operating-system changes can all drive software evolution.",
+      "marks": 1,
+      "topic": "Software Evolution",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "question": "A software process is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A programming language",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "A structured set of activities used to specify, develop, validate, deliver, and maintain software",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Hardware",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A database table",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "A software process is a structured set of activities used to specify, develop, validate, deliver, and maintain software.",
+      "marks": 1,
+      "topic": "Software Process",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "question": "Which is a major element of software process structure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Activities",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Tasks",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Milestones",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Activities, tasks, and milestones are all elements of process structure.",
+      "marks": 1,
+      "topic": "Software Process Structure",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "question": "A point at which significant progress is achieved or reviewed is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Task",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Milestone",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Deliverable",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Requirement",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "A milestone marks a significant point of progress or review.",
+      "marks": 1,
+      "topic": "Milestones",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "question": "Documents, models, reports, and software components produced during development are:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Milestones",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Deliverables",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Variables",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Constraints",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Deliverables are outputs such as documents, models, reports, and software components.",
+      "marks": 1,
+      "topic": "Deliverables",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "question": "A software process model is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A physical computer model",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "An abstract representation of a software development process",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "A programming language",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A database schema",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "A process model is an abstract representation of a software development process.",
+      "marks": 1,
+      "topic": "Software Process Models",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "question": "Which are major process models/approaches listed in the lecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Waterfall",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Incremental Development",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Spiral and Agile Development",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "All of the above",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "The source lists Waterfall, Incremental Development, Spiral, and Agile Development as process models/approaches.",
+      "marks": 1,
+      "topic": "Software Process Models",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "question": "The Waterfall model organizes development into:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Random activities",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Sequential phases",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Hardware units",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Continuous deployment only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The Waterfall model organizes development into sequential phases.",
+      "marks": 1,
+      "topic": "Waterfall Model",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 40,
+      "question": "Agile development emphasizes:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Iterative and incremental development with continuous feedback",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Only sequential development",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "No feedback",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "No testing",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Agile emphasizes iterative and incremental development with continuous feedback.",
+      "marks": 1,
+      "topic": "Agile Development",
+      "difficulty": "Medium",
+      "type": "single"
+    }
+  ]
+}

@@ -1143,66 +1143,119 @@ nav[aria-label="Primary Navigation"] button.active {
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: clamp(27px, 3.2vw, 35px);
   font-weight: 800;
   letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin-bottom: 14px;
+  line-height: 1.18;
+  color: var(--t);
+  margin-bottom: 12px;
 }
 
 .hero h1 span {
   color: var(--p);
   display: block;
-  margin-top: 6px;
-  font-size: 1.1em;
-  letter-spacing: -0.035em;
+  margin-top: 4px;
+  font-size: clamp(21px, 2.5vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .hero p {
-  font-size: 16px;
+  font-size: 14.5px;
   line-height: 1.6;
   color: var(--t-secondary);
-  margin-bottom: 24px;
+  max-width: 620px;
+  margin-bottom: 20px;
 }
 
 .heroActions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
+}
+
+.heroActions button {
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 36px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap;
+}
+
+.heroActions button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.heroActions button:active {
+  transform: translateY(0);
+}
+
+.heroPastResultsBtn {
+  background-color: var(--card);
+  border: 1px solid var(--line-strong);
+  color: var(--t-secondary);
+}
+
+.heroPastResultsBtn:hover {
+  background-color: var(--card-subtle);
+  border-color: var(--p-border);
+  color: var(--p);
 }
 
 .heroStats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 10px;
   border-top: 1px solid var(--line);
-  padding-top: 20px;
+  padding-top: 18px;
 }
 
 .statBox {
   background-color: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  padding: 10px 12px;
+  padding: 9px 12px;
   text-align: left;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.statBox:hover {
+  border-color: var(--p-border);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
 .statBox b {
   display: block;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 800;
   color: var(--t);
   line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .statBox small {
-  font-size: 12.5px;
+  display: block;
+  font-size: 11px;
   font-weight: 600;
   color: var(--m);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Sample Question Preview Card */
@@ -1959,10 +2012,40 @@ nav[aria-label="Primary Navigation"] button.active {
   --subcard-topic-accent: #d97706;
 }
 
+/* Visual Programming: Royal Violet / Deep Amethyst */
+.bookThemeVp {
+  --book-spine-base: #4c1d95;
+  --book-cover-gradient: linear-gradient(145deg, #4c1d95 0%, #6d28d9 52%, #2e1065 100%);
+  --book-primary: #6d28d9;
+  --book-accent: #c4b5fd;
+  --subcard-bg: #faf5ff;
+  --subcard-border: #e9d5ff;
+  --subcard-pill-bg: #f3e8ff;
+  --subcard-topic-bg: #ffffff;
+  --subcard-topic-border: #e9d5ff;
+  --subcard-topic-accent: #7c3aed;
+}
+
+/* Software Engineering: Deep Petrol Teal / Cyan */
+.bookThemeSe {
+  --book-spine-base: #0f766e;
+  --book-cover-gradient: linear-gradient(145deg, #134e4a 0%, #0f766e 52%, #042f2e 100%);
+  --book-primary: #0d9488;
+  --book-accent: #5eead4;
+  --subcard-bg: #f0fdfa;
+  --subcard-border: #ccfbf1;
+  --subcard-pill-bg: #e6fffa;
+  --subcard-topic-bg: #ffffff;
+  --subcard-topic-border: #ccfbf1;
+  --subcard-topic-accent: #0d9488;
+}
+
 [data-theme="dark"] .bookThemeAutomata,
 [data-theme="dark"] .bookThemeOop,
 [data-theme="dark"] .bookThemeCao,
 [data-theme="dark"] .bookThemeDbs,
+[data-theme="dark"] .bookThemeVp,
+[data-theme="dark"] .bookThemeSe,
 [data-theme="dark"] .bookThemeDefault {
   --subcard-bg: #111a2e;
   --subcard-border: #1e293b;
@@ -1976,6 +2059,8 @@ nav[aria-label="Primary Navigation"] button.active {
 .bookDetailHero.bookThemeOop,
 .bookDetailHero.bookThemeCao,
 .bookDetailHero.bookThemeDbs,
+.bookDetailHero.bookThemeVp,
+.bookDetailHero.bookThemeSe,
 .bookDetailHero.bookThemeDefault {
   background: var(--book-cover-gradient);
   border: 1px solid rgba(255, 255, 255, 0.15);

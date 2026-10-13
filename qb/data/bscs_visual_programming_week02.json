@@ -1,0 +1,1396 @@
+{
+  "book": "Visual Programming",
+  "course": "Visual Programming",
+  "courseCode": "VP",
+  "bankId": "VP-BSCS-W02",
+  "title": "Visual Programming — Week 02 MCQ Question Bank",
+  "week": 2,
+  "weekNo": 2,
+  "weekTitle": "Week 02 — Windows Forms, Controls, Properties and Events",
+  "topic": "Windows Forms, GUI Controls, Properties, Events, Event Handlers, C# Control Properties, Visual Studio Designer and Project Structure",
+  "level": "BS Computer Science",
+  "program": "BS Computer Science",
+  "creditHours": "04 (03 Theory + 01 Lab)",
+  "lecture": "Week 02",
+  "prerequisite": "Object-Oriented Programming",
+  "assessmentType": "MCQs",
+  "questionType": "MCQ",
+  "language": "English",
+  "totalQuestions": 40,
+  "marksPerQuestion": 1,
+  "totalMarks": 40,
+  "createdBy": "Lec. Iftikhar Zahid",
+  "preparedBy": "Lec. Iftikhar Zahid",
+  "role": "Lecturer, Computer Science",
+  "version": "1.0",
+  "schemaVersion": "1.1",
+  "encoding": "UTF-8",
+  "sourceDocument": "Assistant-drafted Week 02 MCQs reviewed in conversation",
+  "sourceScopeNote": "No original Week 02 lecture file was provided. These 40 questions were normalized from the proposed Week 02 draft in the conversation; topics follow a suggested continuation from Week 01 and should be checked against the actual lecture outline before publication.",
+  "validation": {
+    "questionsExtracted": 40,
+    "fourOptionsPerQuestion": true,
+    "exactlyOneCorrectOptionPerQuestion": true,
+    "correctAnswerAndIndexConsistent": true,
+    "explanationsIncluded": true,
+    "answerKeyOrigin": "Reviewed draft created in conversation; not extracted from a source lecture file",
+    "structuralValidation": "passed"
+  },
+  "topics": [
+    "Windows Forms",
+    "Visual Studio Designer",
+    "GUI Fundamentals",
+    "Windows Forms Controls",
+    "Label Control",
+    "TextBox Control",
+    "Button Control",
+    "ComboBox Control",
+    "PictureBox Control",
+    "Control Properties",
+    "Text Property",
+    "Name Property",
+    "Enabled Property",
+    "Visible Property",
+    "BackColor Property",
+    "ForeColor Property",
+    "Location Property",
+    "Size Property",
+    "Event-Driven Programming",
+    "GUI Events",
+    "Event Handlers",
+    "Button Click Event",
+    "Event Handling",
+    "Event Subscription",
+    "Event Handler Parameters",
+    "Form Load Event",
+    "C# Control Properties",
+    "Visual Studio IDE",
+    "Visual Studio Toolbox",
+    "Windows Forms Source Code",
+    "Windows Forms Initialization",
+    "Testing and Debugging",
+    "Windows Forms Concepts"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Windows Forms primarily used for in C# development?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Developing command-line tools only",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Creating Windows desktop graphical user interfaces",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Managing database servers only",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Designing computer hardware",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Windows Forms is used to create Windows desktop graphical user interfaces.",
+      "marks": 1,
+      "topic": "Windows Forms",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "question": "What is a Form in a Windows Forms application?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A database query",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "A programming operator",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "A graphical window that hosts controls",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "A compiler instruction",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "A Form is a graphical window that can host controls.",
+      "marks": 1,
+      "topic": "Windows Forms",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "question": "Which component is commonly used to visually design a Windows Form in Visual Studio?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Windows Forms Designer",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "SQL Query Editor",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Task Manager",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Command Prompt",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "The Windows Forms Designer provides a visual surface for arranging controls.",
+      "marks": 1,
+      "topic": "Visual Studio Designer",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "question": "What is the primary purpose of a GUI control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To replace the operating system",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "To compile the entire application",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To store source code permanently",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "To provide an interface element for user interaction or information display",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "GUI controls provide interface elements for user interaction or displaying information.",
+      "marks": 1,
+      "topic": "GUI Fundamentals",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is a standard Windows Forms control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Compiler",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Button",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Namespace",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Assembly",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Button is a standard Windows Forms control.",
+      "marks": 1,
+      "topic": "Windows Forms Controls",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "question": "Which control is most suitable for displaying a short, non-editable text caption?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TextBox",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "ComboBox",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Label",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "NumericUpDown",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "A Label is commonly used to display non-editable text.",
+      "marks": 1,
+      "topic": "Label Control",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "question": "Which control is commonly used to receive text entered by a user?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TextBox",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Label",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "PictureBox",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Panel",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "TextBox is commonly used for text input.",
+      "marks": 1,
+      "topic": "TextBox Control",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "question": "Which control is commonly used to initiate an action when clicked?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Label",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "PictureBox",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "GroupBox",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Button",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "A Button commonly initiates an action when clicked.",
+      "marks": 1,
+      "topic": "Button Control",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "question": "Which Windows Forms control allows a user to select an item from a drop-down list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Label",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "ComboBox",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "PictureBox",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Panel",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "ComboBox provides a drop-down list of items.",
+      "marks": 1,
+      "topic": "ComboBox Control",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "question": "Which control is designed to display images in a Windows Forms application?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TextBox",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "CheckBox",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "PictureBox",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "ListBox",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "PictureBox is intended for displaying images.",
+      "marks": 1,
+      "topic": "PictureBox Control",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "question": "What is a property in C# GUI programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A feature that describes or controls an object's state or behavior",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "A database table",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "A compiler error",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A type of operating system",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Properties describe or configure aspects of an object.",
+      "marks": 1,
+      "topic": "Control Properties",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "question": "Which property commonly determines the text displayed on a Button?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Name",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Size",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Location",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Text",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "The Text property determines the text displayed by a Button.",
+      "marks": 1,
+      "topic": "Text Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "question": "Which property identifies a control by its programmatic name?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Font",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Name",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "BackColor",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Visible",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The Name property identifies the control in code and the designer.",
+      "marks": 1,
+      "topic": "Name Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "question": "Which property determines whether a control can receive user interaction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Text",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Size",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Enabled",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "BackColor",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "Enabled determines whether a control is enabled for interaction.",
+      "marks": 1,
+      "topic": "Enabled Property",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "question": "Which property controls whether a control is displayed on the form?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Visible",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Name",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "TabIndex",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Font",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Visible determines whether a control is shown.",
+      "marks": 1,
+      "topic": "Visible Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "question": "Which property is commonly used to change a control's background color?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ForeColor",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Text",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Enabled",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "BackColor",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "BackColor specifies a control's background color.",
+      "marks": 1,
+      "topic": "BackColor Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "question": "Which property controls the foreground or text color of a control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "BackColor",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "ForeColor",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Location",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Size",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "ForeColor specifies the foreground color.",
+      "marks": 1,
+      "topic": "ForeColor Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "question": "Which property specifies the position of a control on a form?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Text",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Name",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Location",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "Enabled",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "Location specifies a control's position.",
+      "marks": 1,
+      "topic": "Location Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "question": "Which property specifies the width and height of a control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Size",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Visible",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Text",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "TabIndex",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Size specifies the control's width and height.",
+      "marks": 1,
+      "topic": "Size Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "question": "What is the main purpose of the Text property of a Label?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To determine its database connection",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "To set its memory address",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To compile the form",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "To specify the text displayed by the Label",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "The Label's Text property specifies the displayed caption.",
+      "marks": 1,
+      "topic": "Text Property",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "question": "What is an event in event-driven programming?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A variable declaration",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "An occurrence recognized by a program that may trigger a response",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "A database field",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A class constructor only",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "An event is an occurrence to which a program can respond.",
+      "marks": 1,
+      "topic": "Event-Driven Programming",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "question": "Which of the following is an example of a GUI event?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declaring a namespace",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Creating a class file",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Clicking a Button",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "Naming a variable",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "Clicking a Button is a common GUI event.",
+      "marks": 1,
+      "topic": "GUI Events",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "question": "What is an event handler?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A method associated with responding to an event",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "A visual property only",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "A database connection string",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "A type of GUI container",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "An event handler is a method that responds to an event.",
+      "marks": 1,
+      "topic": "Event Handlers",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "question": "Which event is commonly used to respond to a Button click in Windows Forms?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LoadFile",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Compile",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "SaveProject",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Click",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Click is the event commonly used for a Button click.",
+      "marks": 1,
+      "topic": "Button Click Event",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "question": "What happens when a user clicks a Button whose Click event has a correctly connected event handler?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The operating system must restart",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "The associated handler can execute",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "The form is always deleted",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "The source code is automatically removed",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "When the Click event is raised, its subscribed handler can execute.",
+      "marks": 1,
+      "topic": "Event Handling",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "question": "Which C# operator is commonly used to subscribe a method to an event?",
+      "options": [
+        {
+          "id": "A",
+          "text": "class",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "return",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "+=",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "namespace",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "The += operator is commonly used to add an event-handler delegate to an event.",
+      "marks": 1,
+      "topic": "Event Subscription",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "question": "In a typical Windows Forms event handler, what does the sender parameter represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The object that raised the event",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The application database",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "The compiler output file",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "The form's source-code filename",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "sender typically refers to the object that raised the event.",
+      "marks": 1,
+      "topic": "Event Handler Parameters",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "question": "In a typical Windows Forms event handler, what does the EventArgs e parameter provide?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The complete Visual Studio project",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "A database server",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "A new Windows Form",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Event-related argument information, where applicable",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "EventArgs provides event argument information; specific event types may expose additional data.",
+      "marks": 1,
+      "topic": "Event Handler Parameters",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "question": "Which event is commonly associated with a form being loaded?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Print",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Load",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Compile",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Install",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The Load event occurs as the form is being loaded.",
+      "marks": 1,
+      "topic": "Form Load Event",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "question": "What is the primary purpose of an event handler attached to a Button's Click event?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To change the C# language",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "To create an operating system",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To execute the required response to the click",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "To replace the compiler",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "The handler executes application logic in response to the click.",
+      "marks": 1,
+      "topic": "Event Handling",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "question": "Which statement correctly changes a Label's displayed text to \"Welcome\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "label1.Text = \"Welcome\";",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "label1.Name == \"Welcome\";",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "label1.Visible = \"Welcome\";",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "label1.Size = \"Welcome\";",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Assigning to label1.Text changes the displayed text.",
+      "marks": 1,
+      "topic": "C# Control Properties",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "question": "Which statement disables a Button named btnSave?",
+      "options": [
+        {
+          "id": "A",
+          "text": "btnSave.Text = false;",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "btnSave.Name = false;",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "btnSave.Visible = \"Disabled\";",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "btnSave.Enabled = false;",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Setting Enabled to false disables the Button.",
+      "marks": 1,
+      "topic": "C# Control Properties",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "question": "Which statement hides a control named label1?",
+      "options": [
+        {
+          "id": "A",
+          "text": "label1.Enabled = \"Hide\";",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "label1.Visible = false;",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "label1.Text = false;",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "label1.Location = false;",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "Setting Visible to false hides the control.",
+      "marks": 1,
+      "topic": "C# Control Properties",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "question": "What is the purpose of Solution Explorer in Visual Studio?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To execute database queries exclusively",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "To display only application output",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To organize and navigate project files and resources",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "To replace the C# compiler",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "Solution Explorer displays and organizes projects, files, and resources.",
+      "marks": 1,
+      "topic": "Visual Studio IDE",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "question": "What is the primary role of the Properties window in the Windows Forms Designer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To view and modify the selected object's properties",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "To create operating system accounts",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To execute SQL queries automatically",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "To manage computer hardware",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "The Properties window lets developers inspect and change properties of the selected object.",
+      "marks": 1,
+      "topic": "Visual Studio Designer",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "question": "What is the purpose of the Toolbox in the Windows Forms Designer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To store database records",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "To display runtime exceptions only",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To compile all source files manually",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "To provide controls and components that can be added to a form",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "The Toolbox provides controls and components to place on a form.",
+      "marks": 1,
+      "topic": "Visual Studio Toolbox",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "question": "What is the purpose of the C# source-code file associated with a Windows Form?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To store only image files",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "To contain C# code associated with the form",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "To replace all project configuration files",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "To store only database records",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "B",
+      "correctOptionIndex": 1,
+      "explanation": "The source file contains C# code associated with the form.",
+      "marks": 1,
+      "topic": "Windows Forms Source Code",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "question": "What is the purpose of the InitializeComponent() method in a typical Windows Forms form?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To uninstall Visual Studio",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "To create a database server",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To initialize the form's generated component and control setup",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "To convert C# into a different programming language",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "C",
+      "correctOptionIndex": 2,
+      "explanation": "InitializeComponent sets up the form's generated components and controls.",
+      "marks": 1,
+      "topic": "Windows Forms Initialization",
+      "difficulty": "Medium",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "question": "Why should a developer test a Windows Forms application after designing its interface?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To verify that controls and event handlers behave as expected",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "To eliminate the need for source code",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "To ensure that every property has the same value",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "To prevent all possible future errors permanently",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswer": "A",
+      "correctOptionIndex": 0,
+      "explanation": "Testing verifies expected behavior and helps identify defects.",
+      "marks": 1,
+      "topic": "Testing and Debugging",
+      "difficulty": "Easy",
+      "type": "single"
+    },
+    {
+      "id": 40,
+      "question": "Which statement best describes the relationship between controls, properties, and events in a Windows Forms application?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Controls can only store database records",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Properties replace all event handlers",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Events are used only to define class names",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Controls provide interface elements, properties configure them, and events enable responses to interactions",
+          "isCorrect": true
+        }
+      ],
+      "correctAnswer": "D",
+      "correctOptionIndex": 3,
+      "explanation": "Controls are interface elements, properties configure their state, and events support interaction-driven responses.",
+      "marks": 1,
+      "topic": "Windows Forms Concepts",
+      "difficulty": "Medium",
+      "type": "single"
+    }
+  ]
+}
