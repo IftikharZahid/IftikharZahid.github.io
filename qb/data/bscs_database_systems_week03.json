@@ -1,0 +1,918 @@
+{
+  "book": "Database Systems",
+  "course": "Database Systems",
+  "courseCode": "DBS",
+  "bankId": "DBS-BSCS-W03",
+  "title": "Database Systems — Week 03 MCQ Question Bank",
+  "week": 3,
+  "weekNo": 3,
+  "weekTitle": "Week 03",
+  "topic": "Database Languages and Interfaces (DDL, DML, DQL, DCL, TCL); Database System Environment (Hardware, Software, Data, Procedures, People)",
+  "level": "BS Computer Science",
+  "program": "BS Computer Science",
+  "assessmentType": "MCQs",
+  "questionType": "MCQ",
+  "language": "English",
+  "totalQuestions": 45,
+  "marksPerQuestion": 1,
+  "totalMarks": 45,
+  "createdBy": "Lec. Iftikhar Zahid",
+  "preparedBy": "Lec. Iftikhar Zahid",
+  "role": "Lecturer, Computer Science",
+  "version": "1.0",
+  "schemaVersion": "1.1",
+  "sourceDocument": "Database_Systems_Week_03_Lecture_Lec_Iftikhar_Zahid(1).docx",
+  "metadata": {
+    "title": "Database Systems – Week 03 MCQs",
+    "subject": "Database Systems",
+    "course": "Database Systems",
+    "week": 3,
+    "topic": "Database Languages and Interfaces; Database System Environment",
+    "program": "BS Computer Science",
+    "lecturer": "Lec. Iftikhar Zahid",
+    "totalQuestions": 45,
+    "formatVersion": "1.0"
+  },
+  "topics": [
+    "Database Languages",
+    "DDL",
+    "DML",
+    "DQL",
+    "DCL",
+    "TCL",
+    "Database Interfaces",
+    "Command-Line / SQL Interface",
+    "Menu-Based Interface",
+    "Forms-Based Interface",
+    "GUI",
+    "Natural-Language Interface",
+    "Web and Mobile Interfaces",
+    "APIs",
+    "Database System Environment",
+    "Hardware",
+    "Software",
+    "Data and Metadata",
+    "People and Roles",
+    "Procedures and Policies",
+    "Database Workflow",
+    "Worked Example",
+    "Review Concepts"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "questionNumber": 1,
+      "topic": "Database Languages",
+      "difficulty": "Easy",
+      "question": "What is a database language?",
+      "options": {
+        "A": "A set of commands used to define, manipulate, retrieve, protect, or manage database data",
+        "B": "A type of computer hardware",
+        "C": "A tool used only to design web pages",
+        "D": "A method of storing data only on paper"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "A set of commands used to define, manipulate, retrieve, protect, or manage database data",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — A database language provides syntactic commands to define, manipulate, query, and control database data.",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "questionNumber": 2,
+      "topic": "Database Languages",
+      "difficulty": "Easy",
+      "question": "Which language is widely used for relational DBMSs?",
+      "options": {
+        "A": "HTML",
+        "B": "SQL",
+        "C": "CSS",
+        "D": "XML only"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "SQL",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — SQL (Structured Query Language) is the standard and widely adopted language for RDBMS.",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "questionNumber": 3,
+      "topic": "DDL",
+      "difficulty": "Easy",
+      "question": "What is the main purpose of Data Definition Language (DDL)?",
+      "options": {
+        "A": "To create user accounts only",
+        "B": "To retrieve individual records only",
+        "C": "To define or change database structures",
+        "D": "To manage network cables"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "To define or change database structures",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — DDL statements define, alter, and drop schema objects and database structures.",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "questionNumber": 4,
+      "topic": "DDL",
+      "difficulty": "Easy",
+      "question": "Which set contains common DDL commands listed in the lecture?",
+      "options": {
+        "A": "INSERT, UPDATE, DELETE",
+        "B": "GRANT, REVOKE",
+        "C": "COMMIT, ROLLBACK, SAVEPOINT",
+        "D": "CREATE, ALTER, DROP"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "CREATE, ALTER, DROP",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — CREATE, ALTER, and DROP are core Data Definition Language statements.",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "questionNumber": 5,
+      "topic": "DDL",
+      "difficulty": "Easy",
+      "question": "Which SQL command is used in the lecture example to create a Student table?",
+      "options": {
+        "A": "CREATE TABLE",
+        "B": "SELECT TABLE",
+        "C": "GRANT TABLE",
+        "D": "COMMIT TABLE"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "CREATE TABLE",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — CREATE TABLE defines a new relational table along with its columns and integrity constraints.",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "questionNumber": 6,
+      "topic": "DDL",
+      "difficulty": "Medium",
+      "question": "Which command adds an Email column to an existing Student table in the lecture example?",
+      "options": {
+        "A": "INSERT INTO Student",
+        "B": "ALTER TABLE Student ADD Email VARCHAR(120)",
+        "C": "UPDATE Student SET Email",
+        "D": "REVOKE Email"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "ALTER TABLE Student ADD Email VARCHAR(120)",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — ALTER TABLE allows modifying schema definitions, including adding columns.",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "questionNumber": 7,
+      "topic": "DML",
+      "difficulty": "Easy",
+      "question": "What does Data Manipulation Language (DML) do?",
+      "options": {
+        "A": "Defines only schemas",
+        "B": "Controls user privileges",
+        "C": "Inserts, updates, and deletes table records",
+        "D": "Manages only hardware"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Inserts, updates, and deletes table records",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — DML handles data manipulation including inserting, updating, and removing table rows.",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "questionNumber": 8,
+      "topic": "DML",
+      "difficulty": "Easy",
+      "question": "Which set contains the common DML commands listed in the lecture?",
+      "options": {
+        "A": "CREATE, ALTER, DROP",
+        "B": "GRANT, REVOKE",
+        "C": "COMMIT, ROLLBACK, SAVEPOINT",
+        "D": "INSERT, UPDATE, DELETE"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "INSERT, UPDATE, DELETE",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — INSERT, UPDATE, and DELETE are standard DML modification statements.",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "questionNumber": 9,
+      "topic": "DML",
+      "difficulty": "Medium",
+      "question": "Which SQL statement inserts a new record into the Student table?",
+      "options": {
+        "A": "INSERT INTO Student (StudentID, StudentName, ClassName) VALUES (101, 'Ayesha', 'BSCS')",
+        "B": "CREATE Student",
+        "C": "GRANT SELECT ON Student",
+        "D": "ROLLBACK Student"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "INSERT INTO Student (StudentID, StudentName, ClassName) VALUES (101, 'Ayesha', 'BSCS')",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — INSERT INTO adds new tuples into the specified relation.",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "questionNumber": 10,
+      "topic": "DML",
+      "difficulty": "Medium",
+      "question": "Why should UPDATE and DELETE normally include a suitable WHERE condition when only selected rows should change?",
+      "options": {
+        "A": "To create a new schema",
+        "B": "To limit the operation to intended rows",
+        "C": "To grant privileges",
+        "D": "To define metadata"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "To limit the operation to intended rows",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Without a WHERE filter, UPDATE or DELETE affects every row in the table.",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "questionNumber": 11,
+      "topic": "DQL",
+      "difficulty": "Easy",
+      "question": "Which SQL statement is the principal query statement for retrieving data in the lecture?",
+      "options": {
+        "A": "DROP",
+        "B": "COMMIT",
+        "C": "SELECT",
+        "D": "REVOKE"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "SELECT",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — SELECT is the primary query statement in SQL for retrieving data from tables.",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "questionNumber": 12,
+      "topic": "DQL",
+      "difficulty": "Easy",
+      "question": "What does ORDER BY do in a query?",
+      "options": {
+        "A": "Grants privileges",
+        "B": "Deletes records",
+        "C": "Creates a table",
+        "D": "Sorts results"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "Sorts results",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — ORDER BY sorts the resulting rows in ascending or descending sequence.",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "questionNumber": 13,
+      "topic": "DQL",
+      "difficulty": "Medium",
+      "question": "What is the purpose of GROUP BY?",
+      "options": {
+        "A": "To form groups for aggregate calculations",
+        "B": "To add a new column",
+        "C": "To cancel a transaction",
+        "D": "To remove user permissions"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "To form groups for aggregate calculations",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — GROUP BY partitions rows into summary subsets for aggregate functions like COUNT, SUM, and AVG.",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "questionNumber": 14,
+      "topic": "DQL",
+      "difficulty": "Medium",
+      "question": "What does JOIN do in SQL?",
+      "options": {
+        "A": "Creates a database backup",
+        "B": "Combines related rows from tables",
+        "C": "Revokes privileges",
+        "D": "Defines the operating system"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Combines related rows from tables",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — JOIN operations correlate rows from two or more tables based on a related attribute.",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "questionNumber": 15,
+      "topic": "DQL",
+      "difficulty": "Medium",
+      "question": "How do some textbooks classify SELECT?",
+      "options": {
+        "A": "Only as DCL",
+        "B": "Only as TCL",
+        "C": "As part of DML rather than a separate DQL category",
+        "D": "As a hardware component"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "As part of DML rather than a separate DQL category",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — Many academic textbooks group SELECT under DML (Data Manipulation) instead of defining DQL separately.",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "questionNumber": 16,
+      "topic": "DCL",
+      "difficulty": "Easy",
+      "question": "What is the purpose of Data Control Language (DCL)?",
+      "options": {
+        "A": "To sort query results",
+        "B": "To define column data types",
+        "C": "To insert rows",
+        "D": "To control access privileges"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "To control access privileges",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — DCL controls database security, authorization privileges, and access permissions.",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "questionNumber": 17,
+      "topic": "DCL",
+      "difficulty": "Easy",
+      "question": "Which pair contains the common DCL commands in the lecture?",
+      "options": {
+        "A": "GRANT and REVOKE",
+        "B": "INSERT and UPDATE",
+        "C": "CREATE and ALTER",
+        "D": "COMMIT and ROLLBACK"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "GRANT and REVOKE",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — GRANT gives access rights, and REVOKE rescinds them.",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "questionNumber": 18,
+      "topic": "DCL",
+      "difficulty": "Medium",
+      "question": "Which command is shown as an example of granting SELECT access on Student to teacher_role?",
+      "options": {
+        "A": "REVOKE SELECT ON Student FROM teacher_role",
+        "B": "GRANT SELECT ON Student TO teacher_role",
+        "C": "UPDATE teacher_role SET SELECT",
+        "D": "COMMIT SELECT"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "GRANT SELECT ON Student TO teacher_role",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — GRANT SELECT ON Student TO teacher_role conveys query privileges to the specified role.",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "questionNumber": 19,
+      "topic": "TCL",
+      "difficulty": "Easy",
+      "question": "What does Transaction Control Language (TCL) manage?",
+      "options": {
+        "A": "Only database interfaces",
+        "B": "Only table names",
+        "C": "Transaction boundaries and outcomes",
+        "D": "Only hardware resources"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Transaction boundaries and outcomes",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — TCL statements manage transactional consistency and states across logical units of work.",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "questionNumber": 20,
+      "topic": "TCL",
+      "difficulty": "Easy",
+      "question": "Which command makes a transaction's changes permanent?",
+      "options": {
+        "A": "ROLLBACK",
+        "B": "SAVEPOINT",
+        "C": "DROP",
+        "D": "COMMIT"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "COMMIT",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — COMMIT permanently saves the current transaction's changes to the database.",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "questionNumber": 21,
+      "topic": "TCL",
+      "difficulty": "Easy",
+      "question": "What does ROLLBACK do according to the lecture?",
+      "options": {
+        "A": "Cancels uncommitted changes in the current transaction",
+        "B": "Creates a new table",
+        "C": "Grants a privilege",
+        "D": "Sorts query results"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Cancels uncommitted changes in the current transaction",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — ROLLBACK undoes changes made during the active transaction before they become permanent.",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "questionNumber": 22,
+      "topic": "TCL",
+      "difficulty": "Medium",
+      "question": "What is a SAVEPOINT used for?",
+      "options": {
+        "A": "To create a user interface",
+        "B": "To mark a point to which a transaction may be rolled back",
+        "C": "To add a table column",
+        "D": "To combine rows from tables"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "To mark a point to which a transaction may be rolled back",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — SAVEPOINT establishes an intermediate marker for partial transaction rollbacks.",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "questionNumber": 23,
+      "topic": "Database Interfaces",
+      "difficulty": "Easy",
+      "question": "What is a database interface?",
+      "options": {
+        "A": "A type of stored data",
+        "B": "A hardware-only device",
+        "C": "A method for a user or application to submit requests to a DBMS and receive results",
+        "D": "A transaction command"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "A method for a user or application to submit requests to a DBMS and receive results",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — An interface provides the channel or communication medium between users/applications and the DBMS.",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "questionNumber": 24,
+      "topic": "Command-Line / SQL Interface",
+      "difficulty": "Easy",
+      "question": "How do users interact with a command-line / SQL interface?",
+      "options": {
+        "A": "Only by clicking visual buttons",
+        "B": "Only by filling printed forms",
+        "C": "By speaking ordinary language without translation",
+        "D": "By typing SQL statements into a client or command-line tool"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "By typing SQL statements into a client or command-line tool",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — In CLI tools, users directly type SQL commands to execute operations against the DBMS.",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "questionNumber": 25,
+      "topic": "Menu-Based Interface",
+      "difficulty": "Easy",
+      "question": "What do users do in a menu-based interface?",
+      "options": {
+        "A": "Select operations from menus",
+        "B": "Write all database engine code",
+        "C": "Manage storage devices physically",
+        "D": "Only enter SQL transactions manually"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Select operations from menus",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Menu-based interfaces present structured lists of options from which users select desired actions.",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "questionNumber": 26,
+      "topic": "Forms-Based Interface",
+      "difficulty": "Easy",
+      "question": "What is a typical use of a forms-based interface?",
+      "options": {
+        "A": "Managing network cabling",
+        "B": "Entering or viewing data through predefined forms",
+        "C": "Writing the DBMS operating system",
+        "D": "Encrypting every database column automatically"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Entering or viewing data through predefined forms",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Forms provide structured input and display fields tailored for business workflows.",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "questionNumber": 27,
+      "topic": "GUI",
+      "difficulty": "Easy",
+      "question": "Which elements may a Graphical User Interface (GUI) present?",
+      "options": {
+        "A": "Only text commands",
+        "B": "Only paper documents",
+        "C": "Buttons, tables, dialogs, and query designers",
+        "D": "Only database backups"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Buttons, tables, dialogs, and query designers",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — GUIs utilize visual elements such as buttons, grids, icons, dialogs, and visual query builders.",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "questionNumber": 28,
+      "topic": "Natural-Language Interface",
+      "difficulty": "Medium",
+      "question": "What does a natural-language database interface attempt to do?",
+      "options": {
+        "A": "Replace all database hardware",
+        "B": "Create indexes automatically in every case",
+        "C": "Grant access to every user",
+        "D": "Translate ordinary-language requests into database operations"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "Translate ordinary-language requests into database operations",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Natural-language interfaces parse spoken or typed human language into executable database queries.",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "questionNumber": 29,
+      "topic": "Web and Mobile Interfaces",
+      "difficulty": "Medium",
+      "question": "How do web and mobile applications usually communicate with a DBMS, according to the lecture?",
+      "options": {
+        "A": "Through a backend service",
+        "B": "By exposing the database connection directly to every untrusted client",
+        "C": "Only through paper forms",
+        "D": "Without any application interface"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Through a backend service",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — For security and scalability, client apps connect to backend application servers which communicate with the DBMS.",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "questionNumber": 30,
+      "topic": "APIs",
+      "difficulty": "Easy",
+      "question": "Which technology is given as an example of an API for Java database applications?",
+      "options": {
+        "A": "CSS",
+        "B": "JDBC",
+        "C": "HTML",
+        "D": "PNG"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "JDBC",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — JDBC (Java Database Connectivity) is the standard API for Java database connectivity.",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "questionNumber": 31,
+      "topic": "APIs",
+      "difficulty": "Medium",
+      "question": "How do parameterized queries help when used correctly?",
+      "options": {
+        "A": "They eliminate the need for a DBMS",
+        "B": "They automatically create every database table",
+        "C": "They help prevent SQL injection",
+        "D": "They replace all user permissions"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "They help prevent SQL injection",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — Parameterized queries separate query logic from data inputs, defending against SQL injection attacks.",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "questionNumber": 32,
+      "topic": "Database System Environment",
+      "difficulty": "Easy",
+      "question": "What does the database system environment include?",
+      "options": {
+        "A": "Only stored data",
+        "B": "Only the DBMS software",
+        "C": "Only users and screens",
+        "D": "Hardware, software, data, procedures, and people"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "Hardware, software, data, procedures, and people",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — The complete database system environment spans hardware, software, data, operational procedures, and people.",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "questionNumber": 33,
+      "topic": "Hardware",
+      "difficulty": "Easy",
+      "question": "Which of the following is listed as hardware in a database environment?",
+      "options": {
+        "A": "Servers, storage devices, memory, and networking equipment",
+        "B": "GRANT and REVOKE commands",
+        "C": "Table definitions and permissions",
+        "D": "Backup policies only"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Servers, storage devices, memory, and networking equipment",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Physical machines, storage arrays, processors, RAM, and network switches comprise hardware.",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "questionNumber": 34,
+      "topic": "Software",
+      "difficulty": "Easy",
+      "question": "Which item is part of database-system software?",
+      "options": {
+        "A": "A physical keyboard only",
+        "B": "DBMS, operating system, drivers, utilities, and monitoring tools",
+        "C": "Only the end user",
+        "D": "Only stored student records"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "DBMS, operating system, drivers, utilities, and monitoring tools",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Software components include the DBMS engine, OS, network drivers, administrative utilities, and monitoring tools.",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "questionNumber": 35,
+      "topic": "Data and Metadata",
+      "difficulty": "Easy",
+      "question": "What is metadata?",
+      "options": {
+        "A": "A person who enters records",
+        "B": "A network cable",
+        "C": "Information describing data and its structure",
+        "D": "A command that cancels a transaction"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Information describing data and its structure",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — Metadata is defined as data about data, describing definitions, structures, and constraints.",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "questionNumber": 36,
+      "topic": "Data and Metadata",
+      "difficulty": "Medium",
+      "question": "Which is an example of metadata mentioned in the lecture?",
+      "options": {
+        "A": "A user's spoken request",
+        "B": "A physical server rack",
+        "C": "A business meeting",
+        "D": "Table definitions, column types, constraints, indexes, and permissions"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "Table definitions, column types, constraints, indexes, and permissions",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Schema definitions, column types, primary keys, and access permissions are canonical metadata in DBMS catalog.",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "questionNumber": 37,
+      "topic": "People and Roles",
+      "difficulty": "Easy",
+      "question": "Which role manages database access, security, backup and recovery, performance, availability, and maintenance?",
+      "options": {
+        "A": "Database Administrator (DBA)",
+        "B": "End user only",
+        "C": "Customer",
+        "D": "Graphic designer"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Database Administrator (DBA)",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The DBA oversees operational health, access authorization, recovery, and ongoing maintenance.",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "questionNumber": 38,
+      "topic": "People and Roles",
+      "difficulty": "Medium",
+      "question": "Who identifies data requirements and designs schemas, relationships, and constraints?",
+      "options": {
+        "A": "End user",
+        "B": "Database Designer / Data Architect",
+        "C": "Network visitor",
+        "D": "Student only"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Database Designer / Data Architect",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Data architects and database designers model business data requirements into conceptual and logical schemas.",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "questionNumber": 39,
+      "topic": "People and Roles",
+      "difficulty": "Easy",
+      "question": "What is the primary role of an application developer in a database environment?",
+      "options": {
+        "A": "Maintaining only physical storage hardware",
+        "B": "Defining acceptable-use policies only",
+        "C": "Building software that interacts with the database",
+        "D": "Using reports only as an end user"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Building software that interacts with the database",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — Application developers create programs, user interfaces, and business logic that query and manipulate the database.",
+      "type": "single"
+    },
+    {
+      "id": 40,
+      "questionNumber": 40,
+      "topic": "Procedures and Policies",
+      "difficulty": "Medium",
+      "question": "What do database procedures specify?",
+      "options": {
+        "A": "Only the names of users",
+        "B": "Only SQL query sorting",
+        "C": "Only screen colors",
+        "D": "How a database is created, accessed, backed up, restored, monitored, updated, and secured"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "How a database is created, accessed, backed up, restored, monitored, updated, and secured",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Procedures define organizational rules and operational guidelines for governance, backup, and security.",
+      "type": "single"
+    },
+    {
+      "id": 41,
+      "questionNumber": 41,
+      "topic": "Database Workflow",
+      "difficulty": "Easy",
+      "question": "What happens first in the lecture's workflow of database components?",
+      "options": {
+        "A": "An end user enters a request through an interface",
+        "B": "The DBMS returns a result",
+        "C": "The system performs a backup",
+        "D": "The DBMS consults metadata before any request exists"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "An end user enters a request through an interface",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Operations initiate when a user or application issues a request through an interface.",
+      "type": "single"
+    },
+    {
+      "id": 42,
+      "questionNumber": 42,
+      "topic": "Database Workflow",
+      "difficulty": "Medium",
+      "question": "What does the DBMS check when processing a request?",
+      "options": {
+        "A": "Only the user's device color",
+        "B": "Syntax, permissions, constraints, and the requested operation",
+        "C": "Only the application logo",
+        "D": "Only the number of network cables"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Syntax, permissions, constraints, and the requested operation",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — The DBMS parser and query optimizer validate syntax, access permissions, schema constraints, and execution plans.",
+      "type": "single"
+    },
+    {
+      "id": 43,
+      "questionNumber": 43,
+      "topic": "Worked Example",
+      "difficulty": "Medium",
+      "question": "In the lecture's worked example, which SQL statement retrieves a student's name and class using StudentID 101?",
+      "options": {
+        "A": "DROP TABLE Student",
+        "B": "GRANT SELECT ON Student TO teacher_role",
+        "C": "SELECT StudentName, ClassName FROM Student WHERE StudentID = 101",
+        "D": "ROLLBACK Student"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "SELECT StudentName, ClassName FROM Student WHERE StudentID = 101",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — SELECT StudentName, ClassName FROM Student WHERE StudentID = 101 filters and projects requested attributes.",
+      "type": "single"
+    },
+    {
+      "id": 44,
+      "questionNumber": 44,
+      "topic": "Worked Example",
+      "difficulty": "Medium",
+      "question": "In the worked example, what happens after the DBMS returns the permitted row?",
+      "options": {
+        "A": "The database connection is exposed to all clients",
+        "B": "The table is automatically dropped",
+        "C": "The user's permissions are all revoked",
+        "D": "The application displays the student's name and class"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "The application displays the student's name and class",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Once the DBMS retrieves the record, the calling application formats and displays the information to the user.",
+      "type": "single"
+    },
+    {
+      "id": 45,
+      "questionNumber": 45,
+      "topic": "Review Concepts",
+      "difficulty": "Easy",
+      "question": "Which combination best represents a database system environment as described in the lecture?",
+      "options": {
+        "A": "People, procedures, data, hardware, and software",
+        "B": "Only SQL commands",
+        "C": "Only a database table and a keyboard",
+        "D": "Only a GUI and a printer"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "People, procedures, data, hardware, and software",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The five core pillars of any database system environment are people, procedures, data, hardware, and software.",
+      "type": "single"
+    }
+  ]
+}

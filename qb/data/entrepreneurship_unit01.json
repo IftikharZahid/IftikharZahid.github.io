@@ -1,0 +1,812 @@
+{
+  "book": "Entrepreneurship",
+  "course": "Entrepreneurship",
+  "courseCode": "ENT",
+  "bankId": "ENT-UNIT-01",
+  "title": "Entrepreneurship — Unit 01 MCQ Question Bank",
+  "week": 1,
+  "weekNo": 1,
+  "unit": 1,
+  "weekTitle": "Unit 01 — Introduction to Entrepreneurship",
+  "topic": "Definition and Concept of Entrepreneurship, Reasons to Become an Entrepreneur, Entrepreneurial Process, Role of Entrepreneurship in Economic Development",
+  "level": "BS Computer Science",
+  "program": "BS Computer Science",
+  "assessmentType": "MCQs",
+  "questionType": "MCQ",
+  "language": "English",
+  "totalQuestions": 40,
+  "marksPerQuestion": 1,
+  "totalMarks": 40,
+  "createdBy": "Lec. Iftikhar Zahid",
+  "preparedBy": "Lec. Iftikhar Zahid",
+  "role": "Lecturer, Computer Science",
+  "version": "1.0",
+  "schemaVersion": "1.1",
+  "sourceDocument": "Entrepreneurship_Unit_1_MCQs_Professional_Lec_Iftikhar_Zahid.docx",
+  "metadata": {
+    "title": "Entrepreneurship – Unit 01 MCQs",
+    "subject": "Entrepreneurship",
+    "course": "Entrepreneurship",
+    "week": 1,
+    "unit": 1,
+    "topic": "Introduction to Entrepreneurship",
+    "program": "BS Computer Science",
+    "lecturer": "Lec. Iftikhar Zahid",
+    "totalQuestions": 40,
+    "formatVersion": "1.0"
+  },
+  "sections": [
+    "Definition and Concept of Entrepreneurship",
+    "Reasons to Become an Entrepreneur",
+    "Entrepreneurial Process",
+    "Role of Entrepreneurship in Economic Development"
+  ],
+  "topics": [
+    "Definition and Concept of Entrepreneurship",
+    "Reasons to Become an Entrepreneur",
+    "Entrepreneurial Process",
+    "Role of Entrepreneurship in Economic Development"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "questionNumber": 1,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "Entrepreneurship is best described as the process of:",
+      "options": {
+        "A": "Creating, developing, and managing a business",
+        "B": "Working only for a government department",
+        "C": "Buying products only for personal use",
+        "D": "Avoiding all business risks"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Creating, developing, and managing a business",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Entrepreneurship is the dynamic process of conceptualizing, organizing, launching, and managing a business venture.",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "questionNumber": 2,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "The word “entreprendre,” from which entrepreneurship is commonly derived, means:",
+      "options": {
+        "A": "To undertake",
+        "B": "To calculate",
+        "C": "To manufacture",
+        "D": "To advertise"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "To undertake",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The French verb 'entreprendre' translates to 'to undertake', symbolizing taking initiative.",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "questionNumber": 3,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "An entrepreneur is a person who:",
+      "options": {
+        "A": "Starts a business by organizing resources and accepting calculated risk",
+        "B": "Only purchases goods for personal use",
+        "C": "Never makes business decisions",
+        "D": "Works without serving customers"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Starts a business by organizing resources and accepting calculated risk",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — An entrepreneur organizes economic resources, introduces innovations, and accepts business risks to pursue opportunity.",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "questionNumber": 4,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "Which is an example of entrepreneurship?",
+      "options": {
+        "A": "Opening a mobile-repair shop where a local need exists",
+        "B": "Keeping an idea secret and never acting on it",
+        "C": "Avoiding every opportunity to serve customers",
+        "D": "Using a product without offering any service"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Opening a mobile-repair shop where a local need exists",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Recognizing unmet consumer demand and setting up a mobile-repair business is a practical demonstration of entrepreneurship.",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "questionNumber": 5,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Medium",
+      "question": "Which scholar is associated in the source material with the idea of pursuing opportunity beyond resources currently controlled?",
+      "options": {
+        "A": "Howard Stevenson",
+        "B": "Isaac Newton",
+        "C": "Charles Darwin",
+        "D": "Adam Smith"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Howard Stevenson",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Harvard Professor Howard Stevenson famously defined entrepreneurship as 'the pursuit of opportunity beyond resources controlled.'",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "questionNumber": 6,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "Innovation in entrepreneurship means:",
+      "options": {
+        "A": "Doing something new or improving how something is done",
+        "B": "Repeating every method without change",
+        "C": "Avoiding customer feedback",
+        "D": "Removing all business goals"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Doing something new or improving how something is done",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Innovation involves creating novel products, services, processes, or refining existing offerings to deliver greater value.",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "questionNumber": 7,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "Taking a calculated risk means:",
+      "options": {
+        "A": "Considering uncertainty before making a business decision",
+        "B": "Investing without thinking about consequences",
+        "C": "Guaranteeing that a business cannot fail",
+        "D": "Avoiding all decisions"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Considering uncertainty before making a business decision",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Calculated risk-taking involves evaluating potential losses and market uncertainties before committing resources.",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "questionNumber": 8,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "Opportunity recognition involves identifying:",
+      "options": {
+        "A": "Unmet needs and gaps in the market",
+        "B": "Only the colour of a company logo",
+        "C": "Personal expenses unrelated to customers",
+        "D": "Ways to avoid understanding the market"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Unmet needs and gaps in the market",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Opportunity recognition entails detecting unmet consumer demands, inefficiencies, or underserved market niches.",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "questionNumber": 9,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "Which set contains examples of resources an entrepreneur may organize?",
+      "options": {
+        "A": "Capital, workers, equipment, and materials",
+        "B": "Only slogans and advertisements",
+        "C": "Only customer complaints",
+        "D": "Only business names"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Capital, workers, equipment, and materials",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Financial capital, skilled labor, technology, machinery, and raw materials constitute primary productive resources.",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "questionNumber": 10,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "A goal-oriented entrepreneur typically:",
+      "options": {
+        "A": "Uses a vision or goal to guide decisions",
+        "B": "Operates without any purpose",
+        "C": "Rejects all planning",
+        "D": "Avoids serving a target market"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Uses a vision or goal to guide decisions",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Goal-oriented founders establish clear strategic targets and milestone objectives to direct business development.",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "questionNumber": 11,
+      "topic": "Definition and Concept of Entrepreneurship",
+      "difficulty": "Easy",
+      "question": "Social entrepreneurship places particular emphasis on:",
+      "options": {
+        "A": "Creating value while addressing social or environmental needs",
+        "B": "Maximizing waste",
+        "C": "Avoiding community needs",
+        "D": "Preventing useful services"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Creating value while addressing social or environmental needs",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Social entrepreneurship applies entrepreneurial principles to solve pressing societal, humanitarian, or ecological issues.",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "questionNumber": 12,
+      "topic": "Reasons to Become an Entrepreneur",
+      "difficulty": "Easy",
+      "question": "One reason people become entrepreneurs is to:",
+      "options": {
+        "A": "Have greater independence in business decisions",
+        "B": "Ensure they never have responsibilities",
+        "C": "Eliminate all uncertainty",
+        "D": "Avoid learning new skills"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Have greater independence in business decisions",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Autonomy, independence, and the freedom to direct business direction motivate many individuals to pursue entrepreneurship.",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "questionNumber": 13,
+      "topic": "Reasons to Become an Entrepreneur",
+      "difficulty": "Medium",
+      "question": "Compared with a fixed salary, business income:",
+      "options": {
+        "A": "May provide profit and growth opportunities but is not guaranteed",
+        "B": "Is always higher",
+        "C": "Cannot ever result in a loss",
+        "D": "Is completely unrelated to business performance"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "May provide profit and growth opportunities but is not guaranteed",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Entrepreneurial income has high upside potential through equity and profit, but carries risk without a guaranteed baseline.",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "questionNumber": 14,
+      "topic": "Reasons to Become an Entrepreneur",
+      "difficulty": "Easy",
+      "question": "A person who develops an app to solve a study-related problem is mainly turning an idea into:",
+      "options": {
+        "A": "A product or service",
+        "B": "A government policy",
+        "C": "A natural resource",
+        "D": "A fixed salary"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "A product or service",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Commercializing an application transforms an intellectual concept into a functional software product or digital service.",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "questionNumber": 15,
+      "topic": "Reasons to Become an Entrepreneur",
+      "difficulty": "Easy",
+      "question": "An entrepreneur who notices a shortage of clean drinking water and offers filters is responding to:",
+      "options": {
+        "A": "A market need or problem",
+        "B": "A need to avoid customers",
+        "C": "A requirement to stop innovation",
+        "D": "A reason to abandon planning"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "A market need or problem",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Addressing consumer shortages by supplying filtration solutions exemplifies problem-oriented value creation.",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "questionNumber": 16,
+      "topic": "Reasons to Become an Entrepreneur",
+      "difficulty": "Medium",
+      "question": "Which statement about flexibility in entrepreneurship is most accurate?",
+      "options": {
+        "A": "Some businesses allow flexible work, but ownership may also require long hours",
+        "B": "Every entrepreneur works fewer hours than employees",
+        "C": "Entrepreneurs never work irregular hours",
+        "D": "Flexibility is guaranteed in every business"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Some businesses allow flexible work, but ownership may also require long hours",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — While business owners set their own schedule, venture demands frequently necessitate demanding, irregular work hours.",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "questionNumber": 17,
+      "topic": "Reasons to Become an Entrepreneur",
+      "difficulty": "Easy",
+      "question": "Creating jobs is a potential benefit of entrepreneurship because businesses:",
+      "options": {
+        "A": "Need people to operate and deliver their products or services",
+        "B": "Never require workers",
+        "C": "Always operate without suppliers",
+        "D": "Cannot expand"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Need people to operate and deliver their products or services",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Growing ventures employ personnel across operations, production, sales, logistics, and management.",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "questionNumber": 18,
+      "topic": "Reasons to Become an Entrepreneur",
+      "difficulty": "Easy",
+      "question": "Personal satisfaction can motivate entrepreneurship because a person may value:",
+      "options": {
+        "A": "The achievement of building and developing a business",
+        "B": "Avoiding every responsibility",
+        "C": "Never making decisions",
+        "D": "Keeping all ideas unused"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "The achievement of building and developing a business",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Bringing a personal vision to life and experiencing venture growth provides substantial intrinsic satisfaction.",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "questionNumber": 19,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "The first step in the entrepreneurial process described in Unit 1 is:",
+      "options": {
+        "A": "Idea generation",
+        "B": "Selling the business",
+        "C": "Hiring an auditor",
+        "D": "Closing operations"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Idea generation",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The entrepreneurial journey commences with idea generation and creative opportunity discovery.",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "questionNumber": 20,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "A feasibility study helps an entrepreneur determine whether an idea is:",
+      "options": {
+        "A": "Practical and potentially viable",
+        "B": "Guaranteed to earn profit",
+        "C": "Free from competition",
+        "D": "Unrelated to customer needs"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Practical and potentially viable",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Feasibility analysis rigorously evaluates market demand, technical viability, and financial practicality.",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "questionNumber": 21,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Medium",
+      "question": "Which question is suitable during opportunity evaluation?",
+      "options": {
+        "A": "Will customers pay for this product or service?",
+        "B": "How can the business avoid identifying customers?",
+        "C": "Why should costs never be estimated?",
+        "D": "How can competition be ignored permanently?"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Will customers pay for this product or service?",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Assessing willingness to pay confirms genuine economic demand and commercial viability.",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "questionNumber": 22,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "A business plan commonly explains how a business will:",
+      "options": {
+        "A": "Operate, earn money, grow, and manage risks",
+        "B": "Avoid defining any goals",
+        "C": "Eliminate all market research",
+        "D": "Operate without resources"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Operate, earn money, grow, and manage risks",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — A business plan articulates business strategy, financial projections, operations, and risk mitigation.",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "questionNumber": 23,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "Which activity is an example of resource gathering?",
+      "options": {
+        "A": "Obtaining funds, equipment, workers, and materials",
+        "B": "Ignoring the costs of starting",
+        "C": "Stopping all planning",
+        "D": "Refusing to obtain needed supplies"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Obtaining funds, equipment, workers, and materials",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Securing seed financing, purchasing tools, and assembling a capable team are core resource-gathering activities.",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "questionNumber": 24,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "Launching a business means:",
+      "options": {
+        "A": "Establishing it and beginning to offer its product or service",
+        "B": "Only thinking about a possible idea",
+        "C": "Ending all customer communication",
+        "D": "Selling it before it exists"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Establishing it and beginning to offer its product or service",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Venture launch marks the transition from planning to live commercial operations in the open market.",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "questionNumber": 25,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "After launch, managing and growing a business includes:",
+      "options": {
+        "A": "Handling daily operations and improving customer satisfaction",
+        "B": "Ignoring customers and service quality",
+        "C": "Avoiding all feedback",
+        "D": "Refusing to review performance"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Handling daily operations and improving customer satisfaction",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Post-launch management focuses on cash flow, service standards, customer retention, and operational optimization.",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "questionNumber": 26,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Medium",
+      "question": "An entrepreneur’s possible exit strategy may include:",
+      "options": {
+        "A": "Selling or merging the business",
+        "B": "Only changing the business logo",
+        "C": "Avoiding any long-term decision",
+        "D": "Deleting all business records"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Selling or merging the business",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Strategic exits involve trade sales, acquisitions, mergers, initial public offerings (IPOs), or management buyouts.",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "questionNumber": 27,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "Which is an example of risk management?",
+      "options": {
+        "A": "Keeping emergency funds and preparing backup plans",
+        "B": "Ignoring financial uncertainty",
+        "C": "Making no contingency plans",
+        "D": "Assuming losses are impossible"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Keeping emergency funds and preparing backup plans",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Maintaining contingency cash reserves and operational continuity plans minimizes vulnerability to unforeseen shocks.",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "questionNumber": 28,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "Innovation and adaptation are important because:",
+      "options": {
+        "A": "Markets, technology, and customer preferences can change",
+        "B": "Business conditions never change",
+        "C": "Customers never have new needs",
+        "D": "Improvement always harms a business"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Markets, technology, and customer preferences can change",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Continuous adaptation enables firms to maintain competitive advantage amid evolving market environments.",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "questionNumber": 29,
+      "topic": "Entrepreneurial Process",
+      "difficulty": "Easy",
+      "question": "Networking can help entrepreneurs by providing:",
+      "options": {
+        "A": "Connections, advice, learning, and collaboration opportunities",
+        "B": "A guarantee of profit",
+        "C": "Freedom from all competition",
+        "D": "A replacement for every business activity"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Connections, advice, learning, and collaboration opportunities",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Professional networking expands mentorship access, talent recruitment, strategic partnerships, and customer referrals.",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "questionNumber": 30,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Entrepreneurship can contribute to national income by:",
+      "options": {
+        "A": "Increasing economic activity through goods and services",
+        "B": "Stopping all production",
+        "C": "Preventing business transactions",
+        "D": "Eliminating local markets"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Increasing economic activity through goods and services",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Producing goods and services adds to Gross Domestic Product (GDP) and expands national wealth.",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "questionNumber": 31,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Businesses may contribute to public services when they:",
+      "options": {
+        "A": "Pay taxes that governments can use to fund services",
+        "B": "Avoid all legal obligations",
+        "C": "Stop employing people",
+        "D": "Prevent economic activity"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Pay taxes that governments can use to fund services",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Corporate, sales, and employee tax revenues finance public infrastructure, schools, and healthcare.",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "questionNumber": 32,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Entrepreneurship can improve living standards by:",
+      "options": {
+        "A": "Making useful goods and services more available or convenient",
+        "B": "Removing useful services from the market",
+        "C": "Preventing product improvements",
+        "D": "Eliminating customer choice"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Making useful goods and services more available or convenient",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — High-quality, affordable goods and services enhance consumers' convenience, health, and standard of living.",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "questionNumber": 33,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Medium",
+      "question": "Economic independence may be supported when local businesses:",
+      "options": {
+        "A": "Produce goods and services locally and potentially export them",
+        "B": "Stop local production",
+        "C": "Avoid using local skills",
+        "D": "Depend entirely on imported services"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Produce goods and services locally and potentially export them",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Domestic manufacturing reduces import reliance, conserves foreign exchange, and fuels export growth.",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "questionNumber": 34,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Balanced regional development may be encouraged when entrepreneurs:",
+      "options": {
+        "A": "Establish businesses in smaller towns and rural areas",
+        "B": "Locate every business in one large city",
+        "C": "Avoid underserved communities",
+        "D": "Stop providing local services"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Establish businesses in smaller towns and rural areas",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Decentralizing enterprise development into peripheral areas disperses wealth and curbs urban migration.",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "questionNumber": 35,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Entrepreneurship can help reduce poverty when it:",
+      "options": {
+        "A": "Creates jobs and income opportunities",
+        "B": "Removes employment opportunities",
+        "C": "Prevents small businesses from operating",
+        "D": "Stops people from earning income"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Creates jobs and income opportunities",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Generating sustainable employment and self-employment directly uplifts households from economic deprivation.",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "questionNumber": 36,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Entrepreneurship can encourage young people to:",
+      "options": {
+        "A": "Apply their skills and develop useful products or services",
+        "B": "Avoid productive activity",
+        "C": "Stop learning",
+        "D": "Reject all opportunities"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Apply their skills and develop useful products or services",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Entrepreneurship empowers youth to harness creativity, technical know-how, and leadership to build impactful ventures.",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "questionNumber": 37,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Medium",
+      "question": "Entrepreneurship may attract investment when:",
+      "options": {
+        "A": "Promising business ideas offer growth opportunities",
+        "B": "A business refuses to explain its idea",
+        "C": "No activity or plan exists",
+        "D": "All investment opportunities are rejected"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Promising business ideas offer growth opportunities",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Scalable, sound business models attract venture capital, angel investment, and institutional funding.",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "questionNumber": 38,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Using local resources can support:",
+      "options": {
+        "A": "Local suppliers, farmers, artisans, and workers",
+        "B": "Only distant suppliers",
+        "C": "The removal of local skills",
+        "D": "The end of local production"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Local suppliers, farmers, artisans, and workers",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Sourcing locally stimulates the domestic supply chain and enhances regional income multipliers.",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "questionNumber": 39,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Medium",
+      "question": "Which group best represents the main steps in an entrepreneurial process?",
+      "options": {
+        "A": "Generate an idea, evaluate it, plan, gather resources, launch, and manage",
+        "B": "Launch first, then decide whether an idea exists",
+        "C": "Avoid evaluation, planning, and resources",
+        "D": "Close the business before launching it"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Generate an idea, evaluate it, plan, gather resources, launch, and manage",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The lifecycle proceeds from ideation and screening to planning, resourcing, commercial launch, and growth management.",
+      "type": "single"
+    },
+    {
+      "id": 40,
+      "questionNumber": 40,
+      "topic": "Role of Entrepreneurship in Economic Development",
+      "difficulty": "Easy",
+      "question": "Which statement best summarizes the role of entrepreneurship in economic development?",
+      "options": {
+        "A": "It can create jobs, encourage innovation, use local resources, and support economic activity",
+        "B": "It only benefits people who do not work",
+        "C": "It prevents the creation of new products",
+        "D": "It has no relationship to employment or income"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "It can create jobs, encourage innovation, use local resources, and support economic activity",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Entrepreneurship drives employment generation, technological innovation, resource mobilization, and aggregate economic growth.",
+      "type": "single"
+    }
+  ]
+}

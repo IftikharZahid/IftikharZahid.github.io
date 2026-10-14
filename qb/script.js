@@ -6629,6 +6629,2226 @@ const softwareEngineeringLecture01Questions = [
   }
 ];
 
+
+const databaseSystemsWeek01Questions = [
+  {
+    "id": 1,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "What is a database?",
+    "options": [
+      "A programming language",
+      "An organized collection of related data",
+      "An operating system",
+      "A computer network"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A database is an organized collection of related data that is managed for access and updates.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "What is data?",
+    "options": [
+      "Processed facts with meaning",
+      "Raw facts and figures",
+      "A software application",
+      "A database table only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Data refers to raw, unorganized facts, figures, and symbols before processing.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "What is information?",
+    "options": [
+      "Raw data",
+      "Unorganized facts",
+      "Processed and meaningful data",
+      "A programming language"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Information is data that has been processed, structured, and presented to give it meaning.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "Which of the following is an example of a database?",
+    "options": [
+      "University student records",
+      "Keyboard",
+      "Compiler",
+      "Operating system"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — University student records constitute an organized collection of persistent, related operational data.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "What is a DBMS?",
+    "options": [
+      "Database Management System",
+      "Data Backup Management Software",
+      "Database Machine System",
+      "Data Building Management System"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — DBMS stands for Database Management System, a software suite designed to manage databases.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "What is the primary purpose of a DBMS?",
+    "options": [
+      "To design computer hardware",
+      "To manage and access databases",
+      "To create operating systems",
+      "To browse the Internet"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — A DBMS serves to create, retrieve, update, and manage data and databases securely.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "Which of the following is a DBMS?",
+    "options": [
+      "MySQL",
+      "Microsoft Word",
+      "Google Chrome",
+      "Adobe Photoshop"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — MySQL is a popular open-source relational database management system.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Introduction to Database",
+    "difficulty": "Easy",
+    "question": "Which of the following is NOT a DBMS?",
+    "options": [
+      "PostgreSQL",
+      "Oracle Database",
+      "MySQL",
+      "Microsoft PowerPoint"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Microsoft PowerPoint is presentation presentation software, not a DBMS.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Database Approach",
+    "difficulty": "Easy",
+    "question": "What is the database approach?",
+    "options": [
+      "Storing data only in text files",
+      "Managing data through a centralized database and DBMS",
+      "Storing data only on paper",
+      "Using multiple unrelated files"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The database approach centralizes data management and schema definitions via a DBMS.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Database Approach",
+    "difficulty": "Medium",
+    "question": "Which approach commonly stores data separately for different applications?",
+    "options": [
+      "Database approach",
+      "File-processing approach",
+      "Object-oriented approach",
+      "Network approach"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — In traditional file processing, each application typically maintains its own isolated data files.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Database Approach",
+    "difficulty": "Easy",
+    "question": "What is data redundancy?",
+    "options": [
+      "Data security",
+      "Unnecessary duplication of data",
+      "Data encryption",
+      "Data recovery"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Data redundancy is the redundant, unnecessary duplication of the same information across multiple files.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Database Approach",
+    "difficulty": "Medium",
+    "question": "What can occur when the same data is stored in multiple files and one copy is updated while another is not?",
+    "options": [
+      "Data consistency",
+      "Data independence",
+      "Data inconsistency",
+      "Data security"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Uncoordinated updates across duplicated copies lead to conflicting values, known as data inconsistency.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Database Approach",
+    "difficulty": "Easy",
+    "question": "Which approach generally provides better data sharing?",
+    "options": [
+      "Database approach",
+      "Traditional file approach",
+      "Manual filing approach",
+      "Paper-based approach"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A centralized database architecture enables multiple authorized users and programs to share the same data.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Database Approach",
+    "difficulty": "Easy",
+    "question": "Which of the following is a characteristic of the database approach?",
+    "options": [
+      "Data is managed independently by every application",
+      "Data can be shared among authorized users",
+      "Data cannot be updated",
+      "No security mechanisms are possible"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Data sharing across diverse applications and authorized users is a core trait of the database approach.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Database Approach",
+    "difficulty": "Easy",
+    "question": "Which problem is associated with traditional file-processing systems?",
+    "options": [
+      "Data redundancy",
+      "Data sharing",
+      "Centralized management",
+      "Improved security"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Data redundancy and lack of coordinated control are primary drawbacks of file-processing systems.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Easy",
+    "question": "Who is primarily responsible for managing and controlling a database?",
+    "options": [
+      "End User",
+      "Database Administrator",
+      "Graphic Designer",
+      "Network User"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The DBA (Database Administrator) holds administrative authority and control over the database environment.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Easy",
+    "question": "What does DBA stand for?",
+    "options": [
+      "Database Business Application",
+      "Database Backup Administrator",
+      "Database Administrator",
+      "Data Building Administrator"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — DBA stands for Database Administrator.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Easy",
+    "question": "Which of the following is a responsibility of a DBA?",
+    "options": [
+      "Database security",
+      "Database backup and recovery",
+      "User access management",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — DBAs manage security, access control, backup, recovery, monitoring, and ongoing maintenance.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Medium",
+    "question": "Who determines the structure of tables, attributes, relationships, and constraints?",
+    "options": [
+      "Database Designer",
+      "End User",
+      "Customer",
+      "Data Entry Operator"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The Database Designer defines conceptual and logical schemas, entities, relations, and constraints.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Medium",
+    "question": "Who studies user requirements and helps determine what a system should do?",
+    "options": [
+      "System Analyst",
+      "DBA",
+      "End User",
+      "Hardware Engineer"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — System Analysts analyze stakeholder needs and translate business requirements into functional specs.",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Easy",
+    "question": "Who develops applications that interact with databases?",
+    "options": [
+      "Application Programmer",
+      "Database User only",
+      "System Administrator only",
+      "Customer"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Application Programmers write software applications, queries, and APIs to interact with the database.",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Easy",
+    "question": "Which of the following can be an end user of a university database?",
+    "options": [
+      "Student",
+      "Teacher",
+      "Administrator",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Students, faculty, and administrative staff all act as end users with appropriate permissions.",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Roles in Database Environment",
+    "difficulty": "Easy",
+    "question": "Which role is mainly concerned with database security, backup, and recovery?",
+    "options": [
+      "Database Administrator",
+      "Application User",
+      "Graphic Designer",
+      "Student"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The DBA is primarily charged with security policies, backup routines, and recovery plans.",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Advantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Which of the following is an advantage of a database system?",
+    "options": [
+      "Increased data redundancy",
+      "Data sharing",
+      "Poor security",
+      "Data isolation"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Facilitating authorized data sharing across applications is a major advantage of DBMSs.",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Advantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "A database system can help reduce:",
+    "options": [
+      "Data redundancy",
+      "Data security",
+      "Data sharing",
+      "Data integrity"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Centralization and normalization help minimize or eliminate unnecessary data duplication.",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Advantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Which feature helps ensure that data remains accurate and valid?",
+    "options": [
+      "Data integrity",
+      "Data redundancy",
+      "Data duplication",
+      "Data isolation"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Data integrity constraints (such as primary key, foreign key, and check constraints) enforce accuracy.",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Advantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Which feature allows different authorized users to access the same database?",
+    "options": [
+      "Data sharing",
+      "Data duplication",
+      "Data isolation",
+      "Data deletion"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Data sharing allows concurrent authorized access to a shared information repository.",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Advantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Which database feature controls who can access particular data?",
+    "options": [
+      "Data security",
+      "Data redundancy",
+      "Data sorting",
+      "Data duplication"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Database security enforces authentication and authorization privileges to protect data assets.",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Advantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "What helps restore database data after a system failure?",
+    "options": [
+      "Backup and recovery",
+      "Data redundancy",
+      "Data entry",
+      "Data sorting"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — DBMS backup and recovery subsystems ensure that state can be restored after crashes or media failures.",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Advantages of Database Systems",
+    "difficulty": "Medium",
+    "question": "Database systems can support multiple users accessing data at the same time through:",
+    "options": [
+      "Concurrent access mechanisms",
+      "Data duplication",
+      "Manual filing",
+      "Paper records"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Concurrency control mechanisms (locking, timestamps) manage simultaneous multi-user transactions safely.",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Disadvantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Which of the following can be a disadvantage of a database system?",
+    "options": [
+      "High initial cost",
+      "Data sharing",
+      "Better security",
+      "Data integrity"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — High initial cost for hardware, software licensing, training, and migration is a noted disadvantage.",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Disadvantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Large database systems can be difficult to manage because of their:",
+    "options": [
+      "Simplicity",
+      "Complexity",
+      "Small size",
+      "Lack of data"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Enterprise DBMS architectures are highly complex systems requiring specialized administrative expertise.",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Disadvantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Database systems may require skilled professionals such as:",
+    "options": [
+      "DBAs",
+      "Database developers",
+      "Database designers",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Organizations require trained DBAs, developers, and data architects to implement and maintain databases.",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Disadvantages of Database Systems",
+    "difficulty": "Medium",
+    "question": "A security breach in a centralized database can potentially affect:",
+    "options": [
+      "Only one record",
+      "A large amount of stored data",
+      "No data",
+      "Only the keyboard"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Because data is centralized, a single compromise can expose substantial enterprise-wide records.",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Disadvantages of Database Systems",
+    "difficulty": "Easy",
+    "question": "Database systems require regular:",
+    "options": [
+      "Maintenance",
+      "Monitoring",
+      "Backup",
+      "All of the above"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — High availability and data safety necessitate continuous monitoring, routine maintenance, and regular backups.",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Disadvantages of Database Systems",
+    "difficulty": "Medium",
+    "question": "If a central database becomes unavailable, what may happen?",
+    "options": [
+      "Dependent applications and users may be affected",
+      "All computers automatically become faster",
+      "Data automatically becomes more secure",
+      "No application is affected"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Centralization means an outage can impair all connected applications and business workflows.",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Medium",
+    "question": "Which statement correctly describes the relationship between a database and a DBMS?",
+    "options": [
+      "Database is software and DBMS is data",
+      "Database contains data and DBMS manages the data",
+      "Both are exactly the same",
+      "DBMS is a hardware device"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The database is the repository of stored data; the DBMS is the software management system.",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Medium",
+    "question": "A university stores student, teacher, course, and examination records in one managed system. This is an example of:",
+    "options": [
+      "Database approach",
+      "Manual filing",
+      "Independent file processing",
+      "Word processing"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Integrating related organizational records into one managed system exemplifies the database approach.",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Easy",
+    "question": "If a student's phone number is stored in three different files, this is an example of:",
+    "options": [
+      "Data integrity",
+      "Data redundancy",
+      "Data security",
+      "Data independence"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Storing identical data across multiple isolated locations is data redundancy.",
+    "type": "single"
+  },
+  {
+    "id": 40,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Medium",
+    "question": "If two copies of the same student's information contain different phone numbers, this is called:",
+    "options": [
+      "Data sharing",
+      "Data consistency",
+      "Data inconsistency",
+      "Data security"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Discrepancies between different copies of the same entity's data constitute data inconsistency.",
+    "type": "single"
+  },
+  {
+    "id": 41,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Medium",
+    "question": "Which role acts as a bridge between users' requirements and the technical development team?",
+    "options": [
+      "System Analyst",
+      "End User",
+      "Database Operator",
+      "Hardware Technician"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The System Analyst bridges user business expectations and technical database architecture.",
+    "type": "single"
+  },
+  {
+    "id": 42,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Easy",
+    "question": "Which of the following is NOT an advantage of a database system?",
+    "options": [
+      "Data sharing",
+      "Improved security",
+      "Backup and recovery",
+      "Increased unnecessary redundancy"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Database systems aim to decrease and control redundancy, not increase it unnecessarily.",
+    "type": "single"
+  },
+  {
+    "id": 43,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Easy",
+    "question": "Which of the following is NOT normally a responsibility of a DBA?",
+    "options": [
+      "Database security",
+      "Backup and recovery",
+      "User access control",
+      "Designing advertisements for the organization"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Marketing and advertisement design are outside the DBA technical scope.",
+    "type": "single"
+  },
+  {
+    "id": 44,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Easy",
+    "question": "Which of the following best represents the database environment?",
+    "options": [
+      "Database + DBMS + Users + Applications",
+      "Keyboard + Mouse only",
+      "Monitor + Printer only",
+      "Compiler + Operating System only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The complete database environment comprises data, DBMS software, hardware, applications, and people.",
+    "type": "single"
+  },
+  {
+    "id": 45,
+    "subject": "Database Systems",
+    "chapter": "Introduction to Database Systems",
+    "topic": "Conceptual MCQs",
+    "difficulty": "Medium",
+    "question": "Which statement about database systems is correct?",
+    "options": [
+      "They completely eliminate all data redundancy",
+      "They can reduce redundancy through proper database design",
+      "They never require maintenance",
+      "They cannot support multiple users"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Proper normalization and schema design control and significantly reduce redundancy.",
+    "type": "single"
+  }
+];
+
+const databaseSystemsWeek03Questions = [
+  {
+    "id": 1,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Database Languages",
+    "difficulty": "Easy",
+    "question": "What is a database language?",
+    "options": [
+      "A set of commands used to define, manipulate, retrieve, protect, or manage database data",
+      "A type of computer hardware",
+      "A tool used only to design web pages",
+      "A method of storing data only on paper"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A database language provides syntactic commands to define, manipulate, query, and control database data.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Database Languages",
+    "difficulty": "Easy",
+    "question": "Which language is widely used for relational DBMSs?",
+    "options": [
+      "HTML",
+      "SQL",
+      "CSS",
+      "XML only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — SQL (Structured Query Language) is the standard and widely adopted language for RDBMS.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DDL",
+    "difficulty": "Easy",
+    "question": "What is the main purpose of Data Definition Language (DDL)?",
+    "options": [
+      "To create user accounts only",
+      "To retrieve individual records only",
+      "To define or change database structures",
+      "To manage network cables"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — DDL statements define, alter, and drop schema objects and database structures.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DDL",
+    "difficulty": "Easy",
+    "question": "Which set contains common DDL commands listed in the lecture?",
+    "options": [
+      "INSERT, UPDATE, DELETE",
+      "GRANT, REVOKE",
+      "COMMIT, ROLLBACK, SAVEPOINT",
+      "CREATE, ALTER, DROP"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — CREATE, ALTER, and DROP are core Data Definition Language statements.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DDL",
+    "difficulty": "Easy",
+    "question": "Which SQL command is used in the lecture example to create a Student table?",
+    "options": [
+      "CREATE TABLE",
+      "SELECT TABLE",
+      "GRANT TABLE",
+      "COMMIT TABLE"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — CREATE TABLE defines a new relational table along with its columns and integrity constraints.",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DDL",
+    "difficulty": "Medium",
+    "question": "Which command adds an Email column to an existing Student table in the lecture example?",
+    "options": [
+      "INSERT INTO Student",
+      "ALTER TABLE Student ADD Email VARCHAR(120)",
+      "UPDATE Student SET Email",
+      "REVOKE Email"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — ALTER TABLE allows modifying schema definitions, including adding columns.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DML",
+    "difficulty": "Easy",
+    "question": "What does Data Manipulation Language (DML) do?",
+    "options": [
+      "Defines only schemas",
+      "Controls user privileges",
+      "Inserts, updates, and deletes table records",
+      "Manages only hardware"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — DML handles data manipulation including inserting, updating, and removing table rows.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DML",
+    "difficulty": "Easy",
+    "question": "Which set contains the common DML commands listed in the lecture?",
+    "options": [
+      "CREATE, ALTER, DROP",
+      "GRANT, REVOKE",
+      "COMMIT, ROLLBACK, SAVEPOINT",
+      "INSERT, UPDATE, DELETE"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — INSERT, UPDATE, and DELETE are standard DML modification statements.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DML",
+    "difficulty": "Medium",
+    "question": "Which SQL statement inserts a new record into the Student table?",
+    "options": [
+      "INSERT INTO Student (StudentID, StudentName, ClassName) VALUES (101, 'Ayesha', 'BSCS')",
+      "CREATE Student",
+      "GRANT SELECT ON Student",
+      "ROLLBACK Student"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — INSERT INTO adds new tuples into the specified relation.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DML",
+    "difficulty": "Medium",
+    "question": "Why should UPDATE and DELETE normally include a suitable WHERE condition when only selected rows should change?",
+    "options": [
+      "To create a new schema",
+      "To limit the operation to intended rows",
+      "To grant privileges",
+      "To define metadata"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Without a WHERE filter, UPDATE or DELETE affects every row in the table.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DQL",
+    "difficulty": "Easy",
+    "question": "Which SQL statement is the principal query statement for retrieving data in the lecture?",
+    "options": [
+      "DROP",
+      "COMMIT",
+      "SELECT",
+      "REVOKE"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — SELECT is the primary query statement in SQL for retrieving data from tables.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DQL",
+    "difficulty": "Easy",
+    "question": "What does ORDER BY do in a query?",
+    "options": [
+      "Grants privileges",
+      "Deletes records",
+      "Creates a table",
+      "Sorts results"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — ORDER BY sorts the resulting rows in ascending or descending sequence.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DQL",
+    "difficulty": "Medium",
+    "question": "What is the purpose of GROUP BY?",
+    "options": [
+      "To form groups for aggregate calculations",
+      "To add a new column",
+      "To cancel a transaction",
+      "To remove user permissions"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — GROUP BY partitions rows into summary subsets for aggregate functions like COUNT, SUM, and AVG.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DQL",
+    "difficulty": "Medium",
+    "question": "What does JOIN do in SQL?",
+    "options": [
+      "Creates a database backup",
+      "Combines related rows from tables",
+      "Revokes privileges",
+      "Defines the operating system"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — JOIN operations correlate rows from two or more tables based on a related attribute.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DQL",
+    "difficulty": "Medium",
+    "question": "How do some textbooks classify SELECT?",
+    "options": [
+      "Only as DCL",
+      "Only as TCL",
+      "As part of DML rather than a separate DQL category",
+      "As a hardware component"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Many academic textbooks group SELECT under DML (Data Manipulation) instead of defining DQL separately.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DCL",
+    "difficulty": "Easy",
+    "question": "What is the purpose of Data Control Language (DCL)?",
+    "options": [
+      "To sort query results",
+      "To define column data types",
+      "To insert rows",
+      "To control access privileges"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — DCL controls database security, authorization privileges, and access permissions.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DCL",
+    "difficulty": "Easy",
+    "question": "Which pair contains the common DCL commands in the lecture?",
+    "options": [
+      "GRANT and REVOKE",
+      "INSERT and UPDATE",
+      "CREATE and ALTER",
+      "COMMIT and ROLLBACK"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — GRANT gives access rights, and REVOKE rescinds them.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "DCL",
+    "difficulty": "Medium",
+    "question": "Which command is shown as an example of granting SELECT access on Student to teacher_role?",
+    "options": [
+      "REVOKE SELECT ON Student FROM teacher_role",
+      "GRANT SELECT ON Student TO teacher_role",
+      "UPDATE teacher_role SET SELECT",
+      "COMMIT SELECT"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — GRANT SELECT ON Student TO teacher_role conveys query privileges to the specified role.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "TCL",
+    "difficulty": "Easy",
+    "question": "What does Transaction Control Language (TCL) manage?",
+    "options": [
+      "Only database interfaces",
+      "Only table names",
+      "Transaction boundaries and outcomes",
+      "Only hardware resources"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — TCL statements manage transactional consistency and states across logical units of work.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "TCL",
+    "difficulty": "Easy",
+    "question": "Which command makes a transaction's changes permanent?",
+    "options": [
+      "ROLLBACK",
+      "SAVEPOINT",
+      "DROP",
+      "COMMIT"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — COMMIT permanently saves the current transaction's changes to the database.",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "TCL",
+    "difficulty": "Easy",
+    "question": "What does ROLLBACK do according to the lecture?",
+    "options": [
+      "Cancels uncommitted changes in the current transaction",
+      "Creates a new table",
+      "Grants a privilege",
+      "Sorts query results"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — ROLLBACK undoes changes made during the active transaction before they become permanent.",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "TCL",
+    "difficulty": "Medium",
+    "question": "What is a SAVEPOINT used for?",
+    "options": [
+      "To create a user interface",
+      "To mark a point to which a transaction may be rolled back",
+      "To add a table column",
+      "To combine rows from tables"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — SAVEPOINT establishes an intermediate marker for partial transaction rollbacks.",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Database Interfaces",
+    "difficulty": "Easy",
+    "question": "What is a database interface?",
+    "options": [
+      "A type of stored data",
+      "A hardware-only device",
+      "A method for a user or application to submit requests to a DBMS and receive results",
+      "A transaction command"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — An interface provides the channel or communication medium between users/applications and the DBMS.",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Command-Line / SQL Interface",
+    "difficulty": "Easy",
+    "question": "How do users interact with a command-line / SQL interface?",
+    "options": [
+      "Only by clicking visual buttons",
+      "Only by filling printed forms",
+      "By speaking ordinary language without translation",
+      "By typing SQL statements into a client or command-line tool"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — In CLI tools, users directly type SQL commands to execute operations against the DBMS.",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Menu-Based Interface",
+    "difficulty": "Easy",
+    "question": "What do users do in a menu-based interface?",
+    "options": [
+      "Select operations from menus",
+      "Write all database engine code",
+      "Manage storage devices physically",
+      "Only enter SQL transactions manually"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Menu-based interfaces present structured lists of options from which users select desired actions.",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Forms-Based Interface",
+    "difficulty": "Easy",
+    "question": "What is a typical use of a forms-based interface?",
+    "options": [
+      "Managing network cabling",
+      "Entering or viewing data through predefined forms",
+      "Writing the DBMS operating system",
+      "Encrypting every database column automatically"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Forms provide structured input and display fields tailored for business workflows.",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "GUI",
+    "difficulty": "Easy",
+    "question": "Which elements may a Graphical User Interface (GUI) present?",
+    "options": [
+      "Only text commands",
+      "Only paper documents",
+      "Buttons, tables, dialogs, and query designers",
+      "Only database backups"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — GUIs utilize visual elements such as buttons, grids, icons, dialogs, and visual query builders.",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Natural-Language Interface",
+    "difficulty": "Medium",
+    "question": "What does a natural-language database interface attempt to do?",
+    "options": [
+      "Replace all database hardware",
+      "Create indexes automatically in every case",
+      "Grant access to every user",
+      "Translate ordinary-language requests into database operations"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Natural-language interfaces parse spoken or typed human language into executable database queries.",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Web and Mobile Interfaces",
+    "difficulty": "Medium",
+    "question": "How do web and mobile applications usually communicate with a DBMS, according to the lecture?",
+    "options": [
+      "Through a backend service",
+      "By exposing the database connection directly to every untrusted client",
+      "Only through paper forms",
+      "Without any application interface"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — For security and scalability, client apps connect to backend application servers which communicate with the DBMS.",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "APIs",
+    "difficulty": "Easy",
+    "question": "Which technology is given as an example of an API for Java database applications?",
+    "options": [
+      "CSS",
+      "JDBC",
+      "HTML",
+      "PNG"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — JDBC (Java Database Connectivity) is the standard API for Java database connectivity.",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "APIs",
+    "difficulty": "Medium",
+    "question": "How do parameterized queries help when used correctly?",
+    "options": [
+      "They eliminate the need for a DBMS",
+      "They automatically create every database table",
+      "They help prevent SQL injection",
+      "They replace all user permissions"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Parameterized queries separate query logic from data inputs, defending against SQL injection attacks.",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Database System Environment",
+    "difficulty": "Easy",
+    "question": "What does the database system environment include?",
+    "options": [
+      "Only stored data",
+      "Only the DBMS software",
+      "Only users and screens",
+      "Hardware, software, data, procedures, and people"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — The complete database system environment spans hardware, software, data, operational procedures, and people.",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Hardware",
+    "difficulty": "Easy",
+    "question": "Which of the following is listed as hardware in a database environment?",
+    "options": [
+      "Servers, storage devices, memory, and networking equipment",
+      "GRANT and REVOKE commands",
+      "Table definitions and permissions",
+      "Backup policies only"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Physical machines, storage arrays, processors, RAM, and network switches comprise hardware.",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Software",
+    "difficulty": "Easy",
+    "question": "Which item is part of database-system software?",
+    "options": [
+      "A physical keyboard only",
+      "DBMS, operating system, drivers, utilities, and monitoring tools",
+      "Only the end user",
+      "Only stored student records"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Software components include the DBMS engine, OS, network drivers, administrative utilities, and monitoring tools.",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Data and Metadata",
+    "difficulty": "Easy",
+    "question": "What is metadata?",
+    "options": [
+      "A person who enters records",
+      "A network cable",
+      "Information describing data and its structure",
+      "A command that cancels a transaction"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Metadata is defined as data about data, describing definitions, structures, and constraints.",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Data and Metadata",
+    "difficulty": "Medium",
+    "question": "Which is an example of metadata mentioned in the lecture?",
+    "options": [
+      "A user's spoken request",
+      "A physical server rack",
+      "A business meeting",
+      "Table definitions, column types, constraints, indexes, and permissions"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Schema definitions, column types, primary keys, and access permissions are canonical metadata in DBMS catalog.",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "People and Roles",
+    "difficulty": "Easy",
+    "question": "Which role manages database access, security, backup and recovery, performance, availability, and maintenance?",
+    "options": [
+      "Database Administrator (DBA)",
+      "End user only",
+      "Customer",
+      "Graphic designer"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The DBA oversees operational health, access authorization, recovery, and ongoing maintenance.",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "People and Roles",
+    "difficulty": "Medium",
+    "question": "Who identifies data requirements and designs schemas, relationships, and constraints?",
+    "options": [
+      "End user",
+      "Database Designer / Data Architect",
+      "Network visitor",
+      "Student only"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — Data architects and database designers model business data requirements into conceptual and logical schemas.",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "People and Roles",
+    "difficulty": "Easy",
+    "question": "What is the primary role of an application developer in a database environment?",
+    "options": [
+      "Maintaining only physical storage hardware",
+      "Defining acceptable-use policies only",
+      "Building software that interacts with the database",
+      "Using reports only as an end user"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — Application developers create programs, user interfaces, and business logic that query and manipulate the database.",
+    "type": "single"
+  },
+  {
+    "id": 40,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Procedures and Policies",
+    "difficulty": "Medium",
+    "question": "What do database procedures specify?",
+    "options": [
+      "Only the names of users",
+      "Only SQL query sorting",
+      "Only screen colors",
+      "How a database is created, accessed, backed up, restored, monitored, updated, and secured"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Procedures define organizational rules and operational guidelines for governance, backup, and security.",
+    "type": "single"
+  },
+  {
+    "id": 41,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Database Workflow",
+    "difficulty": "Easy",
+    "question": "What happens first in the lecture's workflow of database components?",
+    "options": [
+      "An end user enters a request through an interface",
+      "The DBMS returns a result",
+      "The system performs a backup",
+      "The DBMS consults metadata before any request exists"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Operations initiate when a user or application issues a request through an interface.",
+    "type": "single"
+  },
+  {
+    "id": 42,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Database Workflow",
+    "difficulty": "Medium",
+    "question": "What does the DBMS check when processing a request?",
+    "options": [
+      "Only the user's device color",
+      "Syntax, permissions, constraints, and the requested operation",
+      "Only the application logo",
+      "Only the number of network cables"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B — The DBMS parser and query optimizer validate syntax, access permissions, schema constraints, and execution plans.",
+    "type": "single"
+  },
+  {
+    "id": 43,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Worked Example",
+    "difficulty": "Medium",
+    "question": "In the lecture's worked example, which SQL statement retrieves a student's name and class using StudentID 101?",
+    "options": [
+      "DROP TABLE Student",
+      "GRANT SELECT ON Student TO teacher_role",
+      "SELECT StudentName, ClassName FROM Student WHERE StudentID = 101",
+      "ROLLBACK Student"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C — SELECT StudentName, ClassName FROM Student WHERE StudentID = 101 filters and projects requested attributes.",
+    "type": "single"
+  },
+  {
+    "id": 44,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Worked Example",
+    "difficulty": "Medium",
+    "question": "In the worked example, what happens after the DBMS returns the permitted row?",
+    "options": [
+      "The database connection is exposed to all clients",
+      "The table is automatically dropped",
+      "The user's permissions are all revoked",
+      "The application displays the student's name and class"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D — Once the DBMS retrieves the record, the calling application formats and displays the information to the user.",
+    "type": "single"
+  },
+  {
+    "id": 45,
+    "subject": "Database Systems",
+    "chapter": "Database Languages and Interfaces; Database System Environment",
+    "topic": "Review Concepts",
+    "difficulty": "Easy",
+    "question": "Which combination best represents a database system environment as described in the lecture?",
+    "options": [
+      "People, procedures, data, hardware, and software",
+      "Only SQL commands",
+      "Only a database table and a keyboard",
+      "Only a GUI and a printer"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The five core pillars of any database system environment are people, procedures, data, hardware, and software.",
+    "type": "single"
+  }
+];
+
+const entrepreneurshipUnit01Questions = [
+  {
+    "id": 1,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "Entrepreneurship is best described as the process of:",
+    "options": [
+      "Creating, developing, and managing a business",
+      "Working only for a government department",
+      "Buying products only for personal use",
+      "Avoiding all business risks"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Entrepreneurship is the dynamic process of conceptualizing, organizing, launching, and managing a business venture.",
+    "type": "single"
+  },
+  {
+    "id": 2,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "The word “entreprendre,” from which entrepreneurship is commonly derived, means:",
+    "options": [
+      "To undertake",
+      "To calculate",
+      "To manufacture",
+      "To advertise"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The French verb 'entreprendre' translates to 'to undertake', symbolizing taking initiative.",
+    "type": "single"
+  },
+  {
+    "id": 3,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "An entrepreneur is a person who:",
+    "options": [
+      "Starts a business by organizing resources and accepting calculated risk",
+      "Only purchases goods for personal use",
+      "Never makes business decisions",
+      "Works without serving customers"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — An entrepreneur organizes economic resources, introduces innovations, and accepts business risks to pursue opportunity.",
+    "type": "single"
+  },
+  {
+    "id": 4,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "Which is an example of entrepreneurship?",
+    "options": [
+      "Opening a mobile-repair shop where a local need exists",
+      "Keeping an idea secret and never acting on it",
+      "Avoiding every opportunity to serve customers",
+      "Using a product without offering any service"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Recognizing unmet consumer demand and setting up a mobile-repair business is a practical demonstration of entrepreneurship.",
+    "type": "single"
+  },
+  {
+    "id": 5,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Medium",
+    "question": "Which scholar is associated in the source material with the idea of pursuing opportunity beyond resources currently controlled?",
+    "options": [
+      "Howard Stevenson",
+      "Isaac Newton",
+      "Charles Darwin",
+      "Adam Smith"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Harvard Professor Howard Stevenson famously defined entrepreneurship as 'the pursuit of opportunity beyond resources controlled.'",
+    "type": "single"
+  },
+  {
+    "id": 6,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "Innovation in entrepreneurship means:",
+    "options": [
+      "Doing something new or improving how something is done",
+      "Repeating every method without change",
+      "Avoiding customer feedback",
+      "Removing all business goals"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Innovation involves creating novel products, services, processes, or refining existing offerings to deliver greater value.",
+    "type": "single"
+  },
+  {
+    "id": 7,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "Taking a calculated risk means:",
+    "options": [
+      "Considering uncertainty before making a business decision",
+      "Investing without thinking about consequences",
+      "Guaranteeing that a business cannot fail",
+      "Avoiding all decisions"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Calculated risk-taking involves evaluating potential losses and market uncertainties before committing resources.",
+    "type": "single"
+  },
+  {
+    "id": 8,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "Opportunity recognition involves identifying:",
+    "options": [
+      "Unmet needs and gaps in the market",
+      "Only the colour of a company logo",
+      "Personal expenses unrelated to customers",
+      "Ways to avoid understanding the market"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Opportunity recognition entails detecting unmet consumer demands, inefficiencies, or underserved market niches.",
+    "type": "single"
+  },
+  {
+    "id": 9,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "Which set contains examples of resources an entrepreneur may organize?",
+    "options": [
+      "Capital, workers, equipment, and materials",
+      "Only slogans and advertisements",
+      "Only customer complaints",
+      "Only business names"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Financial capital, skilled labor, technology, machinery, and raw materials constitute primary productive resources.",
+    "type": "single"
+  },
+  {
+    "id": 10,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "A goal-oriented entrepreneur typically:",
+    "options": [
+      "Uses a vision or goal to guide decisions",
+      "Operates without any purpose",
+      "Rejects all planning",
+      "Avoids serving a target market"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Goal-oriented founders establish clear strategic targets and milestone objectives to direct business development.",
+    "type": "single"
+  },
+  {
+    "id": 11,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Definition and Concept of Entrepreneurship",
+    "difficulty": "Easy",
+    "question": "Social entrepreneurship places particular emphasis on:",
+    "options": [
+      "Creating value while addressing social or environmental needs",
+      "Maximizing waste",
+      "Avoiding community needs",
+      "Preventing useful services"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Social entrepreneurship applies entrepreneurial principles to solve pressing societal, humanitarian, or ecological issues.",
+    "type": "single"
+  },
+  {
+    "id": 12,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Reasons to Become an Entrepreneur",
+    "difficulty": "Easy",
+    "question": "One reason people become entrepreneurs is to:",
+    "options": [
+      "Have greater independence in business decisions",
+      "Ensure they never have responsibilities",
+      "Eliminate all uncertainty",
+      "Avoid learning new skills"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Autonomy, independence, and the freedom to direct business direction motivate many individuals to pursue entrepreneurship.",
+    "type": "single"
+  },
+  {
+    "id": 13,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Reasons to Become an Entrepreneur",
+    "difficulty": "Medium",
+    "question": "Compared with a fixed salary, business income:",
+    "options": [
+      "May provide profit and growth opportunities but is not guaranteed",
+      "Is always higher",
+      "Cannot ever result in a loss",
+      "Is completely unrelated to business performance"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Entrepreneurial income has high upside potential through equity and profit, but carries risk without a guaranteed baseline.",
+    "type": "single"
+  },
+  {
+    "id": 14,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Reasons to Become an Entrepreneur",
+    "difficulty": "Easy",
+    "question": "A person who develops an app to solve a study-related problem is mainly turning an idea into:",
+    "options": [
+      "A product or service",
+      "A government policy",
+      "A natural resource",
+      "A fixed salary"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Commercializing an application transforms an intellectual concept into a functional software product or digital service.",
+    "type": "single"
+  },
+  {
+    "id": 15,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Reasons to Become an Entrepreneur",
+    "difficulty": "Easy",
+    "question": "An entrepreneur who notices a shortage of clean drinking water and offers filters is responding to:",
+    "options": [
+      "A market need or problem",
+      "A need to avoid customers",
+      "A requirement to stop innovation",
+      "A reason to abandon planning"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Addressing consumer shortages by supplying filtration solutions exemplifies problem-oriented value creation.",
+    "type": "single"
+  },
+  {
+    "id": 16,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Reasons to Become an Entrepreneur",
+    "difficulty": "Medium",
+    "question": "Which statement about flexibility in entrepreneurship is most accurate?",
+    "options": [
+      "Some businesses allow flexible work, but ownership may also require long hours",
+      "Every entrepreneur works fewer hours than employees",
+      "Entrepreneurs never work irregular hours",
+      "Flexibility is guaranteed in every business"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — While business owners set their own schedule, venture demands frequently necessitate demanding, irregular work hours.",
+    "type": "single"
+  },
+  {
+    "id": 17,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Reasons to Become an Entrepreneur",
+    "difficulty": "Easy",
+    "question": "Creating jobs is a potential benefit of entrepreneurship because businesses:",
+    "options": [
+      "Need people to operate and deliver their products or services",
+      "Never require workers",
+      "Always operate without suppliers",
+      "Cannot expand"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Growing ventures employ personnel across operations, production, sales, logistics, and management.",
+    "type": "single"
+  },
+  {
+    "id": 18,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Reasons to Become an Entrepreneur",
+    "difficulty": "Easy",
+    "question": "Personal satisfaction can motivate entrepreneurship because a person may value:",
+    "options": [
+      "The achievement of building and developing a business",
+      "Avoiding every responsibility",
+      "Never making decisions",
+      "Keeping all ideas unused"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Bringing a personal vision to life and experiencing venture growth provides substantial intrinsic satisfaction.",
+    "type": "single"
+  },
+  {
+    "id": 19,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "The first step in the entrepreneurial process described in Unit 1 is:",
+    "options": [
+      "Idea generation",
+      "Selling the business",
+      "Hiring an auditor",
+      "Closing operations"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The entrepreneurial journey commences with idea generation and creative opportunity discovery.",
+    "type": "single"
+  },
+  {
+    "id": 20,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "A feasibility study helps an entrepreneur determine whether an idea is:",
+    "options": [
+      "Practical and potentially viable",
+      "Guaranteed to earn profit",
+      "Free from competition",
+      "Unrelated to customer needs"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Feasibility analysis rigorously evaluates market demand, technical viability, and financial practicality.",
+    "type": "single"
+  },
+  {
+    "id": 21,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Medium",
+    "question": "Which question is suitable during opportunity evaluation?",
+    "options": [
+      "Will customers pay for this product or service?",
+      "How can the business avoid identifying customers?",
+      "Why should costs never be estimated?",
+      "How can competition be ignored permanently?"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Assessing willingness to pay confirms genuine economic demand and commercial viability.",
+    "type": "single"
+  },
+  {
+    "id": 22,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "A business plan commonly explains how a business will:",
+    "options": [
+      "Operate, earn money, grow, and manage risks",
+      "Avoid defining any goals",
+      "Eliminate all market research",
+      "Operate without resources"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — A business plan articulates business strategy, financial projections, operations, and risk mitigation.",
+    "type": "single"
+  },
+  {
+    "id": 23,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "Which activity is an example of resource gathering?",
+    "options": [
+      "Obtaining funds, equipment, workers, and materials",
+      "Ignoring the costs of starting",
+      "Stopping all planning",
+      "Refusing to obtain needed supplies"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Securing seed financing, purchasing tools, and assembling a capable team are core resource-gathering activities.",
+    "type": "single"
+  },
+  {
+    "id": 24,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "Launching a business means:",
+    "options": [
+      "Establishing it and beginning to offer its product or service",
+      "Only thinking about a possible idea",
+      "Ending all customer communication",
+      "Selling it before it exists"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Venture launch marks the transition from planning to live commercial operations in the open market.",
+    "type": "single"
+  },
+  {
+    "id": 25,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "After launch, managing and growing a business includes:",
+    "options": [
+      "Handling daily operations and improving customer satisfaction",
+      "Ignoring customers and service quality",
+      "Avoiding all feedback",
+      "Refusing to review performance"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Post-launch management focuses on cash flow, service standards, customer retention, and operational optimization.",
+    "type": "single"
+  },
+  {
+    "id": 26,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Medium",
+    "question": "An entrepreneur’s possible exit strategy may include:",
+    "options": [
+      "Selling or merging the business",
+      "Only changing the business logo",
+      "Avoiding any long-term decision",
+      "Deleting all business records"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Strategic exits involve trade sales, acquisitions, mergers, initial public offerings (IPOs), or management buyouts.",
+    "type": "single"
+  },
+  {
+    "id": 27,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "Which is an example of risk management?",
+    "options": [
+      "Keeping emergency funds and preparing backup plans",
+      "Ignoring financial uncertainty",
+      "Making no contingency plans",
+      "Assuming losses are impossible"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Maintaining contingency cash reserves and operational continuity plans minimizes vulnerability to unforeseen shocks.",
+    "type": "single"
+  },
+  {
+    "id": 28,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "Innovation and adaptation are important because:",
+    "options": [
+      "Markets, technology, and customer preferences can change",
+      "Business conditions never change",
+      "Customers never have new needs",
+      "Improvement always harms a business"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Continuous adaptation enables firms to maintain competitive advantage amid evolving market environments.",
+    "type": "single"
+  },
+  {
+    "id": 29,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Entrepreneurial Process",
+    "difficulty": "Easy",
+    "question": "Networking can help entrepreneurs by providing:",
+    "options": [
+      "Connections, advice, learning, and collaboration opportunities",
+      "A guarantee of profit",
+      "Freedom from all competition",
+      "A replacement for every business activity"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Professional networking expands mentorship access, talent recruitment, strategic partnerships, and customer referrals.",
+    "type": "single"
+  },
+  {
+    "id": 30,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Entrepreneurship can contribute to national income by:",
+    "options": [
+      "Increasing economic activity through goods and services",
+      "Stopping all production",
+      "Preventing business transactions",
+      "Eliminating local markets"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Producing goods and services adds to Gross Domestic Product (GDP) and expands national wealth.",
+    "type": "single"
+  },
+  {
+    "id": 31,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Businesses may contribute to public services when they:",
+    "options": [
+      "Pay taxes that governments can use to fund services",
+      "Avoid all legal obligations",
+      "Stop employing people",
+      "Prevent economic activity"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Corporate, sales, and employee tax revenues finance public infrastructure, schools, and healthcare.",
+    "type": "single"
+  },
+  {
+    "id": 32,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Entrepreneurship can improve living standards by:",
+    "options": [
+      "Making useful goods and services more available or convenient",
+      "Removing useful services from the market",
+      "Preventing product improvements",
+      "Eliminating customer choice"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — High-quality, affordable goods and services enhance consumers' convenience, health, and standard of living.",
+    "type": "single"
+  },
+  {
+    "id": 33,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Medium",
+    "question": "Economic independence may be supported when local businesses:",
+    "options": [
+      "Produce goods and services locally and potentially export them",
+      "Stop local production",
+      "Avoid using local skills",
+      "Depend entirely on imported services"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Domestic manufacturing reduces import reliance, conserves foreign exchange, and fuels export growth.",
+    "type": "single"
+  },
+  {
+    "id": 34,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Balanced regional development may be encouraged when entrepreneurs:",
+    "options": [
+      "Establish businesses in smaller towns and rural areas",
+      "Locate every business in one large city",
+      "Avoid underserved communities",
+      "Stop providing local services"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Decentralizing enterprise development into peripheral areas disperses wealth and curbs urban migration.",
+    "type": "single"
+  },
+  {
+    "id": 35,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Entrepreneurship can help reduce poverty when it:",
+    "options": [
+      "Creates jobs and income opportunities",
+      "Removes employment opportunities",
+      "Prevents small businesses from operating",
+      "Stops people from earning income"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Generating sustainable employment and self-employment directly uplifts households from economic deprivation.",
+    "type": "single"
+  },
+  {
+    "id": 36,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Entrepreneurship can encourage young people to:",
+    "options": [
+      "Apply their skills and develop useful products or services",
+      "Avoid productive activity",
+      "Stop learning",
+      "Reject all opportunities"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Entrepreneurship empowers youth to harness creativity, technical know-how, and leadership to build impactful ventures.",
+    "type": "single"
+  },
+  {
+    "id": 37,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Medium",
+    "question": "Entrepreneurship may attract investment when:",
+    "options": [
+      "Promising business ideas offer growth opportunities",
+      "A business refuses to explain its idea",
+      "No activity or plan exists",
+      "All investment opportunities are rejected"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Scalable, sound business models attract venture capital, angel investment, and institutional funding.",
+    "type": "single"
+  },
+  {
+    "id": 38,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Using local resources can support:",
+    "options": [
+      "Local suppliers, farmers, artisans, and workers",
+      "Only distant suppliers",
+      "The removal of local skills",
+      "The end of local production"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Sourcing locally stimulates the domestic supply chain and enhances regional income multipliers.",
+    "type": "single"
+  },
+  {
+    "id": 39,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Medium",
+    "question": "Which group best represents the main steps in an entrepreneurial process?",
+    "options": [
+      "Generate an idea, evaluate it, plan, gather resources, launch, and manage",
+      "Launch first, then decide whether an idea exists",
+      "Avoid evaluation, planning, and resources",
+      "Close the business before launching it"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — The lifecycle proceeds from ideation and screening to planning, resourcing, commercial launch, and growth management.",
+    "type": "single"
+  },
+  {
+    "id": 40,
+    "subject": "Entrepreneurship",
+    "chapter": "Unit 01 — Introduction to Entrepreneurship",
+    "topic": "Role of Entrepreneurship in Economic Development",
+    "difficulty": "Easy",
+    "question": "Which statement best summarizes the role of entrepreneurship in economic development?",
+    "options": [
+      "It can create jobs, encourage innovation, use local resources, and support economic activity",
+      "It only benefits people who do not work",
+      "It prevents the creation of new products",
+      "It has no relationship to employment or income"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A — Entrepreneurship drives employment generation, technological innovation, resource mobilization, and aggregate economic growth.",
+    "type": "single"
+  }
+];
+
 const DEFAULT_SUBJECTS = [
   {
     id: "object-oriented-programming-week-1",
@@ -6751,6 +8971,21 @@ const DEFAULT_SUBJECTS = [
     questions: computerArchitectureWeek03Questions
   },
   {
+    id: "database-systems-week-01",
+    legacyIds: ["database-systems-w01", "dbs-w01", "database-systems-week-1"],
+    book: "Database Systems",
+    course: "Database Systems",
+    week: 1,
+    weekTitle: "Week 01",
+    topic: "Introduction to Database Systems, DBMS vs File Processing, Roles in Database Environment, Advantages & Disadvantages",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "🗄️",
+    isBuiltIn: true,
+    totalQuestions: databaseSystemsWeek01Questions.length,
+    questions: databaseSystemsWeek01Questions
+  },
+  {
     id: "database-systems-week-02",
     legacyIds: ["database-systems-w02", "dbs-w02", "database-systems-week-2"],
     book: "Database Systems",
@@ -6764,6 +8999,21 @@ const DEFAULT_SUBJECTS = [
     isBuiltIn: true,
     totalQuestions: databaseSystemsQuestions.length,
     questions: databaseSystemsQuestions
+  },
+  {
+    id: "database-systems-week-03",
+    legacyIds: ["database-systems-w03", "dbs-w03", "database-systems-week-3"],
+    book: "Database Systems",
+    course: "Database Systems",
+    week: 3,
+    weekTitle: "Week 03",
+    topic: "Database Languages and Interfaces (DDL, DML, DQL, DCL, TCL); Database System Environment (Hardware, Software, Data, Procedures, People)",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "🗄️",
+    isBuiltIn: true,
+    totalQuestions: databaseSystemsWeek03Questions.length,
+    questions: databaseSystemsWeek03Questions
   },
   {
     id: "visual-programming-week-01",
@@ -6809,6 +9059,22 @@ const DEFAULT_SUBJECTS = [
     isBuiltIn: true,
     totalQuestions: softwareEngineeringLecture01Questions.length,
     questions: softwareEngineeringLecture01Questions
+  },
+  {
+    id: "entrepreneurship-unit-01",
+    legacyIds: ["entrepreneurship-u01", "ent-u01", "entrepreneurship-week-1", "entrepreneurship-week-01"],
+    book: "Entrepreneurship",
+    course: "Entrepreneurship",
+    week: 1,
+    unit: 1,
+    weekTitle: "Unit 01",
+    topic: "Definition and Concept of Entrepreneurship, Reasons to Become an Entrepreneur, Entrepreneurial Process, Role of Entrepreneurship in Economic Development",
+    level: "BS Computer Science",
+    createdBy: "Lec. Iftikhar Zahid",
+    icon: "🚀",
+    isBuiltIn: true,
+    totalQuestions: entrepreneurshipUnit01Questions.length,
+    questions: entrepreneurshipUnit01Questions
   }
 ];
 
@@ -6853,7 +9119,7 @@ function main() {
 }
 function optText(o) { if (!o && o !== 0) return ""; if (typeof o === "string") return o; if (typeof o.text === "string") return o.text; if (typeof o.option === "string") return o.option; return String(o); }
 
-const CATALOG_BUILD_VERSION = "2026.10.14-v7";
+const CATALOG_BUILD_VERSION = "2026.10.14-v8";
 
 function loadStoredSubjects() {
   const currentCatalogVersion = read("qb_catalog_version", "");
@@ -7042,6 +9308,9 @@ function getBookGroupKey(sub) {
   if (combined.includes("software engineering") || combined.includes("software eng") || combined === "se") {
     return "Software Engineering";
   }
+  if (combined.includes("entrepreneurship") || combined.includes("entrepreneur") || combined === "ent") {
+    return "Entrepreneurship";
+  }
   if (!b || b.toLowerCase() === "course book") {
     b = (sub.course && sub.course.toLowerCase() !== "course book") ? sub.course.trim() : "General Study";
   }
@@ -7118,6 +9387,7 @@ function getBookCourseCode(bookTitle) {
   if (t.includes("database")) return "DBS-301";
   if (t.includes("visual") || t.includes("vp")) return "VP-301";
   if (t.includes("software engineering") || t.includes("software eng") || t.includes("se")) return "SE-1104";
+  if (t.includes("entrepreneur")) return "ENT-401";
   if (t.includes("operating system")) return "OS-303";
   if (t.includes("data structure") || t.includes("dsa")) return "DSA-203";
   return "CS-200";
@@ -7183,6 +9453,16 @@ function getBookTheme(bookTitle) {
       code: "SE-1104",
       short: "Soft Eng",
       icon: "📐"
+    };
+  }
+  if (t.includes("entrepreneur")) {
+    return {
+      className: "bookThemeEnt",
+      primary: "#ea580c",
+      accent: "#fdba74",
+      code: "ENT-401",
+      short: "Entrepreneur",
+      icon: "🚀"
     };
   }
   return {
@@ -9889,7 +12169,7 @@ function handleFileImport(e){
 
 function confirmRestoreDefaults(){
   modal(`<h2>Reset to Built-in Books?</h2>
-<p style="font-size:13px;line-height:1.5;">Are you sure you want to reset your catalog to the built-in books (<b>Theory of Automata</b>, <b>Computer Architecture</b>, <b>Object-Oriented Programming (ADP Sem 2)</b>, and <b>Database Systems</b>)?</p>
+<p style="font-size:13px;line-height:1.5;">Are you sure you want to reset your catalog to the built-in books (<b>Theory of Automata</b>, <b>Computer Architecture</b>, <b>Object-Oriented Programming</b>, <b>Database Systems</b>, <b>Visual Programming</b>, <b>Software Engineering</b>, and <b>Entrepreneurship</b>)?</p>
 <p style="font-size:12px;color:var(--m);margin-top:8px;">Custom imported books will be removed.</p>
 <div class="modalActions">
   <button class="secondary" onclick="closeModal()">Cancel</button>
@@ -10124,10 +12404,13 @@ const STATIC_CATALOG_URLS = [
   "data/bscs_computer_architecture_week01.json",
   "data/bscs_computer_architecture_week02.json",
   "data/bscs_computer_architecture_week03.json",
+  "data/bscs_database_systems_week01.json",
   "data/bscs_database_systems_week02.json",
+  "data/bscs_database_systems_week03.json",
   "data/bscs_visual_programming_week01.json",
   "data/bscs_visual_programming_week02.json",
-  "data/bscs_software_engineering_lecture01.json"
+  "data/bscs_software_engineering_lecture01.json",
+  "data/entrepreneurship_unit01.json"
 ];
 
 function parseAndNormalizeJSON(parsed, fallbackName = "") {
@@ -10151,7 +12434,7 @@ function parseAndNormalizeJSON(parsed, fallbackName = "") {
     };
   } else if (parsed && typeof parsed === "object") {
     const root = parsed.questionBank || parsed.metadata || parsed;
-    const weekNum = Number(root.week || root.weekNo) || 1;
+    const weekNum = Number(root.week || root.weekNo || root.unit) || 1;
     let detectedBook = (root.book || root.course || root.subject || root.title || root.courseCode || "").trim();
     let detectedCourse = (root.course || root.subject || root.book || root.courseCode || "Computer Science").trim();
     if (!detectedBook || detectedBook.toLowerCase() === "course book") {
@@ -10161,7 +12444,7 @@ function parseAndNormalizeJSON(parsed, fallbackName = "") {
       book: detectedBook,
       course: detectedCourse,
       week: weekNum,
-      weekTitle: root.weekTitle || root.section || (root.week ? `Week ${root.week}` : `Week ${weekNum}`),
+      weekTitle: root.weekTitle || (root.unit ? `Unit ${String(root.unit).padStart(2, "0")}` : (root.section || (root.week ? `Week ${root.week}` : `Week ${weekNum}`))),
       topic: root.topic || root.syllabusCoverage || root.title || "Course Review",
       level: root.level || root.class || root.program || "BS Computer Science",
       createdBy: root.createdBy || root.preparedBy || root.author || "Course Instructor"
@@ -10563,10 +12846,13 @@ function openDirectLinkModal() {
     { name: "Computer Architecture and Organization (Week 01)", url: "data/bscs_computer_architecture_week01.json", desc: "39 MCQs • Digital Logic & Hardware Overview" },
     { name: "Computer Architecture and Organization (Week 02)", url: "data/bscs_computer_architecture_week02.json", desc: "35 MCQs • CPU Registers, ISA, CISC vs RISC, VLIW, SMT" },
     { name: "Computer Architecture and Organization (Week 03)", url: "data/bscs_computer_architecture_week03.json", desc: "36 MCQs • ISA Families & Processor Parallelism" },
+    { name: "Database Systems (Week 01)", url: "data/bscs_database_systems_week01.json", desc: "45 MCQs • Introduction, DBMS vs File Processing, Roles & Architecture" },
     { name: "Database Systems (Week 02)", url: "data/bscs_database_systems_week02.json", desc: "39 MCQs • Three-Level Schema Architecture & Data Independence" },
+    { name: "Database Systems (Week 03)", url: "data/bscs_database_systems_week03.json", desc: "45 MCQs • Database Languages (DDL, DML, DQL, DCL, TCL) & Environment" },
     { name: "Visual Programming (Week 01)", url: "data/bscs_visual_programming_week01.json", desc: "39 MCQs • Visual Programming, .NET Platform, CIL, CLR & WinForms" },
     { name: "Visual Programming (Week 02)", url: "data/bscs_visual_programming_week02.json", desc: "40 MCQs • WinForms, Controls, Properties, Events & Designer" },
-    { name: "Software Engineering (Lecture 01)", url: "data/bscs_software_engineering_lecture01.json", desc: "40 MCQs • Nature of Software, SDLC, Specification, Design, Process Models" }
+    { name: "Software Engineering (Lecture 01)", url: "data/bscs_software_engineering_lecture01.json", desc: "40 MCQs • Nature of Software, SDLC, Specification, Design, Process Models" },
+    { name: "Entrepreneurship (Unit 01)", url: "data/entrepreneurship_unit01.json", desc: "40 MCQs • Concept, Opportunity Recognition, Entrepreneurial Process & Economic Role" }
   ];
 
   modal(`<h2>Load Questions via Direct JSON Link</h2>

@@ -2040,12 +2040,27 @@ nav[aria-label="Primary Navigation"] button.active {
   --subcard-topic-accent: #0d9488;
 }
 
+/* Entrepreneurship: Energetic Amber / Warm Tangerine */
+.bookThemeEnt {
+  --book-spine-base: #9a3412;
+  --book-cover-gradient: linear-gradient(145deg, #7c2d12 0%, #ea580c 52%, #431407 100%);
+  --book-primary: #ea580c;
+  --book-accent: #fdba74;
+  --subcard-bg: #fff7ed;
+  --subcard-border: #ffedd5;
+  --subcard-pill-bg: #ffedd5;
+  --subcard-topic-bg: #ffffff;
+  --subcard-topic-border: #fed7aa;
+  --subcard-topic-accent: #c2410c;
+}
+
 [data-theme="dark"] .bookThemeAutomata,
 [data-theme="dark"] .bookThemeOop,
 [data-theme="dark"] .bookThemeCao,
 [data-theme="dark"] .bookThemeDbs,
 [data-theme="dark"] .bookThemeVp,
 [data-theme="dark"] .bookThemeSe,
+[data-theme="dark"] .bookThemeEnt,
 [data-theme="dark"] .bookThemeDefault {
   --subcard-bg: #111a2e;
   --subcard-border: #1e293b;
@@ -2061,6 +2076,7 @@ nav[aria-label="Primary Navigation"] button.active {
 .bookDetailHero.bookThemeDbs,
 .bookDetailHero.bookThemeVp,
 .bookDetailHero.bookThemeSe,
+.bookDetailHero.bookThemeEnt,
 .bookDetailHero.bookThemeDefault {
   background: var(--book-cover-gradient);
   border: 1px solid rgba(255, 255, 255, 0.15);

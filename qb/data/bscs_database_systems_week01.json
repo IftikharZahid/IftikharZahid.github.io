@@ -1,0 +1,900 @@
+{
+  "book": "Database Systems",
+  "course": "Database Systems",
+  "courseCode": "DBS",
+  "bankId": "DBS-BSCS-W01",
+  "title": "Database Systems — Week 01 MCQ Question Bank",
+  "week": 1,
+  "weekNo": 1,
+  "weekTitle": "Week 01",
+  "topic": "Introduction to Database Systems, DBMS vs File Processing, Roles in Database Environment, Advantages & Disadvantages",
+  "level": "BS Computer Science",
+  "program": "BS Computer Science",
+  "assessmentType": "MCQs",
+  "questionType": "MCQ",
+  "language": "English",
+  "totalQuestions": 45,
+  "marksPerQuestion": 1,
+  "totalMarks": 45,
+  "createdBy": "Lec. Iftikhar Zahid",
+  "preparedBy": "Lec. Iftikhar Zahid",
+  "role": "Lecturer, Computer Science",
+  "version": "1.0",
+  "schemaVersion": "1.1",
+  "sourceDocument": "S-4-Database_Systems_Week_01_MCQs_PROFESSIONAL_Bold_Yellow_Highlight_Made_By_Lec_Iftikhar_Zahid.pdf",
+  "metadata": {
+    "title": "Database Systems – Week 01 MCQs",
+    "subject": "Database Systems",
+    "course": "Database Systems",
+    "week": 1,
+    "topic": "Introduction to Database Systems",
+    "program": "BS Computer Science",
+    "lecturer": "Lec. Iftikhar Zahid",
+    "totalQuestions": 45,
+    "formatVersion": "1.0"
+  },
+  "topics": [
+    "Introduction to Database",
+    "Database Approach",
+    "Roles in Database Environment",
+    "Advantages of Database Systems",
+    "Disadvantages of Database Systems",
+    "Conceptual MCQs"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "questionNumber": 1,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "What is a database?",
+      "options": {
+        "A": "A programming language",
+        "B": "An organized collection of related data",
+        "C": "An operating system",
+        "D": "A computer network"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "An organized collection of related data",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — A database is an organized collection of related data that is managed for access and updates.",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "questionNumber": 2,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "What is data?",
+      "options": {
+        "A": "Processed facts with meaning",
+        "B": "Raw facts and figures",
+        "C": "A software application",
+        "D": "A database table only"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Raw facts and figures",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Data refers to raw, unorganized facts, figures, and symbols before processing.",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "questionNumber": 3,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "What is information?",
+      "options": {
+        "A": "Raw data",
+        "B": "Unorganized facts",
+        "C": "Processed and meaningful data",
+        "D": "A programming language"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Processed and meaningful data",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — Information is data that has been processed, structured, and presented to give it meaning.",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "questionNumber": 4,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "Which of the following is an example of a database?",
+      "options": {
+        "A": "University student records",
+        "B": "Keyboard",
+        "C": "Compiler",
+        "D": "Operating system"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "University student records",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — University student records constitute an organized collection of persistent, related operational data.",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "questionNumber": 5,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "What is a DBMS?",
+      "options": {
+        "A": "Database Management System",
+        "B": "Data Backup Management Software",
+        "C": "Database Machine System",
+        "D": "Data Building Management System"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Database Management System",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — DBMS stands for Database Management System, a software suite designed to manage databases.",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "questionNumber": 6,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "What is the primary purpose of a DBMS?",
+      "options": {
+        "A": "To design computer hardware",
+        "B": "To manage and access databases",
+        "C": "To create operating systems",
+        "D": "To browse the Internet"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "To manage and access databases",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — A DBMS serves to create, retrieve, update, and manage data and databases securely.",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "Which of the following is a DBMS?",
+      "options": {
+        "A": "MySQL",
+        "B": "Microsoft Word",
+        "C": "Google Chrome",
+        "D": "Adobe Photoshop"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "MySQL",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — MySQL is a popular open-source relational database management system.",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "questionNumber": 8,
+      "topic": "Introduction to Database",
+      "difficulty": "Easy",
+      "question": "Which of the following is NOT a DBMS?",
+      "options": {
+        "A": "PostgreSQL",
+        "B": "Oracle Database",
+        "C": "MySQL",
+        "D": "Microsoft PowerPoint"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "Microsoft PowerPoint",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Microsoft PowerPoint is presentation presentation software, not a DBMS.",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "questionNumber": 9,
+      "topic": "Database Approach",
+      "difficulty": "Easy",
+      "question": "What is the database approach?",
+      "options": {
+        "A": "Storing data only in text files",
+        "B": "Managing data through a centralized database and DBMS",
+        "C": "Storing data only on paper",
+        "D": "Using multiple unrelated files"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Managing data through a centralized database and DBMS",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — The database approach centralizes data management and schema definitions via a DBMS.",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "questionNumber": 10,
+      "topic": "Database Approach",
+      "difficulty": "Medium",
+      "question": "Which approach commonly stores data separately for different applications?",
+      "options": {
+        "A": "Database approach",
+        "B": "File-processing approach",
+        "C": "Object-oriented approach",
+        "D": "Network approach"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "File-processing approach",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — In traditional file processing, each application typically maintains its own isolated data files.",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "questionNumber": 11,
+      "topic": "Database Approach",
+      "difficulty": "Easy",
+      "question": "What is data redundancy?",
+      "options": {
+        "A": "Data security",
+        "B": "Unnecessary duplication of data",
+        "C": "Data encryption",
+        "D": "Data recovery"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Unnecessary duplication of data",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Data redundancy is the redundant, unnecessary duplication of the same information across multiple files.",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "questionNumber": 12,
+      "topic": "Database Approach",
+      "difficulty": "Medium",
+      "question": "What can occur when the same data is stored in multiple files and one copy is updated while another is not?",
+      "options": {
+        "A": "Data consistency",
+        "B": "Data independence",
+        "C": "Data inconsistency",
+        "D": "Data security"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Data inconsistency",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — Uncoordinated updates across duplicated copies lead to conflicting values, known as data inconsistency.",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "questionNumber": 13,
+      "topic": "Database Approach",
+      "difficulty": "Easy",
+      "question": "Which approach generally provides better data sharing?",
+      "options": {
+        "A": "Database approach",
+        "B": "Traditional file approach",
+        "C": "Manual filing approach",
+        "D": "Paper-based approach"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Database approach",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — A centralized database architecture enables multiple authorized users and programs to share the same data.",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "questionNumber": 14,
+      "topic": "Database Approach",
+      "difficulty": "Easy",
+      "question": "Which of the following is a characteristic of the database approach?",
+      "options": {
+        "A": "Data is managed independently by every application",
+        "B": "Data can be shared among authorized users",
+        "C": "Data cannot be updated",
+        "D": "No security mechanisms are possible"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Data can be shared among authorized users",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Data sharing across diverse applications and authorized users is a core trait of the database approach.",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "questionNumber": 15,
+      "topic": "Database Approach",
+      "difficulty": "Easy",
+      "question": "Which problem is associated with traditional file-processing systems?",
+      "options": {
+        "A": "Data redundancy",
+        "B": "Data sharing",
+        "C": "Centralized management",
+        "D": "Improved security"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Data redundancy",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Data redundancy and lack of coordinated control are primary drawbacks of file-processing systems.",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "questionNumber": 16,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Easy",
+      "question": "Who is primarily responsible for managing and controlling a database?",
+      "options": {
+        "A": "End User",
+        "B": "Database Administrator",
+        "C": "Graphic Designer",
+        "D": "Network User"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Database Administrator",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — The DBA (Database Administrator) holds administrative authority and control over the database environment.",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "questionNumber": 17,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Easy",
+      "question": "What does DBA stand for?",
+      "options": {
+        "A": "Database Business Application",
+        "B": "Database Backup Administrator",
+        "C": "Database Administrator",
+        "D": "Data Building Administrator"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Database Administrator",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — DBA stands for Database Administrator.",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "questionNumber": 18,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Easy",
+      "question": "Which of the following is a responsibility of a DBA?",
+      "options": {
+        "A": "Database security",
+        "B": "Database backup and recovery",
+        "C": "User access management",
+        "D": "All of the above"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "All of the above",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — DBAs manage security, access control, backup, recovery, monitoring, and ongoing maintenance.",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "questionNumber": 19,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Medium",
+      "question": "Who determines the structure of tables, attributes, relationships, and constraints?",
+      "options": {
+        "A": "Database Designer",
+        "B": "End User",
+        "C": "Customer",
+        "D": "Data Entry Operator"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Database Designer",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The Database Designer defines conceptual and logical schemas, entities, relations, and constraints.",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "questionNumber": 20,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Medium",
+      "question": "Who studies user requirements and helps determine what a system should do?",
+      "options": {
+        "A": "System Analyst",
+        "B": "DBA",
+        "C": "End User",
+        "D": "Hardware Engineer"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "System Analyst",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — System Analysts analyze stakeholder needs and translate business requirements into functional specs.",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "questionNumber": 21,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Easy",
+      "question": "Who develops applications that interact with databases?",
+      "options": {
+        "A": "Application Programmer",
+        "B": "Database User only",
+        "C": "System Administrator only",
+        "D": "Customer"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Application Programmer",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Application Programmers write software applications, queries, and APIs to interact with the database.",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "questionNumber": 22,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Easy",
+      "question": "Which of the following can be an end user of a university database?",
+      "options": {
+        "A": "Student",
+        "B": "Teacher",
+        "C": "Administrator",
+        "D": "All of the above"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "All of the above",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Students, faculty, and administrative staff all act as end users with appropriate permissions.",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "questionNumber": 23,
+      "topic": "Roles in Database Environment",
+      "difficulty": "Easy",
+      "question": "Which role is mainly concerned with database security, backup, and recovery?",
+      "options": {
+        "A": "Database Administrator",
+        "B": "Application User",
+        "C": "Graphic Designer",
+        "D": "Student"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Database Administrator",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The DBA is primarily charged with security policies, backup routines, and recovery plans.",
+      "type": "single"
+    },
+    {
+      "id": 24,
+      "questionNumber": 24,
+      "topic": "Advantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Which of the following is an advantage of a database system?",
+      "options": {
+        "A": "Increased data redundancy",
+        "B": "Data sharing",
+        "C": "Poor security",
+        "D": "Data isolation"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Data sharing",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Facilitating authorized data sharing across applications is a major advantage of DBMSs.",
+      "type": "single"
+    },
+    {
+      "id": 25,
+      "questionNumber": 25,
+      "topic": "Advantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "A database system can help reduce:",
+      "options": {
+        "A": "Data redundancy",
+        "B": "Data security",
+        "C": "Data sharing",
+        "D": "Data integrity"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Data redundancy",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Centralization and normalization help minimize or eliminate unnecessary data duplication.",
+      "type": "single"
+    },
+    {
+      "id": 26,
+      "questionNumber": 26,
+      "topic": "Advantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Which feature helps ensure that data remains accurate and valid?",
+      "options": {
+        "A": "Data integrity",
+        "B": "Data redundancy",
+        "C": "Data duplication",
+        "D": "Data isolation"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Data integrity",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Data integrity constraints (such as primary key, foreign key, and check constraints) enforce accuracy.",
+      "type": "single"
+    },
+    {
+      "id": 27,
+      "questionNumber": 27,
+      "topic": "Advantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Which feature allows different authorized users to access the same database?",
+      "options": {
+        "A": "Data sharing",
+        "B": "Data duplication",
+        "C": "Data isolation",
+        "D": "Data deletion"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Data sharing",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Data sharing allows concurrent authorized access to a shared information repository.",
+      "type": "single"
+    },
+    {
+      "id": 28,
+      "questionNumber": 28,
+      "topic": "Advantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Which database feature controls who can access particular data?",
+      "options": {
+        "A": "Data security",
+        "B": "Data redundancy",
+        "C": "Data sorting",
+        "D": "Data duplication"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Data security",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Database security enforces authentication and authorization privileges to protect data assets.",
+      "type": "single"
+    },
+    {
+      "id": 29,
+      "questionNumber": 29,
+      "topic": "Advantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "What helps restore database data after a system failure?",
+      "options": {
+        "A": "Backup and recovery",
+        "B": "Data redundancy",
+        "C": "Data entry",
+        "D": "Data sorting"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Backup and recovery",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — DBMS backup and recovery subsystems ensure that state can be restored after crashes or media failures.",
+      "type": "single"
+    },
+    {
+      "id": 30,
+      "questionNumber": 30,
+      "topic": "Advantages of Database Systems",
+      "difficulty": "Medium",
+      "question": "Database systems can support multiple users accessing data at the same time through:",
+      "options": {
+        "A": "Concurrent access mechanisms",
+        "B": "Data duplication",
+        "C": "Manual filing",
+        "D": "Paper records"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Concurrent access mechanisms",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Concurrency control mechanisms (locking, timestamps) manage simultaneous multi-user transactions safely.",
+      "type": "single"
+    },
+    {
+      "id": 31,
+      "questionNumber": 31,
+      "topic": "Disadvantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Which of the following can be a disadvantage of a database system?",
+      "options": {
+        "A": "High initial cost",
+        "B": "Data sharing",
+        "C": "Better security",
+        "D": "Data integrity"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "High initial cost",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — High initial cost for hardware, software licensing, training, and migration is a noted disadvantage.",
+      "type": "single"
+    },
+    {
+      "id": 32,
+      "questionNumber": 32,
+      "topic": "Disadvantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Large database systems can be difficult to manage because of their:",
+      "options": {
+        "A": "Simplicity",
+        "B": "Complexity",
+        "C": "Small size",
+        "D": "Lack of data"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Complexity",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Enterprise DBMS architectures are highly complex systems requiring specialized administrative expertise.",
+      "type": "single"
+    },
+    {
+      "id": 33,
+      "questionNumber": 33,
+      "topic": "Disadvantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Database systems may require skilled professionals such as:",
+      "options": {
+        "A": "DBAs",
+        "B": "Database developers",
+        "C": "Database designers",
+        "D": "All of the above"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "All of the above",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Organizations require trained DBAs, developers, and data architects to implement and maintain databases.",
+      "type": "single"
+    },
+    {
+      "id": 34,
+      "questionNumber": 34,
+      "topic": "Disadvantages of Database Systems",
+      "difficulty": "Medium",
+      "question": "A security breach in a centralized database can potentially affect:",
+      "options": {
+        "A": "Only one record",
+        "B": "A large amount of stored data",
+        "C": "No data",
+        "D": "Only the keyboard"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "A large amount of stored data",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Because data is centralized, a single compromise can expose substantial enterprise-wide records.",
+      "type": "single"
+    },
+    {
+      "id": 35,
+      "questionNumber": 35,
+      "topic": "Disadvantages of Database Systems",
+      "difficulty": "Easy",
+      "question": "Database systems require regular:",
+      "options": {
+        "A": "Maintenance",
+        "B": "Monitoring",
+        "C": "Backup",
+        "D": "All of the above"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "All of the above",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — High availability and data safety necessitate continuous monitoring, routine maintenance, and regular backups.",
+      "type": "single"
+    },
+    {
+      "id": 36,
+      "questionNumber": 36,
+      "topic": "Disadvantages of Database Systems",
+      "difficulty": "Medium",
+      "question": "If a central database becomes unavailable, what may happen?",
+      "options": {
+        "A": "Dependent applications and users may be affected",
+        "B": "All computers automatically become faster",
+        "C": "Data automatically becomes more secure",
+        "D": "No application is affected"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Dependent applications and users may be affected",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Centralization means an outage can impair all connected applications and business workflows.",
+      "type": "single"
+    },
+    {
+      "id": 37,
+      "questionNumber": 37,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Medium",
+      "question": "Which statement correctly describes the relationship between a database and a DBMS?",
+      "options": {
+        "A": "Database is software and DBMS is data",
+        "B": "Database contains data and DBMS manages the data",
+        "C": "Both are exactly the same",
+        "D": "DBMS is a hardware device"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Database contains data and DBMS manages the data",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — The database is the repository of stored data; the DBMS is the software management system.",
+      "type": "single"
+    },
+    {
+      "id": 38,
+      "questionNumber": 38,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Medium",
+      "question": "A university stores student, teacher, course, and examination records in one managed system. This is an example of:",
+      "options": {
+        "A": "Database approach",
+        "B": "Manual filing",
+        "C": "Independent file processing",
+        "D": "Word processing"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Database approach",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — Integrating related organizational records into one managed system exemplifies the database approach.",
+      "type": "single"
+    },
+    {
+      "id": 39,
+      "questionNumber": 39,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Easy",
+      "question": "If a student's phone number is stored in three different files, this is an example of:",
+      "options": {
+        "A": "Data integrity",
+        "B": "Data redundancy",
+        "C": "Data security",
+        "D": "Data independence"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "Data redundancy",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Storing identical data across multiple isolated locations is data redundancy.",
+      "type": "single"
+    },
+    {
+      "id": 40,
+      "questionNumber": 40,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Medium",
+      "question": "If two copies of the same student's information contain different phone numbers, this is called:",
+      "options": {
+        "A": "Data sharing",
+        "B": "Data consistency",
+        "C": "Data inconsistency",
+        "D": "Data security"
+      },
+      "correctAnswer": "C",
+      "correct_option": "C",
+      "correct_answer": "Data inconsistency",
+      "correctOptionIndex": 2,
+      "explanation": "Correct Answer: Option C — Discrepancies between different copies of the same entity's data constitute data inconsistency.",
+      "type": "single"
+    },
+    {
+      "id": 41,
+      "questionNumber": 41,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Medium",
+      "question": "Which role acts as a bridge between users' requirements and the technical development team?",
+      "options": {
+        "A": "System Analyst",
+        "B": "End User",
+        "C": "Database Operator",
+        "D": "Hardware Technician"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "System Analyst",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The System Analyst bridges user business expectations and technical database architecture.",
+      "type": "single"
+    },
+    {
+      "id": 42,
+      "questionNumber": 42,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Easy",
+      "question": "Which of the following is NOT an advantage of a database system?",
+      "options": {
+        "A": "Data sharing",
+        "B": "Improved security",
+        "C": "Backup and recovery",
+        "D": "Increased unnecessary redundancy"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "Increased unnecessary redundancy",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Database systems aim to decrease and control redundancy, not increase it unnecessarily.",
+      "type": "single"
+    },
+    {
+      "id": 43,
+      "questionNumber": 43,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Easy",
+      "question": "Which of the following is NOT normally a responsibility of a DBA?",
+      "options": {
+        "A": "Database security",
+        "B": "Backup and recovery",
+        "C": "User access control",
+        "D": "Designing advertisements for the organization"
+      },
+      "correctAnswer": "D",
+      "correct_option": "D",
+      "correct_answer": "Designing advertisements for the organization",
+      "correctOptionIndex": 3,
+      "explanation": "Correct Answer: Option D — Marketing and advertisement design are outside the DBA technical scope.",
+      "type": "single"
+    },
+    {
+      "id": 44,
+      "questionNumber": 44,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Easy",
+      "question": "Which of the following best represents the database environment?",
+      "options": {
+        "A": "Database + DBMS + Users + Applications",
+        "B": "Keyboard + Mouse only",
+        "C": "Monitor + Printer only",
+        "D": "Compiler + Operating System only"
+      },
+      "correctAnswer": "A",
+      "correct_option": "A",
+      "correct_answer": "Database + DBMS + Users + Applications",
+      "correctOptionIndex": 0,
+      "explanation": "Correct Answer: Option A — The complete database environment comprises data, DBMS software, hardware, applications, and people.",
+      "type": "single"
+    },
+    {
+      "id": 45,
+      "questionNumber": 45,
+      "topic": "Conceptual MCQs",
+      "difficulty": "Medium",
+      "question": "Which statement about database systems is correct?",
+      "options": {
+        "A": "They completely eliminate all data redundancy",
+        "B": "They can reduce redundancy through proper database design",
+        "C": "They never require maintenance",
+        "D": "They cannot support multiple users"
+      },
+      "correctAnswer": "B",
+      "correct_option": "B",
+      "correct_answer": "They can reduce redundancy through proper database design",
+      "correctOptionIndex": 1,
+      "explanation": "Correct Answer: Option B — Proper normalization and schema design control and significantly reduce redundancy.",
+      "type": "single"
+    }
+  ]
+}
