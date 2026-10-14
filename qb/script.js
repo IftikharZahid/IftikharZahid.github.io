@@ -9115,6 +9115,9 @@ function go(id) {
 function main() { 
   ["home", "subjects", "tools"].forEach(x => $("#"+x)?.classList.remove("hidden")); 
   $("#live")?.classList.add("hidden"); 
+  document.body.classList.remove("examActive");
+  $("#examHeader")?.classList.add("hidden");
+  if (document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
   if (typeof updateExamStatusUI === "function") updateExamStatusUI(); 
 }
 function optText(o) { if (!o && o !== 0) return ""; if (typeof o === "string") return o; if (typeof o.text === "string") return o.text; if (typeof o.option === "string") return o.option; return String(o); }
@@ -9644,7 +9647,7 @@ function renderSubjects() {
     const classes = getBookClasses(book);
     const courseSubtitle = (book.course && book.course.toLowerCase() !== book.book.toLowerCase())
       ? esc(book.course)
-      : "Undergraduate Continuous Assessment & Question Bank";
+      : "Continuous Assessment & Question Bank";
 
     return `
     <article class="subjectCard bookCard ${theme.className} ${hasActive ? "active" : ""}" 
@@ -9670,7 +9673,7 @@ function renderSubjects() {
         <div class="bookCoverHeader">
           <div class="bookHeaderImprint">
             <span class="imprintEmblem">🏛️</span>
-            <span class="imprintText">ACADEMIC LECTURE SERIES</span>
+            <span class="imprintText">ACADEMIC</span>
           </div>
           <div class="bookHeaderBadges">
             ${hasActive ? `<span class="activeFoilBadge">★ ACTIVE</span>` : ""}
@@ -9678,7 +9681,7 @@ function renderSubjects() {
           </div>
         </div>
 
-        <!-- Book Title & Course Identification -->
+        <!-- Book Title & Course Identification (Prominent Large Heading) -->
         <div class="bookTitleBlock">
           <h3 class="bookCardTitle">${esc(book.book)}</h3>
           <div class="bookCourseSubtitle">${courseSubtitle}</div>
@@ -9686,51 +9689,50 @@ function renderSubjects() {
 
         <!-- Class & Degree Badges (Colorful & Prominent) -->
         <div class="bookClassPillRow">
-          ${classes.map(c => `
-            <span class="bookClassPill">
-              <span class="classIcon">🎓</span> ${esc(c)}
-            </span>
-          `).join("")}
-          <span class="bookEditionTag">2026 Academic Edition</span>
+          <span class="bookClassPill" title="${esc(classes.join(', ') || 'BS Computer Science')}">
+            <span class="classIcon">🎓</span> ${esc(classes[0] || "BS Computer Science")}${classes.length > 1 ? ` <small class="extraClassCount">+${classes.length - 1}</small>` : ""}
+          </span>
+          <span class="bookEditionTag">2026 Edition</span>
         </div>
 
         <!-- Detailed Academic Stats Grid (COMPACT & OVERFLOW-SAFE) -->
         <div class="bookDetailsGrid">
-          <div class="bookDetailChip">
+          <div class="bookDetailChip" title="${weekCountLabel}">
             <span class="chipIcon">📅</span>
             <div class="chipMeta">
-              <span class="chipLabel">MODULES</span>
-              <b class="chipValue">${weekCountLabel}</b>
+              <b class="chipValue">${weekCount} ${weekCount === 1 ? "Mod" : "Mods"}</b>
+              <span class="chipLabel">Modules</span>
             </div>
           </div>
-          <div class="bookDetailChip">
+          <div class="bookDetailChip" title="${book.totalQuestions} Questions in Bank">
             <span class="chipIcon">📝</span>
             <div class="chipMeta">
-              <span class="chipLabel">QUESTION BANK</span>
-              <b class="chipValue">${book.totalQuestions} MCQs</b>
+              <b class="chipValue">${book.totalQuestions}</b>
+              <span class="chipLabel">MCQs</span>
             </div>
           </div>
-          <div class="bookDetailChip">
+          <div class="bookDetailChip" title="${book.totalQuestions} Minutes Examination">
             <span class="chipIcon">⏱️</span>
             <div class="chipMeta">
-              <span class="chipLabel">EXAM TIME</span>
-              <b class="chipValue">${book.totalQuestions} Mins</b>
+              <b class="chipValue">${book.totalQuestions}m</b>
+              <span class="chipLabel">Time</span>
             </div>
           </div>
-          <div class="bookDetailChip">
+          <div class="bookDetailChip" title="50% Passing Benchmark">
             <span class="chipIcon">🏆</span>
             <div class="chipMeta">
-              <span class="chipLabel">BENCHMARK</span>
-              <b class="chipValue">50% Pass</b>
+              <b class="chipValue">50%</b>
+              <span class="chipLabel">Pass</span>
             </div>
           </div>
         </div>
 
-        <!-- Syllabus Lecture Coverage Tags -->
+        <!-- Syllabus Lecture Coverage Tags (Max 2 + Count Badge) -->
         <div class="bookSyllabusScope">
           <span class="scopeLabel">SYLLABUS TOPICS:</span>
           <div class="scopeTagList">
-            ${topics.map(t => `<span class="scopeTag">• ${esc(t)}</span>`).join("")}
+            ${topics.slice(0, 2).map(t => `<span class="scopeTag" title="${esc(t)}">• ${esc(t)}</span>`).join("")}
+            ${topics.length > 2 ? `<span class="scopeTag moreTag" title="${topics.slice(2).map(esc).join(', ')}">+${topics.length - 2} more</span>` : ""}
           </div>
         </div>
 
@@ -9739,16 +9741,16 @@ function renderSubjects() {
           <div class="facultyProfile">
             <span class="facultyAvatar">👨‍🏫</span>
             <span class="facultyName">${esc(book.createdBy || "Lec. Iftikhar Zahid")}</span>
-            <span class="verifiedBadge" title="Verified Lecture MCQs">✓ Verified</span>
+            <span class="verifiedBadge" title="Verified Lecture MCQs">✓</span>
           </div>
-          <span class="departmentTag">• Dept. of CS</span>
+          <span class="departmentTag">Dept. CS</span>
         </div>
 
         <!-- Bottom Actions -->
         <div class="bookCardFoot">
           <span class="bookFootNote">📖 ${weekCount} ${weekCount === 1 ? "Module" : "Modules"}</span>
-          <button class="bookOpenBtn" type="button" onclick="event.stopPropagation(); openBookDetail('${esc(book.book)}')">
-            <span>Explore Modules</span>
+          <button class="bookOpenBtn" type="button" onclick="event.stopPropagation(); openBookDetail('${esc(book.book)}')" title="Explore weekly modules for ${esc(book.book)}">
+            <span>Explore</span>
             <span class="btnArrow">→</span>
           </button>
         </div>
@@ -11169,6 +11171,19 @@ function drawExam(){
   let otherUnlocked=s.exam.filter(item=>!s.locked.has(item.id)&&item.id!==q.id).length;
   let isFinalAction=otherUnlocked===0;
 
+  // Professional Exam Header Synchronization
+  document.body.classList.add("examActive");
+  $("#examHeader")?.classList.remove("hidden");
+  const courseName = s.activeSubject?.course || s.activeSubject?.book || "Academic Assessment";
+  const weekName = s.activeSubject?.week || "";
+  const headerCourseEl = $("#examHeaderSubjectTitle");
+  if(headerCourseEl) {
+    headerCourseEl.textContent = weekName ? `${courseName} • ${weekName}` : courseName;
+  }
+  const cand = s.student?.name ? s.student : getStudentSession();
+  if($("#examHeaderStudentName")) $("#examHeaderStudentName").textContent = cand?.name || "Candidate";
+  if($("#examHeaderStudentId")) $("#examHeaderStudentId").textContent = cand?.id || cand?.department || "BS Computer Science";
+
   $("#navCount").textContent=`${s.i+1}/${s.exam.length}`;
   let tagElements=[
     `<span class="tag qNumTag">Question ${s.i+1} of ${s.exam.length}</span>`
@@ -11345,11 +11360,18 @@ function drawNav(){
     if(targetIdx===s.i) return;
     let targetQ=s.exam[targetIdx];
     if(!targetQ) return;
+
+    const onNavSuccess = () => {
+      if(window.innerWidth <= 768){
+        $("#examQ")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
     
     if(s.locked.has(targetQ.id)){
       s.i=targetIdx;
       save();
       drawExam();
+      onNavSuccess();
       toast(`Viewing Question ${targetIdx+1} (Locked — response cannot be changed)`);
       return;
     }
@@ -11357,6 +11379,7 @@ function drawNav(){
       s.i=targetIdx;
       save();
       drawExam();
+      onNavSuccess();
       toast(`Resumed Question ${targetIdx+1} (Skipped)`);
       return;
     }
@@ -11364,6 +11387,7 @@ function drawNav(){
       s.i=targetIdx;
       save();
       drawExam();
+      onNavSuccess();
       return;
     }
     let nextAllowed=-1;
@@ -11377,6 +11401,7 @@ function drawNav(){
       s.i=targetIdx;
       save();
       drawExam();
+      onNavSuccess();
       return;
     }
     toast(`Sequential Exam: Please answer Question ${s.i+1} before proceeding.`,true);
@@ -11395,10 +11420,43 @@ function live(){
   if($("#liveAnsweredQ")) $("#liveAnsweredQ").textContent=`${lockedCount}/${total}`;
   if($("#liveSkippedQ")) $("#liveSkippedQ").textContent=skippedCount;
   if($("#liveRemainingQ")) $("#liveRemainingQ").textContent=remainingCount;
-  if($("#liveCurrentQ")) $("#liveCurrentQ").innerHTML=`<span class="qWord">Question </span>${currentNum}`;
+  if($("#liveCurrentQ")) $("#liveCurrentQ").textContent=currentNum;
   if($("#liveProgressPct")) $("#liveProgressPct").textContent=`${progressPct}%`;
+  if($("#examProgressFill")) $("#examProgressFill").style.width=`${progressPct}%`;
 }
-function clock(){clearInterval(s.timer);s.timer=setInterval(()=>{s.sec--;uiClock();save();if(s.sec<=0){clearInterval(s.timer);finish(true)}},1000);uiClock()}function uiClock(){let m=Math.floor(Math.max(0,s.sec)/60),x=Math.max(0,s.sec)%60;$("#timer b").textContent=`${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`;$("#timer").classList.toggle("warning",s.sec<=300&&s.sec>60);$("#timer").classList.toggle("danger",s.sec<=60)}
+
+function clock(){
+  clearInterval(s.timer);
+  s.timer=setInterval(()=>{
+    s.sec--;
+    uiClock();
+    save();
+    if(s.sec<=0){
+      clearInterval(s.timer);
+      finish(true);
+    }
+  },1000);
+  uiClock();
+}
+
+function uiClock(){
+  let m=Math.floor(Math.max(0,s.sec)/60),x=Math.max(0,s.sec)%60;
+  const timeFormatted=`${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`;
+  if($("#timer b")) $("#timer b").textContent=timeFormatted;
+  if($("#examHeaderTimerValue")) $("#examHeaderTimerValue").textContent=timeFormatted;
+  
+  const isWarning=s.sec<=300&&s.sec>60;
+  const isDanger=s.sec<=60;
+  
+  if($("#timer")){
+    $("#timer").classList.toggle("warning",isWarning);
+    $("#timer").classList.toggle("danger",isDanger);
+  }
+  if($("#examHeaderTimer")){
+    $("#examHeaderTimer").classList.toggle("warning",isWarning);
+    $("#examHeaderTimer").classList.toggle("danger",isDanger);
+  }
+}
 function confirmSubmit(){
   let lockedCount=s.locked.size;
   let skippedCount=s.exam.filter(q=>!s.locked.has(q.id)&&s.skipped.has(q.id)).length;
@@ -11479,6 +11537,9 @@ function finish(auto){
   };
   store(K.result,JSON.stringify(s.result));
   store(K.progress,"");
+  document.body.classList.remove("examActive");
+  $("#examHeader")?.classList.add("hidden");
+  if(document.fullscreenElement) document.exitFullscreen?.().catch(()=>{});
   results();
   ["home","subjects","tools","live"].forEach(id=>$("#"+id)?.classList.add("hidden"));
   $("#results").classList.remove("hidden");
@@ -12261,22 +12322,35 @@ document.addEventListener("click", e => {
 });
 
 // 2. Dark / Light Mode Theme Toggle
+function applyTheme(themeName) {
+  document.documentElement.dataset.theme = themeName;
+  store(K.theme, themeName);
+  const icon = themeName === "dark" ? "☀" : "☾";
+  const title = themeName === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+  ["#theme", "#examThemeBtn"].forEach(sel => {
+    const el = $(sel);
+    if (el) {
+      el.textContent = icon;
+      el.title = title;
+    }
+  });
+}
+
 function initTheme() {
   const currentTheme = read(K.theme, "light");
-  document.documentElement.dataset.theme = currentTheme;
+  applyTheme(currentTheme);
+
+  const toggleHandler = () => {
+    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+    toast(nextTheme === "dark" ? "Dark Mode enabled ☾" : "Light Mode enabled ☀");
+  };
+
   const themeBtn = $("#theme");
-  if (themeBtn) {
-    themeBtn.textContent = currentTheme === "dark" ? "☀" : "☾";
-    themeBtn.title = currentTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
-    themeBtn.onclick = () => {
-      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-      document.documentElement.dataset.theme = nextTheme;
-      store(K.theme, nextTheme);
-      themeBtn.textContent = nextTheme === "dark" ? "☀" : "☾";
-      themeBtn.title = nextTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
-      toast(nextTheme === "dark" ? "Dark Mode enabled ☾" : "Light Mode enabled ☀");
-    };
-  }
+  if (themeBtn) themeBtn.onclick = toggleHandler;
+
+  const examThemeBtn = $("#examThemeBtn");
+  if (examThemeBtn) examThemeBtn.onclick = toggleHandler;
 }
 initTheme();
 
@@ -13394,10 +13468,89 @@ function initAppNoticeModal() {
   setTimeout(showAppNoticeModal, 250);
 }
 
+// ==========================================================================
+// 14. Dedicated Examination Header Controls & Keyboard Navigation
+// ==========================================================================
+function initExamHeaderControls() {
+  // 1. Fullscreen Toggle
+  const fullBtn = $("#examFullscreenBtn");
+  if (fullBtn) {
+    fullBtn.onclick = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen?.().catch(() => {
+          toast("Fullscreen focus mode is not supported by your browser.", true);
+        });
+      } else {
+        document.exitFullscreen?.().catch(() => {});
+      }
+    };
+  }
+
+  document.addEventListener("fullscreenchange", () => {
+    const btn = $("#examFullscreenBtn");
+    if (btn) {
+      const isFull = !!document.fullscreenElement;
+      btn.textContent = isFull ? "🗗" : "⛶";
+      btn.title = isFull ? "Exit Fullscreen Focus Mode" : "Toggle Fullscreen Focus Mode";
+    }
+  });
+
+  // 2. Examination Header Submit Button
+  const headerSubmitBtn = $("#examHeaderSubmitBtn");
+  if (headerSubmitBtn) {
+    headerSubmitBtn.onclick = confirmSubmit;
+  }
+
+  // 3. Modern Keyboard Navigation (Options 1-4 / A-D, Enter to Next/Confirm, S to Skip)
+  document.addEventListener("keydown", (e) => {
+    const liveEl = $("#live");
+    if (!liveEl || liveEl.classList.contains("hidden")) return;
+    if (!$("#modal")?.classList.contains("hidden")) return;
+
+    const activeTag = document.activeElement ? document.activeElement.tagName : "";
+    if (activeTag === "INPUT" || activeTag === "TEXTAREA" || activeTag === "SELECT") return;
+
+    const key = e.key.toUpperCase();
+
+    // Option selection via 1-4 or A-D
+    const keyMap = { "1": 0, "2": 1, "3": 2, "4": 3, "A": 0, "B": 1, "C": 2, "D": 3 };
+    if (key in keyMap && !e.ctrlKey && !e.altKey && !e.metaKey) {
+      const optIndex = keyMap[key];
+      const optBtn = $(`#examQ [data-e="${optIndex}"]`);
+      if (optBtn && !optBtn.disabled) {
+        e.preventDefault();
+        optBtn.click();
+      }
+      return;
+    }
+
+    // Advance / Lock Answer via Enter
+    if (e.key === "Enter") {
+      const nextBtn = $("#next");
+      if (nextBtn && !nextBtn.disabled && document.contains(nextBtn)) {
+        e.preventDefault();
+        nextBtn.click();
+      }
+      return;
+    }
+
+    // Skip question via S
+    if (key === "S" && !e.ctrlKey && !e.altKey && !e.metaKey) {
+      const skipBtn = $("#skip");
+      if (skipBtn && document.contains(skipBtn)) {
+        e.preventDefault();
+        skipBtn.click();
+      }
+      return;
+    }
+  });
+}
+
 // Initialize Feature Modules
 initQuestionBankEvents();
 initInstructorAuth();
 initAppNoticeModal();
+initExamHeaderControls();
 
 // Force scroll to top on load instead of centering
 if ("scrollRestoration" in history) {

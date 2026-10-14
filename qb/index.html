@@ -16,14 +16,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=44" />
+    <link rel="stylesheet" href="style.css?v=56" />
     <link rel="icon" type="image/png" href="logo.png" />
   </head>
   <body>
     <!-- ==========================================================================
        Primary Academic Header & Navigation
        ========================================================================== -->
-    <header>
+    <header id="mainHeader">
       <div class="head">
         <button
           class="brand"
@@ -93,6 +93,83 @@
           </button>
         </div>
       </div>
+    </header>
+
+    <!-- ==========================================================================
+       Dedicated Examination Session Topbar (Active During Live Assessment)
+       ========================================================================== -->
+    <header id="examHeader" class="examHeader hidden" role="banner" aria-label="Active Examination Session Header">
+      <div class="head examHeadWrap">
+        <!-- Left: Portal Logo & Active Course Module Indicator -->
+        <div class="examHeaderLeft">
+          <div class="examBrandBlock">
+            <img
+              src="logo.png"
+              alt="University Department Crest"
+              class="examBrandImg"
+              width="40"
+              height="40"
+            />
+            <div class="examBrandTitles">
+              <span class="examBrandMain">Assessment Examination Portal</span>
+              <span class="examBrandCourse" id="examHeaderSubjectTitle">Theory of Automata • Week 01</span>
+            </div>
+          </div>
+          <span class="examStatusPill" id="examHeaderModePill">
+            <span class="examPillDot" aria-hidden="true"></span>
+            <span>🔒 Sequential Mode</span>
+          </span>
+        </div>
+
+        <!-- Center: Modern Live Countdown Timer Display -->
+        <div class="examHeaderCenter">
+          <div id="examHeaderTimer" class="examHeaderTimer" role="timer" aria-live="polite" title="Time Remaining">
+            <span class="examHeaderTimerIcon" aria-hidden="true">⏱️</span>
+            <div class="examHeaderTimerContent">
+              <small class="examHeaderTimerLabel">TIME REMAINING</small>
+              <b id="examHeaderTimerValue" class="examHeaderTimerValue">--:--</b>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Candidate Profile & Quick Actions -->
+        <div class="examHeaderRight">
+          <div id="examHeaderCandidate" class="examCandidateBadge" title="Registered Candidate Session">
+            <span class="examCandidateAvatar" aria-hidden="true">👤</span>
+            <div class="examCandidateInfo">
+              <span id="examHeaderStudentName" class="examCandidateName">Candidate</span>
+              <small id="examHeaderStudentId" class="examCandidateId">BS Computer Science</small>
+            </div>
+          </div>
+          <button
+            id="examFullscreenBtn"
+            class="icon examIconBtn"
+            type="button"
+            title="Toggle Fullscreen Focus Mode"
+            aria-label="Toggle Fullscreen Focus Mode"
+          >
+            ⛶
+          </button>
+          <button
+            id="examThemeBtn"
+            class="icon examIconBtn"
+            type="button"
+            title="Toggle dark/light theme"
+            aria-label="Toggle dark/light theme"
+          >
+            ☾
+          </button>
+          <button
+            id="examHeaderSubmitBtn"
+            class="secondary examHeaderSubmitBtn"
+            type="button"
+            title="Finish and submit examination"
+          >
+            Submit Exam
+          </button>
+        </div>
+      </div>
+    </header>
 
       <!-- Mobile Navigation Drawer -->
       <div
@@ -363,72 +440,61 @@
          SECTION 4: Timed Continuous Assessment Examination (Forward-Only)
          ========================================================================== -->
       <section id="live" class="wrap section hidden">
-        <div class="liveTitle">
-          <div>
-            <small class="eyebrow"
-              >CONTINUOUS ASSESSMENT EXAMINATION • SEQUENTIAL MODE</small
-            >
-            <h2 id="liveExamTitle">
-              Week 02 Examination
-              <span class="tag examModeTag">🔒 Forward-Only</span>
-            </h2>
+        <!-- Compact Modern Examination Status Ribbon & Progress Bar -->
+        <div class="examStatusBar" role="region" aria-label="Examination Progress and Status Ribbon">
+          <!-- Animated Top Progress Line -->
+          <div class="examProgressBarTrack" title="Overall Examination Completion Progress">
+            <div id="examProgressFill" class="examProgressBarFill" style="width: 0%;"></div>
           </div>
-          <div id="timer" class="timer" role="timer" aria-live="polite">
-            <small>TIME REMAINING</small>
-            <b>--:--</b>
-          </div>
-        </div>
 
-        <div
-          class="score examProgressTracker"
-          id="examProgressTracker"
-          role="region"
-          aria-label="Exam Progress Tracker"
-        >
-          <span class="trackerItem" title="Total Questions">
-            <span class="trackerLabel"
-              ><span class="lblFull">Total Questions:</span
-              ><span class="lblShort">Total:</span></span
-            >
-            <b id="liveTotalQ" class="trackerVal">40</b>
-          </span>
-          <span class="trackerItem" title="Answered &amp; Locked Questions">
-            <span class="trackerLabel"
-              ><span class="lblFull">Answered &amp; Locked:</span
-              ><span class="lblShort">Locked:</span></span
-            >
-            <b id="liveAnsweredQ" class="trackerVal">0/40</b>
-          </span>
-          <span class="trackerItem" title="Skipped Questions">
-            <span class="trackerLabel"
-              ><span class="lblFull">Skipped:</span
-              ><span class="lblShort">Skipped:</span></span
-            >
-            <b id="liveSkippedQ" class="trackerVal">0</b>
-          </span>
-          <span class="trackerItem" title="Remaining Questions">
-            <span class="trackerLabel"
-              ><span class="lblFull">Remaining:</span
-              ><span class="lblShort">Remaining:</span></span
-            >
-            <b id="liveRemainingQ" class="trackerVal">40</b>
-          </span>
-          <span class="trackerItem" title="Current Question Number">
-            <span class="trackerLabel"
-              ><span class="lblFull">Current:</span
-              ><span class="lblShort">Question:</span></span
-            >
-            <b id="liveCurrentQ" class="trackerVal"
-              ><span class="qWord">Question </span>1</b
-            >
-          </span>
-          <span class="trackerItem" title="Overall Progress">
-            <span class="trackerLabel"
-              ><span class="lblFull">Progress:</span
-              ><span class="lblShort">Progress:</span></span
-            >
-            <b id="liveProgressPct" class="trackerVal">0%</b>
-          </span>
+          <!-- Compact Status Row with Responsive Metrics -->
+          <div class="examStatusRow">
+            <div class="examStatusLeft">
+              <span class="examMetricPill activeQPill" title="Active Question">
+                <span class="metricDot active" aria-hidden="true"></span>
+                <span class="metricLabel">Question</span>
+                <span class="metricValGroup">
+                  <b id="liveCurrentQ" class="metricVal">1</b>
+                  <span class="metricSep"><span class="sepOf">of</span><span class="sepSlash">/</span></span>
+                  <b id="liveTotalQ" class="metricVal totalVal">40</b>
+                </span>
+              </span>
+
+              <span class="examMetricPill lockedPill" title="Answered and Locked Questions">
+                <span class="metricDot locked" aria-hidden="true"></span>
+                <span class="metricLabel">Locked:</span>
+                <b id="liveAnsweredQ" class="metricVal">0/40</b>
+              </span>
+
+              <span class="examMetricPill skippedPill" title="Skipped Questions Pending Resolution">
+                <span class="metricDot skipped" aria-hidden="true"></span>
+                <span class="metricLabel">Skipped:</span>
+                <b id="liveSkippedQ" class="metricVal">0</b>
+              </span>
+
+              <span class="examMetricPill remainingPill" title="Remaining Questions to Complete">
+                <span class="metricDot remaining" aria-hidden="true"></span>
+                <span class="metricLabel">Remaining:</span>
+                <b id="liveRemainingQ" class="metricVal">40</b>
+              </span>
+            </div>
+
+            <div class="examStatusRight">
+              <span class="examBenchmarkBadge" title="Institutional Passing Benchmark">
+                🎯 50% Benchmark
+              </span>
+              <span class="examMetricPill progressPill" title="Calculated Exam Progress Percentage">
+                <span class="metricLabel">Progress:</span>
+                <b id="liveProgressPct" class="metricVal">0%</b>
+              </span>
+            </div>
+          </div>
+
+          <!-- Legacy/Accessibility Hidden Sync Anchors (Keeps existing JS selectors intact) -->
+          <div class="visuallyHidden">
+            <h2 id="liveExamTitle">Continuous Assessment Examination <span class="tag examModeTag">🔒 Forward-Only</span></h2>
+            <div id="timer" class="timer" role="timer" aria-live="polite"><small>TIME REMAINING</small><b>--:--</b></div>
+          </div>
         </div>
 
         <div class="examLayout">
@@ -1085,6 +1151,6 @@
     <!-- Toast Notification Container -->
     <div id="toast" role="status" aria-live="polite"></div>
 
-    <script src="script.js?v=44"></script>
+    <script src="script.js?v=56"></script>
   </body>
 </html>
