@@ -1,0 +1,17 @@
+{
+  "name": "CopyNest",
+  "short_name": "CopyNest",
+  "description": "CopyNest official website",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f8f7ff",
+  "icons": [
+    {
+      "src": "images/copynest-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

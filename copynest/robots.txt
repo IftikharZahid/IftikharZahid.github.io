@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# Replace the example URL with your real deployed sitemap URL before launch.
+Sitemap: https://YOUR-DOMAIN.example/sitemap.xml
