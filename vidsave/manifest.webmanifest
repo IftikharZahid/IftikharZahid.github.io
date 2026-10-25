@@ -1,0 +1,20 @@
+{
+  "name": "VidSave - Video Downloader",
+  "short_name": "VidSave",
+  "description": "Save videos, reels, shorts, and audio from popular social media platforms in high definition.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#062e29",
+  "theme_color": "#073c36",
+  "categories": ["utilities", "multimedia", "tools"],
+  "icons": [
+    {
+      "src": "assets/vidsave-app-icon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

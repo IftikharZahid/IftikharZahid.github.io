@@ -1,0 +1,13 @@
+VidSave Mobile Android Application Package
+App Name: VidSave
+Version: 1.2.4
+Package: me.iftikharzahid.vidsave
+Developer: Iftikhar Zahid (XahidCodes)
+Website: https://iftikharzahid.me
+Support: XahidCodes@gmail.com
+Release: Production Release Build
+Android Min SDK: 26 (Android 8.0 Oreo)
+Target SDK: 34 (Android 14)
+Architecture: universal (arm64-v8a, armeabi-v7a, x86_64)
+Permissions: INTERNET, ACCESS_NETWORK_STATE, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
+Status: Verified & Secure
