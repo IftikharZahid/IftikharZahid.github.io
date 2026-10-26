@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /vidsave/
-Disallow:
-
-Sitemap: https://iftikharzahid.me/vidsave/sitemap.xml

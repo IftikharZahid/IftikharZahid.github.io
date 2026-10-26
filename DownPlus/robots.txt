@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /DownPlus/
+Disallow:
+
+Sitemap: https://iftikharzahid.me/DownPlus/sitemap.xml

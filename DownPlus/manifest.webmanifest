@@ -1,6 +1,6 @@
 {
-  "name": "VidSave - Video Downloader",
-  "short_name": "VidSave",
+  "name": "DownPlus - Video Downloader",
+  "short_name": "DownPlus",
   "description": "Save videos, reels, shorts, and audio from popular social media platforms in high definition.",
   "start_url": "./index.html",
   "scope": "./",
@@ -11,10 +11,22 @@
   "categories": ["utilities", "multimedia", "tools"],
   "icons": [
     {
-      "src": "assets/vidsave-app-icon.png",
-      "sizes": "192x192 512x512",
+      "src": "assets/downplus-app-icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "assets/downplus-app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/downplus-app-icon.png",
+      "sizes": "960x960",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

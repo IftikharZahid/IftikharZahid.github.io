@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VidSave Modern Stylesheet
+   DownPlus Modern Stylesheet
    Author: Iftikhar Zahid (https://iftikharzahid.me)
    ========================================================================== */
 
@@ -129,12 +129,21 @@ button, input, select, textarea {
 .brand img {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(7, 60, 54, 0.15);
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(7, 60, 54, 0.22));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+}
+
+.brand:hover img {
+  transform: scale(1.06) rotate(-2deg);
+  filter: drop-shadow(0 6px 14px rgba(20, 184, 152, 0.35));
 }
 
 .brand span span {
-  color: var(--teal);
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
 }
 
 .navlinks {
@@ -407,24 +416,29 @@ button, input, select, textarea {
 .phone-mockup {
   position: relative;
   z-index: 2;
-  width: min(290px, 85%);
-  padding: 10px;
-  border-radius: 36px;
-  background: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 35px 80px -15px rgba(5, 59, 51, 0.28), 0 0 0 1px rgba(7, 60, 54, 0.05);
-  transform: rotate(2deg);
-  transition: transform 0.4s ease;
+  width: min(300px, 85%);
+  padding: 12px;
+  border-radius: 42px;
+  background: linear-gradient(145deg, #092622 0%, #031513 100%);
+  border: 3px solid #1a3d36;
+  box-shadow: 
+    0 30px 80px -15px rgba(5, 59, 51, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transform: rotate(1.5deg);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
 .phone-mockup:hover {
-  transform: rotate(0deg) scale(1.02);
+  transform: rotate(0deg) scale(1.025);
+  box-shadow: 0 40px 90px -12px rgba(5, 59, 51, 0.5);
 }
 
 .phone-mockup img {
   width: 100%;
-  border-radius: 28px;
+  border-radius: 30px;
   display: block;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 /* Floating Badges */
@@ -1330,6 +1344,20 @@ button, input, select, textarea {
   box-shadow: var(--shadow-sm);
 }
 
+.dev-avatar-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid var(--teal);
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(7, 60, 54, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.dev-avatar-img:hover {
+  transform: scale(1.08);
+}
+
 .dev-meta h3 {
   font-size: 24px;
   margin-bottom: 4px;
@@ -1521,7 +1549,10 @@ button, input, select, textarea {
 }
 
 .footer-brand img {
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
 }
 
 .footer-links {
@@ -1672,6 +1703,96 @@ button, input, select, textarea {
   color: var(--muted);
   font-style: italic;
   margin-top: 12px;
+}
+
+/* ==========================================================================
+   Official App Showcase Section
+   ========================================================================== */
+.app-showcase-section {
+  padding: 50px 0 75px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--mint2) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--line);
+  box-shadow: 0 20px 50px -15px rgba(7, 60, 54, 0.15);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px -15px rgba(7, 60, 54, 0.25);
+}
+
+.showcase-banner-wrapper {
+  position: relative;
+  background: #021c19;
+  overflow: hidden;
+}
+
+.showcase-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.showcase-card:hover .showcase-banner-img {
+  transform: scale(1.015);
+}
+
+.showcase-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 28px;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.showcase-badges-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.showcase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  background: var(--mint2);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--deep);
+  transition: all var(--transition);
+}
+
+.showcase-badge:hover {
+  border-color: var(--teal);
+  background: var(--white);
+  transform: translateY(-1px);
+}
+
+.showcase-badge i {
+  color: var(--teal);
+}
+
+.showcase-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 /* ==========================================================================

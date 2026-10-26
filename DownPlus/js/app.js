@@ -1,5 +1,5 @@
 /**
- * VidSave - Application Logic & Interactive Features
+ * DownPlus - Application Logic & Interactive Features
  * Author: Iftikhar Zahid (https://iftikharzahid.me)
  */
 
@@ -76,7 +76,7 @@ const mockData = {
     duration: '00:45',
     platform: 'TikTok',
     thumb: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=80',
-    filename: 'VidSave_TikTok_HD_Art.mp4'
+    filename: 'DownPlus_TikTok_HD_Art.mp4'
   },
   instagram: {
     title: 'Top 5 Mountain Biking Trails in the Alps',
@@ -84,7 +84,7 @@ const mockData = {
     duration: '01:12',
     platform: 'Instagram',
     thumb: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80',
-    filename: 'VidSave_Instagram_Reel_HD.mp4'
+    filename: 'DownPlus_Instagram_Reel_HD.mp4'
   },
   youtube: {
     title: 'Next-Gen Mobile App UI Design Tips (Shorts)',
@@ -92,7 +92,7 @@ const mockData = {
     duration: '00:58',
     platform: 'YouTube Shorts',
     thumb: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500&auto=format&fit=crop&q=80',
-    filename: 'VidSave_YouTube_Shorts_1080p.mp4'
+    filename: 'DownPlus_YouTube_Shorts_1080p.mp4'
   },
   facebook: {
     title: 'Community Wildlife Documentary Trailer',
@@ -100,7 +100,7 @@ const mockData = {
     duration: '02:30',
     platform: 'Facebook Video',
     thumb: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop&q=80',
-    filename: 'VidSave_Facebook_Video_HD.mp4'
+    filename: 'DownPlus_Facebook_Video_HD.mp4'
   },
   pinterest: {
     title: 'Minimalist Scandinavian Home Interior Inspiration',
@@ -108,7 +108,7 @@ const mockData = {
     duration: '00:32',
     platform: 'Pinterest',
     thumb: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500&auto=format&fit=crop&q=80',
-    filename: 'VidSave_Pinterest_IdeaPin.mp4'
+    filename: 'DownPlus_Pinterest_IdeaPin.mp4'
   },
   twitter: {
     title: 'AI Robotics Breakthrough Demonstration Clip',
@@ -116,7 +116,7 @@ const mockData = {
     duration: '01:05',
     platform: 'Twitter / X',
     thumb: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&auto=format&fit=crop&q=80',
-    filename: 'VidSave_Twitter_Clip.mp4'
+    filename: 'DownPlus_Twitter_Clip.mp4'
   },
   default: {
     title: 'Public Social Media Video Stream',
@@ -124,7 +124,7 @@ const mockData = {
     duration: '01:00',
     platform: 'Web Video',
     thumb: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=500&auto=format&fit=crop&q=80',
-    filename: 'VidSave_HighQuality_Video.mp4'
+    filename: 'DownPlus_HighQuality_Video.mp4'
   }
 };
 
@@ -345,9 +345,9 @@ function handleDownloadAction() {
 
 function triggerBrowserDownload(filename, mimeType) {
   // Create sample content payload for demonstration
-  const dummyContent = `VidSave Downloaded Media File
+  const dummyContent = `DownPlus Downloaded Media File
 File: ${filename}
-Processed via: VidSave Video Downloader by Iftikhar Zahid (https://iftikharzahid.me)
+Processed via: DownPlus Video Downloader by Iftikhar Zahid (https://iftikharzahid.me)
 Timestamp: ${new Date().toISOString()}
 License: Fair Use Personal Archival
 `;
@@ -365,7 +365,7 @@ License: Fair Use Personal Archival
 /* ==========================================================================
    Download History Management (localStorage)
    ========================================================================== */
-const STORAGE_KEY = 'vidsave_download_history';
+const STORAGE_KEY = 'downplus_download_history';
 
 function getHistory() {
   try {
@@ -429,7 +429,7 @@ function renderHistory() {
 window.redownloadHistoryItem = function(index) {
   const history = getHistory();
   if (history[index]) {
-    triggerBrowserDownload(`VidSave_${history[index].platform}_Replay.mp4`, 'video/mp4');
+    triggerBrowserDownload(`DownPlus_${history[index].platform}_Replay.mp4`, 'video/mp4');
     showToast(`Re-downloaded: ${history[index].title}`);
   }
 };
@@ -449,7 +449,7 @@ function initApkDownloadTrackers() {
   const apkButtons = document.querySelectorAll('a[download]');
   apkButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      showToast('Starting VidSave APK download (v1.2.4)... Check your notification bar!');
+      showToast('Starting DownPlus APK download (v1.2.4)... Check your notification bar!');
     });
   });
 }
@@ -473,8 +473,8 @@ function initContactForm() {
     }
 
     // Prepare direct mailto link
-    const subject = encodeURIComponent(`VidSave Inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\nSent via VidSave Portal`);
+    const subject = encodeURIComponent(`DownPlus Inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\nSent via DownPlus Portal`);
     
     // Open email client
     window.location.href = `mailto:XahidCodes@gmail.com?subject=${subject}&body=${body}`;
